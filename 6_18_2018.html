@@ -1,0 +1,75 @@
+<!-- 
+    HTML: Hypertext Markup Language (NOT A PROGRAMMING LANGUAGE)
+        - markup language used to tell browser how to structure a webpage
+    - Elements: opening/closing tags, content
+    - Attributes: name/value pairs,  provides some metadata
+         - gotta put the value in quotes
+    - Anatomy of a webpage:
+        - Document Type Declaration eg. !DOCTYPE html
+            - set of rules HTML document must follow in order for a browser to understand it correctly\
+        - <html> </html> 
+        - <head> tag: link stylesheets, provide metadata (data about data)
+        - <body> tag: we provide the tags which get rendered to the user
+    - Elements: Inline vs. Block
+        - Block Elements form visible block on page, appear a new line from whatever content went before it
+        - Inline Elements are contained within Block Elements
+    - Mozilla Developer Network (MDN)
+    - CRUD (Create, Read, Update, Destroy)
+    - What is the purpose of an HTML form?
+        - main point of interaction between user and application
+        - allows users to send data to the app
+        - Forms comprised of:
+            - input
+            - buttons (radio, checkbox, )
+            - V important attributes: method (HTTP method used to send data eg. GET/POST)
+                - action: URL where you send the data off to
+    - HTTP: HyperText Transfer Protocol
+        - GET: used to send data through the URL (idempotent)
+        - POST: used to send data through the request body (login, create resources) (non-idempotent operation)
+-->
+
+<!--
+    CSS: Cascading Style Sheets (Cascading b/c you can have multiple of these Bad Larries(tm))
+        - augments the aesthetic of HTML documents
+    - Why use CSS? 
+        - Allows for a seperation for concerns between the developer and the designer
+        - Allows for consistency in application, centralized location to change styles
+    - How can we use CSS? Order of Precedence for CSS Styles marked in []
+        - Inline - as an attribute in any HTML tag [1]
+        - Internal - inside style tag located in head, located in <head> [2]
+        - External - referenced by href, or <link> tag [3]
+        - Browser Default [4]
+    - 2 Main Building Blocks:
+        - Declaration: elements that you want to style
+            - tag name, class, id
+        - 
+    - WAIT, let's talk about Properties and Values
+            - properties define what style you want ot change
+            - value is how you change the style
+    -
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <styLe>
+        .red {
+            color: red;
+        }
+        #myDiv{
+            font-size: 20pt;
+        }
+    </styLe>
+</head>
+
+<body>
+    <div class = "red" id = "myDiv">
+        vangie
+    </div>
+    <div class = "red">
+        ...
+    </div>
+
+</body>
+
+</html>
