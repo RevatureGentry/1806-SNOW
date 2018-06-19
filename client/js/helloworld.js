@@ -1,0 +1,12 @@
+console.log('Hello World');
+console.log("1 == '1' =>", 1 == '1')
+console.log("1 === '1' =>", 1 === '1')
+console.log("3 == '3.0' =>", 3 == "3.0")
+console.log('0 == false =>', 0 == false)
+console.log('"" == false =>', "" == false)
+console.log('0 === false =>', 0 === false)
+console.log('"" === false =>', "" === false)
+console.log('null == null =>', null == null)
+console.log('undefined == undefined =>', undefined == undefined)
+console.log("typeof 'Cullen' =>", typeof "Cullen")
+console.log("typeof infinity =>", typeof Infinity)
