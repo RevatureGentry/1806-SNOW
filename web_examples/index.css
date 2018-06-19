@@ -1,0 +1,19 @@
+* {
+		font-family: cursive;
+		
+}
+li {
+	border: greenyellow 2px solid; 
+	width: 25%;
+}
+p	{
+	background-color:purple;
+	color: white;
+	width:75%;
+}
+#popTarts {
+	font-size:400%;
+}
+h2.red {
+	color:red;
+}
