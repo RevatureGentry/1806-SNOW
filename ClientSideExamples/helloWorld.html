@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello There, World!</title>
+</head>
+<body>
+    <h1>I am a Page About JavaScript Basics!</h1>
+    <h2 style="text-align: center">Check the console.</h2>
+    <h3>The primitive types in JavaScript are:</h3>
+    <ul>
+        <li>number - a 64 bit floating point</li>
+        <li>boolean</li>
+        <li>string</li>
+        <li>null</li>
+        <li>undefined</li>
+        <li>symbol</li>
+    </ul>
+    <h3>The other data types include, but are not limited to:</h3>
+    <ul>
+        <li>Object</li>
+        <li>Function</li>
+        <li>Array</li>
+        <li>Date</li>
+        <li>Error</li>
+    </ul>
+
+    <h3>There are two ways to check for equality in JavaScript:</h3>
+    <ol>
+        <li>Double Equals => a relational operator that returns true if and only if both operands have
+            the same value. Type coersion is performed with this operator. (!= will also type coerce)
+        </li>
+        <li>Triple Equals => a relational operator that returns true if and only if both operands are 
+            both of the same <em>type</em> and have the same <em>value</em>. Type equality is checked first. (!== will not type coerce.)
+        </li>
+    </ol>
+
+    <h3>Truthy and Falsy</h3>
+    <p>"Falsy" refers to any value that is not the boolean <em>false</em>, however, it evaluates to false.<br>
+    Values that are "falsy" include:</p>
+    <ul>
+        <li>The empty string ''</li>
+        <li>The number 0</li>
+        <li>null and undefined</li>
+        <li>NaN</li>
+    </ul>
+    <p>Null and undefined are not equal to anything but themselves. <br>
+    NaN is not equivalent to anything, including itself. </p>
+    <p>Every other value is truthy. If it's technically not true, false, or falsy, it's truthy.</p>
+
+    <h3>We can use the 'typeof' operator to determine what type a certain value is. The returned operand is a string of the type of data.</h3>
+    
+    <br><br><br><br><br><br>
+    <script src="./js/helloWorld.js"></script> 
+    <!--It's always best practice to put your script tags down at the very end of the body.-->
+</body>
+</html>
