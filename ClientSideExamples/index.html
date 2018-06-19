@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+	<title>My First HTML Page</title>
+	<link rel="stylesheet" href="index.css">
+	<style>
+		* {
+			font-family: Georgia, 'Times New Roman', Times, serif;
+		}
+
+		li {
+			border: 2px dotted aqua;
+		}
+
+		p {
+			background-color: darkseagreen;
+			color: fuchsia;
+		}
+	</style>
+  </head>
+  <body>
+
+	<a href="./bootstrap.html">Bootstrap Example</a>
+	<p>Hello, World!</p>
+	
+	<h1>Heading 1</h1>
+	<h2 class="red">Heading 2</h2>
+	<h3>Heading 3</h3>
+	<h4>Heading 4</h4>
+	<h5>Heading 5</h5>
+	<h6>Heading 6</h6>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="red">
+		<p>We use the ol tag to create an ordered list</p>
+		<ol>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+		</ol>
+		<p>We can provide </p>
+	</div>
+	
+	<br><br>
+	
+	<div>
+		<h2>Unordered lists are used to create bullet points, using the ul tag</h2>
+		<h4>Grocery List</h4>
+		<ul>
+			<li>Apples</li>
+			<li class="red">Broccoli</li>
+			<li class="red">Spinach</li>
+			<li>Pop <span id="popTarts">Tarts</span></li>
+		</ul>
+	</div>
+	
+	<div style="border: 2px solid red;">
+		<form action="">
+			<label for="firstname">First Name</label>
+			<input type="text" id='firstname' required><br>
+			
+			<label for="lastname">Last Name</label>
+			<input type="text" id='lastname' required>
+			
+			<p>How would you like your newsletter delivered?</p>
+			<input type="radio" value='email' id='email' name="deliveryPreference" required>
+			<label for="email">Email</label>
+			<input type="radio" value="mail" id="mail" name="deliveryPreference" required>
+			<label for="mail">Snail Mail</label>
+			<input type="radio" value="carrier pidgeon" id="pidgeon" name="deliveryPreference" required>
+			<label for="pidgeon">Carrier Pidgeon</label>
+			<br>
+			<!--Making buttons-->
+
+			<button type="button" class="red">Button type=button</button>
+			<input type="button" value="Input type=button">
+			<input type="submit" value="Input type=submit">
+
+			<!--Use buttons outside of forms, inputs within them-->
+			<!--Submit sends command to form action-->
+
+		</form>
+	</div>
+
+	<br><br>
+  </body>
+</html>
