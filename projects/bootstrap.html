@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap example</title>
+    <link      rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+               integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
+               crossorigin="anonymous">
+</head>
+<body>
+    <h1>Bootstrap Example</h1>
+    <!--Navbar example-->
+    <div class="container"></div>
+    <!--Every navbar starts with the nav element, you must also supplythe .navbar .navbar-expand classes
+        dark = back
+        primary = blue
+        success = green
+        danger = red
+        warning = yellow
+    -->
+    <nav class="navbar navbar-expand bg-dark" >
+        <a href="" class="navbar-brand text-light">Revature</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="./bootstrap.html" class="nav-link text-light">Bootstrap example</a></li>
+        </ul>
+    </nav>
+
+            <!--Jumbotrun-->
+            <div class="container">
+                    <div class="jumbotron mt-2">
+                        <h1 class="display-4">Welcome!</h1>
+                        <p class="lead">This is a jumbotron and it's purpose is to call the uers's attention</p>
+                        <hr class="my4">
+                        <p>We can put w/e we want in the jumbottron</p>
+                        <a  href="https://getbootstrap.com/docs/4.0/components/jumbotron/" 
+                            class="btn btn-primary"
+                            target="_blank">Not a button</a>
+                    </div>
+                </div>
+
+<!--GridSystem exaple-->
+<div class="contaier">
+    <h2>The Grid System in Bootstrap provudes a way of organizing the content withina a countainer</h2>
+    <h5>You can additionally create rows to further organize your conten</h5>
+    <div class="row">
+        <div class="col-md bg-primary">
+            Column 1
+        </div>
+        <div class="col-md bg-success">Column 2
+
+        </div>
+        <div class="col-md bg-warning">Column 3
+            
+            </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>This is a button</h2>
+    <h5>Button groups bla bla bla</h5>
+    <div class="btn-group">
+        <button class="btn btn-primary">primary</button>
+        <button class="btn btn-secondary">secondary</button>
+        <button class="btn btn-success">success</button>
+        <button class="btn btn-warning">warning</button>
+        <button class="btn btn-danger">danger</button>
+        <button class="btn btn-info">info</button>
+        <button class="btn btn-light">light</button>
+        <button class="btn btn-dark">dark</button>
+    </div>
+</div>
+
+<br><br>
+<h2>Bootstrap has additional styling for buttons</h2>
+
+<div class="container">
+        <h2>This is a button</h2>
+        <h5>Button groups bla bla bla</h5>
+        <div class="btn-group">
+            <button class="btn btn-outline-primary">primary</button>
+            <button class="btn btn-outline-secondary">secondary</button>
+            <button class="btn btn-outline-success">success</button>
+            <button class="btn btn-outline-warning">warning</button>
+            <button class="btn btn-outline-danger">danger</button>
+            <button class="btn btn-outline-info">info</button>
+            <button class="btn btn-outline-light">light</button>
+            <button class="btn btn-outline-dark">dark</button>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="container">
+        <h2>Styling a table</h2>
+        <table class="table table-borderless table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Language</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr class="bg-primary">
+                    <td>1</td>
+                    <td>Java</td>
+                    <td>Serverside Language serving multiple uses</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SQL</td>
+                    <td>Database query language used to manipulate rbdms</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Typescript</td>
+                    <td>Used to make angular apps</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="container">
+        <h2>Forms hoopla</h2>
+        <form action="" class="col-md-8 offset-md-2">
+            <div class="form-group form-row">
+                <div class="col-md-5">
+                        <label for="first">First Name</label>
+                        <input type="text" id="first" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <label for="middle">Middle Initial</label>
+                    <input type="text" id="middle" class="form-control">
+                </div>
+                <div class="col-md-5">
+                        <label for="last">Last Name</label>
+                        <input type="text" id="middle" class="form-control">
+                    </div>
+            </div>
+            <input type="submit" class="btn btn-success" value="submit">
+            <input type="reset" class="btn btn-danger" value="reset">
+        </form>
+    </div>
+</body>
+
+                
+</html>

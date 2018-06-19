@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My first html page</title>
+    <link rel="stylesheet" href="index.css"> 
+
+    <style>
+        * {
+            font-family: Georgia;
+        }
+        li {
+            border: 2px dotted aquamarine;
+        }
+        p{
+            color: fuchsia
+        }
+    </style>
+</head>
+<body>
+
+    <a href="./bootstrap.html">Bootstrap Example</a>
+
+    <p>Hello World</p>
+    <h1>Heading 1</h1>
+    <h2 class ="red">bored</h2>
+    <h3>aaaa </h3>
+    <h4>aaa</h4>
+    <h5>日本語</h5>   
+    <h6>お前の物は俺の物、俺の物は俺の物</h6>
+
+
+    <div>
+        <p>we use the ol tag to create an ordered list</p>
+        <ol>
+            <li>Is it cool that</li>
+            <li>I said all that</li>
+            <li>cuz you know that I'm <span id = "delicate">Delicate</span></li> 
+            <li>delicate</li>
+            <li>cuz i liiike you</li>
+        </ol>
+        <p>We can provide as many li elements as we need, html will auto increment them</p>
+    </div>
+    
+    <div align="center">
+        <p><h1>cats</h1></p>
+        <ul><img src="cuddlse.jpg" style="width:300px;height:300px;transform:rotate(180deg);"></ul>
+        <ul><img src="pippin.jpg" style="width:300px;height:300px;"></ul>
+
+    </div>
+
+    <br><br>
+
+    <div style="border: 2px solid red;" class ="red">
+        <form action="">
+            <label for="firstname">Firstname</label>
+            <input type="text" name="" id="firstname">
+            <br>
+            <label for="lastname">Lastname</label>
+            <input type="text" id ="lastname"> 
+            <br>
+            <p>How would you like your news letter delivered</p>
+            <input type="radio" value="email" id = "email" name="deliverypref">
+            <label for="email">Email</label>
+            <input type="radio" value="mail" id = "mail"  name="deliverypref">
+            <label for="mail">Snailmail</label>
+            <input type="radio" value="carrier pigeon" id = "pigeon"  name="deliverypref">
+            <label for="pigeon">Carrier pigeon</label>
+            <br>
+
+
+
+
+        </form>
+    </div>
+    <br>
+    <button type="button" class ="red">Press me</button>
+</body>
+</html>
