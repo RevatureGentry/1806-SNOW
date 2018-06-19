@@ -1,0 +1,21 @@
+*{
+    font-family: fantasy;
+}
+li{
+    /*border shortcut: first value = width(in px), second value is the style(solid,
+     dotted, etc), third value is color*/
+    border: 1px solid greenyellow;
+}
+p{
+    background-color: aqua;
+    color: purple;
+}
+#poptarts{
+    font-size: 400%;
+}
+li.red{
+    color: #B87272
+}
+.red{
+    color: red;
+}
