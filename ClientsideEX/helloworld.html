@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Javascript Basics</title>
+	</head>
+	
+	<body>
+		<h1>Check the Console</h1>
+		<br>
+		<h3>The primitive types in JavaScript are:</h3>
+		<ul>
+			<li>number - a 64 bit floating point</li>
+			<li>boolean</li>
+			<li>string</li>
+			<li>null</li>
+			<li>undefined</li>
+			<li>symbol</li>
+		</ul>
+		
+		<h3>The other data types include but are not limited to:</h3>
+		<ul>
+			<li>Object</li>
+			<li>Function</li>
+			<li>Array</li>
+			<li>Date</li>
+			<li>Error</li>
+		</ul>
+		
+		<h3>There are two ways to check for equality in JavaScript</h3>
+		<ol>
+			<li>Double Equals => Relational operator that returns true iff both operands have the same value. Type coercion is performed. (There also is !=)</li>
+			<li>Triple Equals => Relational operator that returns true iff both operands have the same type AND the same value. It checks for type equality first, so type coercion is not performed. (There also is !==)</li>
+		</ol>
+		
+		<h3>Truthy and Falsy</h3>
+		<p>"Falsy" refers to any value that is not the boolean <em>false</em>, however it evaluates to false.</p>
+		<p>Values that are falsy include:</p>
+		<ul>
+			<li>The empty string ""</li>
+			<li>The number zero</li>
+			<li>null and undefined</li>
+			<li>NaN</li>
+		</ul>
+		
+		<p>Nul and undefined are not equal to anything but themselves</p>
+		<p>NaN is not equivalent to anything, including itself</p>
+		<p>Every other value is truthy</p>
+		
+		<h3>We can use the 'typeof' operator to determine the type of its operand</h3>
+	
+		<!-- always put the scripts below everything else in the body -->
+		<script src="./js/helloworld.js"></script>
+	</body>
+</html>
