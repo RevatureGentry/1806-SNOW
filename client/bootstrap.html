@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <!--Every navbar starts with the nav element, you must also provide the .navbar .navbar-expand classes-->
+        <!--
+            dark = black
+            primary = blue
+            secondary = navy
+            success = green
+            danger = red
+            warning = yellow
+        -->
+        <nav class="navbar navbar-expand bg-dark">
+            <a href="" class="navbar-brand text-light">Revature</a>
+
+            <!--in order to make other buttons, we need an unordered list with the .navbar-nav-->
+            <ul class="navbar-nav">
+                <!--to create button we need a list item with the nav-class and a nested a.nav-link inside-->
+                <li class="nav-item"><a href="./bootstrap.html" class="navlink text-light">Bootstrap Example </a></li>
+                <li class="nav-item"><a href="" class="navlink text-light">Item 2 </a></li>
+                <li class="nav-item"><a href="" class="navlink text-light">Item 3 </a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--JumboTron-->
+    <div class="container">
+        <div class="jumbotron mt-2">
+            <h1 class="display-4 ">Welcome</h1>
+            <!-- p.lead is used to call extra attention-->
+            <p class="lead">This is a jumbotron, with the purpose to call the users attention</p>
+            <hr class="my-4">
+            <p>we can put anything we want here</p>
+            <a href="https://getbootstrap.com/docs/4.1/layout/overview/" 
+            target="_blank" class="btn btn-primary">Learn More</a>
+
+        </div>
+    </div>
+    <br><br><br>
+
+    <!--grid system example-->
+    <div class="container">
+        <h2>the grid system in bootstrap provides a way to organize content in a container, it is fully responsive</h2>
+        <h5>you can additionally create rows to further organize your content</h5>
+
+        <div class="row">
+            <div class="col-md col-sm-2 bg-primary">
+                column 1
+            </div>
+
+            <div class="col-md col-sm-8 bg-success">
+                column 2
+            </div>
+            <div class="col-md col-sm-2 bg-warning">
+                column 3
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md col-sm-2 offset-md-0 offset-sm-1 bg-primary">column 1</div>
+            <div class="col-md col-sm-2 offset-md-0 offset-sm-1 bg-success">column 2</div>
+            <div class="col-md col-sm-2 offset-md-0 offset-sm-1 bg-warning"> column 3 </div>
+            <div class="col-md col-sm-2 offset-md-0 offset-sm-1 bg-danger">column 4</div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <!--button group example-->
+    <div class="container">
+        <h2>this is a button group</h2>
+        <h5>button groups area a serise of buttons on a single line, can replace radio button</h5>
+        <!--button groups require to be placed inside a container with the .btn-group-->
+        <div class="btn-group">
+            <button class="btn btn-primary">primary</button>
+            <button class="btn btn-secondary">secondary</button>
+            <button class="btn btn-success">success</button>
+            <button class="btn btn-warning">warning</button>
+            <button class="btn btn-danger">danger</button>
+            <button class="btn btn-info">info</button>
+            <button class="btn btn-light">light</button>
+            <button class="btn btn-dark">dark</button>
+        </div>
+        <br><br>
+        <h2>additonally bootstrap has an additonal style for uttons</h2>
+        <div class="btn-group">
+                <button class="btn btn-outline-primary">primary</button>
+                <button class="btn btn-outline-secondary">secondary</button>
+                <button class="btn btn-outline-success">success</button>
+                <button class="btn btn-outline-warning">warning</button>
+                <button class="btn btn-outline-danger">danger</button>
+                <button class="btn btn-outline-info">info</button>
+                <button class="btn btn-outline-light">light</button>
+                <button class="btn btn-outline-dark">dark</button>
+        </div>
+    </div>
+    <br><br>
+
+    <!--table example-->
+    <div class="container">
+        <h2>without style, tables can be quite blnd</h2>
+        <!-- in order to bootstrap a table, you must add the .table class to an element-->
+        <table class="table table-borderless table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>language</th>
+                    <th>purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Java</td>
+                    <td>server side language</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>sql</td>
+                    <td>database query language</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>typescript</td>
+                    <td>used to make angular apps</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br><br>
+
+    <!--From example-->
+
+    <div class="container">
+        <h2>forms are ugly, but they are the main point of contact between the user and the app. We will make them pretty</h2>
+        <form action="" class="col-md-8 offset-md-2" method="GET">
+            <!-- we use the .form-group to style like elements together-->
+            <div class="form-group form-row" >
+                <div class="col-md-5">
+                        <label for="First">First Name</label>
+                        <input type="text" id="First" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <label for="middle">middle initial</label>
+                    <input type="text" id="middle" class="form-control">
+                </div>
+                <div class="col-md-5">
+                        <label for="last">last name</label>
+                        <input type="text" id="last" class="form-control">
+                </div>
+            </div>
+            <input type="submit" class="btn btn-success" value="Submit">
+            <input type="reset" class="btn btn-danger" value="reset">
+        </form>
+    </div>
+
+
+    <br><br><br><br><br>
+</body>
+</html>

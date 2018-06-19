@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <title>My First HTML Page</title>
+
+    <style>
+        *{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        li {
+            border: 2px dotted aqua;
+        }
+
+        p{
+            background-color: darkseagreen;
+            color: fuchsia;
+        }
+    </style>
+</head>
+<body>
+    <p> Hello World </p>
+
+    <a href="./bootstrap.html">CLick here for bootstrap</a>
+
+    <h1>heading 1</h1>
+    <h2 class="red">heading 2</h2>
+    <h3>header 3</h3>
+    <h4>header 4</h4>
+    <h5>header 5</h5>
+    <h6> header 6</h6>
+
+
+
+    <div class="red">
+        <p>use the ol tag to create an ordered list</p>
+
+        <ol>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ol>
+        <p>html auto orders the ol tag</p>
+
+    </div>
+    <br><br>
+
+    <div>
+        <h2>unordered list used bullet points</h2>
+
+        <ul>
+            <li class="red">apples</li>
+            <li>corn</li>
+            <li>pop <span id='poptarts'>Tarts</span></li>
+            <li>cheesse</li>
+        </ul>
+    </div>
+
+    <br><br>
+
+    <div style="border: 2px solid red;">
+
+        <form action="">
+            <label for="firstname">First Name</label>
+            <input type="text" id='firstname' required>
+            <br>
+            <label for="lastname">Last Name</label>
+            <input type="text" id='lastname' required>
+
+            <p>How would you like your newsletter delivered?</p>
+        
+            <input type="radio" name="deliverypref" value='email'id='email' required>
+            <label for="email">Email</label>
+            <br>
+            <input type="radio" value="mail" name="deliverypref" id="mail" required>
+            <label for="mail">Snail Mail</label>
+            <br>
+            <input type="radio" value="carrierP" id="pigeon" name="deliverypref" required>
+            <label for="pigeon">Carrier Pigeon</label>
+            <br>
+            <!-- comment you cannot see me webpage-->
+            <!-- Many ways to make buttons-->
+
+            <button type="button" class="red">Button type=button</button>
+            <input type="button" value="input type = button">
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+    <br><br>
+
+    <div></div>
+
+</body>
+</html>

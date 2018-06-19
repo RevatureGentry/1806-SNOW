@@ -1,0 +1,25 @@
+* {
+    font-family: cursive;
+}
+
+li {
+    /* for border   border: width in pix, style, color */
+    border: 1px solid greenyellow;
+}
+
+p {
+    background-color: purple;
+    color: white;
+}
+
+#poptarts {
+    font-size: 400%;
+}
+
+.red {
+    color: red;
+}
+
+li.red {
+    color: darkred;
+}
