@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BOOTSTRAP I</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> 
+    <script src="main.js"></script> -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+
+    <style>
+        #h1-lol{
+            font-size: 48pt;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    <h1> Bootstrap Example </h1>
+    -->
+    <!-- Navbar Example, we start with the nav element, along with .navbar and .navbar-expand classes -->
+    
+    <div class="container">
+    <!-- 
+        dark = black
+        primary = blue
+        success = green
+        danger = red
+        warning = yellow
+        secondary = navy blue
+    -->
+        <nav class="navbar navbar-expand bg-secondary">
+            <a href="" class="navbar-brand text-light"> Revature </a>
+            <!-- In order to make more buttons on navbar, we need an ul tag with .navbar-nav class -->
+            <ul class = "navbar-nav">
+                <!-- To actually create the button, we need li.nav-item and an a-tag nested a.nav-link inside -->
+                <li class="nav-item"> 
+                    <a href="./bootstrap.html" class="nav-link text-light"> Current Page </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./helloworld.html" class="nav-link text-light"> JavaScript Basics </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link text-light"> GO BACK IN TIME</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class = "container">
+        <!-- Jumbotron Example-->
+        <div class="jumbotron mt-2"> <!-- mt stands for margin-top -->
+        <!-- for more reference, visit  https://getbootstrap.com/docs/4.0/utilities/spacing/   -->
+            <h1 class="display-4"> Welcome </h1> 
+            <!-- The following p.lad is used to call extra attention to jumbotron-->
+            <p class="lead"> This is a jumbotron, used to call user's attention. :) </p>
+            <hr class="my-4">
+
+            <p> We can put absolutely anything inside this Jumbotron </p>
+
+            <a href="https://getbootstrap.com/docs/4.0/components/jumbotron/" class="btn btn-primary"
+            target = "_blank"> Leeeearn more 
+            </a> <!-- target blank opens a new tab -->
+
+        </div>
+
+    </div>
+
+    <br> <br> <br>
+    <div class="container">
+        <h2>
+            The Grid System in Bootstrap provides a way of organzing content within a cntainer. It 
+            is fully responsive.
+        </h2>
+        <h5>
+            You can additionally create rows to further organize your content.
+        </h5>
+        <!-- 12 is max number of units inside a row, so any more than 12 would overflow onto the next column -->
+        <div class="row">
+            <div class="col-md col-sm-2 bg-primary">
+                Column 1
+            </div>
+            <div class="col-md  col-sm-8 bg-success">
+                Column 2
+            </div>
+            <div class="col-md col-sm-2 bg-warning">
+                Column 3
+            </div>
+        </div>
+
+        <br> 
+
+        <div class="row">
+            <!-- offset will create blank space to the left of it -->
+            <div class="col-md col-sm-2 offset-sm-1 bg-primary">
+                Column 1
+            </div>
+            <div class="col-md col-sm-2 offset-sm-1 bg-success">
+                Column 2
+            </div>
+            <div class="col-md col-sm2 offset-sm-1 bg-warning">
+                Column 3
+            </div>
+            <div class="col-md col-sm2 offset-sm-1 bg-danger">
+                Column 4
+            </div>
+        </div>
+    </div>
+
+    <br> <br> 
+    <!-- Button Group Example -->
+    <div class="container">
+        <h2> This is a Button Group </h2>
+        <h5> Button groups are a series of buttons placed together in a single line, 
+            could be used in place a radio button.</h5>
+            <!-- Button Groups require to be place inside a container with the .bth-group class -->
+           <!-- (button.btn.btn-) * 8 TO CREATE 8 BUTTONS WOWOW -->
+           <div class="btn-group">
+                <button class="btn btn-primary">Primary</button>
+                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-success">Success</button>
+                <button class="btn btn-warning">Warning</button>
+                <button class="btn btn-danger">Danger</button>
+                <button class="btn btn-info">Info</button>
+                <button class="btn btn-light">Light</button>
+                <button class="btn btn-dark">Dark</button>
+           </div>
+
+           <br> <br> <br> <br>
+
+           <h2> Alternatively, BootStrap has an Outline Thingy </h2>
+            <div class="btn-group">
+                <button class="btn btn-outline-primary">Primary</button>
+                <button class="btn btn-outline-secondary">Secondary</button>
+                <button class="btn btn-outline-success">Success</button>
+                <button class="btn btn-sm btn-outline-warning">Warning</button>
+                <button class="btn btn-lg btn-outline-danger">Danger</button>
+                <button class="btn btn-outline-info">Info</button>
+                <button class="btn btn-outline-light">Light</button>
+                <button class="btn btn-outline-dark">Dark</button>
+            </div>
+
+            <br> <br>
+
+            <div class="container">
+                <h2> Without styling, tables are a nightmare to read, my guy</h2>
+                <h5> Enter Bootstrap </h5>
+                <!-- In order to Bootstrapify a table, add ,table cass to table element-->
+                <!-- you can use table.table-bordered for the bordered stuff -->
+                <table class="table table-borderless table-hover">
+                    <thead class = "thead-dark"> 
+                        <tr>
+                            <th> # </th>
+                            <th> Language </th>
+                            <th> Purpose </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class = "bg-primary">
+                            <td> 1 </td>
+                            <td> Java </td>
+                            <td> Server side language serving uses </td>
+                        </tr>
+                        <tr>
+                            <td> 2 </td>
+                            <td> SQL </td>
+                            <td class = "bg-success"> Database Querying Languaged used to manipulate RDBMS </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td> TypeScript</td>
+                            <td>Used to make Angular Applications</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+    <!-- LET'S DO SUM FORMS -->
+    <div class="container">
+        <h2>
+            Forms are ALL VALID but since users like 'em pretty, make it pretty <h1 id = "h1-lol"> I guess </h1>
+        </h2>
+        <form action = "" method = "GET" class = "col-md-8 offset-md-2">
+            <!-- use the .form-group class to style like form elements together -->
+            <div class="form-group form-row">
+                <div class="col-md-5"> <!-- jes to shorten dat form -->
+                    <label for="first"> First Name</label>
+                    <input type="text" id = "first" class = "form-control" required>
+                </div>
+                <div class="col-md-2"> 
+                    <label for="middle"> Middle Name</label>
+                    <input type="text" id = "middle" class = "form-control">
+                </div>
+                <div class="col-md-5"> 
+                    <label for="last"> Last Name</label>
+                    <input type="text" id = "last" class = "form-control" required>
+                </div>
+            </div>
+            <input type="submit" class = "btn btn-success" value = "sUbMiT">
+            <input type="reset" class = "btn btn-danger" value = "ReSeT">
+        </form>
+    </div>
+
+    <br> <br> <br> <br>
+</body>
+</html>

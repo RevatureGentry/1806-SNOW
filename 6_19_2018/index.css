@@ -1,0 +1,31 @@
+/*
+ OH HI I'M A CSS FILE I'm currently being used with index.html
+*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#firstdiv{
+    font-family: Comic Sans MS;
+    background-color: purple;
+    color: white;
+    font-size: 96pt;
+}
+
+#formdiv {
+    border: 20px solid red;
+}
+
+li{
+    /*  border shortcut: width, style, color */
+    border: 2px dotted salmon;
+}
+
+#poptarts{
+    font-size: 400%;
+}
+
+li.red{
+    color: red;
+}

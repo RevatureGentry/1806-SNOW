@@ -1,0 +1,61 @@
+<!--
+    - CSS 
+        - Selectors: .class_name, #id_name, tag_name, tag_name[attribute], tag_name[attribute = value]
+        - CSS colors: CSS3, hexadecimal, rgb(255, 255, 255), rgba(255, 255, 255, 0 <= transparency <= 1,
+        HSL (hue saturation lightness), )
+    - DOM (Document Object Model)
+        - represents the document as nodes and objects so that programs can manipulate the structure, style,
+            and content
+    - Bootstrap
+        - Front end component library
+        - CSS/Javascript library
+        - Jquery: popper.js and Bootstrap's own JS library
+        - Container and Container-fluid
+            - Fixed-width (container) vs. full-width (container-fluid)
+        - Built to be responsive-ready
+            class       |       viewport
+    _______________________________________________
+            xs          |       < 768 px
+            sm          |       >= 768 px
+            md          |       >= 992 px
+            lg          |       >= 1200 px
+    - Grid System
+        - each container is comprised of 12 units
+            - .col-x-y where x is the viewport size, y is number of grids to occupy
+    - CSS Box Model
+        - Content : Padding : Border : Margin
+-->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title> Vixenbot as Miss Congeniality </title>
+    <styLe>
+        .test-div-test {
+            /* HELLO I'M A CLASS */
+            color: red;
+        }
+        #myDiv {
+            /* HELLO I'M AN ID */
+            font-size: 14pt;
+        }
+        #rainbowbut {
+            font-size: 96pt;
+        }
+    </styLe>
+
+    <script src = "6_19_2018_JAVASCRIPT.js" > </script>
+</head>
+
+<body id = "body">
+    <div class="text-div-test" id="myDiv">
+        
+    </div>
+    <div class="red">
+        <button id = "rainbowbut" onclick="changeDatColor()"> I'm a cool button </button>
+    </div>
+
+</body>
+
+</html>
