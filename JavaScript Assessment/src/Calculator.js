@@ -25,6 +25,7 @@ let Calculator = function() {
     this.isOdd = function(value) {
         var v = value/2;
 		var x = value/v;
+		x = x-2;
 		if(x){
 			return false;
 		}
