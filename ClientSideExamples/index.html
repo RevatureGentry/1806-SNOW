@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <script src="main.js"></script>
+    <title>The First Foray into Web Pages</title>
+
+    <style>
+        * {
+            font-family: Georgia;
+        }
+
+        li {
+            border: 1.5px dotted aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>I am the Heading 1. Obey Me. </h1>
+    <p>Hello, World! I am index. Please don't delete me. 
+        To go to bootstrap.html, <a href="./bootstrap.html" target="_blank">click here.</a></p>
+    <h2 class="red">I am the Heading 2. Obey Me. </h2>
+    <h3>I am the Heading 3. Obey ME.</h3>
+    <H4>I am the HEADING 4. Obey ME.</H4>
+    <h5>I am THE HEADING 5. Obey ME.</h5>
+    <h6>I AM THE HEADING 6. OBEY ME!</h6>
+
+
+
+    <div class="red">
+        <p>The ol tag provides an ordered list.</p>
+        <ol>
+            <li>Number 1</li>
+            <li>Number 2</li>
+            <li>Number 3</li>
+            <li>Number 4</li>
+            <li>Number 5</li>
+            <li>Etc.</li>
+        </ol>
+        <p>We can provide as many li elements as needed, and html will auto-increment them for us.</p>
+    </div>
+
+    <div class="red">
+        <h2>Unordered Lists are used to create bullet points.</h2>
+        <h4>Sheogorath's Grocery List</h4>
+        <ul>
+            <li>Cheese</li>
+            <li>More <span id='moreCheese'>Cheese.</span></li>
+            <li>Gouda.</li>
+            <li>Havarti!</li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <h3>First Form</h3>
+    <form action="">
+        <div>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" required>
+
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" required><br>
+        <p>You can include labels for any input. for='id_name'. <br>
+        This allows you to click on the actual label to select the input box.</p><br>
+        </div>
+
+        <div id="formRadio" style="border: 2px solid rebeccapurple">
+            <p>How would you like your pizza delivered?</p>
+            <label for="teleporter">Teleporter</label>
+            <input type="radio" value="teleporter" id="teleporter" name="pizzadelivery" required>
+            <br>
+            <label for="snailmail">Snail Mail</label>
+            <input type="radio" value="snailmail" id="snailmail" name="pizzadelivery" required>
+            <br>
+            <label for="pidgeon">Pidgeon</label>
+            <input type="radio" value="pidegon" id="pidgeon" name="pizzadelivery" required>
+            <p>To link these radio buttons together, they need to all have the same value for the 'name' attribute.
+                <br>You link together a label, such as 'Teleporter', and an input, the radio button, by matching up the 
+                'for=' attribute in label with the ''id=' attribute in input. <br>The 'value=' attribute is what is returned/sent. 
+            </p>
+        </div>
+
+        <button type="button">Button type=button</button>
+        <input type="button" name="inputbutton" id="inputbutton" value="Input type=button">
+        <input type="submit" name="submitbutton" id="submitbutton" value="Input type=submit">
+        <p>To make sure certain elements of the form <em>must</em> be filled with values before submitting, add the 'required' attribute to any necessary inputs.</p>
+    </form>
+
+    <br><br><br><br><br><br>
+</body>
+</html>
