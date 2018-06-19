@@ -1,0 +1,31 @@
+* {
+	font-family: cursive;
+	
+}
+
+li {
+	/*
+		border shortcut: width (in pixels) style color
+	*/
+	border: 1px solid greenyellow;
+}
+
+p {
+	background-color: purple;
+	color: white;
+}
+
+#popTarts {
+	font-size: 400%;
+}
+
+/* only list items with red class */
+li.red{
+	color: red;
+}
+
+
+/*all items with red class */
+.red{
+	color: blue;
+}
