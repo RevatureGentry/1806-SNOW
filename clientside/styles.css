@@ -1,0 +1,22 @@
+* {
+    font-family: cursive;
+}
+li {
+    border: solid 2px #39ff14;
+    width: 30%;
+}
+p {
+    background-color: purple;
+    color: aqua;
+}
+#tomato {
+    color: red;
+    font-size: 400%;
+}
+.special {
+    color: fuchsia;
+    font-weight: bold;
+}
+li.special {
+    color: green;
+}

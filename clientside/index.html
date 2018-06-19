@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>First page</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        * {
+            font-family: Georgia, 'Times New Roman', Times, serif
+        }
+        li {
+            border: solid 2px yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="./bootstrap.html">Bootstrap Page</a>
+
+    <p>Hello World</p>
+
+    <h1>Heading 1</h1>
+    <h2 class="special">Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+
+
+
+    <br><br>
+
+
+
+
+    <div class="special">
+        <p>We use the ol tag to create an ordered list.</p>
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+        </ol>
+        <p>This works for any li element inside of an ol</p>
+    </div>
+
+    <br><br>
+
+    <div>
+        <h2>Unordered lists are used to create bullet points. This is a very long line here that I am testing
+            This is because HTML doesn't care about whitespace. Neat, amirite?
+        </h2>
+        <h4>Like grocery lists!</h4>
+        <ul>
+            <li>Apples</li>
+            <li class="special">Oranges</li>
+            <li>Pears</li>
+            <li><span id="tomato">Tomato</span></li>
+            <li>Thiiiiings</li>
+
+        </ul>
+    </div>
+    <br><br>
+
+    <div style='border: solid 2px red;'>
+        <form action="GET">
+            <!-- Wrap the input in the label to auto click into the text box -->
+            <label>First Name:<input type="text", id="firstName" required></label><br>
+            <label>Last Name:<input type="text", id="lastName" required></label>
+
+            <p>How would you like your newsletter delivered?</p>
+
+            <!-- Or you may use the 'for' attribute to link the input to the label -->
+            <input type="radio", value="email", id="email", name="deliverypreference" required>
+            <label for="email">Email</label>
+
+            <input type="radio", value="text", id="text", name="deliverypreference" required>
+            <label for="text">Text</label>
+
+            <input type="radio", value="newspapper", id="newspaper", name="deliverypreference" required>
+            <label for="newspaper">News Paper</label>
+            <br><br>
+
+
+            <button type="button">Button type=button</button>
+            <input type="button", value="Input type=button">
+            <input type="submit", value="Submit">
+
+        </form>
+    </div>
+
+</body>
+</html>

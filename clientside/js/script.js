@@ -1,0 +1,14 @@
+console.log("Hello World");
+console.log("'1' == 1 --> ", '1' == 1);
+console.log("'1' === 1 --> ", '1' === 1);
+console.log("3 == '3.0' -->", 3 == 3.0);
+console.log("3 === '3.0' -->", 3 === '3.0');
+console.log('0 == false -->', 0 == false);
+console.log("'' == false --> ", '' == false);
+console.log('null == null --> ', null == null);
+console.log('null == undefined --> ', null == undefined);
+console.log('undefined == undefined -->', undefined == undefined);
+console.log('NaN == NaN -->', NaN == NaN);
+console.log('typeof("Zach") --> ', typeof("Zach"));
+console.log('typeof(Infinity) --> ', typeof(Infinity));
+console.log('typeof(NaN) -->', typeof(NaN));
