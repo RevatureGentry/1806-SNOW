@@ -15,13 +15,14 @@ arise();
 
 function sum(array){
 	var answer = 0;
-
-	for(var i=0; i<array.length;i++){
-		answer+=array[i];
-	}
-	return answer;
-}
-var a = [1,2,4,5,6];
+		for(var i=0; i<array.length;i++){
+			if(typeof array[i] != 'number')
+				throw new Error("invalid array");
+			answer+=array[i];
+		}
+		return answer;
+};
+var a = [1,2,'b',5,6];
 console.log(sum(a));
 
 function factorial(value){

@@ -5,7 +5,7 @@ describe("Calculators should perform mathematic operations correctly", () => {
         calc = new Calculator();
     });
 
-    xdescribe("When summing multiple values", () => {
+    describe("When summing multiple values", () => {
         it("should provide the proper value", () => {
             expect(calc.sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toBe(55);
         });
