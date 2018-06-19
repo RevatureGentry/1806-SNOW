@@ -1,0 +1,28 @@
+body {
+    width: 75%;
+    text-overflow: clip;
+    font-family: cursive;
+    margin: 5%;
+}
+li {
+    /* Border Shortcut: width (in px), style (solid, dotted, etc.), color (hexcode, rgb, etc.)*/
+    border: 1px solid greenyellow;
+    background-color: aquamarine;
+}
+
+p {
+    background-color: rgba(68, 2, 68, 0.801);
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+#moreCheese {
+    font-size: 500%;
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.555);
+}

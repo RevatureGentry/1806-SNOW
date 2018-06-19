@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bootstrap Buckaroo, Baby</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Little Shortcuts
+                tag_name.class_name.class_name = create a new tag with the given class names attached.
+                parent_tag>child_tag*number of children = create a new tag with a given number of children of the child_tag. 
+            -->
+        <!-- Nav Bar - Every Nav Bar Starts with the 'nav' element.
+            - You must also supply the .navbar and .navbar-expand classes. -->
+        <!-- Class Colors (bg-____)
+            dark = black
+            primary = blue
+            secondary = navy blue, a darker blue.
+            success = green
+            danger = red
+            warning = yellow
+        -->
+        <nav class="navbar navbar-expand bg-dark">
+            <a href="" class="navbar-brand text-light">Revature</a>
+
+            <!-- In order to actually make other buttons on the nav bar, we need an ul tag with .navbar-nav as a class. -->
+            <ul class="navbar-nav">
+                <!-- To actually create the button, we need a li with .nav-item, and a nested a.nav-link inside of it. -->
+                <li class="nav-item"><a href="./bootstrap.html" class="nav-link text-light">Bootstrap Example</a></li>
+                <li class="nav-item"><a href="" class="nav-link text-light">Other Thing</a></li>
+                <li class="nav-item"><a href="" class="nav-link text-light">Another Thing</a></li>
+                <li class="nav-item"><a href="" class="nav-link text-light">Another One</a></li>
+                <li>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <div class="jumbotron mt-2 mx-1">
+                <h1 class="display-4">WELCOME BOOTSTRAP BUCKAROOS</h1>
+                <p class="lead ">Look at this jumbotron with class=display-4! <br>
+                A jumbotron's purpose is to call the user's attention. Isn't it nice and shiny and cool? </p>
+                <hr class="my-4">
+                <p>Anything at all can be put in the jumbotron, including:</p>
+                <a  href="https://getbootstrap.com/docs/4.1/components/jumbotron/" 
+                    class="btn btn-primary"
+                    target="_blank">Buttons! <br>(Learn More Jumbo)</a>
+            </div>
+        </div>
+        <br><br><br>
+
+        <!-- Grid System Example-->
+        <div class="container">
+            <h2 style="text-align: center">The Grid System in Bootstrap provides a way of organizing content within a container. <br>
+            It is fully responsive. </h2>
+            <h5 style="text-align: center">You can additionally create rows to further organize your content.</h5>
+            <div class="row">
+                <div class="col-lg-5 col-md-2 col" style="background: burlywood;">
+                    Column 1! (Five Units)
+                </div>
+                <div class="col-lg-4 col-md-8 col bg-success">
+                    Column 2! (Four Units)
+                </div>
+                <div class="col-lg-3 col-md-2 col bg-warning">
+                    Column 3! (Three Units)
+                </div>
+            </div>
+            <br><br><br>
+            <h5 style="text-align: center">Columns With Offsets</h5>
+            <div class="row">
+                <!-- Offset Example-->
+                <div class="col-md col-sm-2 offset-lg-1" style="background:burlywood;">
+                    Col1
+                </div>
+                <div class="col-md col-sm-2 offset-lg-1 bg-success">
+                    Col2
+                </div>
+                <div class="col-md col-sm-2 offset-lg-1 bg-warning">
+                    Col3
+                </div>
+            </div>
+        </div>
+<br><br><br>
+        <!-- Button Groups Example-->
+        <div class="container">
+            <h2 style="text-align: center">This is a Button Group.</h2>
+            <h5 style="text-align: center">Button groups are a series of buttons placed together in a single line.<br>
+                These could be used in place of a radio button.</h5>
+            <!-- Button groups require being placed inside of a container with the .btn-group.-->
+        <div class="btn-group">
+            <div class="btn btn-primary">Primary</div>
+            <div class="btn btn-secondary">Secondary</div>
+            <div class="btn btn-success">Success</div>
+            <div class="btn btn-warning">Warning</div>
+            <div class="btn btn-danger">Danger</div>
+            <div class="btn btn-info">Info</div>
+            <div class="btn btn-light">Light</div>
+            <div class="btn btn-dark">Dark</div>
+        </div>
+        <br><br>
+        <h2 style="text-align: center;">Alternatively, Bootstrap has an alternative styling for buttons. </h2>
+        <div class="btn-group" style="background: rgb(255, 235, 205); padding: 1px">
+                <div class="btn btn-outline-primary">Primary</div>
+                <div class="btn btn-outline-secondary">Secondary</div>
+                <div class="btn btn-outline-success">Success</div>
+                <div class="btn btn-outline-warning">Warning</div>
+                <div class="btn btn-outline-danger">Danger</div>
+                <div class="btn btn-outline-info">Info</div>
+                <div class="btn btn-outline-light">Light</div>
+                <div class="btn btn-outline-dark">Dark</div>
+            </div>
+        </div>
+        <br><br>
+        <!--Table Example-->
+        <div class="container" style="text-align: center">
+            <h2>Without any styling, tables can be quite bland and hard to read. </h2>
+            <h5>Let's spice it up with Bootstrap.</h5>
+            <!-- In order to Strap a table's Boots, you must add the .table class to a table element.-->
+            <table class="table table-borderless table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Bootstrap Table!</th>
+                        <th>#!</th>
+                        <th>Language!</th>
+                        <th>Purpose!</th>
+                        <th>Cheese!</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Boop!</td>
+                        <td>1!</td>
+                        <td>C#!</td>
+                        <td>To Go Where No Code Has Gone Before!</td>
+                        <td>Gouda!</td>
+                    </tr>
+                    <tr>
+                        <td>Floop!</td>
+                        <td>2!</td>
+                        <td>Java!</td>
+                        <td>Daedric Prince of Madness, at your service.</td>
+                        <td>CHEESE!</td>
+                    </tr>
+                    <tr>
+                        <td>Groop!</td>
+                        <td>3!</td>
+                        <td>Binary!</td>
+                        <td>To destroy all humans.</td>
+                        <td>Anything with holes.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Form Example-->
+        <div class="container">
+            <h4 style="text-align: center">Forms can be ugly. <br>
+                Since they're the main point of contact between the user and the application...<br>
+                <i>Why wouldn't you spend time making it pretty?</i></h2>
+            <form action="" method="GET" class="col-md-8 offset-md-2">
+                <div class="form-group form-row">
+                    <div class="col-md-5">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" class="form-control">        
+                    </div>
+                    <div class="col-md-2">
+                        <label for="middleInitial">Middle Initial</label>
+                        <input type="text" id="middleInitial" class="form-control">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="lastName">Last Name</label>
+                        <input type="name" id="lastName" class="form-control">
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-outline-success" value="Submit">
+                <input type="reset" class="btn btn-outline-danger">
+            </form>
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br>
+</body>
+</html>
