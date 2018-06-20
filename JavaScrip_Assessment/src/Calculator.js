@@ -30,7 +30,7 @@ let Calculator = function() {
             throw new Error("negative value");
         }
 
-        if(value === 1) {
+        if(value === 0) {
             return 1;
         }
 

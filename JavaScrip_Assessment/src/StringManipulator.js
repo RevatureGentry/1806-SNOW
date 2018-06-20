@@ -7,12 +7,11 @@ function StringManipulator() {
             throw new Error("input is not a string");
         }
 
-        //Use array as stack to see if string is palindrome. Other option is 
-        // to iterate from both ends.
         if(value.length === 0) {
             return true;
         }
 
+        //Iterate from both ends. O(N)?.
         let str = value.replace(/\s/g, "");
         for(let i = 0; i < Math.floor(str.length / 2); i++) {
             if(str.charAt(i) !== str.charAt(str.length - 1 - i)) {
