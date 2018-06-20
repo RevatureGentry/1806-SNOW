@@ -2,7 +2,6 @@ let Calculator = function() {
 
     /* Provide an implementation that sums the elements in an array */
     this.sum = function(array) { 
-            
         var sum = array.reduce(function(a, b) {return a+b; }, 0);
         console.log(sum);         
         }
