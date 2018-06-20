@@ -1,0 +1,19 @@
+{
+  "name": "project0",
+  "version": "1.0.0",
+  "description": "A music game in the fashion of DDR using programatically-generated \"music\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "music",
+    "ddr",
+    "game"
+  ],
+  "author": "Howard Chen",
+  "license": "MIT",
+  "dependencies": {
+    "tone": "^0.12.80"
+  }
+}
