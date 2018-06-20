@@ -1,4 +1,4 @@
-# Jared's Javascript Assessment submition  
+# Jared's Javascript Assessment submission
 
 ### Enjoy
 
