@@ -56,3 +56,19 @@ if(typeof "marsha brady" != Number){
     console.log("marsha marsha marsha");
     //throw new Error();
 }
+
+var array = [1,2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+var sum = function(array){
+    var res = 0;
+
+    for(var i = 0; i < array.length; i++){
+        if(typeof array[i] != "number"){
+            throw new Error("ARRAY CONTAINS A NON-NUMBER!");
+        }
+        res += array[i];
+    }
+    return res;
+}
+
+console.log(sum(array));
