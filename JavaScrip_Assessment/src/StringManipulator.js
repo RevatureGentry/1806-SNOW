@@ -30,16 +30,27 @@ function StringManipulator() {
             throw new Error("input is not a string");
         }
 
-        if(value.length === 0) {
-            return "";
-        }
-
+        let i = 0;
         let result = "";
-        for(let i = value.length - 1; i >= 0; i--) {
-            result += value.charAt(i);
+
+        while(value.charAt(i) !== "") {
+            result = value.charAt(i) + result;
+            i++;
         }
 
         return result;
+        /*
+            if(value.length === 0) {
+                return "";
+            }
+
+            let result = "";
+            for(let i = value.length - 1; i >= 0; i--) {
+                result += value.charAt(i);
+            }
+
+            return result;
+        */
     }
 
     /* Provide an implementation that counts and returns the occurence of the letter "B" in a string */
