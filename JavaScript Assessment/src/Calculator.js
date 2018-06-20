@@ -55,27 +55,23 @@ let Calculator = function() {
             }
             else return true;
         }
+
+        //Alternate method: calculate -1^value. if -1, the number is odd. if 1, it's even. 
     }
 
     /* Provide an implementation that finds the nth term in the Fibonacci Sequence */
     /* HINT: The first two terms are 1 */
     this.termInFibonacciSequence =  function(n) { //TODO: Change to regular for loop. W/ - checking, recursion won't work.
-        console.log(`Entered Fibonacci. n=${n}.`);
-        if (typeof(n) !== 'number' || n < 0) {
-            console.log("Exiting Fibonacci. n isn't a positive number.");
+        if (typeof(n) !== 'number' || n < 1) {
+            console.log("ERROR in Fibonacci. n isn't a positive number.");
             throw new Error();
         }
-        if (n === 0)  {
-            console.log("Reached start of Fibonacci sequence.");
-            return 0;
-        }
-        if (n === 1 || n === 2) {
+        if (n == 1 || n == 2) {
             console.log("Reached first two terms of Fibonacci sequence.");
             return 1;
         }
         else {
-            if (n-2 < 0) return this.termInFibonacciSequence(n-1);
-            else return (this.termInFibonacciSequence(n-1)+this.termInFibonacciSequence(n-2));
+            return (this.termInFibonacciSequence(n-1) + this.termInFibonacciSequence(n-2));
         }
     };
 };

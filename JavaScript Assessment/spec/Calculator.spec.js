@@ -5,7 +5,7 @@ describe("Calculators should perform mathematic operations correctly", () => {
         calc = new Calculator();
     });
 
-    describe("When summing multiple values", () => {
+    xdescribe("When summing multiple values", () => {
         it("should provide the proper value", () => {
             expect(calc.sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toBe(55);
         });
@@ -23,7 +23,7 @@ describe("Calculators should perform mathematic operations correctly", () => {
         });
     });
 
-    describe("When performing factorials", () => {
+    xdescribe("When performing factorials", () => {
         it('should provide the proper value', () => {
             expect(calc.factorial(6)).toBe(720);
         });
@@ -50,7 +50,7 @@ describe("Calculators should perform mathematic operations correctly", () => {
         });
     });
 
-    describe('When determining if a number is even or odd', () => {
+    xdescribe('When determining if a number is even or odd', () => {
         it('should find 13 to be odd', () => {
             expect(calc.isOdd(13)).toBe(true);
         });
@@ -72,7 +72,7 @@ describe("Calculators should perform mathematic operations correctly", () => {
         });
     })
 
-    describe('When finding a term in the Fibonacci sequence', () => {
+    xdescribe('When finding a term in the Fibonacci sequence', () => {
         it('should find the first term correctly', () => {
             expect(calc.termInFibonacciSequence(1)).toBe(1);
         });
