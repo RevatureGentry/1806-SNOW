@@ -18,7 +18,7 @@ let Calculator = function() {
         // take the input to the power of (-1), if it returns -1 it is odd
         let num = Math.pow((-1), value);
         if (typeof value !== 'number') {
-            throw 'error';
+            throw TypeError('Error: Not a Number');
         }else if (typeof value === 'number') {
             if (num === -1) {
                 console.log(`${value} is an odd number`);

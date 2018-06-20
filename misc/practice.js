@@ -15,7 +15,7 @@ function help(array) {
 
 help(array1);
 
-let value = true;
+let value = Symbol();
 
 let num = Math.pow((-1), value);
 
