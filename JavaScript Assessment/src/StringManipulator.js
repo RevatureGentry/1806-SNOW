@@ -24,9 +24,10 @@ function StringManipulator() {
         if(isNaN(value) === false || typeof(value) === "boolean" || typeof(value) === 'object')
             throw new Error("invalid inputs");
         var reversedString = '';
-        var i;
-        for(i = value.length-1; i>=0; i--){
-            reversedString += value.charAt(i);
+        var i=0;
+        while(value.charAt(i) !== ''){
+            reversedString = value.charAt(i) + reversedString;
+            i++;
         }
         return reversedString;
     }
