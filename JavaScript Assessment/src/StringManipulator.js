@@ -26,10 +26,10 @@ function StringManipulator() {
         if(value.length <= 1) return value;
         var res = "";
         var len = value.length - 1;
-        while(value.length > 1){
-            res += value.prototype.charAt(len);
+        while(len > -1){
+            res = res + value.charAt(len);
             len -= 1;
-            value = value.substring(1, len);
+            //value = value.substring(1, len);
         }
         return res;
         
@@ -37,12 +37,36 @@ function StringManipulator() {
 
     /* Provide an implementation that counts and returns the occurence of the letter "B" in a string */
     this.countBs = function(value) {
-
+        var res = 0;
+        var curr_idx = 0;
+        if (typeof value == 'number' || typeof value == 'boolean' ||
+            value instanceof Object) {
+            throw new Error("INVALID INPUT FOR VALUE!");
+        }
+        while(curr_idx != value.length){
+            if(value.charAt(curr_idx) === 'B')
+                res += 1;
+            curr_idx += 1;
+        }
+        return res;
     }
 
     /* An abstraction of the previous function, provide an implementation that counts and returns the  */
     /* Occurence of the letter 'char' in the String 'value' */
     this.countCharInString = function(value, char) {
+        if (typeof value == 'number' || typeof char == 'number' || typeof value == 'boolean'
+        || typeof char == 'boolean' || value instanceof Object || char instanceof Object) {
+            throw new Error("INVALID INPUT FOR VALUE!");
+        }
+        let res = 0;
+        let curr_idx = 0;
+        let char_size = char.length;
+        while (curr_idx + char_size != value.length) {
+            if (value.substring(curr_idx, curr_idx + char_size) === char)
+                res += 1;
+            curr_idx += 1;
+        }
+        return res;
 
     }
 }

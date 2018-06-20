@@ -49,7 +49,7 @@ describe('String algorithmic problems include a vast majority of common intervie
         });
     });
 
-    xdescribe('When counting the number of "B"\'s in a string', () => {
+    describe('When counting the number of "B"\'s in a string', () => {
         it('should find 3', () => {
             expect(manipulator.countBs("Better Baking Brothers")).toBe(3);
         });
@@ -71,7 +71,7 @@ describe('String algorithmic problems include a vast majority of common intervie
         });
     });
 
-    xdescribe("When counting the number of any given character in a string", () => {
+    describe("When counting the number of any given character in a string", () => {
         it('should find 2 "J"\'s', () => {
             expect(manipulator.countCharInString("JavaScript is for the browser, Java is for the server", "J")).toBe(2);
         });

@@ -1,0 +1,61 @@
+<!--
+Notes from AFTER lunch
+    - DOM (Document Object Model)
+    - What ways can we programmatically get references to HTML elements?
+        - document.getElementById()
+        - document.getElementsByTagName(string) returns array
+        - document.getElementsByClassName()
+        - document.querySelector() returns first tag matching the CSS selector
+        - document.querySelectorAll() returns array of tags matching the CSS selector
+    - What's an event in JS?
+        - a reaction to some user input
+        - onclick, onmouseover, onmouseout, onsubmit, onload
+    - What is an event listener/handler?
+        - will listen for an event to occus on a specified tag, and incoke the provided callback function
+        - someElement.addEventListener(type, callback, useCapture);
+            - default of useCapture is false (so, use bubbling)
+    - What is Bubbling/Capturing? BUBBLING IS THE STANDARD
+        - bubbling: execution of events from the innermost tags to the outermost
+        - capturing: execution of events from the outmost tags to the innermost
+    -
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3> Let's do some scope stuff</h3>
+
+    <h3> Functions in JavaScript are special </h3>
+    <p> Can be called in 3 ways: </p>
+    <ul>
+        <li>ARE OBJECTS</li>
+        <li>SELF INVOKING</li>
+        <li>CALLBACK FUNCTIONS</li>
+        <li>HOISTED</li>
+        <li>ANONYMOUS</li>
+    </ul>
+
+    <h3> New in ECMAScript 6 (ES6)</h3>
+    <ul>
+        <li>Template literals: strings created using ES6 backticks, ``, which allow for interpolation
+            of JavaScript expression inside strings
+        </li>
+        <li>Arrow Functions: provide a shorter syntax than the declaration of a function. Arrows Functions, however,
+            are necessary because they inherit the 'this' value of its enclosing context
+        </li>
+        <li></li>
+    </ul>
+
+    <h3> </h3>
+
+    
+    <!--<script src = "./js/helloWorld.js"> </script>-->
+    <script src = "./js/events.js"> </script>
+</body>
+</html>
