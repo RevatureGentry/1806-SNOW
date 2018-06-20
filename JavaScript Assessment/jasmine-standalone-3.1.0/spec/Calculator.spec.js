@@ -7,7 +7,6 @@ describe("Calculators should perform mathematic operations correctly", () => {
 
     describe("When summing multiple values", () => {
         it("should provide the proper value", () => {
-			console.log(calc.sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
             expect(calc.sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toBe(55);
         });
 

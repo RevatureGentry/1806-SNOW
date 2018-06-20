@@ -31,7 +31,17 @@ function StringManipulator() {
     this.reverseString = function(value) {
 		if(typeof value !== "string")
 			throw new Error("must be a string");
-        var j = value.length-1;
+		var k=0;
+		var count = 0;
+		var temp = [];
+		while(value.charAt(k) != ""){
+			temp[k] = value.charAt(k);
+			count++;
+			k++;
+		}
+		var j = count;
+		console.log(k);
+		console.log(count);
 		var i = 0;
 		var pop=[];
 		for(;j>=0;j--){
@@ -66,8 +76,6 @@ function StringManipulator() {
 	var count = 0;
 	for(var i = 0; i<value.length;i++){
 		for(var j = 0; j< bee.length;j++){
-			console.log(value[i]);
-			console.log(bee[j]);
 			if(value[i] === bee[j]){
 				if(j == bee.length-1)
 				{
