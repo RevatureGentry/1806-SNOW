@@ -15,5 +15,8 @@
   "license": "MIT",
   "dependencies": {
     "tone": "^0.12.80"
+  },
+  "devDependencies": {
+    "jest": "^23.1.0"
   }
 }
