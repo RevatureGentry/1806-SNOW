@@ -1,8 +1,15 @@
 let Calculator = function() {
 
     /* Provide an implementation that sums the elements in an array */
-    this.sum = function(array) {
-        
+    this.sum = function(array) { 
+        /*if (array.includes("") === true)
+        return console.log("false")
+        else{ */
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            console.log(array.reduce(reducer));
+
+            
+        }
     };
 
     /* Provide an implementation that finds the factorial of value (value!) */
