@@ -2,15 +2,10 @@ let Calculator = function() {
 
     /* Provide an implementation that sums the elements in an array */
     this.sum = function(array) { 
-        if (array.includes("") === true)
-        throw "Error, String present in array"
-        else{
-            const reducer = (accumulator, currentValue) => accumulator + currentValue;
-            console.log(array.reduce(reducer));
-
             
+        var sum = array.reduce(function(a, b) {return a+b; }, 0);
+        console.log(sum);         
         }
-    };
 
     /* Provide an implementation that finds the factorial of value (value!) */
     this.factorial = function(value) {

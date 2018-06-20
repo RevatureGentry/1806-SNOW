@@ -35,14 +35,4 @@ function pitfallsofvar() {
     console.log(myvar);
 }
 
-pitfallsofvar();
 
-function howletisbetter() {
-    let mylet = 'instanciated on line 31';
-    console.log(myvar);
-
-    let mylet = 'instanciated on line 34';
-    console.log(myvar);
-}
-
-howletisbetter();
