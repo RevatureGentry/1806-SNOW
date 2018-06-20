@@ -10,3 +10,39 @@ console.log('null == null =>', null == null)
 console.log('undefined == undefined =>', undefined == undefined)
 console.log("typeof 'Cullen' =>", typeof "Cullen")
 console.log("typeof infinity =>", typeof Infinity)
+
+/* this variable can be accessed anywhere in the program */
+var globalscope = "Hey i'm a globaly scoped variable";
+
+function createlocalScope() {
+    console.log('inside the createlocalScope function...');
+    var localscope = "hey, i am a locally scoped variable";
+    console.log(localscope);
+    console.log(globalscope);
+}
+
+createlocalScope();
+
+console.log(globalscope);
+//commente out because the rest of the program will not run otherwise
+//console.log(localscope);
+
+function pitfallsofvar() {
+    var myvar = 'instanciated on line 31';
+    console.log(myvar);
+
+    var myvar = 'instanciated on line 34';
+    console.log(myvar);
+}
+
+pitfallsofvar();
+
+function howletisbetter() {
+    let mylet = 'instanciated on line 31';
+    console.log(myvar);
+
+    let mylet = 'instanciated on line 34';
+    console.log(myvar);
+}
+
+howletisbetter();
