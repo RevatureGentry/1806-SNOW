@@ -1,6 +1,7 @@
 /*Hello world*/
 console.log('Hello world');
 console.log("1 == '1' => ", 1 == '1');
+myHoistedFunction(4);
 console.log("1 === '1' => ", 1 === '1');
 console.log("3 == '3.0' => ", 3 == '3.0');
 console.log("3.0 == '3' => ", 3.0 == '3');
@@ -63,3 +64,91 @@ function howLetSolvesVarPitfalls(){
 }
 
 howLetSolvesVarPitfalls();
+
+//const PI = 3.14;
+//console.log(PI++); breaks the code because you can't just change a constant
+
+//function as Value
+let anonHello = function(name){
+	console.log(`Hello, ${name}! (Annonymous function)`);
+}
+
+anonHello('Myranda');
+console.log(anonHello);
+
+//Declared function
+function declaredHello(name){
+	console.log(`Hello, ${name}! (Declared function)`);
+}
+
+declaredHello("Myranda");
+console.log(declaredHello);
+
+//Arrow function
+let square = x => x * x;
+let multiply = (a,b) => a*b;
+console.log(`The square of 9 is ${square(9)}`);
+console.log(`multiply(3, 5) = ${multiply(3,5)}`);
+
+//Arrow functions inherit the 'this' from their closing context
+function declaredFunctionTest(){
+	this.counter = 0;
+	
+	function incrementCounter(){
+		console.log("Inside the declared function");
+		for(let i=0; i<10; i++){
+			console.log(`declaredFunctionTest: Iteration ${i}: ${this.counter++}`);
+		}
+	}
+	incrementCounter();
+}
+
+let decTest = new declaredFunctionTest();
+
+function arrowFunctionTest(){
+	this.counter = 0;
+	
+	let incrementCounter = () => {
+		console.log("Inside the arrow function");
+		for(let i=0; i<10; i++){
+			console.log(`arrowFunctionTest: Iteration ${i}: ${this.counter++}`);
+		}
+	}
+	incrementCounter();
+}
+
+let arrTest = new arrowFunctionTest();
+
+console.log("Self invoking function syntax is to wrap a function in a set of parentheses and have a trailing set of parentheses for any parameter");
+
+(function(){
+	console.log("I never explicitly invoked this function");
+})();
+
+(function(a,b){
+	console.log(`${a} + ${b} = ${a+b}`);
+})(3, 5);
+
+console.log("See line 4");
+function myHoistedFunction(line){
+	console.log(`This function was implemented on lines 132-134 but invoked on line ${line}`);
+}
+
+function getName(callback){
+	let name = prompt("What is your name?");
+	callback(name);
+}
+
+function sayHello(name){
+	alert('Hello, ' + name);
+}
+
+//getName(sayHello);
+
+function multiplier(factor){
+	return (number) => number * factor;
+}
+
+let triple = multiplier(3);
+
+console.log(`triple(9) = ${triple(9)}`);

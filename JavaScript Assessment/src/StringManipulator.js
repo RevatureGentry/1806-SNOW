@@ -31,11 +31,14 @@ function StringManipulator() {
 			throw new Error();
 		}
 		let rev = "";
-		let a = value.length - 1;
-		for(i=0; i < value.length; i++){
-			rev = rev + value[a];
-			a -= 1;
+		let i = 0;
+		let check = value.charAt();
+		while(check != ""){
+			rev = value.charAt(i) + rev;
+			i += 1;
+			check = value.charAt(i);
 		}
+		console.log(rev);
 		return rev;
     }
 

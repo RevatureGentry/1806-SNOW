@@ -36,8 +36,8 @@ let Calculator = function() {
 		if(typeof value !== 'number'){
 			throw new Error();
 		}
-        let div = value / 2;
-		if(div !== Math.floor(div)){
+        let a = Math.pow(-1, value);
+		if(a === -1){
 			return true;
 		}
 		return false;
