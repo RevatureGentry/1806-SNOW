@@ -23,9 +23,18 @@ function StringManipulator() {
             value instanceof Object) {
             throw new Error("INVALID INPUT FOR VALUE!");
         }
-        if(value.length <= 1) return value;
+        // let's find the length of the string, since length is a no-no
+        value += "0";
+        let curr_idx = 1;
+        len = 0;
+        while(value.charAt(curr_idx) != "0"){
+            len += 1;
+            curr_idx += 1;
+        }
+
+        if(len <= 1) return value;
         var res = "";
-        var len = value.length - 1;
+        //var len = value.length - 1;
         while(len > -1){
             res = res + value.charAt(len);
             len -= 1;

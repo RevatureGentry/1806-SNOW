@@ -17,6 +17,29 @@ Notes from AFTER lunch
     - What is Bubbling/Capturing? BUBBLING IS THE STANDARD
         - bubbling: execution of events from the innermost tags to the outermost
         - capturing: execution of events from the outmost tags to the innermost
+    - What is an Object in JS?
+        - simply a collection of key-value pairs
+        - Objects can be created in 3 ways:
+            - Object Literal Notation: 
+                let obj = { a: 10, name: "Aquafina"}
+                obj.a
+                obj['a']
+            - Using the 'new' keyword:
+                let obj = new Object();
+                obj.foo = 'bar';
+                obj.id = 1000; // can add data members anytime u want, ew gross
+            - Use a constructor (sadly, considered a function in JS)
+                function Hero(name, level){
+                    this.name = name;
+                    this.level = level;
+                }
+                let starlord = new Hero('name', 100);
+    - How do we achieve Encapsulation in JS?
+                - closures, the combo of a function and the lexical environment within which
+                that function was declared
+                - closures allow for encapsulation because the scopes in JS are global, local, and
+                block, and inner function have access to variable in outer functions
+                -
     -
 -->
 
@@ -27,6 +50,13 @@ Notes from AFTER lunch
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <style>
+        .myCanvas{
+            width:100px;
+            
+        }
+    </style>
 </head>
 <body>
     <h3> Let's do some scope stuff</h3>
@@ -53,7 +83,21 @@ Notes from AFTER lunch
     </ul>
 
     <h3> </h3>
+    <table>
+        <tr>
+            <td>
+                <canvas class="myCanvas" />
+               
+            </td>
+            <td>
+                <canvas class="myCanvas" />
 
+               <!-- </canvas> -->
+            </td>
+        </tr>
+
+    </table>
+    
     
     <!--<script src = "./js/helloWorld.js"> </script>-->
     <script src = "./js/events.js"> </script>

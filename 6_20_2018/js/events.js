@@ -30,3 +30,12 @@ window.onload = function(){
     }
 
 }
+
+var c_list = document.getElementsByClassName("myCanvas");
+var counter = 1;
+for(let c of c_list){
+    var ctx = c.getContext("2d");
+    ctx.rotate(Math.PI / 180);
+    ctx.fillRect(50, 20, 100, 50);
+    
+}
