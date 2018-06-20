@@ -40,8 +40,6 @@ function StringManipulator() {
 			k++;
 		}
 		var j = count;
-		console.log(k);
-		console.log(count);
 		var i = 0;
 		var pop=[];
 		for(;j>=0;j--){
