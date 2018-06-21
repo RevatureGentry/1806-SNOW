@@ -2,7 +2,6 @@ function StringManipulator() {
     /* Provide an implementation that returns true if a string is a palindrome, and false if the string is not */
     /* CONDITION: you may not use String.prototype.reverse() */
     this.isPalindrome = function(value) {
-        console.log(`value =${value}`);
         if (typeof(value) !== "string" || value === '') {
             console.log(`${value} is not a string, or is empty/null. \nExiting isPalindrome.`);
             throw new Error();
@@ -15,14 +14,12 @@ function StringManipulator() {
                 myValue = myValue + value.charAt(i);
             }
         }
-        console.log(`myValue=${myValue}\tvalue=${value}`);
 
         //Reverse the 'Palindrome'. 
         let myReverseValue = '';
         for (let i = myValue.length; i >= 0; i--) {
             myReverseValue = myReverseValue + myValue.charAt(i);
         }
-        console.log(`myValue = ${myValue} | reValue = ${myReverseValue}`);
         return (myValue === myReverseValue);
     }
 
@@ -36,7 +33,6 @@ function StringManipulator() {
         let vReverse = '';
         let count = 0;
         while (value.charAt(count) !== '') {
-            console.log(`value.charAt(${count}) = ${value.charAt(count)}`);
             count++;
         }
         for (i = count; i >= 0; i--) {
@@ -66,7 +62,7 @@ function StringManipulator() {
     /* Occurence of the letter 'char' in the String 'value' */
     this.countCharInString = function(value, char) {
         if (typeof(value) !== 'string' || value === '' || typeof(char) !== 'string' || char === '') {
-            console.log(`Value passed into countB: ${value} is not a proper string. \nExiting countBs.`);
+            console.log(`Value passed into countB: '${value}' is not a proper string. \nExiting countBs.`);
             throw new Error();
         }
 
@@ -79,19 +75,21 @@ function StringManipulator() {
             }
         }
         else { //Else, if it is longer, then use this:
-            //For each additional character in char, increase the increment of the search zone...
-            //Would that mean another for loop inside of a for loop?
+            //For each additional character in char, increase the increment of the search zone.
             for (let i = 0; i < value.length; i++) {
-                for (let j = 0; j < char.length;) {
-                    if (value.charAt(i+j) == char.charAt(j)) {
-                        j++;
-                    } //Gradually check each character against each character in char.
-                    else {
-                        break; 
-                    } //If any single char is not equivalent, exit this loop.
-                    charCount++; //Theoretically, you can only get here when the if statement completes all three times. 
+                for (let j = 0; j < char.length; j++) {
+                    //Gradually check each character in value against each character in char.
+                    if (value.charCodeAt(i+j) !== char.charCodeAt(j)) {
+                        break; //If any single char is not equivalent, break this loop.
+                    }
+                    if (j === char.length-1) {
+                        charCount++; //You can only get here when the if statement completes all three times. 
+                        i += char.length; 
+                    }
                 } 
             }
+
+            //Alternative method: Naive string matching algorithm
             
         }
         return charCount;

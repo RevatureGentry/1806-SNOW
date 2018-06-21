@@ -61,17 +61,30 @@ let Calculator = function() {
 
     /* Provide an implementation that finds the nth term in the Fibonacci Sequence */
     /* HINT: The first two terms are 1 */
-    this.termInFibonacciSequence =  function(n) { //TODO: Change to regular for loop. W/ - checking, recursion won't work.
-        if (typeof(n) !== 'number' || n < 1) {
+    this.termInFibonacciSequence =  function(n) {
+        if (typeof(n) !== 'number' || n < 0) {
             console.log("ERROR in Fibonacci. n isn't a positive number.");
             throw new Error();
         }
-        if (n == 1 || n == 2) {
+        if (n <= 2) {
             console.log("Reached first two terms of Fibonacci sequence.");
             return 1;
         }
-        else {
+        //Recursion Method
+        /* else {
             return (this.termInFibonacciSequence(n-1) + this.termInFibonacciSequence(n-2));
+        } */
+
+        //For loop method
+        let nVal = 0;
+        let firstVal = 1;
+        let secondVal = 1;
+        for (let i = 0; i < n-2; i++) {
+            nVal = firstVal + secondVal;
+            firstVal = secondVal;
+            secondVal = nVal;
         }
+        console.log(`${n}th term of Fibonacci: ${nVal}`);
+        return nVal;
     };
 };
