@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Old School Inheritance</title>
+</head>
+<body>
+    <h1>Check the Console</h1>
+
+    <h2>As we know, Inheritance is achieved in JavaScript through Prototypal Inheritance.</h2>
+    <ul>
+        <li>Every object has a prototype. And every prototype has a prototype. So on, and so forth, until it reaches Object.prototype</li>
+        <li>The very top of the Prototypal Inheritance chain? Believe it or not, null</li>
+        <li>When a property gets accessed on an object in JavaScript (either state or behavior), JS looks on the object for that property first.</li>
+        <li>If the property is not found on the object, JS checks the object's prototype.</li>
+        <li>If the property is not on the object's prototype, JS checks the prototype of the prototype, and so on</li>
+        <li>If we want to add state or behavior to an object, we have to add it to the object's prototype</li>
+    </ul>
+    <script src="oldSchoolInheritance.js"></script>
+</body>
+</html>
