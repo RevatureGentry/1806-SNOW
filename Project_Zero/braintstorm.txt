@@ -1,0 +1,23 @@
+whack a mole
+-different targets, point system, various point worths
+-combos
+
+- rewards
+	- double points
+	- random auto clicks
+	- remove negative targets/ double points for them
+	- powerplay pinata
+
+
+- penalties
+	- reverse targets
+	- hide cursor - cursor:none;
+	- randomize cursor - cursor:zoom-in
+	- cover bar, sliding
+	- chaos pinata
+	
+	
+	progression(WIP)
+	- level based
+		- 
+	- time based

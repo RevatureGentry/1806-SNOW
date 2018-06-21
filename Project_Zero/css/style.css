@@ -1,0 +1,82 @@
+#banner {
+    margin-left: -8px;
+    margin-right: auto;
+    width: 50%;
+
+}
+#homepage_header {
+    text-align: center;
+    color: black;
+}
+#HBOX {
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 500px;
+    display: block;
+    background-color:#ff4d01;
+    height:400px;
+    width:90%;
+}
+.autumn {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: orange;
+
+}
+.normalize {
+    margin: 15px;
+    font-size: 30px;
+}
+.left {
+    border-right: solid black 2px;
+    align:center;
+    left:15px;
+    height: 80%;
+    padding-left:30px;
+    margin-top:35px;
+    float:left;
+    width:40%;
+}
+.right {
+    border-left: solid black 2px;
+    align:center;
+    padding-right:30px;
+    margin-top:35px;
+    height: 80%;
+    float: right;
+    width:40%;
+}
+.button {
+    font:20px strong;
+    align:center;
+    margin-top:80px;
+    margin-left:90px;
+    width: 50%;
+    height: 50%;
+}
+.nopad {
+    padding:0px;
+}
+.up {
+    width:140px;
+    height:140px;
+    margin-top:5px;
+    margin-left: 5px;
+    user-drag:none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    background-image: url("../assets/popup.png");
+    z-index:1;
+}
+.down {
+    width:140px;
+    height:70px;
+    margin-top:75px;
+    margin-left:5px;
+    user-drag:none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    background-image: url("../assets/popin.png");
+}
