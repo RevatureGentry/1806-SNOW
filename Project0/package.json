@@ -4,7 +4,7 @@
   "description": "A music game in the fashion of DDR using programatically-generated \"music\"",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "keywords": [
     "music",
