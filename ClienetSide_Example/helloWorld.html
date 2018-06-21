@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScripts Basics</title>
+</head>
+<body>
+    <h1>Check the console</h1>
+    <br>
+
+    <h3>The primiative types in JavaScripts</h3>
+    <ul>
+        <li>number - a 64 bit floating point</li>
+        <li>boolean</li>
+        <li>String</li>
+        <li>null</li>
+        <li>undefined</li>
+        <li>symbol</li>
+    </ul>
+    <h3>The other data types include, but are not limited to</h3>
+    <ul>
+        <li>Object</li>
+        <li>Function</li>
+        <li>Arrays</li>
+        <li>Date</li>
+        <li>Error</li>
+    </ul>
+
+    <h3>There are 2 ways to check for equality in JavaScripts</h3>
+    <ol>
+        <li>Double Equals => Relational operators that returns true if and 
+            only if both operands have the same value. Type coersion is performed. (There also !=)</li>
+        <li>Triple Equals => Relational operators that returns true if and only
+            if both operands are of the same type and same value. It checks equality first. (There also !==)</li>
+    </ol>
+
+    <h3>Truthy and Falsy</h3>
+    <p>"Falsy" refers to any value that is not the boolean <em>flase</em>, however it evalulates to false</p>
+    <p>Values that are "Falsy" includes</p>
+    <ul>
+        <li>The empty string</li>
+        <li>the number 0</li>
+        <li>null and undefined</li>
+        <li>NaN (Not a Number)</li>
+    </ul>
+
+    <p>Null and undefined are not equal to anything but themselves</p>
+    <p>NaN is not equivalent to anything, including itself</p>
+    <p>Every other value is truthy</p>
+
+    <h3>We can use the 'typeof' operator to determine the type of its operand</h3>
+
+    <br><br>
+
+    <h3>The different variable scopes in JavaScripts are</h3>
+    <ul>
+        <li>Global</li>
+        <li>Local</li>
+        <li>Block</li>
+    </ul>
+    <br>
+    <h3>Function in JavaScripts are specials</h3>
+    <ul>
+        <li>They can be assigned in one of three ways: decleared function, function as a value, arrow function</li>
+        <li>They are Objects</li>
+        <li>They can be anonymous</li>
+        <li>They can be hoisted</li>
+        <li>They can be self invoking</li>
+        <li>They can be used as callback function</li>
+    </ul>
+
+    <br>
+
+    <h3>New in EcmaScript 6 (ES6)</h3>
+    <ul>
+        <li>Template Literals: strings created using ES6 backticks, ``,
+             which allow for the interpilation of JavaScript expressions inside strings</li>
+        <li>Arrow Functions: provides shorter syntax than the Declaration of a Function. Arrow functions are necessary
+            because they inherit the 'this' value of its enclosing content.
+        </li>
+    </ul>
+
+    <script src="./js/helloWorld.js"></script>
+    <script src="./js/events.js"></script>
+    <script src="./js/symbols.js"></script>
+
+</body>
+</html>

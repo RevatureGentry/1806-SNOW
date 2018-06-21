@@ -1400,15 +1400,15 @@ getJasmineRequireObj().Env = function(j$) {
       return spec;
     };
 
-    this.it = function(description, fn, timeout) {
-      ensureIsNotNested('it');
-      // it(), like it(), doesn't always have a fn argument, so only check the
+    this.xit = function(description, fn, timeout) {
+      ensureIsNotNested('xit');
+      // xit(), like it(), doesn't always have a fn argument, so only check the
       // type when needed.
       if (arguments.length > 1 && typeof fn !== 'undefined') {
-        ensureIsFunctionOrAsync(fn, 'it');
+        ensureIsFunctionOrAsync(fn, 'xit');
       }
       var spec = this.it.apply(this, arguments);
-      spec.pend('Temporarily disabled with it');
+      spec.pend('Temporarily disabled with xit');
       return spec;
     };
 
@@ -5026,14 +5026,14 @@ getJasmineRequireObj().interface = function(jasmine, env) {
      * A temporarily disabled [`it`]{@link it}
      *
      * The spec will report as `pending` and will not be executed.
-     * @name it
+     * @name xit
      * @function
      * @global
      * @param {String} description Textual description of what this spec is checking.
      * @param {implementationCallback} [testFunction] Function that contains the code of your test. Will not be executed.
      */
-    it: function() {
-      return env.it.apply(env, arguments);
+    xit: function() {
+      return env.xit.apply(env, arguments);
     },
 
     /**
