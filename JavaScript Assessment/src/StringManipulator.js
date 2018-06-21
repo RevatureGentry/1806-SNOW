@@ -20,19 +20,17 @@ function StringManipulator() {
             throw new Error;
         }
 
-        var reverseString = value;
-        var array_holder = [];
-        let i = 0;
-        while (reverseString[i]) {
-            try {
-                array_holder.unshift(reverseString[i]);
-            i++;
+        let reverseString = '';
+        while (true) {
+            if (String.prototype.charAt(i) != ' ') {
+                reverseString += String.prototype.charAt(i) + reverseString;
+                console.log(reverseString);
             }
-            catch (ex) {
-              break;
+            else {
+                break;
             }
         }
-        return array_holder.join('');
+        return reverseString;
     }
 
     /* Provide an implementation that counts and returns the occurence of the letter "B" in a string */
