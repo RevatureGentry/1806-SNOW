@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+    crossorigin="anonymous">
+</head>
+<body>
+    <!--
+    <h1>Bootstrap example</h1>
+    -->
+    <div class = "container">
+        <!-- Every NavBar Starts with  the nav element. You must also supply the .navbar .navbar-expand class-->
+        <!-- color meaning....-->
+
+        <nav class="navbar navbar-expand bg-dark">
+            <a href = "" class="navbar-brand text-white">Revature</a>
+
+            <ul class="navbar-nav">
+                <li class="nav-item"> <a href = "./helloWorld.html" class="nav-link text-light">Hello World</a></li>
+                <li class="nav-item"><a href="./ajax.html" class="nav-link text-light">AJAX Example</a></li>
+            </ul>
+            
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="disply-4">Welcome</h1>
+            <!--the fololwing p.lead is used to call extra attention to the jumbotron-->
+            <p class="lead">This is a jumbotron</p>
+            <hr class="my-4">
+            <p>We can put absolutely anything we want inside this jumbotron</p>
+            <a href = "https://getbootstrap.com/docs/4.0/getting-started/introduction/"
+                target = "blank"
+                class="btn.btnPrirmary">Learn More</a>
+        </div>
+    </div>
+    <br><br><br>
+
+    <!-- Grid system example -->
+    <div class="container">
+        <h2>THe grid system in bootstrap provides a way of organizing content within a container.
+            It is fully responsive
+        </h2>
+        <h5>You can additionally create rows to futher organize your content</h5>
+        <div class="row">
+            <div class="col-md col-sm-2 bg-primary" >
+                Piramry
+            </div>
+            <div class="col-md col-sm-8 bg-warning">
+                Warning
+            </div>
+            <div class="col-md col-sm-2 bg-success">
+                Success
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md bg-primary">Column 1</div>
+            <div class="col-md bg-success">Column 2</div>
+            <div class="col-md bg-warning">Column 3</div>
+            <div class="col-md bg-danger">Column 4</div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container">
+        <h2>THis is a button group</h2>
+        <h5>Button groups ae a series of butons placed together ina single line, could be used in place of radio buttons</h5>
+        <div class="btn_group">
+            <button class="btn btn-Primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-success">Success</button>
+            <button class="btn btn-warning">Warning</button>
+            <button class="btn btn-danger">Danger</button>
+            <button class="btn btn-info">Info</button>
+            <button class="btn btn-light">Light</button>
+            <button class="btn btn-dark">Dark</button>
+        </div>
+    </div>
+    
+    <br>
+    <div class="container">
+        <h2>Additionally, boot strap has outline buttons</h2>
+        <div class="btn_group">
+            <button class="btn btn-outline-Primary">Primary</button>
+            <button class="btn btn-outline-secondary">Secondary</button>
+            <button class="btn btn-outline-success">Success</button>
+            <button class="btn btn-outline-warning">Warning</button>
+            <button class="btn btn-outline-danger">Danger</button>
+            <button class="btn btn-outline-info">Info</button>
+            <button class="btn btn-outline-light">Light</button>
+            <button class="btn btn-outline-dark">Dark</button>
+        </div>
+    </div>
+    <br>
+
+    <div class="container">
+        <h2>Without any style, table can be quite bland.</h2>
+        <h5>Let's improve with bootStrap</h5>
+        <!-- In order to bootstrap-ify a table, you must add the ".tgable" cl;ass to a table element -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>language</th>
+                    <th>property</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Java</td>
+                    <td>Server side OOP serviing multiple users</td>
+                </tr>
+                    <td>2</td>
+                    <td>SQL</td>
+                    <td>Structured Query Language: Used for serverside databae transactions</td>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div class="container">
+        <h2>Forms can be ugly! Since thet are the main point of content between the user and the application, why wouldnt you sopend time to make them pretty?</h2>
+        <div class="form-group">
+            <!-- We use the form group to style like forms elements together -->
+            <div class="col-md-2">
+                <label for="" class="first"></label>
+                <input type="text" id="first" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label for="middle">Middle Initial</label>
+                <input type="text" id="middle" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label for="last">Last Name</label>
+                <input type="text" id="last" class="form-control">
+            </div>   
+        </div>
+    </div>
+</body>
+</html>

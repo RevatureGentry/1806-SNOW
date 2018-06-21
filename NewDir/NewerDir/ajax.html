@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+    crossorigin="anonymous">
+</head>
+
+<body>
+    <div class = "container">
+        <!-- Every NavBar Starts with  the nav element. You must also supply the .navbar .navbar-expand class-->
+        <!-- color meaning....-->
+
+        <nav class="navbar navbar-expand bg-dark">
+            <a href = "" class="navbar-brand text-white">Revature</a>
+
+            <ul class="navbar-nav">
+                <li class="nav-item"> <a href = "./helloWorld.html" class="nav-link text-light">Hello World</a></li>
+                <li class="nav-item"> <a href = "./javaScriptBasics.html" class="nav-link text-light">JavaScript Basics</a></li>
+                <li class="nav-item"><a href="./ajax.html" class="nav-link text-light">AJAX Example</a></li>
+            </ul>
+            
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Asynchronous JavaScript and XML (AJAX)</h1>
+            <p class="lead"> AJAX allows HTTP requests to be made asynchronously, 
+                where the data updates without the need for the client to refresh the page.
+            </p>
+            <hr class="my-4">
+            <p>Click this button to fire the AJAX request!</p>
+            <button id = 'ajaxButton' class='btn btn-outline-primary'type="buton">Fire the AJAX Request!</button>
+        </div>
+    </div>
+
+    <divclass="container">
+        <table class='table'>
+            <h3 id="complete"></h3>
+            <h3 id="incomplete"></h3>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>user</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody id='todosTable'>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src='./ajaxExample.js'></script>
+</body>

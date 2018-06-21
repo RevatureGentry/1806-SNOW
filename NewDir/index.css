@@ -1,0 +1,21 @@
+* {
+    font-family: cursive;
+}
+
+li {
+    /*
+    Border shorthand first value = width (in pixels)
+    */
+    border: 1px solid greenyellow
+
+}
+
+p {
+    background-color: purple;
+    color: white;
+}
+
+#popTarts {
+    font-size: 400%
+}
+
