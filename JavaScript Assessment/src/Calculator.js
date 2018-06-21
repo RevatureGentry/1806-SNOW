@@ -67,7 +67,6 @@ let Calculator = function() {
             throw new Error();
         }
         if (n <= 2) {
-            console.log("Reached first two terms of Fibonacci sequence.");
             return 1;
         }
         //Recursion Method
