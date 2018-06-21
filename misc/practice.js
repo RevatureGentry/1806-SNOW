@@ -1,41 +1,35 @@
-const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
+// const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-// 1 + 2 + 3 + 4
-console.log(array1.reduce(reducer));
-// expected output: 10
+// // 1 + 2 + 3 + 4
+// console.log(array1.reduce(reducer));
+// // expected output: 10
 
-// 5 + 1 + 2 + 3 + 4
-console.log(array1.reduce(reducer, 5));
-// expected output: 15
+// // 5 + 1 + 2 + 3 + 4
+// console.log(array1.reduce(reducer, 5));
+// // expected output: 15
 
-function help(array) { 
-    console.log(array.reduce(reducer));
-};
+// function help(array) { 
+//     console.log(array.reduce(reducer));
+// };
 
-help(array1);
+let n = 2;
 
-let value = Symbol();
-
-let num = Math.pow((-1), value);
-
-if (typeof value !== 'number') {
-    throw 'error';
+for (let i = 2; i < (n); i++) {
+  let fib = [];
+  fib[i] = fib[i-2] + fib[i-1];
 }
-else if (typeof value === 'number') {
-    if (num === -1) {
-        console.log(`${value} is an odd number`);
-    }
-    else if (num === 1) {
-        console.log(`${value} is an even number`);
-    }
-    else {
-        throw 'error2';
-    }
-}
-else {
-    throw 'error2';
-} 
+
+
+// if (value >= 0) {
+//     for (let i = 0; i < (value+1); i++){
+//        let fact = (i * value * 1);
+//        console.log(fact);
+        
+//     }
+// } else {
+//     throw TypeError('Error: Enter positive numbers only!')
+// }
 
 //(num === (-1)) {
 //     console.log(`${value} is an odd number`);
