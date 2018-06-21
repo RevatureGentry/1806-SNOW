@@ -5,8 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ajax Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
+        crossorigin="anonymous">
 </head>
 <body>
-    
+
+    <div class="container">
+        <!--Every navbar starts with the nav element, you must also provide the .navbar .navbar-expand classes-->
+        <nav class="navbar navbar-expand bg-dark">
+            <a href="" class="navbar-brand text-light">Revature</a>
+
+            <!--in order to make other buttons, we need an unordered list with the .navbar-nav-->
+            <ul class="navbar-nav">
+                <!--to create button we need a list item with the nav-class and a nested a.nav-link inside-->
+                <li class="nav-link"><a href="./bootstrap.html" class="navlink text-light">Bootstrap Example </a></li>
+                <li class="nav-link"><a href="./helloworld.html" class="navlink text-light">Javascript Basics</a></li>
+                <li class="nav-link"><a href="" class="navlink text-light">Item 3 </a></li>
+                <li class="nav-link"><a href="../Day4 6-21-18/ajax.html" class="navlink text-light">Ajax Example</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Asyncronous Javascript and XML (AJAX)</h1>
+            <p class="lead">AJAX allows http requests to be make asyncronously 
+                where the data updates without the need for the client to refresh the page
+            </p>
+            <hr class="my-4">
+            <p>Click this button to fire the AJAX request!</p>
+            <button id="ajaxbutton" class="btn btn-outline-primary" type="button">Fire The AJAX</button>
+        </div>
+    </div>
+
+    <script src="./ajaxexample.js"></script>
 </body>
 </html>
