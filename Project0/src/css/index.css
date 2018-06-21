@@ -1,0 +1,18 @@
+html, body, #page, #page>.row, #game, #lanes {
+    height: 100%;
+}
+
+#menu {
+    height: initial;
+}
+
+.lane {
+    height: 100%;
+}
+
+.arrow {
+    text-align: center;
+    color: white;
+    display: block;
+    font-size: 80px;
+}

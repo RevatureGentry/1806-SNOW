@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dance Dance Revolution</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Your own styles should go last! -->
+    <link rel="stylesheet" href="../css/index.css">
+
+    <script src="../js/index.js"></script>
+
+
+</head>
+<body>
+    <div class="container" id="page">
+        <div class="row">
+            <div id="menu" class="col-md-3 bg-info">
+                <div class="row">
+                    <input type="file" name="" id="user-music">
+                </div> <br>
+                <div class="row">
+                    <form action="">
+                        <select name="" id="provided-music">
+                            <option value="">Layla</option>
+                            <option value="">Beat It</option>
+                            <option value="">Duck Song</option>
+                            <option value="">Use user-selected file</option>
+                        </select>
+                    </form>
+                </div> <br><br>
+                <div class="row">
+                    <button class="btn btn-primary" id="start-game">Start</button>
+                </div> <br>
+            </div>
+        
+
+            <div id="game" class="col-md bg-warning">
+                <div class="row" id="lanes">
+                    <div class="col bg-primary lane" id="lane-1">h</div>
+                    <div class="col bg-primary lane" id="lane-2">h</div>
+                    <div class="col bg-primary lane" id="lane-3">h</div>
+                    <div class="col bg-primary lane" id="lane-4">h</div>
+                </div>
+                <div class="row" id+"arrows">
+                    <div class="col bg-secondary">
+                        <i class="fa fa-arrow-left arrow" id="arrow-1"></i>
+                    </div>
+                    <div class="col bg-secondary">
+                        <i class="fa fa-arrow-up arrow" id="arrow-2"></i>
+                    </div>
+                    <div class="col bg-secondary">
+                        <i class="fa fa-arrow-down arrow" id="arrow-3"></i>
+                    </div>
+                    <div class="col bg-secondary">
+                        <i class="fa fa-arrow-right arrow" id="arrow-4"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
