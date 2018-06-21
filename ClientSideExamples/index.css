@@ -4,17 +4,10 @@
 
 li {
     /* 
-<<<<<<< HEAD
         border shortcut: first value = width (in px), second value is style (solid, dotted, etc),
         third value is the color
     */
     border: 1px solid greenyellow;
-=======
-        border shortcut: first value = width ( in px), second value is style (solid, dotted, etc), 
-        third value is the color
-    */
-    border: 1px solid rgb(172, 255, 47);
->>>>>>> 620575deba65688bd2376cd767fc18c8ca4c715a
 }
 
 p {
@@ -22,18 +15,10 @@ p {
     color: white;
 }
 
-<<<<<<< HEAD
 #popTarts{
     font-size: 400%;
 }
 
 li.red{
-=======
-#popTarts {
-    font-size: 400%;
-}
-
-li.red {
->>>>>>> 620575deba65688bd2376cd767fc18c8ca4c715a
     color: red;
 }
