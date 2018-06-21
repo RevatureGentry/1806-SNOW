@@ -13,9 +13,7 @@
   ],
   "author": "Howard Chen",
   "license": "MIT",
-  "dependencies": {
-    "tone": "^0.12.80"
-  },
+  "dependencies": {},
   "devDependencies": {
     "jest": "^23.1.0"
   }
