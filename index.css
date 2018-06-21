@@ -1,0 +1,14 @@
+*{
+    font-family: cursive;
+}
+
+li{
+    border: 1px solid greenyellow;
+}
+p{
+    background-color: purple;
+    color: white;
+}
+.red{
+    color: red;
+}

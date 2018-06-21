@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+        <!-- Navbar Example -->
+        <div class="container">
+            <!-- Every Navbar Starts with the nav element, you must also supply the .navbar .navbar-expand classes -->
+            <!--
+                dark = black
+                primary = blue
+                secondary = navy blue
+                success = green
+                danger = red
+                warning = yellow
+            -->
+            <nav class="navbar navbar-expand bg-dark">
+                <a href="" class="navbar-brand text-light">Revature</a>
+    
+                <!-- In order to actually make other buttons this navbar, we need an ul tag with .navbar-nav -->
+                <ul class="navbar-nav">
+                    <!-- To actually create the button, we need li.nav-item and a nested a.nav-link inside -->
+                    <li class="nav-item"><a href="./bootstrap.html" class="nav-link text-light">Bootstrap Example</a></li>
+                    <li class="nav-item"><a href="./helloWorld.html" class="nav-link text-light">JavaScript Basics</a></li>
+                    <li class="nav-item"><a href="./inheritance.html" class="nav-link text-light">Inheritance in JS</a></li>
+                    <li class="nav-item"><a href="./ajax.html" class="nav-link text-light">AJAX</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-4">Asynchronous JavaScript and XML (AJAX)</h1>
+                <p class="lead">AJAX allows HTTP requests to be made asynchronously, where the 
+                    data updates without the need for the Client to refresh the page.
+                </p>
+                <hr class="my-4">
+                <p>Click this button to fire the AJAX request!</p>
+                <button id='ajaxButton' class='btn btn-outline-primary' type="button">Fire the AJAX Request!</button>
+
+            </div>
+        </div>
+
+        <div class="continer">
+            <h3 id="complete"></h3>
+            <h3 id="incomplete"></h3>
+            <form action="" method="GET" class-'col-md-8 offset-md-2'>
+                    <div class="form-group form-row">
+                        <div class="col-md-5">
+                                <label for="first">Input ID you would like to locate then click button above</label>
+                                <input id='UserIDInput' type="text" class='form-control'>
+                        </div>
+                        </div>
+                        <input type="submit" class='btn btn-success' value='Submit!'>
+                        <input type="reset" class='btn btn-danger' value='reset'>
+                    </div>
+                </form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User ID</th>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody id='todosTable'>
+
+                </tbody>
+            </table>
+        </div>
+<script src="./js/ajaxExample.js"></script> 
+</body>
+</html>
