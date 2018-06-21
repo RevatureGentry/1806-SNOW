@@ -1,0 +1,147 @@
+<!--
+    - What is JSON?
+        - JavaScript Object Notation
+        - a safe and reliable data interchange format
+        - String representation of a JavaScript Object, which is easily readible by both human and machine
+        - allows for objects, arrays, numbers, strings, and booleans to be serialized
+            JSON.stringify(): JS => JSON
+            JSON.parse(): JSON => JS
+    - Serialization: converting an object's state into bytes so that it can be transferred over a network
+    - HTTP (HyperText Transfer Protocol) Status Codes
+        - predefined set of codes that is sent by the server to indicate whether a specific HTTP request
+            has been successfully completed
+                1xx - Informational
+                2xx - Success
+                3xx - Redirect
+                4xx - Client Side Error
+                5xx - Server Side Error
+    - What is AJAX? Asynchronous JavaScript and XML
+        - used to update data on a webpage by asynchronous data between the Client and the Server
+        - relatively new technique which allows for web systems and applications to be better, fasther,
+            and more interactive
+        - The core object in AJAX is XMLHttpRequest object
+    - What is the AJAX Workflow?
+        - Declare and instantiate a XMLHttpRequest object
+            let xhr = new XMLHttpRequest();
+        - Define a function to the xhr.onreadystatechange property to handle the response
+            xhr.onreadystatechange = function() { /* do stuff */ }
+        - We call xhr.open(), which takes the HTTP method as its first argument and the URL endpoint as its second
+        - We call xhr.send() to send the request to the server specified in the URL
+        - If the response was received, the onreadystate change call back function will handle the response using
+            xhr.responseText -> returns the server response as a string
+        - WHAT IS A READYSTATE? readyStates return the state of the request
+                    Value           |           State
+                --------------------------------------------
+                        0           |       UNSENT
+                        1           |       OPENED
+                        2           |       HEADERS_RECEIVED
+                        3           |       LOADING
+                        4           |       DONE    
+    -
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Aquafina </title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+
+    <link rel="icon" href="../img/bread.jpg">
+
+</head>
+<body>
+    <!-- begin navbar div -->
+    <div class="container">
+        <nav class="navbar navbar-expand bg-secondary">
+            <a href="" class="navbar-brand text-light"> Revature </a>
+            <!-- In order to make more buttons on navbar, we need an ul tag with .navbar-nav class -->
+            <ul class = "navbar-nav">
+                <!-- To actually create the button, we need li.nav-item and an a-tag nested a.nav-link inside -->
+                <li class="nav-item"> 
+                    <a href="../6_19_2018/bootstrap.html" class="nav-link text-light"> BootStrap Examples </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../6_19_2018/helloworld.html" class="nav-link text-light"> JavaScript Basics </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../6_19_2018/index.html" class="nav-link text-light"> GO BACK IN TIME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../6_21_2018/ajax.html" class="nav-link text-light">AJAX</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- end navbar div -->
+    <br>
+    <!-- begin jumbrotron container div -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Asynchronous Javascript and XML (AJAX)</h1>
+            <p class="lead">
+                AJAX allows HTTP requests to be made asynchronously, where the data updates without the need
+                for the client to refresh the page.
+            </p>
+            <hr class="my-4">
+            <p> Click this button to fire the AJAX</p>
+            <button class="btn btn-outline-primary" type = "button" id = 'ajaxButton'> Fire the AJAX Request</button>
+        </div>
+    </div>
+    <!-- end jumbotron container div -->
+
+
+    <!-- begin table div -->
+    <div class="container">
+        <h3 id = "complete"> </h3>
+        <h3 id = "incomplete"> </h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th> User ID </th>
+                    <th> Title</th>
+                </tr>
+            </thead>
+            <tbody id = "todosTable">
+            </tbody>
+        </table>
+    </div>
+    <!-- end table div -->
+    <br> <br> 
+    <!-- make a form to retrieve post with specific ID -->
+    <div class="container">
+        <!-- begin form -->
+        <form id = 'form1' action = "" method = "GET" class = "col-md-8 offset-md-2">
+
+            <div class="form-group form-row">
+                <div class="col-md-6"> <!-- jes to shorten dat form -->
+                    <label for="first"> Enter an ID </label>
+                    <input type="text" id = "id_val" class = "form-control" required>
+                </div>
+            </div>
+
+            <input type="submit" class = "btn btn-success" value = "Look it up!">
+        </form>
+
+        <!-- end form -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody id = "getPostsTable">
+            </tbody>
+        </table>
+    </div>
+    <script src = "./js/ajaxExample.js"></script>
+</body>
+</html>
