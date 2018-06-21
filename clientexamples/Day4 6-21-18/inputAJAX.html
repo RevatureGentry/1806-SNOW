@@ -34,28 +34,31 @@
                 where the data updates without the need for the client to refresh the page
             </p>
             <hr class="my-4">
-            <p>Click this button to fire the AJAX request!</p>
-            <button id="ajaxbutton" class="btn btn-outline-primary" type="button">Fire The AJAX</button>
+                <div class="form-group">
+                    <label for="num">Enter your ID number to search: </label>
+                    <input type="text" onkeyup="search()" class="form-control" id="input">
+                    <br>
+                    <button class="btn btn-outline-success" id="ajaxbutton">Generate List</button>
+
+                </div>
         </div>
     </div>
 
     <div class="container">
-        <h3 id="complete"></h3>
-        <h3 id="incomplete"></h3>
         <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>User ID</th>
                     <th>Title</th>
+                    <th>Body</th>
                 </tr>
             </thead>
-            <tbody id="todoTable">
+            <tbody id="posts">
 
             </tbody>
         </table>
     </div>
 
-    <script src="./ajaxexample.js"></script>
+    <script src="./inputAJAX.js"></script>
 </body>
 </html>

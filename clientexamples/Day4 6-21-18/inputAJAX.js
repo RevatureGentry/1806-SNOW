@@ -5,7 +5,7 @@ window.onload = function() {
 
 
 function fireRequest() {
-    const url = "https://jsonplaceholder.typicode.com/todos"
+    const url = "https://jsonplaceholder.typicode.com/posts"
 
     //1. declare and instanciate an object type XMLHttpRequest
     let xhr = new XMLHttpRequest();
@@ -29,45 +29,48 @@ function fireRequest() {
     xhr.send();
 }
 
+function search() {
+    let input, filter, table, tr, td, i;
+    input = document.getElementById('input');
+    filter = input.value;
+    table = document.getElementById('posts');
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            if (td.innerHTML.indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+
+}
+
 function addrows(response) {
-    
-    let numComplete = 0;
-    let numIncomplete = 0;
-
-
     // the for of loop iterates over every element of an iterable object
     for (let ajax of response) {
         //programmatically create html elements
         let row = document.createElement('tr');
         let idTd = document.createElement('td');
-        let userIdTd = document.createElement('td');
         let titleTd = document.createElement('td');    
-
-        //create a reference that holds the completed value
-        let completed = ajax.completed;
+        let bodyTd = document.createElement('td');
 
 
         // set the text content of each cell in the row corresponding to the object
         idTd.textContent = ajax.id;
-        userIdTd.textContent = ajax.userId;
         titleTd.textContent = ajax.title;
+        bodyTd.textContent = ajax.body;
 
 
         //we use the element.appendChild() metod to dynamically add html elements
         row.appendChild(idTd);
-        row.appendChild(userIdTd);
         row.appendChild(titleTd);
-
-        //change the style of the row based on if the todo was completed
-        // boolean_expression? statement if_true : statment_if_false
-        completed ? row.setAttribute('class', 'bg-success') : row.setAttribute('class', 'bg-danger');
-        completed ? numComplete++ : numIncomplete++;
+        row.appendChild(bodyTd);
 
         // add the row to the table body
-        document.getElementById('todoTable').appendChild(row);
+        document.getElementById('posts').appendChild(row);
     }
-
-    // add the number of complete and incomplete todos
-    document.getElementById('complete').textContent = `Completed: ${numComplete}`;
-    document.getElementById('incomplete').textContent = `Incompleted: ${numIncomplete}`;
 }
