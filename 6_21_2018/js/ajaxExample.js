@@ -90,7 +90,8 @@ function addRow(response){
 function lookupID(evt){
     evt.preventDefault();
     let pagenum = document.getElementById("id_val").value;
-    if(pagenum <= 100 && pagenum > 0){
+    console.log(typeof pagenum);
+    if (!isNaN(pagenum) && pagenum <= 100 && pagenum > 0) {
         let url = "https://jsonplaceholder.typicode.com/posts/" + pagenum;
         console.log(url);
         let xhr = new XMLHttpRequest();
@@ -106,16 +107,18 @@ function lookupID(evt){
                 response = JSON.parse(response);
                 console.log(response);
                 addRow(response);
+                document.getElementById("err_p").innerHTML = " ";
             }
         };
-
         // 3. Open a request to the URL
         xhr.open("GET", url);
-
         // 4. We need to send the request
         xhr.send();
+        
     }
-   
+    else{
+        document.getElementById("err_p").innerHTML = "NOT A VALID INPUT";
+    }
 };
 //-------------------------------------------------------------------------------------------\
 window.onload = function () {

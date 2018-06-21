@@ -98,49 +98,56 @@
 
     <!-- begin table div -->
     <div class="container">
-        <h3 id = "complete"> </h3>
-        <h3 id = "incomplete"> </h3>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th> User ID </th>
-                    <th> Title</th>
-                </tr>
-            </thead>
-            <tbody id = "todosTable">
-            </tbody>
-        </table>
+            <h3 id = "complete"> </h3>
+            <h3 id = "incomplete"> </h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th> User ID </th>
+                        <th> Title</th>
+                    </tr>
+                </thead>
+                <tbody id = "todosTable">
+                </tbody>
+            </table>
     </div>
     <!-- end table div -->
     <br> <br> 
     <!-- make a form to retrieve post with specific ID -->
     <div class="container">
-        <!-- begin form -->
-        <form id = 'form1' action = "" method = "GET" class = "col-md-8 offset-md-2">
+        <div class="jumbotron">
+            <!-- begin form -->
+            <form id = 'form1' action = "" method = "GET" class = "col-md-6">
 
-            <div class="form-group form-row">
-                <div class="col-md-6"> <!-- jes to shorten dat form -->
-                    <label for="first"> Enter an ID </label>
-                    <input type="text" id = "id_val" class = "form-control" required>
+                <div class="form-group form-row">
+                    <div class="col-md-8"> <!-- jes to shorten dat form -->
+                        <label for="first"> Enter an ID (1-100) </label>
+                        <input type="text" id = "id_val" class = "form-control" required>
+                    </div>
                 </div>
-            </div>
 
-            <input type="submit" class = "btn btn-success" value = "Look it up!">
-        </form>
+                <input type="submit" class = "btn btn-success" value = "Place Her On My Table">
+                <br> <br>
+                <p id = "err_p"> </p>
+            </form>
 
-        <!-- end form -->
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>User ID</th>
-                    <th>Title</th>
-                </tr>
-            </thead>
-            <tbody id = "getPostsTable">
-            </tbody>
-        </table>
+            <br> <br>
+            <hr class="my-4">
+
+            <!-- end form -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User ID</th>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody id = "getPostsTable">
+                </tbody>
+            </table>
+        </div>
     </div>
     <script src = "./js/ajaxExample.js"></script>
 </body>
