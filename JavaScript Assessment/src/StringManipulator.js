@@ -7,10 +7,10 @@ function StringManipulator() {
             throw new Error();
         }
         for(var i = 0; i < value.length; i++){
-            value = value.replace(" ", "");
+            value = value.replace(" ", ""); //removes all spaces
         }
         for(var i = 0; i <= value.length/2; i++){
-            if(value[i] !== value[value.length-1-i]){
+            if(value[i] !== value[value.length-1-i]){ //checks if front half values match back half values
                 return false;
             }
         }
@@ -25,11 +25,11 @@ function StringManipulator() {
         }
         var Rvalue = "";
         var length = 0;
-        while(value.charAt(length) !== ""){
+        while(value.charAt(length) !== ""){ //calculates the length of the string (value)
             length++
         }
-        for(var i = length; i >= 0; i--){
-            Rvalue = Rvalue.concat(value.charAt(i));
+        for(var i = length; i >= 0; i--){ //iterates from the last index until the first and concatinates it onto the reverse string
+            Rvalue = Rvalue.concat(value.charAt(i)); 
         }
         return Rvalue
     }
@@ -56,10 +56,9 @@ function StringManipulator() {
         }
         var count = 0;
         var index = value.indexOf(char, 0);
-        while(index !== -1){
+        while(index !== -1){ //runs until the char string is no longer found inside the value string
             count++;
-            index = value.indexOf(char, index+1);
-            console.log(index);
+            index = value.indexOf(char, index+1); //index+1 so that it wont keep finding the same index
         }
         return count;
     }

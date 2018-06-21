@@ -18,6 +18,9 @@ let Calculator = function() {
     /* Provide an implementation that finds the factorial of value (value!) */
     this.factorial = function(value) {
         if(typeof value === typeof 1 && value >= 0){
+            /* factorial of 0 and 1 = 1 so 'i' starts at 2 until it equals 'value' and keeps multipling 
+                the factorial value (fact) by 'i'
+             */
             var fact = 1;
             for(var i = 2; i <=value; i++){
                 fact = fact * i;
@@ -36,7 +39,12 @@ let Calculator = function() {
             throw new Error();
         }
         else{
-            for(var i = 1; i < value; i++){
+            /* 
+                checking multiple of 2 until it either hits the value or goes over the value
+                only goes up to (value/2)+1 becaue if it goes up over halfway then the number * 2
+                will be larger than the value so they are irrelevent
+            */
+            for(var i = 1; i < (value/2)+1; i++){  
               var x = i * 2;
                 if(x === value) return false;
                 if(x > value) return true;
@@ -50,17 +58,14 @@ let Calculator = function() {
         if(typeof n !== typeof 1 || n < 0){
             throw new Error();
         }
-        if(n == 1){
+        //fibinochi's first 2 slots are both 1
+        if(n === 1 || n === 2){
             return 1
-        }
-        if(n === 2)
-        {
-            return 1;
         }
         let fn_1 = 1;
         let fn_2 = 1;
         let fn = 0;
-        for(let i = 3; i <= n; i++){
+        for(let i = 3; i <= n; i++){ //starts at 3 because first two slots are both 1
             fn = fn_1 + fn_2;
             fn_2 = fn_1;
             fn_1 = fn;
