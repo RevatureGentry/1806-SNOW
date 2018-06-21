@@ -1,7 +1,9 @@
-var a = setInterval(randomPopUpTarget, 200);
-var b = setInterval(randomPopInTarget, 200);
-//var c = setInterval(randomizeHideDebuff, 1000);
-//var d = setInterval(randomizeTwiceBuff, 1000);
+var a = setInterval(randomPopUpTarget, 700);
+var a = setInterval(randomPopUpTarget, 3000);
+var b = setInterval(randomPopInTarget, 440);
+var b = setInterval(randomPopInTarget, 1000);
+var c = setInterval(randomizeHideDebuff, 4000);
+var d = setInterval(randomizeTwiceBuff, 5000);
 var points = 0;
 var multiplier = 1;
 
@@ -10,7 +12,6 @@ window.onload = function () {
   for (let element of elements) {
     element.addEventListener('click', () => {
       if (element.classList.contains("up")) {
-        console.log("dopop");
         element.classList.add("down");
         element.classList.remove("up");
         points += 100 * multiplier;
@@ -19,6 +20,7 @@ window.onload = function () {
       if (element.classList.contains("hider")) {
         element.classList.add("down");
         element.classList.remove("up");
+		element.classList.remove("hider");
         document.getElementById("mainDiv").style.cursor = 'none';
         setTimeout(() => {
           document.getElementById("mainDiv").style.cursor = 'auto';
@@ -30,6 +32,7 @@ window.onload = function () {
       if (element.classList.contains("twice")) {
         element.classList.add("down");
         element.classList.remove("up");
+		element.classList.remove("twice");
         multiplier = multiplier * 2;
         setTimeout(() => {
           multiplier = 1;
@@ -66,25 +69,29 @@ function randomPopInTarget() {
     let element = array[x];
     element.classList.add("down");
     element.classList.remove("hider");
+	element.classList.remove("twice");
     element.classList.remove("up");
   }
 
 }
 function randomizeHideDebuff() {
   let array = document.getElementsByClassName("down");
+  if (x != -1) {
   var x = Math.floor((Math.random() * array.length) + 0);
   let element = array[x];
-  element.setAttribute("src", "./assets/hide.png");
   element.classList.add("up");
   element.classList.add("hider");
   element.classList.remove("down");
+  }
 }
 function randomizeTwiceBuff() {
+	
   let array = document.getElementsByClassName("down");
   var x = Math.floor((Math.random() * array.length) + 0);
+  if (x != -1) {
   let element = array[x];
-  element.setAttribute("src", "./assets/poptwice.png");
   element.classList.add("up");
   element.classList.add("twice");
   element.classList.remove("down");
+  }
 }

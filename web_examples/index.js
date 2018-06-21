@@ -73,3 +73,6 @@ let Hero = (function(){
 })();
 let hero = new Hero();
 console.log("hero.name:" +	hero.nameSymbol);
+
+
+

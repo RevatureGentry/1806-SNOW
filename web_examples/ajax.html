@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<title>AJAX Example</title>
+</head>
+
+<body>
+	<div class="container">
+		<nav class="navbar navbar-expand bg-dark">
+		<a href="" class="navbar-brand text-light">Revature</a>
+		<!-- ul tag-->
+		<ul class="navbar-nav">
+			<li class="nav-item"><a href="./bootstrap.html" class="nav-link text-light">Bootstrap Example</li>
+			<li class="nav-item"><a href="./helloworld.html" class="nav-link text-light">Javascript Basics</a></li>
+			<li class="nav-item"><a href="./ajax.html" class="nav-link text-light">AJAX Example</a></li>
+			
+		</ul>
+		</nav>
+	</div>
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="display-4">Async Javascript and XML(AJAX)</h1>
+			
+			<hr class="my-4">
+			<p>use the button to fire the ajax request</p>
+			
+			<button id="ajaxButton" class="btn btn-outline-primary" type="button">Fire the ajax</button>
+			
+		
+		</div>
+	</div>
+	
+	
+	<div class="container">
+		<h3 id = "complete"></h3>
+		<h3 id = "incomplete"></h3>
+		<div>
+		<label for="colselector">Specify an attribute</label>
+		<select id="colselector" required>
+			<option value="id">ID</option>
+			<option value="userid">UserID</option>
+			<option value="title">Title</option>
+			<option value="completed">Completed</option>
+		</select>
+		<label for="rowselector">Specify attribute value</label>
+		<input type="text" id="rowselector" size="20">
+		<button id = "search" class="btn btn-outline-dark" style="float:right; margin-bottom:5px;">Search</button>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>User ID</th>
+					<th>Title</th>
+				</tr>
+			</thead>
+			<tbody id="selectTable">
+				
+			</tbody>
+		</table>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>User ID</th>
+					<th>Title</th>
+				</tr>
+			</thead>
+			<tbody id="todosTable">
+				
+			</tbody>
+		</table>
+	</div>
+	
+	
+	<script src="./ajaxexample.js"></script>
+	</body>

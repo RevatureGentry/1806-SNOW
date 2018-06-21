@@ -60,23 +60,33 @@
     padding:0px;
 }
 .up {
-    width:140px;
-    height:140px;
-    margin-top:5px;
-    margin-left: 5px;
-    user-drag:none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
+    width:14vh;
+    height:14vh;
+    margin-top:0vh;
+    margin-left: 1vh;
     background-image: url("../assets/popup.png");
     z-index:1;
 }
 .down {
-    width:140px;
-    height:70px;
-    margin-top:75px;
-    margin-left:5px;
-    user-drag:none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    background-image: url("../assets/popin.png");
+    width:14vh;
+    height:7vh;
+    margin-top:7vh;
+    margin-left:1vh;
+    background: url("../assets/popin.png") center center;
+}
+.hider {
+    width:14vh;
+    height:14vh;
+    margin-top:0vh;
+    margin-left: 1vh;
+    background: url("../assets/hide.png") center center;
+    z-index:1;
+}
+.twice {
+    width:14vh;
+    height:14vh;
+    margin-top:0vh;
+    margin-left: 1vh;
+    background: url("../assets/poptwice.png") center center;
+    z-index:1;
 }
