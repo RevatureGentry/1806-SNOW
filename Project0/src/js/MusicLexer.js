@@ -148,9 +148,7 @@ class MusicLexer {
 
     convertTokenToNote(token, token_position) {
         utils.typecheckString(token);
-        if(typeof(token_position) !== 'number') {
-            throw new Error("token_position is not a number");
-        }
+        utils.typecheckNumber(token_position);
 
         let converter = new TokenToNoteConverter();
 
