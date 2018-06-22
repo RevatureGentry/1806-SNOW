@@ -2,8 +2,12 @@ window.onload = function(){
 	var btn = document.getElementById("ajaxButton");
 	btn.addEventListener('click',fireRequest);
 	var search = document.getElementById("search");
-	search.addEventListener('click',post);
+	search.addEventListener('click',updateTable);
+	
 }
+
+
+
 
 function fireRequest(){
 	const url = "https://jsonplaceholder.typicode.com/todos";
@@ -25,7 +29,34 @@ function fireRequest(){
 		var numComplete=0;
 function addRows(response,tablename){
 		//for..of loop iterates over every element of an iterable object
-
+		if(typeof response[Symbol.iterator] !== 'function'){
+			let ajax = response;
+				let row = document.createElement('tr');
+			let idTd=document.createElement('td');
+			let userIdTd = document.createElement('td');
+			let titleTd = document.createElement('td');
+			let completed = ajax.completed;
+			
+			idTd.textContent = ajax.id;
+			userIdTd.textContent=ajax.userId;
+			titleTd.textContent=ajax.title;
+			
+			row.appendChild(idTd);
+			row.appendChild(userIdTd);
+			row.appendChild(titleTd);
+			
+			if(completed === true){
+				document.getElementById("");
+				
+			}
+			
+			(completed ? row.classList.add("bg-info") : row.classList.add("bg-light"));
+			(completed ? numComplete++ : numIncomplete++);
+			document.getElementById("complete").innerHTML = `Complete : ${numComplete}`;
+			document.getElementById("incomplete").innerHTML = `Incomplete : ${numIncomplete}`;
+			document.getElementById(tablename).appendChild(row);
+		}else{
+	if(response)
 		for(let ajax of response){
 			let row = document.createElement('tr');
 			let idTd=document.createElement('td');
@@ -52,6 +83,7 @@ function addRows(response,tablename){
 			document.getElementById("incomplete").innerHTML = `Incomplete : ${numIncomplete}`;
 			document.getElementById(tablename).appendChild(row);
 		}
+		}
 	
 }
 	function updateTable(){
@@ -61,7 +93,7 @@ function addRows(response,tablename){
 			myNode.removeChild(myNode.firstChild);
 		}
 		var col = 0;
-		var colselector = document.getElementById("colselector");
+		var colselector = document.getElementById("colselector");	
 		var rowselector = document.getElementById("rowselector");
 		col = colselector.selectedIndex;
 		
@@ -92,14 +124,18 @@ function addRows(response,tablename){
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState === 4 && xhr.status === 200){
 			let response = JSON.parse(xhr.responseText);
+			var myNode = document.getElementById("selectTable");
+		while (myNode.firstChild) {
+			myNode.removeChild(myNode.firstChild);
+		}
 			addRows(response,"selectTable");
 			
 		}
 	}
 	var t = rowselector.value;
 	
-	xhr.open("POST",url,true);
+	xhr.open("GET",url+document.getElementById("rowselector").value);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	
-	xhr.send(`{id=${t}}	`);
+	xhr.send();
 }

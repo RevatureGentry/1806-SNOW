@@ -1,8 +1,16 @@
 #banner {
-    margin-left: -8px;
+	background: url("../assets/banner.png") center center;
+    display:block;
+    margin-left: auto;
     margin-right: auto;
-    width: 50%;
-
+}
+@font-face {
+  font-family: 'DISKOTEQUE';
+  src: url('../diskoteque-webfont.woff') format('woff');
+}  
+#scoreboard {
+	font-family:"DISKOTEQUE";
+	display:inline;
 }
 #homepage_header {
     text-align: center;
@@ -16,6 +24,11 @@
     background-color:#ff4d01;
     height:400px;
     width:90%;
+}
+.sb{
+	font-family:"DISKOTEQUE";
+	display:inline;
+	font-size:10px;
 }
 .autumn {
     display:block;

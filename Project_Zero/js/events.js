@@ -10,7 +10,8 @@ var d = setInterval(randomizeTwiceBuff, 5000);
 //setTimeout(summonMegaPinata, 10000+(z*1000));
 var points = 0;
 var multiplier = 1;
-
+var chaincount = 0;
+var comment = "";
 window.onload = function () {
 	document.getElementById("mainDiv").style.cursor = 'crosshair';
   let elements = document.getElementsByClassName("down");
@@ -19,9 +20,17 @@ window.onload = function () {
       if (element.classList.contains("up")) {
         element.classList.add("down");
         element.classList.remove("up");
+		chaincount++;
+		if(chaincount%4 === 0){
+			multiplier++;
+			calcMultiplier();
+		}
         points += 100 * multiplier;
-        document.getElementById("scoreboard").innerText = "Score: " + points;
+        document.getElementById("scoreboard").textContent = "Score: " + points;
 		document.getElementById("multiplier").innerHTML =`x${multiplier}`;
+		var style = window.getComputedStyle(document.getElementById("multiplier"), null).getPropertyValue('font-size');
+		var fontSize = parseFloat(style); 
+		if(fontSize<34){document.getElementById("multiplier").style.fontSize = (fontSize + 6) + 'px';}
       }
       if (element.classList.contains("hider")) {
         element.classList.add("down");
@@ -33,7 +42,7 @@ window.onload = function () {
         }, 7000);
         multiplier = 1;
         points -= 100;
-        document.getElementById("scoreboard").innerText = "Score: " + points;
+        document.getElementById("scoreboard").textContent	 = "Score: " + points;
 		document.getElementById("multiplier").innerHTML =`x${multiplier}`;
       }
       if (element.classList.contains("twice")) {
@@ -113,7 +122,27 @@ function summonMegaPinata(){
 	
 	
 }
-function starfall(){
+function shake(){
 	
 	
+}
+function calcMultiplier(){
+	if(multiplier>3){
+				comment = "GOOD!";
+			}
+	else if(multiplier>5){
+		comment="Great!";
+	}
+	else if(multiplier>7){
+		comment="Outstanding!";
+	}
+	else if(multiplier>10){
+		comment="Amazing!";
+	}
+	else if(multiplier>15){
+		comment="Rampage!";
+	}
+		else if(multiplier>30){
+		comment="GOD-LIKE!";
+	}
 }
