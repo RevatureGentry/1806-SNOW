@@ -1,6 +1,6 @@
 
 let Tokens = {
-    NEW_VOICE = "NEW",
+    NEW_VOICE: "NEW",
 }
 
 

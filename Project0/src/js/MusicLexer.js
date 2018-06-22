@@ -2,13 +2,30 @@
 
 import Tokens from "./tokens";
 import * as utils from "./MusicLexer.utils.js";
+import TokenToNoteConverter from "./TokenConverter";
 
 
 class MusicLexer {
     constructor() {
         this._num_voices = 0;
         this._voices = [];
-        this._preprocessed = [];
+        this._token_stream = [];
+        this._token_index = 0;
+        this._errors = [];
+        this._unit_note = "4";
+    }
+
+    setUnitNote(unit) {
+        typecheckString(unit);
+        if(!utils.verifyUnit(unit)) {
+            throw new Error("invalid unit note");
+        }
+
+        this._unit_note = unit;
+    }
+
+    getUnitNote() {
+        return this._unit_note;
     }
 
     getVoice(index) {
@@ -17,10 +34,10 @@ class MusicLexer {
         }
 
         if(index < 1) {
-            throw new Error("not a valid index");
+            throw new Error("not a valid index. Valid indexes are integers >= 1");
         }
 
-        return this._voices(index);
+        return this._voices[index];
     }
 
     getNumVoices() {
@@ -41,57 +58,65 @@ class MusicLexer {
     }
 
     lex(music) {
-        if(typeof(music) !== "string") {
-            throw new Error("music is not a string");
-        }
+        utils.typecheckString(music);
 
         this._clearOldMusic();
-        this._preprocessMusic(music);
-        this._doLexing();
+        this._doLexing(music);
 
         return this.getAllVoices();
     }
 
     _clearOldMusic() {
-        this._preprocessed = [];
+        this._token_stream = [];
+        this._token_index = 0;
         this._num_voices = 1;
 
         // Set voices to start at index 1. Index 0 is never used.
         this._voices = [[], []];
+
+        // Reset all previously detected errors.
+        this._errors = [];
+    }
+
+    _doLexing(music) {
+        utils.typecheckString(music);
+
+        this._preprocessMusic(music);
+        this._process();
     }
 
     _preprocessMusic(music) {
-        if(typeof(music) !== 'string') {
-            throw new Error("music is not a string");
-        }
+        utils.typecheckString(music);
 
         // Split on whitespace only into an array.
-        this._preprocessed = utils.preprocess(music);
+        this._token_stream = utils.preprocess(music);
     }
 
-    _doLexing() {
+    _process() {
         while(this._hasMoreMusicTokens()) {
             const token = this._nextMusicToken();
             if(token === Tokens.NEW_VOICE) {
                 this._addNewVoice();
             }
 
-            this.addNote(this.convertTokenToNote(token));
-
-            // TODO : CORRECTLY HANDLE INVALID TOKENS
+            if(this._tokenIsInLanguage(token)) {
+                this.addNote(this.convertTokenToNote(token));
+            } else {
+                // Token is not in language. so it is an error. Report it!
+                this._addError(token);
+            }
         }
     }
 
     _hasMoreMusicTokens() {
-        // TODO
-
-        return false;
+        return this._token_index === this._token_stream.length;
     }
 
     _nextMusicToken() {
-        // TODO
+        let token = this._token_stream[this._token_index];
+        this._token_index += 1;
 
-        return "C";
+        return token;
     }
 
     _addNewVoice() {
@@ -99,22 +124,30 @@ class MusicLexer {
         this._voices.push([]);
     }
 
-    convertTokenToNote(token) {
-        if(typeof(token) !== 'string') {
-            throw new Error("token is not a string");
-        }
+    _tokenIsInLanguage(token) {
+        utils.typecheckString(token);
 
-        return "C1";
-        // TODO: CORRECTLY HANDLE INVALID TOKENS
+        return utils.verifyToken(token);
+    }
+
+    convertTokenToNote(token) {
+        utils.typecheckString(token);
+
+        let converter = new TokenToNoteConverter();
+
+        return converter.convert(token);
     }
 
     addNote(note) {
-        const note_type = 'string';
-        if(typeof(note) !== note_type) {
-            throw new Error("note is not a string");
-        }
+        utils.typecheckString(note);
 
         this._voices[this.getNumVoices()].push(note);
+    }
+
+    _addError(token) {
+        utils.typecheckString(token);
+
+        this._errors.push([token, this._token_index]);
     }
 }
 
