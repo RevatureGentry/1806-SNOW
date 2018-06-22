@@ -16,15 +16,18 @@ let Calculator = function() {
 
     /* Provide an implementation that finds the factorial of value (value!) */
     this.factorial = function(value) {
-        let f = 0;
+        let f = 1;
         if(value < 0){
             throw Error('Negative');
         }
-        if(isNaN(value)){
+        if(typeof(value) != 'number'){
             throw Error('Not a number');
         }
+        if(value == 0){
+            return 1;
+        }
         while(value > 0){
-            f += value;
+            f *= value;
             value -= 1;
         }
         return f;
@@ -33,7 +36,7 @@ let Calculator = function() {
     /* Provide an implementation that returns true if a number is odd, and false if the number is even */
     /* CONDITION: You may not use the modulus (%) operator */
     this.isOdd = function(value) {
-        if(isNaN(value)){
+        if(typeof(value) != 'number'){
             throw Error('Not a number');
         }
         while(value > 1){
@@ -50,21 +53,21 @@ let Calculator = function() {
     /* Provide an implementation that finds the nth term in the Fibonacci Sequence */
     /* HINT: The first two terms are 1 */
     this.termInFibonacciSequence =  function(n) {
-        let temp1 = 1;
-        let temp2 = 1;
-        let move = 0;
-        let curr = 0;
-        if(isNaN(value)){throw Error('Not a Number');}
-        if(value < 0){throw Error('Negative');}
-
-        if (n = 1){return 1}
-        if (n = 2){return 2}
-        while(n > 0){
-            move = curr;
-            curr = temp1 + temp2;
-            temp1 = temp2;
-            temp2 = curr;
+        var prev1 = 1;
+        var prev2 = 1;
+        var next = 2;
+        if(typeof(n) != 'number'){
+            throw Error('Not a number');
         }
-        return curr;
+        if(n < 0){throw Error('Negative');}
+
+        if (n == 1){return 1}
+        if (n == 2){return 1}
+        for(var i = 2; i < n; i++){
+            next = prev1 + prev2;
+            prev1 = prev2;
+            prev2 = next;
+        }
+        return next;
     };
 };
