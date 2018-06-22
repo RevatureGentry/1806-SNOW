@@ -22,7 +22,7 @@ class TokenToNoteConverter {
     convert(token, tokenPosition) {
         utils.typecheckString(token);
         if(typeof(tokenPosition) !== 'number') {
-            throw new Errror('tokenPosition is not a number');
+            throw new Error('tokenPosition is not a number');
         }
 
         let complete_note_pattern = /^[A-G][1-9]$/;

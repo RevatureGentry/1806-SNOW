@@ -7,8 +7,8 @@ import TokenToNoteConverter from "./TokenConverter";
 
 class MusicLexer {
     constructor() {
-        this._num_voices = 0;
-        this._voices = [];
+        this._num_voices = 1;
+        this._voices = [[], []];
         this._token_stream = [];
         this._token_index = 0;
         this._errors = [];
@@ -49,12 +49,19 @@ class MusicLexer {
     }
 
     getErrors() {
-        // TODO
+        return this._errors;
+    }
+
+    hasErrors() {
+        return this._errors.length > 0;
     }
 
     getErrorSummary() {
-        // TODO
-        return "Errors";
+        let error_message = "The following errors were found:\n\n";
+        for(let i = 0; i < this._errors.length; i++) {
+            error_message = `${error_message} ${this._errors[i][0]} at token position ${this._errors[i][1]}\n`;
+        }
+        return error_message;
     }
 
     lex(music) {
@@ -67,12 +74,13 @@ class MusicLexer {
     }
 
     _clearOldMusic() {
+        // reset token stream
         this._token_stream = [];
         this._token_index = 0;
-        this._num_voices = 1;
 
         // Set voices to start at index 1. Index 0 is never used.
         this._voices = [[], []];
+        this._num_voices = 1;
 
         // Reset all previously detected errors.
         this._errors = [];
@@ -95,21 +103,17 @@ class MusicLexer {
     _process() {
         while(this._hasMoreMusicTokens()) {
             const token = this._nextMusicToken();
+            const curr_token_index = this._token_index - 1;
             if(token === Tokens.NEW_VOICE) {
                 this._addNewVoice();
-            }
-
-            if(this._tokenIsInLanguage(token)) {
-                this.addNote(this.convertTokenToNote(token));
             } else {
-                // Token is not in language. so it is an error. Report it!
-                this._addError(token);
+                this._addToken(token, curr_token_index);
             }
         }
     }
 
     _hasMoreMusicTokens() {
-        return this._token_index === this._token_stream.length;
+        return this._token_index < this._token_stream.length;
     }
 
     _nextMusicToken() {
@@ -124,18 +128,33 @@ class MusicLexer {
         this._voices.push([]);
     }
 
+    _addToken(token, curr_token_index) {
+        utils.typecheckString(token);
+        utils.typecheckNumber(curr_token_index);
+
+        if(this._tokenIsInLanguage(token)) {
+            this.addNote(this.convertTokenToNote(token, curr_token_index));
+        } else {
+            // Token is not in language. so it is an error. Report it!
+            this._addError(token);
+        }
+    }
+
     _tokenIsInLanguage(token) {
         utils.typecheckString(token);
 
         return utils.verifyToken(token);
     }
 
-    convertTokenToNote(token) {
+    convertTokenToNote(token, token_position) {
         utils.typecheckString(token);
+        if(typeof(token_position) !== 'number') {
+            throw new Error("token_position is not a number");
+        }
 
         let converter = new TokenToNoteConverter();
 
-        return converter.convert(token);
+        return converter.convert(token, token_position);
     }
 
     addNote(note) {
@@ -147,7 +166,8 @@ class MusicLexer {
     _addError(token) {
         utils.typecheckString(token);
 
-        this._errors.push([token, this._token_index]);
+        const token_index = this._token_index - 1;
+        this._errors.push([token, token_index]);
     }
 }
 

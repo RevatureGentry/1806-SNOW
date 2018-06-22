@@ -60,14 +60,14 @@ describe("utils correctly preprocesses music string", () => {
 
 describe("utils correctly verifies tokens", () => {
     test("recognizes common valid input", () => {
-        let valid_input = ["A", "G", "C1", "D9", "E3", "~", "!"];
+        let valid_input = ["A", "G", "C1", "D9", "E3", "~", "!~"];
         for(let input of valid_input) {
             expect(input).toBeStringValid(utils.verifyToken);
         }
     });
 
     test("recognizes common invalid input", () => {
-        let invalid_input = ["A~", "C4~", "F10", "G0", "3", "3A", "B!", "E7!"];
+        let invalid_input = ["A~", "C4~", "F10", "G0", "3", "3A", "B!", "E7!", "!"];
         for(let input of invalid_input) {
             expect(input).not.toBeStringValid(utils.verifyToken);
         }
