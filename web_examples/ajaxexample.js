@@ -2,7 +2,7 @@ window.onload = function(){
 	var btn = document.getElementById("ajaxButton");
 	btn.addEventListener('click',fireRequest);
 	var search = document.getElementById("search");
-	search.addEventListener('click',updateTable);
+	search.addEventListener('click',post);
 }
 
 function fireRequest(){
@@ -13,7 +13,7 @@ function fireRequest(){
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState === 4 && xhr.status === 200){
 			let response = JSON.parse(xhr.responseText);
-			addRows(response);
+			addRows(response,"todosTable");
 			
 		}
 	}
@@ -23,7 +23,7 @@ function fireRequest(){
 }
 		var numIncomplete =0;
 		var numComplete=0;
-function addRows(response){
+function addRows(response,tablename){
 		//for..of loop iterates over every element of an iterable object
 
 		for(let ajax of response){
@@ -46,15 +46,16 @@ function addRows(response){
 				
 			}
 			
-			(completed ? row.classList.add("bg-success") : row.classList.add("bg-light"));
+			(completed ? row.classList.add("bg-info") : row.classList.add("bg-light"));
 			(completed ? numComplete++ : numIncomplete++);
 			document.getElementById("complete").innerHTML = `Complete : ${numComplete}`;
 			document.getElementById("incomplete").innerHTML = `Incomplete : ${numIncomplete}`;
-			document.getElementById("todosTable").appendChild(row);
+			document.getElementById(tablename).appendChild(row);
 		}
 	
 }
 	function updateTable(){
+		var count =0;
 		var myNode = document.getElementById("selectTable");
 		while (myNode.firstChild) {
 			myNode.removeChild(myNode.firstChild);
@@ -72,7 +73,33 @@ function addRows(response){
 						var y = document.getElementById("todosTable").childNodes[i].cloneNode(true);
 						y.classList.remove("bg-success");
 						y.classList.add("bg-light");
+						count++;
 						document.getElementById("selectTable").appendChild(y);
 					}
 			}
+			if(count != 1){
+			document.getElementById("results").innerHTML = ` ${count}  Results Found`;
+			}
+			else{
+				document.getElementById("results").innerHTML = ` ${count}  Result Found`;
+			}
 	}
+	function post(){
+		const url = "https://jsonplaceholder.typicode.com/posts/";
+	let xhr = new XMLHttpRequest();
+	
+	
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState === 4 && xhr.status === 200){
+			let response = JSON.parse(xhr.responseText);
+			addRows(response,"selectTable");
+			
+		}
+	}
+	var t = rowselector.value;
+	
+	xhr.open("POST",url,true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	
+	xhr.send(`{id=${t}}	`);
+}

@@ -37,19 +37,20 @@
 	<div class="container">
 		<h3 id = "complete"></h3>
 		<h3 id = "incomplete"></h3>
-		<div>
+		<div >
 		<label for="colselector">Specify an attribute</label>
 		<select id="colselector" required>
 			<option value="id">ID</option>
 			<option value="userid">UserID</option>
 			<option value="title">Title</option>
-			<option value="completed">Completed</option>
+			
 		</select>
 		<label for="rowselector">Specify attribute value</label>
 		<input type="text" id="rowselector" size="20">
+		<label style= "margin-left:30px;" id="results"></label>
 		<button id = "search" class="btn btn-outline-dark" style="float:right; margin-bottom:5px;">Search</button>
 		<table class="table">
-			<thead>
+			<thead class="thead-dark">
 				<tr>
 					<th>ID</th>
 					<th>User ID</th>
