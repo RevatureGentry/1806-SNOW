@@ -1,3 +1,3 @@
-window.onload = function initUserInteractions() {
+window.onload = function initUserInteractions(event) {
     console.log("Script running at load");
 }

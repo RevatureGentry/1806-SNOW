@@ -96,7 +96,7 @@ describe("lexer properly lexes a music string", () => {
 
         let error_message = "The following errors were found:\n\n";
         for(let i = 0; i < expected.length; i++) {
-            error_message = `${error_message} ${expected[i][0]} at token position ${expected[i][1]}\n`;
+            error_message = `${error_message}${expected[i][0]} at token position ${expected[i][1]}\n`;
         }
         expect(lexer.getErrorSummary()).toEqual(error_message);
         expect(lexer.hasErrors()).toEqual(true);

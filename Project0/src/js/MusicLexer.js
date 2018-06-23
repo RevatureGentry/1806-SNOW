@@ -59,7 +59,7 @@ class MusicLexer {
     getErrorSummary() {
         let error_message = "The following errors were found:\n\n";
         for(let i = 0; i < this._errors.length; i++) {
-            error_message = `${error_message} ${this._errors[i][0]} at token position ${this._errors[i][1]}\n`;
+            error_message = `${error_message}${this._errors[i][0]} at token position ${this._errors[i][1]}\n`;
         }
         return error_message;
     }
