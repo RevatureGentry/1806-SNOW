@@ -1,0 +1,66 @@
+What is HTML?
+What are the required tags in an HTML document?
+What is the anatomy of an HTML tag?
+Can you tell me some HTML tags?
+What is CSS?
+In what ways an we select tags to be styled?
+What is the difference between display: none; and visibility: hidden?
+What is Bootstrap?
+Explain to me the Grid System in Bootstrap.
+What is required if we want to leverage any part of the Bootstrap library in our HTML page?
+
+What is JavaScript?
+What are the data types?
+How can objects be created in JavaScript?
+What makes functions in JavaScript different from other languages?
+What is truthy and falsy?
+What is the purpose of isNaN?
+Is JavaScript pass by value or pass by reference?
+What are undeclared variables and undefined variables?
+What are the variable scopes in JavaScript?
+What are global variables?
+What are undeclared variables and undefined variables?
+How do you add new elements dynamically?
+What is the difference between == and ===?
+How would one submit a form using JavaScript?
+What is an event in JS? What are some common events?
+How can you submit a form using JavaScript?
+What is an event listener?
+What is the difference between bubbling and capturing?
+What is strict mode?
+In what ways can you get references to HTML elements programmatically?
+What are the four pillars of OOP?
+Is JavaScript an Object Oriented Programming language?
+How do we achieve encapsulation in JavaScript?
+How do we achieve inheritance in JavaScript?
+Can functions be overloaded?
+Can functions be overridden?
+What is JSON?
+What is AJAX? What is the AJAX workflow?
+What are the important XMLHttpRequest properties?
+What are the different values of readyState?
+What are some advantages of using AJAX?
+What are some disadvantages of using AJAX?
+What is HTTP?
+What is an HTTP status code?
+What is the difference between GET and POST?
+
+What are the five sublanguages of SQL?
+What are the different constraints?
+What is cascade delete?
+What are some common commands/clauses and their syntax (I gave you a cheat sheet)?
+What are the different relationships? (Multiplicity)? How do you enforce the different relationships?
+What is an Entity Relational Diagram?
+What is a subquery?
+What is referential integrity?
+What is an orphaned record?
+What is an aggregate function/scalar function?
+What is a join?
+What are the different joins available?
+What are the difference between the joins?
+What is the purpose of LIKE?
+What is the purpose of DISTINCT?
+What is the purpose of SELECT INTO?
+What is the difference between WHERE and HAVING?
+What is the difference between DELETE, DROP, and TRUNCATE?
+What is the difference between ORDER BY and GROUP BY?

@@ -1,28 +1,38 @@
-let Hero = (function(){
-    let nameSymbol = Symbol('name');
+let Hero = (function() {
+    let nameSymbol = Symbol();
+    let otherSymbol = Symbol();
+    console.log(nameSymbol === otherSymbol);
     let levelSymbol = Symbol('level');
 
-    function Hero(name='unnamed hero', level=1){
+    // Constructor Logic
+    function Hero(name='Unnamed Hero', level=1) {
         this[nameSymbol] = name;
         this[levelSymbol] = level;
     }
-    //getter
-    Hero.prototype.getName = function(){
+
+    Hero.prototype.getName = function() {
         return this[nameSymbol];
     }
-    //setter
-    Hero.prototype.setName = function(name){
+
+    Hero.prototype.setName = function(name) {
         this[nameSymbol] = name;
     }
 
-    Hero.prototype.getLevel = function(){
+    Hero.prototype.getLevel = function() {
         return this[levelSymbol];
     }
 
-    Hero.prototype.setLevel = function(level){
+    Hero.prototype.setLevel = function(level) {
         this[levelSymbol] = level;
     }
+
     return Hero;
 })();
-let hero = new Hero('asdf', 100);
-console.log(`hero.name = ${hero.getName()}`);
+
+let hero = new Hero('William', 100);
+console.log(`hero.name = ${hero.name}`);
+console.log(`hero.getName() = ${hero.getName()}`);
+hero.setName("Changed via the setter");
+console.log(`hero.getName() = ${hero.getName()}`);
+hero.name = 'Changed directly';
+console.log(`hero.name = ${hero.name}`);

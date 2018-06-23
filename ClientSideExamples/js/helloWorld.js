@@ -1,6 +1,7 @@
 /* Hello World */
 /*console.log('Hello World');
 console.log("1 == '1' =>", 1 == '1');
+myHoistedFunction(4);
 console.log('1 === "1" => ', 1 === "1");
 myHoistedFunction(5);
 console.log('3 == "3.0" =>', 3 == "3.0");
@@ -27,116 +28,135 @@ if ([]) {
 console.log('typeof "William" =>', typeof "William");
 console.log('typeof Infinity =>', typeof Infinity);
 console.log('typeof NaN =>', typeof NaN);
+
 */
-//this variable can be accessed anywhere in our program
+// This variable can be accessed anywhere in our program
 var globalScope = "Hey! I'm a globally scoped variable";
-function createLocalScope(){
+function createLocalScope() {
     console.log('inside the createLocalScope() function...');
-    var localScope = "Hey I'm a locally scoped variable";
+    var localScope = "Hey! I'm a locally scoped variable";
     console.log(localScope);
     console.log(globalScope);
 }
 
-createLocalScope();
+
+// createLocalScope();
 console.log(globalScope);
-//localScope isn't defined outside of the function, so it will not run.
-//console.log(localScope);
+// Commented the following line out, because the rest of the program will not run otherwise
+// console.log(localScope);
 
-function pitfallsOfVar(){
-    var myVar = "Instantiated on line 45";
+function pitfallsOfVar() {
+    var myVar = "Instantiated on line 46";
     console.log(myVar);
-    var myVar = "Instantiated on line 47";
+    var myVar = "Instantiated on line 48";
     console.log(myVar);
 }
 
-function howLetSolvesVarPitfalls(){
-    let myVar = "Instantiated on line 52";
+function howLetSolvesVarPitfalls() {
+    let myVar = "Instantiated on line 53";
     console.log(myVar);
-    //let myVar = "Instantiated on line 54";
+    let myVar = "Instantiated on line 55";
     console.log(myVar);
 }
-//pitfallsOfVar();
-//howLetSolvesVarPitfalls();
+// pitfallsOfVar();
+// howLetSolvesVarPitfalls();
+// const PI = 3.14;
+// console.log(PI++);
 
-//functions as values
-let anonHello = function(name){
-    //backticks allow function injection
-    //anonymous because function doesn't have a name
-    console.log(`hello, ${name}! (Anonymous function)`);
+// Functions as Values
+let anonHello = function(name) {
+    console.log(`Hello, ${name}! (Anonymous function)`);
 }
-//function has a name (Declared function) 
-function declaredHello(name){
-    console.log(`hello, ${name}! (Declared function)`);
+
+// anonHello('William');
+console.log(anonHello);
+
+// Declared Function
+function declaredHello(name) {
+    console.log(`Hello, ${name}! (Declared function)`);
 }
-anonHello('Kevin');
 
 console.log(declaredHello);
-//these are anonymous functions
+
 let square = x => x * x;
 let multiply = (a, b) => a * b;
 console.log(`square(9) = ${square(9)}`);
-console.log(`multiply(3, 5) = ${multiply(3, 5)}`)
-//Arrow functions inherit the 'this' from its enclosing context
-
-function declaredFunctionTest(){
+console.log(`multiply(3, 5) = ${multiply(3, 5)}`);
+console.log(square);
+console.log(multiply);
+// Arrow functions inherit the 'this' from it's enclosing context
+function declaredFunctionTest() {
     this.counter = 0;
-    function incrementCounter(){
-        console.log('inside the declared function');
-        for(let i=0; i<10; i++){
-            console.log(this.counter++);
+
+    function incrementCounter() {
+        console.log('Inside the declared function');
+        for (let i = 0; i < 10; i++) {
+            console.log(`declaredFunctionTest: Iteration ${i}: ${this.counter++}`);
         }
     }
     incrementCounter();
 }
 
-//let decTest = new declaredFunctionTest();
+// let decTest = new declaredFunctionTest();
+
 function arrowFunctionTest() {
     this.counter = 0;
-    let incrementCounter = () =>{
-        console.log('inside the declared function');
-        for(let i=0; i<10; i++){
-            console.log(`declared function: Iteration ${i}: ${this.counter++}`);
+
+    let incrementCounter = () => {
+        console.log('Inside arrowFunctionTest');
+        for (let i = 0; i < 10; i++) {
+            console.log(`arrowFunctionTest: Iteration ${i}: ${this.counter++}`);
         }
     }
     incrementCounter();
 }
-//let arrowTest = new arrowFunctionTest();
-console.log("Self invoking function syntax is to wrap a function in a set of parantheses and have a trailing set of parantheses for any parameter");
 
-(function(){
-    console.log("I never explicitly invoked this function");
+// let arrowTest = new arrowFunctionTest();
+
+console.log("Self invoking function syntax is to wrap a function in a set of "
+ +"parentheses and have a trailing set of parentheses for any parameter");
+
+(function() {
+    console.log('I never explicitly invoked this function');
 })();
 
-(function(a, b){
+(function(a, b) {
     console.log(`${a} + ${b} = ${a + b}`);
-})(10,5);
+})(10, 5);
 
-function iifeTest(){
-    (function(){
-        console.log("returned IIFE");
+function iifeTest() {
+    (function() {
+        console.log('returned IIFE');
     })();
 }
+// iifeTest();
 
-function myHoistedFunction(line){
-    console.log(`this function was implemented on lines 119 and 121 but invoked on line ${line}`);
+function myHoistedFunction(line) {
+    console.log(`This function was implemented on lines 129-131 but invoked on line ${line}`);
 }
 
-function getName(callback){
-    let name = prompt('what is your name?');
+function getName(callback) {
+    let name = prompt('What is your name?');
     callback(name);
 }
 
-function sayHello(name){
-    alert('Hello, ' + name);
+function sayHello(name) {
+    alert(`Hello, ${name}!`);
 }
 
-getName(sayHello);
+// getName(sayHello);
 
-function multiplier(factor){
-    return number => number * factor;
+function multiplier(factor) {
+    return (number, anotherNumber) => {
+        console.log('Add curly braces to an arrow function if its multiple lines');
+        return number * anotherNumber * factor;
+    }
 }
+
+
 
 let triple = multiplier(3);
-// 9 gets turned into the parameter for the inside function
-//console.log(`triple(9) = ${triple(9)}`);
-//console.log(`triple(9, 13) = ${triple(9, 13)}`);
+let otherTriple = otherMultiplier(4);
+console.log(`triple(9) = ${triple(9, 9)}`);
+console.log(`otherTriple(9) = ${otherTriple(9)}`);
+

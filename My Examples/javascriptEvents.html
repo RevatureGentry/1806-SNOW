@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=chrome">
+    <title>Events</title>
+</head>
+<body>
+    
+    <form action="">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" required><br><br>
+        <input type="submit" value="Submit!" id="submitButton">
+    </form>
+    <br><br>
+    <div>
+        <button type="button" id='useCapture'>Use Capture</button>
+        <div>
+            <h1 onmouseover="this.style.color='red';" onmouseout="this.style.color = 'black'">Level One</h1>
+            <div>
+                <h2 onmouseover="this.style.color='orange';" onmouseout="this.style.color = 'black'">Level Two</h2>
+                <div>
+                    <h3 onmouseover="this.style.color='yellow';" onmouseout="this.style.color = 'black'">Level Three</h3>
+                    <div>
+                        <h4 onmouseover="this.style.color='green';" onmouseout="this.style.color = 'black'">Level Four</h4>
+                        <div>
+                            <h5 onmouseover="this.style.color='blue';" onmouseout="this.style.color = 'black'">Level Five</h5>
+                            <div>
+                                <h6 onmouseover="this.style.color='purple';" onmouseout="this.style.color = 'black'">Level Six</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./javascriptEvents.js"></script>
+</body>
+</html>
