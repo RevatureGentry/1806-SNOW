@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="EB1C36FA-38C8-4881-B6DE-7F8EA8479718" containerWithKeyObject="5C00C1DC-2B47-3229-8F69-0BF8C013D019" localFKIndex="F0ED6CF8-15B4-B0A3-E712-13941297A7C0" name="FK_TRACKALBUMID">
+<sourceConnName>CHINOOK-SNOW</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>FK_TRACKALBUMID</sourceObjName>
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:13 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<referredTableLongName>CHINOOK.ALBUM</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>38C6DFFE-2B78-59B8-020B-885A49C134E1</referredTableID>
+<keyObject>43C66948-A4C8-EE37-B197-67A4E1FE74C2</keyObject>
+<referredKeyID>43C66948-A4C8-EE37-B197-67A4E1FE74C2</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ALBUMID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

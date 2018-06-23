@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ARTIST" directorySegmentName="seg_0" id="80CD19A1-32AF-F403-A6F4-C8320B29E57B">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:11 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<schemaObject>6D286D56-E3A2-34A6-3717-48F2B1EB71C9</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>18CED3AD-3563-7F24-2DD7-6886DB7C17BE</segment>
+<tableSpace>D02F0B24-8950-1D1A-8EDD-A01965FB70C5</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NAME" id="70D4999E-606F-4A5A-799D-52D1FAE49C9B">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ARTISTID" id="AC93C74B-624F-C99A-C272-73EF4F10C8ED">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_ARTIST" id="E9B45884-7B4F-BE08-4B2E-246065397191">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<schemaObject>6D286D56-E3A2-34A6-3717-48F2B1EB71C9</schemaObject>
+<segment>897848C1-5352-AD0D-A18A-CDDF0ADCF2BD</segment>
+<tableSpace>D02F0B24-8950-1D1A-8EDD-A01965FB70C5</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_ARTIST" id="8558C4EA-CC2E-9FC3-B5BC-96B31CFCA9D4">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:13 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<segment>897848C1-5352-AD0D-A18A-CDDF0ADCF2BD</segment>
+<tableSpace>D02F0B24-8950-1D1A-8EDD-A01965FB70C5</tableSpace>
+<existingIndex>E9B45884-7B4F-BE08-4B2E-246065397191</existingIndex>
+<indexSegment>897848C1-5352-AD0D-A18A-CDDF0ADCF2BD</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

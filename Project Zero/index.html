@@ -23,11 +23,11 @@
                 <h4>Stat Points Remaining: <span id="statPoints">0</span></h4>
             </div>
             <div class="col-3">
-                    <h4>Max HP: <span  id="hp">4</span></h3>
-                </div>
-                <div class="col-3">
-                    <h4>Armor: <span id="armor">10</span></h3>
-                </div>
+                <h4>Max HP: <span  id="hp">4</span></h3>
+            </div>
+            <div class="col-3">
+                <h4>Armor: <span id="armor">10</span></h3>
+            </div>
         </div>
         <div class="row" id="statSelection">
             <div class="col-3" style="border: 2px solid red">
@@ -86,9 +86,25 @@
             <div class="col-6" style="border: 2px solid yellowgreen">
                 <form action="">
                     <!-- Name and Race Fields-->
+                    <label class="heroLabels" for="name">Name: </label>
+                    <input type="text" id="name" value="Your Name">
+                    <label class="heroLabels" for="race">Race: </label>
+                    <input type="text" id="race" value="Your Fantasy Race">
                 </form>
             </div>
             
+        </div>
+        <div class="row" id="skillSelection">
+            <h4>Skill Points Remaining: <span id="skillPoints">0</span></h4>
+            <div class="col-4">
+                <!--Skills List 1 ('Physical' Skills)-->
+            </div>
+            <div class="col-4">
+                <!--Skills List 2 ('Psyche' Based Skills?)-->
+            </div>
+            <div class="col-4">
+                <!--Skills List 3 ('Looks' Based Skills?)-->
+            </div>
         </div>
     </div>
     <div class="container">
@@ -108,6 +124,7 @@
             </div>
         </div>
     </div>
-    <script src=""></script>
+    <script src="./js/index.js" tag="indexJS"></script>
+    <script src="./js/statManager.js" tag="statManagerJS"></script>
 </body>
 </html>

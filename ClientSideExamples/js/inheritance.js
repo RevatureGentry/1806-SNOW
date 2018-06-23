@@ -85,7 +85,7 @@ class AttackingHero extends Hero {
     }
 }
 
-let attackingHero = new AttackingHero("Wakka", 1000000, 'Broadsword', 650);
+let attackingHero = new AttackingHero("Wakka", 1000000, 'Blitzball', 650);
 attackingHero.sayHello();
 
 class Warrior extends AttackingHero {

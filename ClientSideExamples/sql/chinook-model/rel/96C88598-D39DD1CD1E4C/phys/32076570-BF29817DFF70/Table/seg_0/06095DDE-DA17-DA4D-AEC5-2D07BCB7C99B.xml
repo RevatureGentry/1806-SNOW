@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="INVOICE" directorySegmentName="seg_0" id="06095DDE-DA17-DA4D-AEC5-2D07BCB7C99B">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:11 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<schemaObject>6D286D56-E3A2-34A6-3717-48F2B1EB71C9</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>18CED3AD-3563-7F24-2DD7-6886DB7C17BE</segment>
+<tableSpace>D02F0B24-8950-1D1A-8EDD-A01965FB70C5</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="BILLINGCITY" id="0301B503-6D62-F4EC-EFC5-FA125ADB4975">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TOTAL" id="34B5A83E-ED2B-DEDB-A7D3-7D6F4C4D0211">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUSTOMERID" id="40112BF7-3EA4-8FED-EE41-34CC0D0EA126">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="INVOICEDATE" id="67328D20-30EE-FD9F-2E03-514356E05A40">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BILLINGPOSTALCODE" id="7CC40DD1-925C-B78A-F187-557776D6509A">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BILLINGADDRESS" id="8F2BB2F2-0A67-167E-2CFB-20D25ABDF6C9">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BILLINGCOUNTRY" id="8F39E3AD-AC3C-3F65-2513-37C98A88108C">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="INVOICEID" id="C1DC38CA-BA05-1B7B-DC06-6E67B8AB1642">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BILLINGSTATE" id="C9FE8AD5-D9BF-55D9-860A-EB2C0AA4F489">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_INVOICE" id="7CC9252C-615D-F88B-BBB8-09CFDF0844D1">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<schemaObject>6D286D56-E3A2-34A6-3717-48F2B1EB71C9</schemaObject>
+<segment>897848C1-5352-AD0D-A18A-CDDF0ADCF2BD</segment>
+<tableSpace>D02F0B24-8950-1D1A-8EDD-A01965FB70C5</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_INVOICECUSTOMERID" id="53F6DA97-D164-8D03-AF40-749CEDF2A155">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:13 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_INVOICE" id="6081F64F-0C8D-26D3-63A3-E24D8CC5AC58">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:13 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<segment>897848C1-5352-AD0D-A18A-CDDF0ADCF2BD</segment>
+<tableSpace>D02F0B24-8950-1D1A-8EDD-A01965FB70C5</tableSpace>
+<existingIndex>7CC9252C-615D-F88B-BBB8-09CFDF0844D1</existingIndex>
+<indexSegment>897848C1-5352-AD0D-A18A-CDDF0ADCF2BD</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

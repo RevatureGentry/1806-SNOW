@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="FBA07D4C-D28E-EE25-97B3-9E4BFE926EB7">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:29:15 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="chinook-model" id="41D7F1A3-7EAD-15CB-7AAA-E7C61CA86ED5" version="3.5">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:29:14 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>41D7F1A3-7EAD-15CB-7AAA-E7C61CA86ED5</designId>
+</OSDM_Design>

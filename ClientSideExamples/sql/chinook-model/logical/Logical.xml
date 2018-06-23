@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="8ED70DB5-EF4D-4F99-4DC8-8CDA036A6A8D" mainViewID="D3C5B236-C698-D226-D70A-71141B32789B">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:29:15 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

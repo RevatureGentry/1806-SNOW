@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TRACK" directorySegmentName="seg_0" id="5C00C1DC-2B47-3229-8F69-0BF8C013D019">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<schemaObject>6D286D56-E3A2-34A6-3717-48F2B1EB71C9</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>18CED3AD-3563-7F24-2DD7-6886DB7C17BE</segment>
+<tableSpace>D02F0B24-8950-1D1A-8EDD-A01965FB70C5</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="BYTES" id="2675B3EC-60DB-C205-0DD4-89202FA81BB6">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COMPOSER" id="280FA137-FFF2-8340-5B73-7101D9299A77">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME" id="70513BF9-256F-2331-080B-BDAD397EF589">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TRACKID" id="7CAF4225-658E-E9AC-3018-3FB0084B1552">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MILLISECONDS" id="938CFD0D-33AA-D197-E3BA-55EB4A2CF364">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GENREID" id="9B607849-42BD-9BC7-7DC2-6E1B0AC558B2">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MEDIATYPEID" id="B6659324-DE7B-4DAC-2E96-DE3BA269790A">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ALBUMID" id="F02B59BC-A1BB-A76A-3F8B-B157C6700EF5">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="UNITPRICE" id="F508D582-B462-F552-A4CD-DDA15BEA56EA">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_TRACK" id="9CDAA846-DC13-5832-893B-1B811EB14525">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:12 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<schemaObject>6D286D56-E3A2-34A6-3717-48F2B1EB71C9</schemaObject>
+<segment>897848C1-5352-AD0D-A18A-CDDF0ADCF2BD</segment>
+<tableSpace>D02F0B24-8950-1D1A-8EDD-A01965FB70C5</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_TRACKGENREID" id="075EE12B-E8A4-D431-9B59-270A40A2055F">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:13 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_TRACKMEDIATYPEID" id="B2AECAFA-302D-C1F5-DE06-B2BCCFC48FDB">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:13 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_TRACKALBUMID" id="F0ED6CF8-15B4-B0A3-E712-13941297A7C0">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:13 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_TRACK" id="6E68D21F-C51F-53D3-F63C-F4B4BDADC2F3">
+<createdBy>Vellv</createdBy>
+<createdTime>2018-06-22 19:31:13 UTC</createdTime>
+<ownerDesignName>chinook-model</ownerDesignName>
+<segment>897848C1-5352-AD0D-A18A-CDDF0ADCF2BD</segment>
+<tableSpace>D02F0B24-8950-1D1A-8EDD-A01965FB70C5</tableSpace>
+<existingIndex>9CDAA846-DC13-5832-893B-1B811EB14525</existingIndex>
+<indexSegment>897848C1-5352-AD0D-A18A-CDDF0ADCF2BD</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>
