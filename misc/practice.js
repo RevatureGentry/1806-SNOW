@@ -13,12 +13,21 @@
 //     console.log(array.reduce(reducer));
 // };
 
-let n = 2;
+value = 'a nut for a jar of tuna';
 
-for (let i = 2; i < (n); i++) {
-  let fib = [];
-  fib[i] = fib[i-2] + fib[i-1];
-}
+function drome (string) {
+  let reg = /[^A-Za-z]/g;
+  string = string.toLowerCase().replace(reg,'');
+  console.log(string);
+  let len = string.length;
+  for (let i = 0; i < len/2; i++) {
+      if (string[i] !== string[len - 1 - i]) {
+          return false;
+      } 
+    } 
+    return true;
+  } 
+  console.log(drome(value));
 
 
 // if (value >= 0) {
