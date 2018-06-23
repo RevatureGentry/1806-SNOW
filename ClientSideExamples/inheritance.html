@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inheritance in JavaScript</title>
+</head>
+<body>
+    <h1>Check the Console</h1>
+
+    <h2>As we know, Inheritance is achieved in JavaScript through Prototypal Inheritance.</h2>
+    <ul>
+        <li>Every object has a prototype. And every prototype has a prototype. So on, and so forth, until it reaches Object.prototype</li>
+        <li>The very top of the Prototypal Inheritance chain? Believe it or not, null</li>
+        <li>When a property gets accessed on an object in JavaScript (either state or behavior), JS looks on the object for that property first.</li>
+        <li>If the property is not found on the object, JS checks the object's prototype.</li>
+        <li>If the property is not on the object's prototype, JS checks the prototype of the prototype, and so on</li>
+        <li>If we want to add state or behavior to an object, we have to add it to the object's prototype</li>
+    </ul>
+
+    <h2>The keywords 'class', 'constructor', 'extends', 'super', and 'static' were introduced in ES6. Although these constructs look like class based
+        languages, JavaScript still remains prototype based
+    </h2>
+
+    <h3>Attached to this HTML document are examples for both how inheritance was achieved before ES6 (oldSchoolInheritance.js), as well as 
+        how we leverage this new set of keywords to achieve inheritance (inheritance.js)
+    </h3>
+    
+    <!-- <script src='./js/oldSchoolInheritance.js'></script> -->
+    <script src="./js/inheritance.js"></script>
+</body>
+</html>
