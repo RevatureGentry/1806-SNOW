@@ -18,9 +18,9 @@ export function verifyUnit(unit) {
         errors_array    [OPTIONAL]
     ]
 */
-export function translate(voice_array, unit, units_per_measure) {
+export function translate(voice_array, unit, units_per_minute) {
     types.typecheckNumber(unit);
-    types.typecheckNumber(units_per_measure);
+    types.typecheckNumber(units_per_minute);
 
     let voice_index = 0;
     let duration_count = 0;
@@ -45,7 +45,7 @@ export function translate(voice_array, unit, units_per_measure) {
 
             // Add the duration of the previous note.
             if(duration_count > 0) {
-                durations.push(convertCountToDuration(duration_count, unit, units_per_measure));
+                durations.push(convertCountToDuration(duration_count, unit, units_per_minute));
             }
 
             // Reset the duration.
@@ -57,7 +57,7 @@ export function translate(voice_array, unit, units_per_measure) {
     };
 
     // Add the last duration, since it would not have added during the loop.
-    durations.push(convertCountToDuration(duration_count, unit, units_per_measure));
+    durations.push(convertCountToDuration(duration_count, unit, units_per_minute));
 
     // TODO: Return correct value by processing the voice_array.
 
@@ -67,13 +67,13 @@ export function translate(voice_array, unit, units_per_measure) {
     return result;
 }
 
-export function convertCountToDuration(duration_count, unit, units_per_measure) {
+export function convertCountToDuration(duration_count, unit, units_per_minute) {
     types.typecheckNumber(duration_count);
     types.typecheckNumber(unit);
-    types.typecheckNumber(units_per_measure);
+    types.typecheckNumber(units_per_minute);
 
-    const measure_fraction = duration_count / units_per_measure;
-    const duration = measure_fraction.toString() + "m";
+    const minute_fraction = duration_count / units_per_minute;
+    const duration_in_seconds = Math.floor(minute_fraction * 60 * 1000) / 1000;
 
-    return duration;
+    return duration_in_seconds;
 }

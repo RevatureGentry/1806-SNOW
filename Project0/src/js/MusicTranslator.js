@@ -7,8 +7,8 @@ class MusicTranslator {
         // default unit is quarter notes.
         this._unit = 4;
 
-        // default is 4 units in a measure.
-        this._units_per_measure = 4;
+        // default is 4 units in a minute.
+        this._units_per_minute = 4;
 
         this._translation = [];
         this._errors = [];
@@ -30,17 +30,17 @@ class MusicTranslator {
         return this._unit;
     }
 
-    setUnitsPerMeasure(upm) {
+    setUnitsPerMinute(upm) {
         types.typecheckNumber(upm);
         if(upm < 1) {
-            throw new Error("units per measure should be at least 1");
+            throw new Error("units per minute should be at least 1");
         }
 
-        this._units_per_measure = upm;
+        this._units_per_minute = upm;
     }
 
-    getUnitsPerMeasure() {
-        return this._units_per_measure;
+    getUnitsPerMinute() {
+        return this._units_per_minute;
     }
 
     hasErrors() {
@@ -91,7 +91,7 @@ class MusicTranslator {
     }
 
     _doTranslate(voice_array) {
-        const initial_translation = utils.translate(voice_array, this.getBaseUnit(), this.getUnitsPerMeasure());
+        const initial_translation = utils.translate(voice_array, this.getBaseUnit(), this.getUnitsPerMinute());
         const errors = initial_translation[2];
         if(errors.length > 0) {
             // Add errors, but proceed with the translation.

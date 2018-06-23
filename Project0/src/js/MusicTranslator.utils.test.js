@@ -37,29 +37,28 @@ describe("utils correctly verifies unit of the notes", () => {
 describe("utils correctly converts a duration to a Tone.js time", () => {
     test("valid duration conversions", () => {
         let duration_count = 1;
-        let units_per_measure = 4;
+        let units_per_minute = 120;
         let unit = 4;
 
-        expect(utils.convertCountToDuration(duration_count, unit, units_per_measure))
-            .toEqual("0.25m");
+        expect(utils.convertCountToDuration(duration_count, unit, units_per_minute))
+            .toEqual(0.5);
 
         duration_count = 1;
-        units_per_measure = 2;
+        units_per_minute = 120;
         unit = 4;
-
-        expect(utils.convertCountToDuration(duration_count, unit, units_per_measure))
-            .toEqual("0.5m");
+        expect(utils.convertCountToDuration(duration_count, unit, units_per_minute))
+            .toEqual(0.5);
     });
 });
 
 describe("utils correctly translates a voice to an initial translation", () => {
     test("translates a voice with no errors", () => {
         let voice = ["A4", "B9", "C2", "D3", "E1", "G6", "F4"];
-        let units_per_measure = 4;
+        let units_per_minute = 4;
         let unit = 4;
 
-        const duration = "0.25m";
-        expect(utils.translate(voice, unit, units_per_measure)).toEqual(
+        const duration = 15;
+        expect(utils.translate(voice, unit, units_per_minute)).toEqual(
             [
                 ["A4", "B9", "C2", "D3", "E1", "G6", "F4"],
                 [ duration, duration, duration, 
@@ -72,11 +71,11 @@ describe("utils correctly translates a voice to an initial translation", () => {
 
     test("translates a voice with one error at start", () => {
         let voice = ["~", "A4", "B2"];
-        let units_per_measure = 4;
+        let units_per_minute = 60;
         let unit = 4;
         
-        const duration = "0.25m";
-        expect(utils.translate(voice, unit, units_per_measure)).toEqual(
+        const duration = 1;
+        expect(utils.translate(voice, unit, units_per_minute)).toEqual(
             [
                 ["A4", "B2"],
                 [ duration, duration ],

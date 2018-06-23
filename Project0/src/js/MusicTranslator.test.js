@@ -22,11 +22,11 @@ describe("translator translates lexer output correctly", () => {
 
         translator.translate(lexer.getAllVoices());
 
-        const units_per_measure_array = [1, 2, 3, 4];
+        const units_per_minute_array = [1, 2, 3, 4, 30, 60, 120, 180];
         //const notes = ["1n", "2n", "4n", "8n", "16n"];
-        for(let i = 0; i < units_per_measure_array.length; i++) {
-            let tone_duration = (1 / units_per_measure_array[i]).toString() + "m";
-            translator.setUnitsPerMeasure(units_per_measure_array[i]);
+        for(let i = 0; i < units_per_minute_array.length; i++) {
+            let tone_duration = Math.floor(1000 * 60 / units_per_minute_array[i]) / 1000;
+            translator.setUnitsPerMinute(units_per_minute_array[i]);
 
             translator.translate(lexer.lex(music));
             expect(translator.getTranslation()).toEqual([
@@ -50,19 +50,19 @@ describe("translator translates lexer output correctly", () => {
         const music = "F ~ ~ E ~ C D ~ ~ A G ~ ~ ~ B ~ ~ ~ ~";
         lexer.lex(music);
 
-        translator.setUnitsPerMeasure(4);
+        translator.setUnitsPerMinute(240);
         translator.translate(lexer.getAllVoices());
         expect(translator.getTranslation()).toEqual([
             [
                 ["F4", "E4", "C4", "D4", "A4", "G4", "B4"],
                 [
-                    "0.75m",
-                    "0.5m",
-                    "0.25m",
-                    "0.75m",
-                    "0.25m",
-                    "1m",
-                    "1.25m"
+                    0.75,
+                    0.5,
+                    0.25,
+                    0.75,
+                    0.25,
+                    1,
+                    1.25
                 ],
             ]
         ]);
@@ -72,7 +72,7 @@ describe("translator translates lexer output correctly", () => {
         const music = "~ F E   ";
         lexer.lex(music);
 
-        translator.setUnitsPerMeasure(4);
+        translator.setUnitsPerMinute(4);
         translator.translate(lexer.getAllVoices());
         expect(translator.hasErrors()).toEqual(true);
         expect(translator.getErrors()).toEqual(
@@ -84,7 +84,7 @@ describe("translator translates lexer output correctly", () => {
         expect(translator.getTranslation()).toEqual([
             [
                 ["F4", "E4"],
-                ["0.25m", "0.25m"],
+                [15, 15],
             ]
         ]);
     });
