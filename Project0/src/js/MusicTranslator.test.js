@@ -10,19 +10,29 @@ describe("translator translates lexer output correctly", () => {
     const lexer = new MusicLexer();
     const translator = new MusicTranslator();
 
-    test("translator translates correct music programs of 1-length notes", () => {
+    test("translator translates correct music programs of 2-length notes", () => {
         const music = " A C D B G F E";
-        translator.translate(lexer.lex(music));
+        lexer.lex(music);
+        expect(lexer.getAllVoices()).toEqual(
+            [
+                [],
+                ["A4", "C4", "D4", "B4", "G4", "F4", "E4"],
+            ]
+        );
+
+        translator.translate(lexer.getAllVoices());
 
         const units_per_measure_array = [1, 2, 3, 4];
         //const notes = ["1n", "2n", "4n", "8n", "16n"];
         for(let i = 0; i < units_per_measure_array.length; i++) {
-            translator.translate(lexer.lex(music));
             let tone_duration = (1 / units_per_measure_array[i]).toString() + "m";
+            translator.setUnitsPerMeasure(units_per_measure_array[i]);
+
+            translator.translate(lexer.lex(music));
             expect(translator.getTranslation()).toEqual([
                 [
                     ["A4", "C4", "D4", "B4", "G4", "F4", "E4"],
-                    [// TODO: WHAT DURATIONS GET REPORTED?
+                    [
                         tone_duration,
                         tone_duration,
                         tone_duration,
@@ -32,20 +42,50 @@ describe("translator translates lexer output correctly", () => {
                         tone_duration,
                     ],
                 ]
-                /*[
-                    ["A4", notes[i]],
-                    ["C4", notes[i]],
-                    ["D4", notes[i]],
-                    ["B4", notes[i]],
-                    ["G4", notes[i]],
-                    ["F4", notes[i]],
-                    ["E4", notes[i]],
-                ]*/
             ]);
         };
     });
 
-    test("translator reports errors on incorrect music programs", () => {
+    test("translator translates correct music programs with durations", () => {
+        const music = "F ~ ~ E ~ C D ~ ~ A G ~ ~ ~ B ~ ~ ~ ~";
+        lexer.lex(music);
 
+        translator.setUnitsPerMeasure(4);
+        translator.translate(lexer.getAllVoices());
+        expect(translator.getTranslation()).toEqual([
+            [
+                ["F4", "E4", "C4", "D4", "A4", "G4", "B4"],
+                [
+                    "0.75m",
+                    "0.5m",
+                    "0.25m",
+                    "0.75m",
+                    "0.25m",
+                    "1m",
+                    "1.25m"
+                ],
+            ]
+        ]);
+    });
+
+    test("translator reports errors on incorrect music programs", () => {
+        const music = "~ F E   ";
+        lexer.lex(music);
+
+        translator.setUnitsPerMeasure(4);
+        translator.translate(lexer.getAllVoices());
+        expect(translator.hasErrors()).toEqual(true);
+        expect(translator.getErrors()).toEqual(
+            [["~", 0]]
+        );
+        expect(translator.getErrorSummary()).toEqual(
+            "The translator found the following errors:\n\nToken '~' at position 0 could not be translated\n"
+        );
+        expect(translator.getTranslation()).toEqual([
+            [
+                ["F4", "E4"],
+                ["0.25m", "0.25m"],
+            ]
+        ]);
     });
 });

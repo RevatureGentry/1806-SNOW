@@ -1,4 +1,5 @@
 import * as utils from "./MusicTranslator.utils";
+import { translate } from "./MusicTranslator.utils";
 
 expect.extend({
     toBeStringValid(received, validator) {
@@ -54,7 +55,33 @@ describe("utils correctly converts a duration to a Tone.js time", () => {
 describe("utils correctly translates a voice to an initial translation", () => {
     test("translates a voice with no errors", () => {
         let voice = ["A4", "B9", "C2", "D3", "E1", "G6", "F4"];
+        let units_per_measure = 4;
+        let unit = 4;
 
+        const duration = "0.25m";
+        expect(utils.translate(voice, unit, units_per_measure)).toEqual(
+            [
+                ["A4", "B9", "C2", "D3", "E1", "G6", "F4"],
+                [ duration, duration, duration, 
+                  duration, duration, duration, duration,
+                ],
+                []
+            ]
+        );
+    });
 
+    test("translates a voice with one error at start", () => {
+        let voice = ["~", "A4", "B2"];
+        let units_per_measure = 4;
+        let unit = 4;
+        
+        const duration = "0.25m";
+        expect(utils.translate(voice, unit, units_per_measure)).toEqual(
+            [
+                ["A4", "B2"],
+                [ duration, duration ],
+                [["~", 0]],
+            ]
+        );
     });
 });

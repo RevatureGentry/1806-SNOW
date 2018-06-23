@@ -51,12 +51,13 @@ export function translate(voice_array, unit, units_per_measure) {
             // Reset the duration.
             duration_count = 1;
         }
-        // Add the last duration, since it would not have added during the loop.
-        durations.push(convertCountToDuration(duration_count, unit, units_per_measure));
-        
+              
         // Increment to look at next voice token.
         voice_index++;
     };
+
+    // Add the last duration, since it would not have added during the loop.
+    durations.push(convertCountToDuration(duration_count, unit, units_per_measure));
 
     // TODO: Return correct value by processing the voice_array.
 

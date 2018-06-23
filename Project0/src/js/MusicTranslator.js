@@ -11,6 +11,7 @@ class MusicTranslator {
         this._units_per_measure = 4;
 
         this._translation = [];
+        this._errors = [];
     }
 
 
@@ -42,6 +43,23 @@ class MusicTranslator {
         return this._units_per_measure;
     }
 
+    hasErrors() {
+        return this._errors.length > 0;
+    }
+
+    getErrors() {
+        return this._errors;
+    }
+
+    getErrorSummary() {
+        let error_message = "The translator found the following errors:\n\n";
+        for(let i = 0; i < this._errors.length; i++) {
+            error_message = `${error_message}Token '${this._errors[i][0]}' at position ${this._errors[i][1]} could not be translated\n`;
+        }
+
+        return error_message;
+    }
+
     getTranslation() {
         return this._translation;
     }
@@ -52,6 +70,8 @@ class MusicTranslator {
     // If translation fails, it will report the error.
     translate(voices_array) {
         // NOTE. The first array in voices_array will be ignored!
+        // So each voices_array must have a length of 2 or greater to be
+        // translatable.
         if(voices_array.length < 2) {
             throw new Error("voices array does not contain any voices!");
         }
@@ -59,7 +79,7 @@ class MusicTranslator {
         this._clearOldTranslation();
 
         for(let i = 1; i < voices_array.length; i++) {
-            this._translation.push(this._doTranslate(voices_array[i]));
+            this._doTranslate(voices_array[i]);
         }
 
         return this.getTranslation();
@@ -67,23 +87,23 @@ class MusicTranslator {
 
     _clearOldTranslation() {
         this._translation = [];
+        this._errors = [];
     }
 
     _doTranslate(voice_array) {
-        let initial_translation = utils.translate(voice_array, this.getBaseUnit(), this.getUnitsPerMeasure());
-        let errors = initial_translation[2];
+        const initial_translation = utils.translate(voice_array, this.getBaseUnit(), this.getUnitsPerMeasure());
+        const errors = initial_translation[2];
         if(errors.length > 0) {
             // Add errors, but proceed with the translation.
             this._addError(errors);
         }
         this._translation.push([initial_translation[0], initial_translation[1]]);
-
-        // TODO: Ensure translation does not include errors; just notes and durations!
-
     }
 
     _addError(errors_array) {
-        // TODO : How to store an error? What to do with the errors array?
+        // Errors array will be of the form
+        // [ [err1, pos1], [err2, pos2], [err3, pos3]]
+        this._errors = this._errors.concat(errors_array);
     }
 }
 
