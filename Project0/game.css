@@ -1,0 +1,10 @@
+button{
+    height: 40px;
+    width: 40px;
+}
+
+buttonClicked{
+    height: 40px;
+    width: 40px;
+    color: red;
+}
