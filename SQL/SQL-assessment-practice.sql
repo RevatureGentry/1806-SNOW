@@ -115,19 +115,18 @@ SELECT * FROM
                 
 -- Select top 3 best selling artists in the database... by number of tracks sold?
 -- Or by total sales in dollars?
-SELECT * FROM
+SELECT * FROM -- by number of tracks.
     (SELECT a.artistid, a.name, SUM(ivl.quantity) as total FROM artist a
         INNER JOIN album alb on a.artistid = alb.artistid
         INNER JOIN track t on alb.albumid = t.albumid
         INNER JOIN invoiceline ivl on t.trackid = ivl.trackid
         GROUP BY a.artistid, a.name ORDER BY total DESC)
     WHERE ROWNUM <= 3;
-SELECT * FROM
-    (SELECT a.artistid, a.name, SUM(i.total) as total FROM artist a
+SELECT * FROM -- by sales.
+    (SELECT a.artistid, a.name, SUM(ivl.quantity * ivl.unitprice) as total FROM artist a
         INNER JOIN album alb on a.artistid = alb.artistid
         INNER JOIN track t on alb.albumid = t.albumid
         INNER JOIN invoiceline ivl on t.trackid = ivl.trackid
-        INNER JOIN invoice i on ivl.invoiceid = i.invoiceid
         GROUP BY a.artistid, a.name ORDER BY total DESC)
     WHERE ROWNUM <= 3;
 
