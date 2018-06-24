@@ -21,15 +21,14 @@ function StringManipulator() {
         }
 
         let reverseString = '';
-        while (true) {
-            if (String.prototype.charAt(i) != ' ') {
-                reverseString += String.prototype.charAt(i) + reverseString;
-                console.log(reverseString);
-            }
-            else {
-                break;
-            }
+		let stringSize = 0;
+		
+		while (value.charAt(stringSize) !== '') {
+			stringSize++;
         }
+		for (let i = stringSize; i >= 0; i--) {
+			reverseString = reverseString + value.charAt(i);
+		}
         return reverseString;
     }
 

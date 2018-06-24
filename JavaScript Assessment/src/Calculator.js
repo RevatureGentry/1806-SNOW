@@ -2,12 +2,10 @@ let Calculator = function() {
 
     /* Provide an implementation that sums the elements in an array */
     this.sum = function(array) {
-        console.log("Called");
         let total = 0;
         for(i = 0; i < array.length; i++) {
             if (!isNaN(array[i])) {
                 total += array[i];
-                console.log("Added")
             }
             else {
                 throw new Error;

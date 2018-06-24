@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AJAX Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Navbar -->
+        <!-- Every navbar starts with the nav element. You must include the navbar and navbar-expand classes -->
+        <!-- dark -> black
+            primary -> blue
+            secondary -> navy blue
+            success -> green
+            danger -> red
+            warning -> yellow
+        -->
+        <nav class="navbar navbar-expand bg-dark ml-auto">
+            <a href="" class="navbar-brand text-light">Revature</a>
+            <!-- In order to actually make other buttons on this navbar, we need an ul tag with navbar-top -->
+
+            <ul class="navbar-nav">
+                <!-- To create the button, we need li.nav-item with a nested link inside of it -->
+                <li class="nav-item"><a href="./helloworld.html" class="text-light nav-link">Javascript Basics</a></li>
+                <li class="nav-item"><a href="./ajax.html" class="text-light nav-link">AJAX Example</a></li>
+                <li class="nav-item"><a href="#" class="text-light nav-link">Third Example</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Asynchronous JavaScript and XML (AJAX)</h1>
+            <p class="lead">AJAX allows for HTTP requests to be made asynchronously, where the data updates without the need for the client to refresh the page.</p>
+            <hr class="my-4">
+            <p>Click thie button to fire the AJAX request.</p>
+            <form action="" method="GET">
+                <input type="text" id="user_input">
+                <button class="btn btn-outline-primary" type="button" id="ajax-button">Fire the AJAX!</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h3 id="complete"></h3>
+        <h3 id="incomplete"></h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Title</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody id="todosTable">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script src="./js/ajax.js"></script>
+
+</body>
+</html>
