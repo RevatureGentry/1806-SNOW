@@ -129,6 +129,8 @@ SELECT * FROM -- by sales.
         INNER JOIN invoiceline ivl on t.trackid = ivl.trackid
         GROUP BY a.artistid, a.name ORDER BY total DESC)
     WHERE ROWNUM <= 3;
+    
+SELECT unitprice FROM invoiceline;
 
 -- GET albums with no heavy metal tracks
 SELECT DISTINCT a.albumid, a.title FROM album a
