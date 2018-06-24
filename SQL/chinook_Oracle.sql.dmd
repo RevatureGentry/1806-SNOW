@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="chinook_Oracle.sql" id="0A39FF08-2B75-FC43-7B2A-9F43D69FC8CF" version="3.5">
+<createdBy>Sokunthea</createdBy>
+<createdTime>2018-06-22 13:25:52 UTC</createdTime>
+<ownerDesignName>chinook_Oracle.sql</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>0A39FF08-2B75-FC43-7B2A-9F43D69FC8CF</designId>
+</OSDM_Design>
