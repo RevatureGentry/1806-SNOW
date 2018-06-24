@@ -24,14 +24,31 @@ function StringManipulator() {
     this.reverseString = function(value) {
         if (typeof value !== 'string') {
             throw TypeError('Please Use Text Only')
-        } else {}
+        } else {
+            let nope = value.length;
+            reg = /[^\w\s]/g;
+            let arr = [];
+            for(i = 0; i !== nope; i++) {
+                arr.push(value.charAt(i))
+            }
+            let rev = arr.reverse();
+            rev = rev.toString();
+            rev = rev.replace(reg, '');
+            return(rev);
+                }
     }
 
     /* Provide an implementation that counts and returns the occurence of the letter "B" in a string */
     this.countBs = function(value) {
         if (typeof value !== 'string') {
             throw TypeError('Please Use Text Only')
-        } else {}
+        } else {
+            let reg = /[^B]/g;
+            value = value.replace(reg, '');
+           let bee = value.length;
+           return bee;
+
+        }
 
     }
 
@@ -40,6 +57,15 @@ function StringManipulator() {
     this.countCharInString = function(value, char) {
         if (typeof value !== 'string' || typeof char !== 'string') {
             throw TypeError('Please Use Text Only')
-        } else {}
+        } else { 
+            let count = 0;
+            let pos = value.indexOf(char);
+
+            while (pos !== -1) {
+                console.log(count);
+                count++;
+                pos = value.indexOf(char, pos + 1);
+            } return(count);
+        }
     }
 }

@@ -13,22 +13,20 @@
 //     console.log(array.reduce(reducer));
 // };
 
-value = 'a nut for a jar of tuna';
+value = 'cullen';
 
-function drome (string) {
-  let reg = /[^A-Za-z]/g;
-  string = string.toLowerCase().replace(reg,'');
-  console.log(string);
-  let len = string.length;
-  for (let i = 0; i < len/2; i++) {
-      if (string[i] !== string[len - 1 - i]) {
-          return false;
-      } 
-    } 
-    return true;
-  } 
-  console.log(drome(value));
+    let nope = value.length;
+    reg = /[^\w]/g;
+    let arr = [];
+    for(i = 0; i !== nope; i++) {
+        arr.push(value.charAt(i))
+    }
+    let rev = arr.reverse();
+     rev = rev.toString();
+     rev = rev.replace(reg, '');
 
+
+console.log(rev);
 
 // if (value >= 0) {
 //     for (let i = 0; i < (value+1); i++){
