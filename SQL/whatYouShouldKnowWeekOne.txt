@@ -1,0 +1,157 @@
+What is HTML?
+	-Hypertext Markup Language, language to structure pages
+What are the required tags in an HTML document?
+	-html, head, body
+What is the anatomy of an HTML tag?
+	-opening tag, sometimes closing tag, attribute name and value
+Can you tell me some HTML tags?
+	-p, ul, ol, br, li
+What is CSS?
+	-Cascading Style Sheet, augments aesthetic of a page
+In what ways an we select tags to be styled?
+	-internal(inside style in head), external(separate file with link), inline(using 	  style attribute)
+What is the difference between display: none; and visibility: hidden?
+	-display none will not be available on the page and does not occupy space,
+	  hidden will still take up space
+What is Bootstrap?
+	-front end framework for web development, good for ease of use, responsive 		  features, browser compatibility 
+Explain to me the Grid System in Bootstrap.
+	-each container comprised of 12 units, col-x-y where x is viewport size and y is 	  number of units to occupy
+What is required if we want to leverage any part of the Bootstrap library in our HTML page?
+	-
+
+What is JavaScript?
+	-Client side interpreted language, used alongside HTML to make dynamic web pages,
+	  Dynamically typed(variable types determined at runtime), OOP
+What are the data types?
+	-Boolean, number, string, null, undefined, symbol
+How can objects be created in JavaScript?
+	-define and create single object using literal, create single object using new 		  keyword, constructor
+What makes functions in JavaScript different from other languages?
+	-Functions are objects
+What is truthy and falsy?
+	-Truthy is anything but 'true' that evaluates to true, false is the opposite
+What is the purpose of isNaN?
+	-Determines if a value is an illegal number
+Is JavaScript pass by value or pass by reference?
+	-Pass by value
+What are undeclared variables and undefined variables?
+	-undeclared are vars that don't exist, undefined are variables intentionally left 	  unset
+What are the variable scopes in JavaScript?
+	-global(not defined in any function or block), local(defined in function), 		  block(defined in block)
+What are global variables?
+	-Variables not defined in any function or block, can be accessed anywhere
+How do you add new elements dynamically?
+	-addElement(parentId, elementTag, elementId, html)
+What is the difference between == and ===?
+	-== equates based on value(performs type coercion), === equates based on value and 	  type
+How would one submit a form using JavaScript?
+	-.submit()
+What is an event in JS? What are some common events?
+	-Anything the user does, onload, onclick, keydown
+What is an event listener?
+	-A function that reacts to an event
+What is the difference between bubbling and capturing?
+	-Bubbling is the execution of events from innermost to outermost, capturing is 		  opposite
+What is strict mode?
+	-special mode that catches some common coding bloopers throwing exceptions,
+	  throws errors on unsafe actions, disables some features
+In what ways can you get references to HTML elements programmatically?
+	-document.getElementById(), document.getElementByTagName(), 				  document.getElementByClassName(), document.querySelector(), 				  document.querySelectorAll()
+What are the four pillars of OOP?
+	-Abstraction(Centralizing common characteristics into conceptual object), 		  Polymorphism(method overriding), Inheritance(Extending parent functionality), 	  Encapsulation(Restricting access and modification of objects state)
+Is JavaScript an Object Oriented Programming language?
+	-Yes
+How do we achieve encapsulation in JavaScript?
+	-Use closures
+How do we achieve inheritance in JavaScript?
+	-Prototypal Inheritance, Parent.prototype()
+Can functions be overloaded?
+	-No
+Can functions be overridden?
+	-Yes
+What is JSON?
+	-JavaScipt Object Notation, string representation of objects
+What is AJAX? What is the AJAX workflow?
+	-Asynchronous JavaScript and XML
+	1)Declare and instantiate XMLHttpRequest
+	2)Define function to xor.onreadystatechange()
+	3)Call xor.ophen(), take HTTP method as first arg, url as second
+	4)Call xor.send(), send request to server specified in url
+	5)If response recieved onreadystatechange will handle response using 			  xor.responseText
+What are the important XMLHttpRequest properties?
+	-readyState, responseText, status
+What are the different values of readyState?
+	-0 = unsent
+	 1 = opened
+	 2 = headers_recieved
+	 3 = loading
+	 4 = done
+What are some advantages of using AJAX?
+	-bandwidth utilization, more interactive, data retrieved quicker
+What are some disadvantages of using AJAX?
+	-less security, increased size of HTTP requests, may cause back button issues
+What is HTTP?
+	-Hypertext Transfer Protocol, allows for transfer of data
+What is an HTTP status code?
+	-predefined set of codes sent by server to indicate if a request was completed
+	 100 = informational
+	 200 = success
+	 300 = redirect
+	 400 = client side error
+	 500 = server side error
+What is the difference between GET and POST?
+	-GET requests data, POST sends it
+What are the five sublanguages of SQL?
+	-DDL(Data Definition Language), DQL(Data Query Language), DML(Data Manipulation 	  Language), TCL(Transaction Control Language), DCL(Data Control Language)
+What are the different constraints?
+	-not null, unique, primary key, foreign key, default, check
+What is cascade delete?
+	-if a parent is deleted, delete child
+What are some common commands/clauses and their syntax (I gave you a cheat sheet)?
+	-CREATE TABLE table_name(
+		column_name COLUMN_TYPE
+		CONSTRAINT constraint_name CONSTRAINT TYPE
+	 )
+	-INSERT INTO table_name (col1, col2, col3) VALUES (val1, val2, val3);
+	-SELECT column_names from table_name
+		WHERE condition
+		GROUP BY column_name
+		HAVING aggregate_function
+		ORDER BY column_name;
+What are the different relationships? (Multiplicity)? How do you enforce the different relationships?
+	-one to one, one to many, many to many
+What is an Entity Relational Diagram?
+	-diagram showing how each table is connected to one another
+What is a subquery?
+	-nested query
+What is referential integrity?
+	-Every foreign key must refer to a valid row
+What is an orphaned record?
+	-Record who's parent no longer exists
+What is an aggregate function/scalar function?
+	-scalar -> one input one output, aggregate -> multiple inputs one output
+What is a join?
+	-Combining two tables
+What are the different joins available?
+	-Inner, outer, natural, right, left, self, cross
+What are the difference between the joins?
+	-inner -> only matching
+	-outer -> all records
+	-natural -> matching records
+	-right -> uses right table
+	-left -> left table
+What is the purpose of LIKE?
+	-get data with a certain string
+What is the purpose of DISTINCT?
+	-only one record per specified item
+What is the purpose of SELECT INTO?
+	-copies data from one table into a new table
+What is the difference between WHERE and HAVING?
+	-Where is used to filter rows, having is used to filter groups
+What is the difference between DELETE, DROP, and TRUNCATE?
+	-drop -> remove table including privileges and constraints, can not be rolled back
+	-truncate -> removes all records from table, keeps og structure, can not be rolled 	 	      back
+	-delete -> deletes all records that match where clause, not permanent until commit
+What is the difference between ORDER BY and GROUP BY?
+	-Order by sorts data by one or more column, group by arranges result set into 		  groups by columns
