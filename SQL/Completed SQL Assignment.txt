@@ -4,14 +4,14 @@ from track
 where milliseconds >= 360000;
 	
 **Write a SQL Query to find the biggest song (which takes up the most space)
-SELECT name, bytes
-FROM   track
-WHERE  bytes = (SELECT MAX(bytes) FROM track);
+select name, bytes
+from   track
+where  bytes = (select MAX(bytes) from track);
 	
 **Write a SQL Query that contains the titles of all albums with tracks longer than 6 minutes in them 
-SELECT t.albumid, t.milliseconds, a.title
-  FROM track t JOIN album a
-    ON t.albumid = a.albumid
+select t.albumid, t.milliseconds, a.title
+  from track t 
+  JOIN album a on t.albumid = a.albumid
  WHERE  milliseconds  > 360000;
 	
 **Write a SQL Query that contains the albumId and number of songs in the album 

@@ -29,9 +29,12 @@ function StringManipulator() {
     /* Provide an implementation that reverses a string */
     /* CONDITION: you may only use String.prototype.charAt() */
     this.reverseString = function(value) {
+        
+        
         var index = 0;
         
         if(typeof value === "string"){
+
             while(value.charAt(index) != "") {
                 value.charAt(index);
                 console.log(value.charAt(index));
@@ -57,12 +60,9 @@ function StringManipulator() {
     /* Provide an implementation that counts and returns the occurence of the letter "B" in a string */
     this.countBs = function(value) {
 
-        //if statement to determine if 'value' is of string type
         if(typeof value==="string"){
-            //statement to return # of occurences of letter "B"
             return (value.split("B").length-1) //4
         }
-        //else if to throw error if 'variable' is other type than string
         else {
             throw new Error;
         }
@@ -72,12 +72,10 @@ function StringManipulator() {
     /* Occurence of the letter 'char' in the String 'value' */
     this.countCharInString = function(value, char) {
 
-        //If statement to determine if both variables are of string type
+        
         if(typeof value, typeof char==="string"){
-            //statement to return the number of occurences of 'char' in 'value'
             return (value.split(char).length-1) //4
         }
-        //else if to throw error if variables are of other type than string
         else {
             throw new Error;
         }
