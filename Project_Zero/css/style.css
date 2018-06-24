@@ -28,7 +28,7 @@
 .sb{
 	font-family:"DISKOTEQUE";
 	display:inline;
-	font-size:10px;
+	font-size:13px;
 }
 .autumn {
     display:block;
@@ -77,7 +77,7 @@
     height:14vh;
     margin-top:0vh;
     margin-left: 1vh;
-    background-image: url("../assets/popup.png");
+    background-image: url("../assets/bandit.png");
     z-index:1;
 }
 .down {
