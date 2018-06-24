@@ -1,0 +1,27 @@
+@keyframes slidedown {
+    from {
+        margin-top: -80px;
+    }
+
+    to {
+        margin-top: 400px;
+    }
+}
+
+.moving-arrow-slow {
+    animation-duration: 10s;
+    animation-name: slidedown;
+    animation-timing-function: linear;
+}
+
+.moving-arrow-medium {
+    animation-duration: 7s;
+    animation-name: slidedown;
+    animation-timing-function: linear;
+}
+
+.moving-arrow-fast {
+    animation-duration: 4s;
+    animation-name: slidedown;
+    animation-timing-function: linear;
+}

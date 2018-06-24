@@ -1,6 +1,7 @@
  var path = require('path');
  var webpack = require('webpack');
  module.exports = {
+     mode: 'production',
      entry: {
         app: './src/js/index.js',
         test: './src/js/testing.js'

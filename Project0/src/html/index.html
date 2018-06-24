@@ -8,6 +8,7 @@
     
     <!-- Your own styles should go last! -->
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/animations.css">
 
     <script src="../libs/Tone.js"></script>
     <script src="../js/build-js/app.bundle.js"></script>
@@ -22,25 +23,29 @@
                 <div class="row">
                     <form action="">
                         <select name="" id="provided-music">
-                            <option value="">Layla</option>
-                            <option value="">Beat It</option>
-                            <option value="">Duck Song</option>
-                            <option value="">Use user-selected file</option>
+                            <option value="layla">Layla</option>
+                            <option value="duck">Duck Song</option>
+                            <option value="user">User File</option>
                         </select>
                     </form>
                 </div> <br><br>
                 <div class="row">
-                    <button class="btn btn-primary" id="start-game">Start</button>
+                    <button class="btn btn-primary" id="start-preview">Preview</button>
+                    <button class="btn btn-warning" disabled id="stop-preview">Stop Preview</button>
+                </div> <br><br>
+                <div class="row">
+                    <button class="btn btn-success" id="start-game">Start</button>
+                    <button class="btn btn-warning" disabled id="pause-game">Pause</button>
                 </div> <br>
             </div>
         
 
             <div id="game" class="col-md bg-warning">
                 <div class="row" id="lanes">
-                    <div class="col bg-primary lane" id="lane-1">h</div>
-                    <div class="col bg-primary lane" id="lane-2">h</div>
-                    <div class="col bg-primary lane" id="lane-3">h</div>
-                    <div class="col bg-primary lane" id="lane-4">h</div>
+                    <div class="col bg-primary lane" id="lane-1"></div>
+                    <div class="col bg-primary lane" id="lane-2"></div>
+                    <div class="col bg-primary lane" id="lane-3"></div>
+                    <div class="col bg-primary lane" id="lane-4"></div>
                 </div>
                 <div class="row" id+"arrows">
                     <div class="col bg-secondary">
@@ -60,4 +65,5 @@
         </div>
     </div>
 </body>
+    <script src="../js/animations.js"></script>
 </html>

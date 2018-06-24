@@ -28,6 +28,8 @@ class Player {
         ]
     */
     schedule(notes) {
+        this._clearOldMusic();
+
         for(let i = 0; i < notes.length; i++) {
             if(notes[i][0].length !== notes[i][1].length) {
                 throw new Error("number of notes does not equal number of durations");
@@ -65,6 +67,10 @@ class Player {
         }
     }
 
+    _clearOldMusic() {
+        Tone.Transport.cancel();
+    }
+
     _scheduleNote(note, duration) {
         types.typecheckString(note);
         types.typecheckNumber(duration);
@@ -85,6 +91,10 @@ class Player {
             instrument_2.triggerAttackRelease("G4", "3", time);
             instrument.triggerAttackRelease("C4", "3", time);
         }*/
+    }
+
+    pause() {
+        Tone.Transport.pause();
     }
 
     stop() {

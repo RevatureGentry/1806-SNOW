@@ -8,9 +8,12 @@ html, body, #page, #page>.row, #game, #lanes {
 
 .lane {
     height: 100%;
+    /* overflow: hidden; make sure any overflow is invisible */
 }
 
 .arrow {
+    /* margin-top: -80px; */
+    /* margin-top: 600px; */
     text-align: center;
     color: white;
     display: block;
