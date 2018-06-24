@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="ChINOOK-SNOW.sql" id="F1EBFFCF-DF11-21BF-A834-CE32B472A5F4" version="3.5">
+<createdBy>skhan</createdBy>
+<createdTime>2018-06-22 19:29:15 UTC</createdTime>
+<ownerDesignName>ChINOOK-SNOW.sql</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>F1EBFFCF-DF11-21BF-A834-CE32B472A5F4</designId>
+</OSDM_Design>
