@@ -33,7 +33,7 @@ hero.onlyOnTheInstanceDefinedOnLine16();
 // When we attempt to call the method 'onlyOnTheInstanceDefinedOnLine16' on the someOtherHero instance, we get an error
 // Uncomment the following line
 
-// someOtherHero.onlyOnTheInstanceDefinedOnLine16();
+ someOtherHero.onlyOnTheInstanceDefinedOnLine16();
 
 // So that's great and all, but how do we extend this Hero object?
 // Create another constructor, providing the same parameters as the other object's constructor, as well as any additional parameters you wish to add
