@@ -1,52 +1,201 @@
 What is HTML?
+Hypertext Markup Langugage, is a markup language used to tell your browser how to structure a web page
+ 
 What are the required tags in an HTML document?
+html, head, body
+
 What is the anatomy of an HTML tag?
+<!doctype html>
+<html>
+	<head>
+		link stylesheets, provide metadata
+	</head>
+	<body>
+		provide tags which get rendered to the user
+	</body>
+</html>
+
 Can you tell me some HTML tags?
+<p> <br> <ul> <ol> <tr> <h1-h6> <td> <th> <button> <select> <textarea>
+<strong> <b> <i> <em> <a> <div>
+
+
 What is CSS?
-In what ways an we select tags to be styled?
+Cascading Style Sheets, augments the aesthetic of HTML documents
+
+In what ways can we select tags to be styled?
+External- <link> to .css
+Internal- inside <style>, located in <head>
+Inline- using the style attribute of object
+
 What is the difference between display: none; and visibility: hidden?
+Display will not occupy space and will not be available in a page
+Visibility hides an element, but it'll still take up space
+
+
 What is Bootstrap?
+Front-end component library that creates CSS classes. It is not a framework because you use the ones you need
+
 Explain to me the Grid System in Bootstrap.
+container (fixed width) and container-fluid (full-width)
+each container comprised of 12 units
+.col-x-y where x -> viewport size (xs, sm, md, lg) and y -> number of grids (units) to occupy
+
 What is required if we want to leverage any part of the Bootstrap library in our HTML page?
 
+
 What is JavaScript?
+A client-side, interpreted language that is understood by web browsers and used alongside
+HTML to make dynamic web pages. Is dynamically typed, object oriented
+
 What are the data types?
+Primitive- Boolean, number, string, null, undefined, symbol
+
 How can objects be created in JavaScript?
+var name = value pairs;
+var name = {name1: value1, name2: value2}
+
 What makes functions in JavaScript different from other languages?
+functions are objects, can be anonymous, can be self-invoking, can be hoisted, callback functions
+
 What is truthy and falsy?
+falsy- evaluate to false but isn't the boolean false
+"",0,undefined,NaN, null are all falsy
+undefined and null are only equal to each other
+NaN is equal to nothing, not even itself
+truthy- evaluate to true but isn't the boolean true
+
 What is the purpose of isNaN?
+checks whether any value is NaN (illegal number)
+
 Is JavaScript pass by value or pass by reference?
+always pass by value, when a variable refers to an object, the "value" is a reference to the object
+
 What are undeclared variables and undefined variables?
+undeclared- does not use var, created on global object even if initialized in another scope
+undefined- call a variable/function without creating it
+
 What are the variable scopes in JavaScript?
+global- variables defined not in any function/block
+local- variables defined in function in which it was declared
+block- variables defined in the block it was declared
+
 What are global variables?
-What are undeclared variables and undefined variables?
+variables defined so that they can be accessed anywhere in the file
+
 How do you add new elements dynamically?
+var btn = document.createElement("Button")
+var t = document.createTextNode("Click me")
+btn.appendChild(t)
+document.body.appendChild(btn)
+
 What is the difference between == and ===?
+==: returns true if both operands have same value, performs type coercion
+===: returns true if both operands are of same type and have same value, does not perform type coersion
+
 How would one submit a form using JavaScript?
+document.getElementById("myForm").submit()
+
 What is an event in JS? What are some common events?
-How can you submit a form using JavaScript?
+A reaction to some user input
+onclick, onmoueover, onmouseout, onsubmit, onload
+
 What is an event listener?
+event listener will listen for an event to occur on a specified tag, and invoke the provided callback function
+
 What is the difference between bubbling and capturing?
+bubbling: execution of events from the innermost tags to the outermost
+capturing: outermost to innermost
+
 What is strict mode?
+restricted version of JS, changes silent errors to throw errors, faster
+
 In what ways can you get references to HTML elements programmatically?
+document.getElementById()
+document.getElementsByTagName()
+document.getElementsByClassName()
+document.querySelector()
+document.querySelectorAll()
+
 What are the four pillars of OOP?
+Abstraction- centralizing common characteristics into conceptual objects/classes
+Polymorphism- "taking on many forms", method overriding
+Inheritance- extending a parent object's functionality, prototypal inheritance
+Encapsulation- restricting the access and modification of an object's state
+
 Is JavaScript an Object Oriented Programming language?
+Yes
+
 How do we achieve encapsulation in JavaScript?
+Through the use of closures (combination of a function and the lexical environment within which that function was declared)
+functions within functions
+
 How do we achieve inheritance in JavaScript?
+using parent class .prototype
+
 Can functions be overloaded?
+No
 Can functions be overridden?
+Yes
+
 What is JSON?
+JavaScript Object Notation, a safe and reliable data interchange format
+A string representation of a JS object, which is easily readible by human/machine
+Allows for objects, arrays, numbers, strings, and booleans to be serialized
+JSON.stringify() and JSON.parse()
+
 What is AJAX? What is the AJAX workflow?
+Asynchronous JavaScript and XML
+Used to update data on a webpage by using asynchronous data between the client and the server without
+the need to refresh the page
+Relatively new technique which allows for web systems and applications to be better, faster, and more
+interactive
+1. Declare and instantiate an XMLHttpRequest()
+	let xhr = new XMLHttpRequest();
+2. Define a function to the xhr.onreadystatechange property to handle the reponse
+	xhr.onreadystatechange = function(){
+		//do stuff
+	}
+3. We call xhr.open(), which takes the HTTP method as its first argument and the URL endpoint as its second
+4. We call xhr.send() to send the request to the server specified in the URL
+5. If the response was received, the onreadystatechange call back function will handle the response
+using xhr.responseText ==> returns the server response as a string
+
 What are the important XMLHttpRequest properties?
+onreadystatechange, responseTest
+
 What are the different values of readyState?
+0 = unsent, 1 = opened, 2 = headers_received, 3 = loading, 4 = done
+
 What are some advantages of using AJAX?
+Bandwidth utilization: memory is saved when the data is fetched from the same page
+More interactive, data retrieved quicker
+
 What are some disadvantages of using AJAX?
+AJAX is fully dependent on JS, if there is a problem on browser of OS, no AJAX
+JSON source code is easily human readable, it follows that there could be some security issues
+Use of AJAX increases the size of HTTP requests
+Provides problems using back button in AJAX heavy web pages
+
 What is HTTP?
+HyperText Transfer Protocol, predefined set of codes that is sent by the server to indicate whether
+a specific HTTP request has been successfully completed
+
 What is an HTTP status code?
+1xx- informational, 2xx- success, 3xx- redirect, 4xx- client-side erro, 5xx- server-side error
+
 What is the difference between GET and POST?
 
 What are the five sublanguages of SQL?
+1. DDL (Data Definition Language)- CREATE, DROP, ALTER, RENAME, TRUNCATE
+2. DQL (Data Query Language)- SELECT
+3. DML (Data Manipulation Language)- INSERT, UPDATE, DELETE
+4. TCL (Transaction Control Language)- COMMIT, ROLLBACK, SAVEPOINT
+5. DCL (Data Control Language)- GRANT, REVOKE
+
 What are the different constraints?
+not-null, unique, primary, foreign, default, check
+
 What is cascade delete?
 What are some common commands/clauses and their syntax (I gave you a cheat sheet)?
 What are the different relationships? (Multiplicity)? How do you enforce the different relationships?
