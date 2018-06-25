@@ -10,7 +10,7 @@ inner join track t on
 t.albumid = a.albumid
 where t.milliseconds > 360000;
 --Write a SQL Query that contains the albumId and number of songs in the album
-select count(album.albumid) as count, t.albumid from album
+select count(album.albumid) as Number_of_Songs, t.albumid from album
 inner join track t on
 t.albumid = album.albumid
 group by album.albumid
@@ -29,7 +29,7 @@ inner join track t on
 m.mediatypeid = t.mediatypeid
 inner join invoiceline i on
 i.trackid = t.trackid
-where quantity = (select MAX(quantity) from mediatype m)
+where quantity = (select MAX(quantity) from mediatype m) AND rownum = 1
 group by m.name
 order by counter desc;
 --Write a SQL Query showing customers not in the US
@@ -38,7 +38,11 @@ where country != 'USA';
 --Write a SQL Query showing a unique list of billing countries on the Invoice table
 select distinct billingcountry from invoice;
 --Write a SQL Query that shows the Invoice Total, Customer Name, Country, and Sales agent for all invoices and customers 
-
+select i.total as Invoice_Total, c.firstname || ' ' || c.lastname as Customer_Name, c.country, e.firstname || ' ' || e.lastname as employee from invoice i
+inner join customer c on
+i.customerid = c.customerid
+inner join employee e on
+e.employeeid = c.supportrepid;
 --Write a SQL Query that shows all Tracks, but displays no IDs. Should also include the Album name, Media Type, and Genre
 select t.name as Track, m.name as Media_Type, g.name as Genre, b.title as Album_Name from track t
 inner join genre g on
@@ -48,9 +52,21 @@ m.mediatypeid = t.mediatypeid
 inner join album b on
 b.albumid = t.albumid;
 --Write a SQL Query that returns the Top 40 Songs for 2013
-
---Write a SQL Query that shows which sales agent made the most in sales overall
-
+select t.name as track, count(i.quantity) as counter from track t
+inner join invoiceline i on
+i.unitprice = t.unitprice
+where quantity = (select MAX(quantity) from track t) AND ROWNUM  <= 42
+group by t.name
+order by counter desc;
+--Write a SQL Query that shows which sales agent made the most in sales overall(*)
+select e.firstname || ' ' || e.lastname as agents, count(i.total) as sales from employee e
+inner join customer c on
+c.supportrepid = e.employeeid
+inner join invoice i on
+i.customerid = c.customerid
+where total = (select MAX(i.total) from invoice i)
+group by e.firstname || ' ' || e.lastname 
+order by agents;
 --Write a SQL Query that shows the top 3 best selling artists 
 select distinct a.name from artist a
 inner join album b on
@@ -59,7 +75,7 @@ inner join track t on
 t.albumid = b.albumid
 inner join invoiceline i on
 i.trackid = t.trackid
-where quantity = (select  MAX(i.quantity) from invoiceline);
+where quantity = (select  MAX(i.quantity) from invoiceline) AND ROWNUM <= 5;
 --Write a SQL Query that returns which albums have no Heavy Metal tracks
 select distinct a.title from album a
 inner join track t on
