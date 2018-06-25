@@ -21,3 +21,18 @@ whack a mole
 	- level based
 		- 
 	- time based
+	
+	red target 
+	
+	black target
+	
+	blue target
+	
+	score log
+	music
+	death anim
+	reverso
+	score notif by scoreboard
+	
+	curseplay-no combos - purple
+	powerplay-double combos - red 

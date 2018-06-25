@@ -11,6 +11,7 @@
 #scoreboard {
 	font-family:"DISKOTEQUE";
 	display:inline;
+	border: 2px dotted black;
 }
 #homepage_header {
     text-align: center;
@@ -19,11 +20,16 @@
 #HBOX {
     margin-left:auto;
     margin-right:auto;
-    margin-top: 500px;
+    margin-top: 300px;
     display: block;
     background-color:#ff4d01;
-    height:400px;
+    height:20vh;
     width:90%;
+}
+.legend{
+	font-family:"DISKOTEQUE";
+	font-color:white ;
+	font-size:25px;
 }
 .sb{
 	font-family:"DISKOTEQUE";
@@ -79,6 +85,7 @@
     margin-left: 1vh;
     background-image: url("../assets/bandit.png");
     z-index:1;
+	background-size:contain;
 }
 .down {
     width:14vh;
@@ -93,6 +100,7 @@
     margin-top:0vh;
     margin-left: 1vh;
     background: url("../assets/hide.png") center center;
+	background-size:contain;
     z-index:1;
 }
 .twice {
@@ -101,5 +109,19 @@
     margin-top:0vh;
     margin-left: 1vh;
     background: url("../assets/poptwice.png") center center;
+	background-size:contain;
     z-index:1;
+}
+.civilian {
+	width:14vh;
+    height:14vh;
+    margin-top:0vh;
+    margin-left: 1vh;
+    background: url("../assets/civilian.png") center center;
+	background-size:contain;
+    z-index:1;
+}
+.legendimg {
+	width:14vh;
+    height:14vh;
 }
