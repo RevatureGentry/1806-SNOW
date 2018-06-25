@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My First HTML Page</title>
+    <link rel="stylesheet" href="index.css">
+
+    <style>
+        *{
+            font-family: Georiga;
+        }
+
+        li{
+            border : 2px dotted blue
+        }
+        p{
+            background-color: darksalmon;
+            color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Hello World!</p>
+
+    <a href="./bootstrap.html">BoostrapExample</a>
+    <h1>Heading 1</h1>
+    <h2 class = 'red'>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+
+
+    <div class = 'red'>
+        <p>we use the ol tag to create ordered list</p>
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+
+        </ol>
+        <p>We can provide we can as many li elements as we need, HTML will auto increment them for us</p>
+    </div>
+  <br><br>
+  
+  
+    <div>
+        <h2>Unordered List are used to create bullet poitns</h2>
+        <h4>Grocery List</h4>
+        <ul>
+            <li>Apples</li>
+            <li>Broccoli</li>
+            <li>Spinach</li>
+            <li>Pop <span id ='popTarts'>Tarts</span></li>
+            <li>Monster</li>
+            <li>Captain Crunch</li>
+            <li>Whole Lotta Cheese</li>
+        </ul>
+    </div>  
+    <br><br>
+
+    <div style ='border: 2px dotted red';>
+        <form action="">
+           
+            <label for="firstname">First Name</label>
+            <input type ="text" id ='firstname' required>
+            
+            <br><br>
+            
+            <label for="lastname">Last Name</label>
+            <input type="text" id = 'lastname' required>
+
+            <p>How would you like ya mail?</p>
+            <input type="radio" value ='email' id = 'email' name ='deliveryPreference' required>
+            <label for="email">Email</label>
+
+            <input type="radio" value = 'mail' id = 'mail' name ='deliveryPreference' required>
+            <label for="mail">Snail Mail</label>
+
+            <input type="radio" value = 'bird' id = 'bird' name ='deliveryPreference' required>
+            <label for="bird">Bird</label>
+            <br>
+            <!-- This is a comment homie-->
+            <!-- We can make buttons in many different ways-->
+            <button type='button' class = 'red'>Button type=button</button>
+            <input type="button" value = 'Input type=button'>
+            <input type="submit" value ='Input type=submit'>
+        
+        
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+* {
+    font-family: cursive
+}
+
+li{
+    /*
+    border shorcut first value = width (in px)
+    */
+    border: 1pc solid greenyellow
+
+}
+
+p {
+    background-color: rgb(156, 118, 156);
+    color: white;
+}
+
+#popTarts{
+    font-size: 400%; 
+}
+
+.red{
+    color: red;
+}
+
+li.red{
+    color: red;
+}

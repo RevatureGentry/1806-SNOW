@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
+    crossorigin="anonymous">
+    <title>AJAX Example</title>
+</head>
+<body>
+        <div class="container-fluid"></div>
+                    <nav class="navbar navbar-expand bg-success">
+                        <a href="" class="navbar-brand text-light">Revature</a>
+                         <ul class="navbar-nav">
+                            <li class="nav-item"><a href="./bootstrap.html" class="nav-link text-light">Bootstrap Example</a></li>
+                            <li class="nav-item"><a href="./helloWorld.html" class="nav-link text-light">JavaScript Basics</a></li>
+                            <li class="nav-item"><a href="./AJAX.html" class="nav-link text-light">AJAX Example</a></li>
+                            <li class="nav-item"><a href="" class="nav-link text-light">Item 3</a></li>
+                         </ul>
+                    </nav>    
+                </div
+                
+            <div class = 'container'>
+                    <div class = 'jumbotron'>
+                        <h1 class = 'display-4'> Asynchronus JavaScript and XML(AJAX)</h1>
+                        <p class = 'lead'> AJAX allows HTTP request to be made asynchronusly, wehre the data updatres without
+                            the need for the client to hit refresh
+                        </p>
+                        <hr class ='my-4'>
+                        <p>CLick this button to fire the AJAX request</p>
+                        <!--<button class = 'btn btn-outline-primary' type ='button'> Fire the AJAX Request</button> -->
+                        <button id='ajaxButton' class ='bttn btn-outline-primary' type ='button'>Fire AJAX Request</button>
+                        
+                        <h3>Enter the ID</h3>
+                        <div class="form">
+                                <label for="text">Id</label>
+                                <input type="text" class="form-control" id="text" >
+                                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                                <button type="submit" class="btn btn-primary" id ='idsubmit'>Submit</button>
+                              </div>
+                    </div>  
+
+
+            </div>
+
+
+            
+            <div class="container">
+                
+                <h3 id ='complete'></h3>
+                <h3 id = 'incomplete'></h3>
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User ID</th>
+                            <th>Title</th>
+                        </tr>
+                    </thead>
+                        <tbody id='todosTable'>
+
+
+                        </tbody>
+                </table>
+            </div>
+
+            
+
+    
+                
+    <script src ='./JS/AJAXex.js'></script>
+</body>
+</html>
