@@ -7,12 +7,10 @@ SELECT * FROM TRACK where BYTES = (SELECT MAX(BYTES) FROM TRACK);
 --Write a SQL Query that contains the titles of all albums with tracks longer than 6 minutes in them 
 SELECT TITLE FROM ALBUM WHERE ALBUMID IN (SELECT ALBUMID FROM TRACK WHERE MILLISECONDS > 360000);
 
---XXXXX
 --Write a SQL Query that contains the albumId and number of songs in the album 
-SELECT A.TITLE, COUNT(T.TRACKID) FROM TRACK T --Now how do i combine the numbers?
-    INNER JOIN ALBUM A
-    ON T.ALBUMID = A.ALBUMID
-    GROUP BY A.TITLE, T.TRACKID;
+SELECT A.TITLE,T.MYCOUNT FROM ALBUM A
+INNER JOIN (SELECT ALBUMID AS AID, COUNT(*) AS MYCOUNT FROM TRACK GROUP BY ALBUMID ORDER BY COUNT(*) DESC)T
+ON T.AID = A.ALBUMID;
 
 --XXXXX
 --Write a SQL query that contains artist's names and the number of tracks they have produced (assume an artist produced a track if it appears in one of their albums)
@@ -61,30 +59,17 @@ SELECT T.NAME AS TRACKNAME, A.TITLE AS ALBUMNAME, M.NAME AS MEDIATYPE, G.NAME AS
     ON T.GENREID = G.GENREID;
     
 
---XXXXX
 --Write a SQL Query that returns the Top 40 Songs for 2013
-SELECT T.NAME, COUNT(IL.QUANTITY) FROM TRACK T --The count doesn't work right
-    INNER JOIN INVOICELINE IL
-    ON T.TRACKID = IL.TRACKID
+--My query is showing that no track was bought more than once in 2013. Maybe I'm doing something really wrong.
+SELECT T.TRACKS, COUNT(T.TRACKS) FROM
+    (SELECT IL.TRACKID AS TRACKS FROM INVOICELINE IL
     INNER JOIN INVOICE I
-    ON IL.INVOICEID = I.INVOICEID
-    WHERE I.INVOICEDATE BETWEEN '1-JAN-13' AND '31-DEC-2013'; --????
-    
-SELECT INVOICEID FROM INVOICE WHERE INVOICEDATE BETWEEN '1-JAN-13' AND '31-DEC-2013';
+    ON I.INVOICEID = IL.INVOICEID
+    WHERE I.INVOICEDATE BETWEEN '1-JAN-13' AND '31-DEC-2013')T
+    WHERE ROWNUM <= 40
+    GROUP BY T.TRACKS
+    ORDER BY COUNT(T.TRACKS) DESC;
 
-
-SELECT COUNT(*) FROM (
-SELECT IL.TRACKID FROM INVOICELINE IL
-INNER JOIN INVOICE I
-ON I.INVOICEID = IL.INVOICEID
-WHERE I.INVOICEDATE BETWEEN '1-JAN-13' AND '31-DEC-2013');
-
-
-
-
-    
-    
-SELECT * FROM INVOICE;
 
 --Write a SQL Query that shows which sales agent made the most in sales overall
 SELECT COUNT(E.EMPLOYEEID) AS TOTAL, E.FIRSTNAME
