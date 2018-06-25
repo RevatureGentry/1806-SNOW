@@ -6,7 +6,7 @@ function StringManipulator() {
         if(typeof value === "string"){
             value = value.replace(/ /g,"");
             length = 0;
-            while((value.charAt(length)!=="")){length = length + 1;}
+            while((value.charAt(length) !== "")){length = length + 1;}
             for(let i=0;i<Math.floor(length/2);i++){
                 if(value.charAt(i)!==value.charAt(length-1-i)){
                     return false;
@@ -19,13 +19,12 @@ function StringManipulator() {
     /* CONDITION: you may only use String.prototype.charAt() */
     this.reverseString = function(value) {
         if(typeof value === "string"){
-            length = 0;
             index = 0;
-            while((value.charAt(length)!=="")){length = length + 1;}
             result = "";
-            for(let i=0; i < length;i++){
-                result =  result + value.charAt(length-1-i);
-            }return result;
+            while((value.charAt(index) !== "")){
+                result = value.charAt(index) + result;
+                index = index + 1;}
+            return result;
         } else throw new error()
     }
 

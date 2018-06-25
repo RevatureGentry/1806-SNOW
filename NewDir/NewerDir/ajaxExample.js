@@ -1,6 +1,6 @@
 window.onload = function() {
     // Get a reference to the ajaxButton
-    document.getElementById('ajaxButton').addEventListener('click',fireRequest);
+    document.getElementById("goButton").addEventListener('click', fireRequest);
 }
 
 function fireRequest() {
@@ -14,7 +14,7 @@ function fireRequest() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 5.) handle the response
             let response = JSON.parse(xhr.responseText);
-            addRows(response);
+            addRows(response, document.getElementById('sel1').options[document.getElementById('sel1').selectedIndex].value);
         }
     }
 
@@ -26,10 +26,19 @@ function fireRequest() {
 }
 
 
-function addRows(response) {
+
+for (let i = 1; i <= 200; i++){   
+    let option = document.createElement('option');
+    option.innerHTML = `${i}`;
+    option.value = i;
+    document.getElementById('sel1').appendChild(option);
+}
+
+function addRows(response, rowNum) {
     // The For ... of loop interates over every element of an iterable object
     let numComplete = 0
     let numIncomplete = 0
+
     for (let ajax of response) {
         // Prgammatically create HTML elements
         let row = document.createElement('tr');
@@ -56,10 +65,11 @@ function addRows(response) {
         completed ? row.setAttribute("class","bg-success") : row.setAttribute("class", "bg-danger");
         completed ? numComplete++ : numIncomplete++;
         // Add the row to the table body
-        document.getElementById('todosTable').appendChild(row);
+        if(rowNum == ajax.id){
+            document.getElementById('todosTable').appendChild(row);
+        }
     }
-
-    //Add the number pof complete and incomplete todos
+    //Add the number of complete and incomplete todos
     document.getElementById('complete').textContent = `Completed: ${numComplete}`
     document.getElementById('incomplete').textContent = `Incomplete: ${numIncomplete}`
 }
