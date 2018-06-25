@@ -17,7 +17,10 @@ function StringManipulator() {
             //runs through the string comparing the corresponding left side and right side values
             //to see if they are the same, if they aren't it is not a palindrome
             for(let i=0; i<originalstring.length;i++){
+                console.log(originalstring[i])
+                console.log(originalstring[y])
                 if (originalstring[i] === originalstring[y]){
+
                  y = y - 1;
                 }
                 else {
