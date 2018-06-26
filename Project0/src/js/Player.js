@@ -7,8 +7,6 @@ import * as types from "./typecheck";
 class Player {
     constructor() {
         this._instruments = [];
-        //this._instrument = new Tone.Synth().toMaster();
-        //this._instrument_2 = new Tone.Synth().toMaster();
     }
 
     /*

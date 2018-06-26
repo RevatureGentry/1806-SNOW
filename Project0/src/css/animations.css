@@ -4,7 +4,7 @@
     }
 
     to {
-        margin-top: 400px;
+        margin-top: 100vh;
     }
 }
 
@@ -24,4 +24,15 @@
     animation-duration: 4s;
     animation-name: slidedown;
     animation-timing-function: linear;
+}
+
+.moving-arrow {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    color: black;
+    display: block;
+    font-size: 80px;
+    z-index: 2;
 }

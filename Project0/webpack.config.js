@@ -4,7 +4,8 @@
      mode: 'production',
      entry: {
         app: './src/js/index.js',
-        test: './src/js/testing.js'
+        test: './src/js/testing.js',
+        animations: './src/js/animations'
      },
      output: {
          path: path.resolve(__dirname, 'src', 'js', 'build-js'),

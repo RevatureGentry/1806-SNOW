@@ -36,7 +36,17 @@
                 <div class="row">
                     <button class="btn btn-success" id="start-game">Start</button>
                     <button class="btn btn-warning" disabled id="pause-game">Pause</button>
-                </div> <br>
+                    <button class="btn" disabled id="resume">Resume</button>
+                    <button class="btn" disabled id="reset">Reset</button>
+                </div> <br><br>
+
+                <input type="radio" name="difficulty" id="easy" value="easy" checked>
+                <label for="easy">Easy</label> <br>
+                <input type="radio" name="difficulty" id="medium" value="medium">
+                <label for="medium">Medium</label> <br>
+                <input type="radio" name="difficulty" id="hard" value="hard">
+                <label for="hard">Hard</label> <br> <br>
+
             </div>
         
 
@@ -47,17 +57,17 @@
                     <div class="col bg-primary lane" id="lane-3"></div>
                     <div class="col bg-primary lane" id="lane-4"></div>
                 </div>
-                <div class="row" id+"arrows">
-                    <div class="col bg-secondary">
+                <div class="row" id="arrows">
+                    <div class="col bg-secondary arrow-bg">
                         <i class="fa fa-arrow-left arrow" id="arrow-1"></i>
                     </div>
-                    <div class="col bg-secondary">
+                    <div class="col bg-secondary arrow-bg">
                         <i class="fa fa-arrow-up arrow" id="arrow-2"></i>
                     </div>
-                    <div class="col bg-secondary">
+                    <div class="col bg-secondary arrow-bg">
                         <i class="fa fa-arrow-down arrow" id="arrow-3"></i>
                     </div>
-                    <div class="col bg-secondary">
+                    <div class="col bg-secondary arrow-bg">
                         <i class="fa fa-arrow-right arrow" id="arrow-4"></i>
                     </div>
                 </div>
@@ -65,5 +75,5 @@
         </div>
     </div>
 </body>
-    <script src="../js/animations.js"></script>
+    <!-- <script src="../js/build-js/animations.bundle.js"></script> -->
 </html>
