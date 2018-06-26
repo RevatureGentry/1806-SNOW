@@ -122,7 +122,6 @@ let wizard = new Wizard('LuLu', 150, 'Thunder', 1000);
 wizard.sayHello();
 
 
-
 /* Run this last */
 
 // warrior.battles(wizard);

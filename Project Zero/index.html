@@ -12,85 +12,89 @@
     <div class="container-fluid">
         <div class="jumbotron">
             <h1 class="display-6">RPG Character Builder</h1>
-            <h4 style="text-align: right"><a href="./index.html">Reset</a></h4>
+            <h4 style="text-align: right"><a href="./index.html">Reset All</a></h4>
         </div>
     </div>
-    <div class="container">
+    <div class="container" id="characterBuilderContainer">
         <div class="row">
-        </div>
-        <div class="row">
-            <div class="col-5">
-                <h4>Stat Points Remaining: <span id="statPoints">0</span></h4>
-            </div>
-            <div class="col-3">
-                <h4>Max HP: <span  id="hp">4</span></h3>
-            </div>
-            <div class="col-3">
-                <h4>Armor: <span id="armor">10</span></h3>
-            </div>
         </div>
         <div class="row" id="statSelection">
-            <div class="col-3" style="border: 2px solid red">
+        <!-- 'Physical' Stats -->
+            <div class="col-3">
                 <form action="">
-                    <p class="statBlock">Strength: &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;
+                    <p class="statBlock" id="strBlock">Strength: &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;
                 <!-- Strength Incremental Buttons-->
                         <span id="strVal">0</span>
                         <span class="btn-group-vertical">
-                            <button class="btn btn-default"type="button" value="strUp">^</button>
-                            <button class="btn btn-default"type="button" value="strDown">v</button>
+                            <button class="btn btn-default" type="button" id="strUp">^</button>
+                            <button class="btn btn-default" type="button" id="strDown">v</button>
                         </span>
                     </p>
-                    <p class="statBlock">Dexterity: &emsp;&emsp;&emsp;&nbsp;&nbsp;
+                <!-- Dexterity Incremental Buttons-->
+                    <p class="statBlock" id="dexBlock">Dexterity: &emsp;&emsp;&emsp;&nbsp;&nbsp;
                         <span id="dexVal">0</span>
                         <span class="btn-group-vertical">
-                            <button class="btn btn-default"type="button" value="dexUp">^</button>
-                            <button class="btn btn-default"type="button" value="dexDown">v</button>
+                            <button class="btn btn-default" type="button" id="dexUp">^</button>
+                            <button class="btn btn-default" type="button" id="dexDown">v</button>
                         </span>
                     </p>
-                    <p class="statBlock">Constitution: &emsp;&emsp;
+                <!-- Constitution Incremental Buttons-->
+                    <p class="statBlock" id="conBlock">Constitution: &emsp;&emsp;
                         <span id="conVal">0</span>
                         <span class="btn-group-vertical">
-                            <button class="btn btn-default"type="button" value="conUp">^</button>
-                            <button class="btn btn-default"type="button" value="conDown">v</button>
+                            <button class="btn btn-default" type="button" id="conUp">^</button>
+                            <button class="btn btn-default" type="button" id="conDown">v</button>
                         </span>
                     </p>
                 </form>
             </div>
-            <div class="divider"></div>
-            <div class="col-3  col-md-offset-2 col-lg-offset-2" style="border: 2px dotted purple">
+        <!-- 'Mental' Stats -->
+            <div class="col-3  col-md-offset-2 col-lg-offset-2" >
                     <form action="">
                             <p class="statBlock">Wisdom: &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <!-- Wisdom Incremental Buttons-->
                                 <span id="wisVal">0</span>
                                 <span class="btn-group-vertical">
-                                    <button class="btn btn-default"type="button" value="wisUp">^</button>
-                                    <button class="btn btn-default"type="button" value="wisDown">v</button>
+                                    <button class="btn btn-default"type="button" id="wisUp">^</button>
+                                    <button class="btn btn-default"type="button" id="wisDown">v</button>
                                 </span>
                             </p>
+                        <!-- Intelligence Incremental Buttons-->
                             <p class="statBlock">Intelligence: &emsp;&emsp;&nbsp;
                                 <span id="intVal">0</span>
                                 <span class="btn-group-vertical">
-                                    <button class="btn btn-default"type="button" value="intUp">^</button>
-                                    <button class="btn btn-default"type="button" value="intDown">v</button>
+                                    <button class="btn btn-default"type="button" id="intUp">^</button>
+                                    <button class="btn btn-default"type="button" id="intDown">v</button>
                                 </span>
                             </p>
+                        <!-- Charisma Incremental Buttons-->
                             <p class="statBlock">Charisma: &emsp;&emsp;&emsp;&nbsp;&nbsp;
                                 <span id="chaVal">0</span>
                                 <span class="btn-group-vertical">
-                                    <button class="btn btn-default"type="button" value="chaUp">^</button>
-                                    <button class="btn btn-default"type="button" value="chaDown">v</button>
+                                    <button class="btn btn-default"type="button" id="chaUp">^</button>
+                                    <button class="btn btn-default"type="button" id="chaDown">v</button>
                                 </span>
                             </p>
                         </form>
             </div>
-            <div class="col-6" style="border: 2px solid yellowgreen">
-                <form action="">
+            <div class="col-6">
+                <form action="" class="statBlock">
                     <!-- Name and Race Fields-->
-                    <label class="heroLabels" for="name">Name: </label>
-                    <input type="text" id="name" value="Your Name">
-                    <label class="heroLabels" for="race">Race: </label>
-                    <input type="text" id="race" value="Your Fantasy Race">
+                    <label class="heroLabels" for="nameVal">Name: </label> &emsp;
+                    <input type="text" id="nameVal" value="Your Name">
+                    <br> <br>
+                    <label class="heroLabels" for="raceVal">Race: </label> &emsp;&nbsp;&nbsp;
+                    <input type="text" id="raceVal" value="Your Fantasy Race">
+                    <hr>
+                    <p class="statBlock" id="statPointsBlock">Stat Points Remaining: <span id="statPoints">0</span></p>
+                    <p class="statBlock" id="hpBlock">Max HP: <span  id="hpVal">4</span></p>
+                    <p class="statBlock" id="armorBlock">Armor: <span id="armorVal">10</span></p>
+                    
+                    <!-- Submit/Start Fight Button -->
+                    <hr>
+                    <button class="btn btn-default" type="button" id="submitButton">Start Fight!</button>
                 </form>
+
             </div>
             
         </div>
@@ -118,13 +122,14 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="pre-scrollable" id="actionLog" style="border: 2px solid black">
-                    <pre>Scrollable Area (Log)</pre>
+                <div class="pre-scrollable" style="border: 2px solid black">
+                    <pre id="actionLog">Scrollable Area (Log)</pre>
                 </div>
+                <button class="btn btn-default" id="resetButton" type="button">Reset Combat</button>
             </div>
         </div>
     </div>
     <script src="./js/index.js" tag="indexJS"></script>
-    <script src="./js/statManager.js" tag="statManagerJS"></script>
+    <br><br><br><br><br><br>
 </body>
 </html>

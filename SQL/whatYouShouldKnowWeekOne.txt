@@ -1,23 +1,66 @@
 What is HTML?
+	HTML Stands for HyperText Markup Language, and it is a markup language, not a programming language
 What are the required tags in an HTML document?
+	<!DOCTYPE html>
+	<html></html>
+	<head></head>
+	<body></body>
 What is the anatomy of an HTML tag?
+	Opening Tag: <p attribute1="attribute value"></p> Closing Tag (some tags do not need one)
 Can you tell me some HTML tags?
+	paragraph tag, <p>
+	<br> Vertical Line Break
+	<head>
+	<header>
+	<footer>
+	<div>
+	etc.
+
 What is CSS?
+	CSS stands for Cascading Style Sheets, and it is the visual design control language for web pages. 
 In what ways an we select tags to be styled?
+	Select by all instances of a tag: p {style attribute1, etc.}, 
+	select by id: #idname, 
+	select by class: .classname, and 
+	select specific tags by class: tagname.classname. 
 What is the difference between display: none; and visibility: hidden?
+	display: none completely removes the attribute from the DOM. visibility: hidden just makes the item invisible, but still clickable. 
 What is Bootstrap?
+	Bootstrap is a CSS/JS library that utilizes preformatted classes to ease the organization, functionality, and formatting of a web page. 
 Explain to me the Grid System in Bootstrap.
+	Every element in bootstrap should be wrapped in a container. 
+	Every container can be futher broken up into rows and columns, with rows encapsulating each column element. 
+	Each column can take up to 12 'units' of space within a row. You can use this to organize and format your web pages.
+	Additionally, if you make an additional row/column structure encapsulated within another structure, these also take up 12 units. 
 What is required if we want to leverage any part of the Bootstrap library in our HTML page?
+	You must have a link to the Bootstrap CSS file in the <head> tag. 
 
 What is JavaScript?
+	JavaScript is a programming language commonly used in webpages to provide functionality and DOM manipulation. 
+	It is loosely typed, unlike many other object-oriented programming languages, and is considered to be Object Oriented, though it didn't always use to be that way. 
 What are the data types?
+	number, object, array, boolean, string (no char), NaN, null, undefined, and symbol.
 How can objects be created in JavaScript?
+	You create an object by typing let/var name = new Object();.
+	You create an object by declaring any variable an instance of a function, or of any other child of the object type. 
+	Since objects are their own data type in Javascript, to create an object IN javascript, you declare a variable of type object. 
+	If you want to create your own custom object, simply declare a function. All functions are of type object.
 What makes functions in JavaScript different from other languages?
+	First off, JS is loosely typed, unlike many other computer language. It is an interpreted language, and as such does not compile itself. It reads and executes each line of code as it encounters it.
 What is truthy and falsy?
+	Falsy is any evaluation that isn't true or false, that evaluates to false. 
+	Examples of falsy evaluations are 0 == '', where
 What is the purpose of isNaN?
+	isNaN evaluates whatever is passed into it as NaN or not. Since NaN === NaN will always evaluate to false, it serves as a built-in check where you normally can't use one. 
 Is JavaScript pass by value or pass by reference?
+	
 What are undeclared variables and undefined variables?
+	Undeclared variables are variables that have not been defined or declared anywhere within a scope. They have no name or identifier assigned to them, and no value to go off of.  
+	Undefined variables, on the other hand, are variables that have been named/declared, but not given a value.
 What are the variable scopes in JavaScript?
+	Global - everything not constrained to a scope.
+	Local - anything within a function. 
+	Block - anything within a block of code, aka within brackets. 
 What are global variables?
 What are undeclared variables and undefined variables?
 How do you add new elements dynamically?
@@ -54,9 +97,17 @@ What is an Entity Relational Diagram?
 What is a subquery?
 What is referential integrity?
 What is an orphaned record?
+	A record that references a key which no longer exists. 
 What is an aggregate function/scalar function?
 What is a join?
+	A join is a merging of two tables, copying the data that matches whatever constraints placed upon the join into a new table. There are multiple types of joins. 
+
 What are the different joins available?
+	Inner Join
+	Full Outer Join
+	Full Outer Left
+	Full Outer Right
+	Self Join
 What are the difference between the joins?
 What is the purpose of LIKE?
 What is the purpose of DISTINCT?
