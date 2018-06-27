@@ -11,6 +11,7 @@ import { GamePlayer, Mode } from "./GamePlayer";
     window.onload = function initUserInteractions(event) {
         console.log("Script running at load");
 
+        addArrowEvents();
         addPreviewEvents();
         addStartEvents();
     };
@@ -86,11 +87,11 @@ import { GamePlayer, Mode } from "./GamePlayer";
             pause.disabled = false;
         });
 
-        pause.addEventListener('click', function pauseGame(event) {
+        pause.addEventListener('click', function pause(event) {
             // TODO: Pause the game. But don't RESET it!!!!
+            pauseGame();
             start.disabled = false;
             pause.disabled = true;
-            console.log("pause game!");
         });
 
         function playGame() {
@@ -142,6 +143,22 @@ import { GamePlayer, Mode } from "./GamePlayer";
 
             }
         }
+
+        function pauseGame() {
+            console.log("pause game!");
+            player.pause();
+        }
+    }
+
+    function addArrowEvents() {
+        const ids = [1, 2, 3, 4];
+        for(let id of ids) {
+            const arrow_id = "arrow-" + id.toString();
+            const arrow = document.getElementById(arrow_id);
+            arrow.addEventListener("animationend", function(event) {
+                arrow.classList.remove("explode");
+            });
+        }
     }
 
     function existsUserChosenFile() {
@@ -165,7 +182,7 @@ import { GamePlayer, Mode } from "./GamePlayer";
     var LAYLA = 
         "Layla \n" +
         "Eric Clapton \n" +
-        "unit 16 upm 240 beat 4 \n " +
+        "unit 16 upm 60 beat 4 \n " +
         "-ScoreStart- \n" +
         "A5 C6 D6 E6 D6 A5 C6 ~ ~ ~ E5 E5 E5 ~ D5 D5 C5 D5 E5";
 })();

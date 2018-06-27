@@ -18,6 +18,7 @@ class GamePlayer extends Player {
     constructor() {
         super();
         this._mode = Mode.EASY;
+        this._count = 0;
     }
 
     getMode() {
@@ -54,44 +55,62 @@ class GamePlayer extends Player {
 
         for(let i = 0; i < notes.length; i++) {
             const durations = notes[i][1];
-            const arrow_start_times = utils.convertDurationsToArrowStartTimes(durations, this._mode);
-            this._scheduleArrows(arrow_start_times);
+
+            // TODO: Arrow start times need to come with DETERMINISTIC algorithm
+            // that determines speed of given arrow. Also needs to contain
+            // the END time for the arrow at which a key press is expected.
+            // Use Tone.Transport.seconds to compare to this end time!
+            const arrow_start_end_times = utils.convertDurationsToArrowStartAndEndTimes(durations, this._mode);
+            this._scheduleArrows(arrow_start_end_times);
         }   
     }
 
     _clearOldArrows() {
         Tone.Draw.cancel();
+        this._count = 0;
     }
 
-    /*  arrow_start_times is an arrow of valid times that an arrow could start.
+    /*  arrow_start_times is an array of pairs, with each pair being
+        the time an arrow starts and the time an arrow is expected
+        to be completed (keyed).
         Times are in seconds. Times cannot be negative.
     */
-    _scheduleArrows(arrow_start_times) {
+    _scheduleArrows(arrow_start_end_times) {
         console.log("Scheduling the game in mode " + this._mode.toString());
         const createArrowFn = this._createArrow;
         const _this = this;
-        for(let i = 0; i < arrow_start_times.length; i++) {
+        for(let i = 0; i < arrow_start_end_times.length; i++) {
+            const num_lanes = 4;
+            const lane_number = 1 + Math.floor(Math.random() * num_lanes);
+            const arrow_duration = arrow_start_end_times[i][1] - arrow_start_end_times[i][0];
+            const arrow = createArrowFn.call(_this, lane_number, arrow_duration);
+            const lane_id = "lane-" + lane_number.toString();
+            const arrow_id = "arrow-" + lane_number.toString();
+            //this._scheduleArrowCompletion(lane_id, arrow_start_end_times[i][1]);
+            const scheduleArrowCompletion = this._scheduleArrowCompletion;
             Tone.Transport.schedule(function(time) {
                 Tone.Draw.schedule(function drawArrow() {
-                    const num_lanes = 4;
-                    const lane_number = 1 + Math.floor(Math.random() * num_lanes);
-                    const arrow = createArrowFn.call(_this, lane_number);
-                    const lane_id = "lane-" + lane_number.toString();
+                    
                     document.getElementById(lane_id).appendChild(arrow);
+                    scheduleArrowCompletion.call(_this, arrow_id, arrow_start_end_times[i][1]);
                 });
-            }, arrow_start_times[i]);
+            }, arrow_start_end_times[i][0]);
+
+            // TODO : Schedule Tone.Transport to eventually stop??? Or not??
         }
     }
 
-    _createArrow(lane_number) {
+    _createArrow(lane_number, arrow_duration) {
         types.typecheckNumber(lane_number);
+        types.typecheckNumber(arrow_duration);
         const direction = this._getArrowDirection(lane_number);
-        const arrowCreationFn = this._getArrowCreationFn();
+        const arrowCreationFn = this._getArrowCreationFn(arrow_duration);
 
         return arrowCreationFn(direction);
     }
 
     // TODO : move this to utils and TEST IT.
+    //      
     _getArrowDirection(lane_number) {
         types.typecheckNumber(lane_number);
         if(lane_number === Lane.LEFT) {
@@ -107,40 +126,78 @@ class GamePlayer extends Player {
         }
     }
 
-    _getArrowCreationFn() {
-        let bound_1;
-        let bound_2;
-        if(this._mode === Mode.EASY) {
-            bound_1 = 70;
-            bound_2 = 90;
-        } else if (this._mode === Mode.MEDIUM) {
-            bound_1 = 40;
-            bound_2 = 70;
-        } else if (this._mode === Mode.HARD) {
-            bound_1 = 20;
-            bound_2 = 50;
-        } else {
-            throw new Error("Not a valid mode");
-        }
-
-
-        const max = 100;
-        const fn_selector = Math.floor(Math.random() * max);
-
-         // TODO : Maybe split this lower part of the function out into
-         // A testable utils function? Encapsulate the functionality
-         // away from the randomness!!
-
-        if(fn_selector >= 0 && fn_selector < bound_1) {
-            return createSlowArrow;
-        } else if (fn_selector >= bound_1 && fn_selector < bound_2) {
-            return createMediumArrow;
-        } else if (fn_selector >= bound_2 && fn_selector < max) {
+    _getArrowCreationFn(arrow_duration) {
+        types.typecheckNumber(arrow_duration);
+        if(arrow_duration === 4) {
             return createFastArrow;
+        } else if (arrow_duration === 7) {
+            return createMediumArrow;
+        } else if (arrow_duration === 10) {
+            return createSlowArrow;
         } else {
-            throw new Error(fn_selector.toString() + " is out of range");
+            throw new Error("arrow duration does not match any arrow type's speed");
         }
     }    
+
+    _scheduleArrowCompletion(arrow_id, completion_time) {
+        console.log("Scheduling an arrow");
+        types.typecheckNumber(completion_time);
+        types.typecheckString(arrow_id);
+        if(completion_time < 0) {
+            throw new Error("completion time must be non-negative");
+        }
+
+        const _this = this;
+
+        // TO DO : Add an event listener on the key down event
+        // to check the Tone.Transport.seconds value to see if it
+        // is close enough to when the keydown was pressed!
+        document.addEventListener('keydown', function checkTime(event) {
+            if(isArrowKey(event.code)) {
+                event.preventDefault();
+                if(Math.abs(Tone.Transport.seconds - completion_time) < 0.5) {
+                    console.log("Success!");
+                    const arrow = document.getElementById(arrow_id);
+                    arrow.classList.add("explode");
+                    document.removeEventListener('keydown', checkTime);
+                    
+                    // TODO : This doesn't work because value of 'this'
+                    //      does not refer to the GamePlayer!
+                    incCount.call(_this);
+                    document.getElementById("counter").innerText = "Count: " + getCount.call(_this).toString();
+                    
+                    function incCount() {
+                        this._count += 1;
+                    }
+
+                    function getCount() {
+                        return this._count;
+                    }
+                }
+
+                if(Tone.Transport.seconds > completion_time + 1) {
+                    document.removeEventListener('keydown', checkTime);
+                }
+            }
+            
+            function isArrowKey(code) {
+                types.typecheckString(code);
+                if(code === "ArrowLeft" || code === "ArrowRight" ||
+                        code === "ArrowUp" || code === "ArrowDown") {
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+
+
+    play() {
+
+        // TODO: Check that this works!
+        document.getElementById("counter").innerText = "Count: " + this._count.toString();
+        super.play();
+    }
 }
 
 export { GamePlayer, Mode };

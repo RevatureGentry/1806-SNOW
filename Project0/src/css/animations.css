@@ -36,3 +36,25 @@
     font-size: 80px;
     z-index: 2;
 }
+
+@keyframes explode {
+    from {
+        color: white;
+    }
+
+    to {
+        color: red;
+    }
+}
+
+.explode {
+    animation-duration: 0.3s;
+    animation-name: explode;
+    animation-timing-function: linear;
+}
+
+.moving-explode {
+    animation-duration: 1s, 2s;
+    animation-name: explode, slidedown;
+    animation-timing-function: linear;
+}

@@ -5,27 +5,27 @@ export var Mode = {
 }
 
 
-export function convertDurationsToArrowStartTimes(durations, mode) {
+export function convertDurationsToArrowStartAndEndTimes(durations, mode) {
     const arrow_start_times = durations
         .reduce(function convertToNoteStartTime(acc, cur) {
             // convert durations to scheduled times
             acc.push(cur + acc[acc.length - 1]);
             return acc;
         }, [0])
-        .map(function convertToArrowStartTime(time) {
+        .map(function convertToArrowStartAndEndTime(time) {
             // TODO TODO : Convert based on MODE.
             if(mode === Mode.EASY) {
-                return time - 4;
+                return [time - 10, time];
             } else if (mode === Mode.MEDIUM) {
-                return time - 4;  // 7 ?
+                return [time - 7, time];
             } else if (mode === Mode.HARD) {
-                return time - 4    // 10 ?
+                return [time - 4, time];
             } else {
-                throw new Error("invalid mode deteceted: " + mode.toString());
+                throw new Error("invalid mode detected: " + mode.toString());
             }
         })
-        .filter(function isPositive(time) {  // Get rid of negative start times.
-            return time >= 0;
+        .filter(function isPositive(times_array) {  // Get rid of negative start times.
+            return times_array[0] >= 0;
         });
 
     // Unfortunately the last time is not valid, because no note is scheduled
