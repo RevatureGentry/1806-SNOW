@@ -121,6 +121,15 @@
 	background-size:contain;
     z-index:1;
 }
+.reverso {
+	width:14vh;
+    height:14vh;
+    margin-top:0vh;
+    margin-left: 1vh;
+    background: url("../assets/popup.png") center center;
+	background-size:contain;
+    z-index:1;
+}
 .legendimg {
 	width:14vh;
     height:14vh;
