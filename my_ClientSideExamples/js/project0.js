@@ -41,7 +41,7 @@ function reset(){
     shiplocations = [];
     shotlocations = [];
     var elem = document.getElementsByClassName('table-bordered');
-    while(elem.length > 0){
+    while(elem.length > 0){//if board is there
         elem[0].parentNode.removeChild(elem[0]);
     }
     let p = document.getElementById('p');
@@ -53,13 +53,14 @@ function reset(){
     grid();      
 }
 //grid is a function that builds the playing area
+//called by windows.onload and reset()
 function grid(){  
-     
+    //builds player1's board
     let topNumberRow = topRow();  
     document.getElementById('topBoard').appendChild(topNumberRow);
     let topBoard = board(1);
     document.getElementById('topBoard').appendChild(topBoard);
-             
+    //builds player2's board
     let botNumberRow = topRow();
     document.getElementById('botBoard').appendChild(botNumberRow);
     let botBoard = board(2);
@@ -96,18 +97,16 @@ function board(number){
         let letter = 65 + i;        
         for(let j = 0; j < 11; j++){
             var col = document.createElement('td');
-            if(j === 0){
+            if(j === 0){ //makes the left most column to be a letter from (A-J)
                 col.textContent = String.fromCharCode(letter); 
                 col.classList.add('bg-secondary');  
-                
             }
-            if(j !== 0){
+            if(j !== 0){//makes the rest of the row is playarea
                 col.classList.add("playableArea");
                 col.setAttribute("onmouseenter", "inMouseLocation(this)");     
                 col.setAttribute("onmouseleave", "outMouseLocation(this)"); 
                 col.setAttribute("onclick", "place(this)");                 
                 col.classList.toggle('td:hover');
-                
             }
             col.id = number+""+(i)+""+(j-1);
             col.style.textAlign = "center";
@@ -140,14 +139,17 @@ function inMouseLocation(loc){
 //put down all its ships
 //calls placeShip(loc, ship) and when its finished calls removeAttributes()
 function place(loc){   
-    if(player){
+    if(player){//player1
+        //checks that mouse is in Player1's area
         if(loc.id > 199){
             return;
         }
         let k = placeShip(loc, player1.fleet[playerindex]);
+        //if return (k) is true it means it is a valid ship placement
         if(k){
             playerindex++;
         }
+        //switches players turn and hides placed ships
         if(playerindex >= 5){
             for(let i = 0; i < shiplocations.length; i++){
                 let hidden = document.getElementById(parseInt(shiplocations[i]));                        
@@ -159,14 +161,17 @@ function place(loc){
             p.textContent = "Player 2 place Ships"            
         }
      }
-     else{
+     else{//player2
+        //checks that mouse is in Player2's area
         if(loc.id < 200){
             return;
         }
         let k = placeShip(loc, player2.fleet[playerindex]);
+        //if return (k) is true it means it is a valid ship placement
         if(k){
             playerindex++;
         }
+        //hides placed ships
         if(playerindex >= 5){
             for(let i = 0; i < shiplocations.length; i++){
                 let hidden = document.getElementById(parseInt(shiplocations[i]));                        
@@ -202,18 +207,19 @@ function fire(loc){
     let p = document.getElementById('p');
     let lastmove = document.getElementById('lastmove');    
     let x = document.getElementById(loc.id);
-    for(let i = 0; i < shotlocations.length; i++){
+    for(let i = 0; i < shotlocations.length; i++){//checks if shot location has been shot at already
         if(shotlocations[i] == loc.id){
             return;
         }
     }
-    if(player){
+    if(player){//player1
+        //checks if mouse location is in player2's area
         if(loc.id < 200){
             return;
         }
         shotlocations.push(loc.id);                        
         for(let i = 0; i < shiplocations.length; i++){
-            if(loc.id == shiplocations[i]){
+            if(loc.id == shiplocations[i]){//checks if shot has hit a ship
                 x.classList.add('hit');
                 lastmove.textContent = "Last Move: Player 1 Hit"
                 p.textContent = "Player 2 fire" 
@@ -228,13 +234,14 @@ function fire(loc){
         p.textContent = "Player 2 fire"                            
         
     }
-    else{
+    else{//player2
+        //checks if mouse location is in player1's area
         if(loc.id > 199){
             return;
         }
         shotlocations.push(loc.id);                        
         for(let i = 0; i < shiplocations.length; i++){
-            if(loc.id == shiplocations[i]){
+            if(loc.id == shiplocations[i]){//checks if shot has hit a ship
                 x.classList.add('hit');
                 lastmove.textContent = "Last Move: Player 2 Hit"                
                 p.textContent = "Player 1 fire"      
@@ -255,13 +262,14 @@ function placeShip(loc, ship){
     let x = loc.id;
     let shiploc = [];
     let tableCol = document.getElementById('topBoard').rows[0].cells.length;
-    
+    //checks if mouse location + ship size in either horizontal or vertical still fits in players area
     if(x%100 > 100 - (ship.size*10) && position === 'v'){
         return false;
     }
     if(x%10 >= tableCol - ship.size -1 && position ==='h'){
         return false;
     }
+    //gets all 2d locations for entire ship size
     for(var i = 0; i <= ship.size; i++){    
         shiploc.push(parseInt(x));
         if(position === 'v'){       
@@ -310,12 +318,12 @@ function rotate(){
 //calls isGameOver()
 function hit(loc){
     let lastmove = document.getElementById('lastmove');    
-    if(!player){
+    if(!player){//player2
         for(ship of player1.fleet){
             for(let i = 0; i < ship.location.length; i++){
                 if(ship.location[i] == loc.id){
                     ship.hp--;
-                    if(ship.hp === 0){
+                    if(ship.hp === 0){//checks if ship sank
                         ship.sank = true;
                         lastmove.textContent = `Player 2 sank Player 1's ${ship.name}`;
                     }
@@ -323,12 +331,12 @@ function hit(loc){
             }
         }
     }
-    else{
+    else{//player1
         for(ship of player2.fleet){
             for(let i = 0; i < ship.location.length; i++){
-                if(ship.location[i] == loc.id){
+                if(ship.location[i] == loc.id){//checks if hit
                     ship.hp--;
-                    if(ship.hp === 0){
+                    if(ship.hp === 0){//checks if ship sank
                         ship.sank = true;
                         lastmove.textContent = `Player 1 sank Player 2's ${ship.name}`;                    
                     }
@@ -340,7 +348,8 @@ function hit(loc){
 }
 //isGameOver() tells if game is finished by checking if all of a players ships are sank
 function isGameOver(){
-    if(!player){
+    if(!player){//player2
+        //goes through opponents fleet to see if all ships have sank
         for(ship of player1.fleet){
             if(ship.sank === false){
                 return false;
@@ -355,7 +364,8 @@ function isGameOver(){
         let lastmove = document.getElementById('lastmove');        
         lastmove.textContent = "";
     }
-    else{
+    else{//player1
+        //goes through opponents fleet to see if all ships have sank
         for(ship of player2.fleet){
             if(ship.sank === false){
                 return false;
@@ -377,13 +387,14 @@ function isGameOver(){
 function stopdisplayship(loc,ship){
     let x = loc.id;
     let tableCol = document.getElementById('topBoard').rows[0].cells.length;
-    
+    //checks if mouse location + ship size in either horizontal or vertical still fits in players area
     if(x%100 > 100 - (ship*10) && position === 'v'){
         return;
     }
     if(x%10 >= tableCol - ship -1 && position ==='h'){
         return;
     }
+    //removes the display on cells of table where ship was
     for(var i = 0; i <= ship; i++){    
          let mouselocation = document.getElementById(x); 
          mouselocation.classList.toggle("hov", false);      
@@ -401,13 +412,15 @@ function stopdisplayship(loc,ship){
 function displayship(loc, ship){
     let x = loc.id;
     let tableCol = document.getElementById('topBoard').rows[0].cells.length;
+    //checks if mouse location + ship size in either horizontal or vertical still fits in players area
     if(x%100 > 100 - (ship*10) && position === 'v'){
         return;
     }    
     if(x%10 >= tableCol - ship -1 && position ==='h'){
         return;
     }
-   for(var i = 0; i <= ship; i++){    
+    //adds the display on cells of table where ship is
+    for(var i = 0; i <= ship; i++){    
         let mouselocation = document.getElementById(x);  
         mouselocation.classList.toggle("hov", true); 
         if(position === 'v'){       
