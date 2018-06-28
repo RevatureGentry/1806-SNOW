@@ -1,19 +1,23 @@
-/*battleship table rows*/
-tr {
-	height: 37px;
-}
-/*battleship table data cell*/
 td {
-	width: 36px;
-    height: 34px;
+    background: blue;    
+}
+
+hidden{
     background: blue;
 }
 td:hover{
     background-color:grey;
 }
+
 .hov{
     background-color: lightgray;
 }
 .ship{
     background-color: black;
+}
+.hit{
+    background-color: red;
+}
+.miss{
+    background-color: white;
 }

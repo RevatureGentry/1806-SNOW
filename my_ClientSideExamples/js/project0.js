@@ -1,57 +1,58 @@
+//denotes which player it is true:player1 false:player2
 let player = true;
+//denotes if placing stage
 let placing = true;
+//denotes ship orientation
 let position = "h";
-let player1index = 0;
-let player2index = 0;
-let Carrier = {
-    name: "Carrier",
-    size: 4,
-    sank: false,
-    hp: 5,
-    location: []
-};
-let Battleship = {
-    name: "Battleship",
-    size: 3,
-    hp: 4,
-    sank: false ,
-    location: []   
-};
-let Cruiser = {
-    name: "Cruiser",
-    size: 2,
-    sank: false,
-    hp: 3,
-    location: []  
-};
-let Submarine = {
-    name: "Submarine",
-    size: 2,
-    hp: 3,
-    sank: false,
-    location: []   
-};
-let Destroyer = {
-    name: "Destroyer",
-    size: 1,
-    hp: 2,
-    sank: false,
-    location: []   
-};
-let player1 = {
-    id: 1,
-    fleet: [Carrier, Battleship, Cruiser, Submarine, Destroyer]
-};
-let player2 = {
-    id: 2,
-    fleet: [Carrier, Battleship, Cruiser, Submarine, Destroyer]
-};
+//denotes which ship in players fleet they're on
+let playerindex = 0;
+//holds all the ship locations
+let shiplocations = [];
+//holds all shot locations
+let shotlocations = [];
+//creates player1 and player2
+let player1 = new players(1);
+let player2 = new players(2);
+//added events and start of program once webpage loads
 window.onload =  function(){
-    document.getElementById('rotate').addEventListener('click', rotate);    
-    
+    document.getElementById('rotate').addEventListener('click', rotate); 
+    document.getElementById('reset').addEventListener('click', reset);    
+    grid();    
 }
-
-grid();
+//ship object
+function ship(name, size, hp){
+    this.name = name,
+    this.size= size,
+    this.sank= false,
+    this.hp= hp,
+    this.location= []
+}
+//player object
+function players(id){
+    this.id= id,
+    this.fleet= [C1 = new ship("Carrier", 4, 5), B1 = new ship("Battleship", 3, 4), Cr1 = new ship("Cruiser", 2, 3),S1 = new ship("Submarine", 2, 3),D1 = new ship("Destroyer",1,2)]
+}
+//reset() is a function that sets the webpage back to its initial state
+function reset(){
+    player = true;
+    placing = true;
+    position = "h";
+    playerindex = 0;
+    shiplocations = [];
+    shotlocations = [];
+    var elem = document.getElementsByClassName('table-bordered');
+    while(elem.length > 0){
+        elem[0].parentNode.removeChild(elem[0]);
+    }
+    let p = document.getElementById('p');
+    p.textContent = "Player 1 place Ships";  
+    p = document.getElementById('rotate');
+    p.style.visibility = "visible";
+    let lastmove = document.getElementById('lastmove');        
+    lastmove.textContent = ""   
+    grid();      
+}
+//grid is a function that builds the playing area
 function grid(){  
      
     let topNumberRow = topRow();  
@@ -65,6 +66,7 @@ function grid(){
     document.getElementById('botBoard').appendChild(botBoard);
     
 }
+//called by grid(), lables the columns of playing area
 function topRow(){
     let topRow = document.createElement('tr'); 
     topRow.classList.add('table-bordered');   
@@ -72,15 +74,19 @@ function topRow(){
     for(var i = 0; i < 11; i++){
         var col = document.createElement('th');
         if(i !== 0){
-            col.textContent = i;
+            col.textContent = i-1;
         }
         col.style.textAlign = "center";
         col.classList.add('bg-secondary');  
-        
+    
         topRow.appendChild(col);
     }
     return topRow;
 }
+//called by grid(), lables the rows and assigns placeable area
+//with specific ids denoting their location and adds specific
+//characteristics(classes and attributes)
+//takes in a number which denotes which board is is being built
 function board(number){
     let body = document.createElement('tbody'); 
     body.classList.add('table-bordered');
@@ -111,33 +117,44 @@ function board(number){
     }
     return body;
 }
+//in/outMouseLocation() takes in the mouse location noted as loc
+//to control where the ship is being shown 
 function outMouseLocation(loc){
     if(player){
-        stopdisplayship(loc, player1.fleet[player1index].size);
+        stopdisplayship(loc, player1.fleet[playerindex].size);
     }
     else{
-        stopdisplayship(loc, player2.fleet[player2index].size);        
+        stopdisplayship(loc, player2.fleet[playerindex].size);        
     }
 }
 function inMouseLocation(loc){
     if(player){
-       displayship(loc, player1.fleet[player1index].size);
+       displayship(loc, player1.fleet[playerindex].size);
     }
     else{
-        displayship(loc, player2.fleet[player2index].size)
+        displayship(loc, player2.fleet[playerindex].size)
     }
 }
+//place() takes in mouse location checks if its in the appropriate area,
+//keeps track of which ship you are on and swiches players once that player
+//put down all its ships
+//calls placeShip(loc, ship) and when its finished calls removeAttributes()
 function place(loc){   
     if(player){
         if(loc.id > 199){
             return;
         }
-        let k = placeShip(loc, player1.fleet[player1index]);
+        let k = placeShip(loc, player1.fleet[playerindex]);
         if(k){
-            player1index++;
+            playerindex++;
         }
-        if(player1index >= 5){
+        if(playerindex >= 5){
+            for(let i = 0; i < shiplocations.length; i++){
+                let hidden = document.getElementById(parseInt(shiplocations[i]));                        
+                hidden.classList.remove('ship');              
+            }
             player = false;
+            playerindex = 0;
             let p = document.getElementById('p');
             p.textContent = "Player 2 place Ships"            
         }
@@ -146,21 +163,28 @@ function place(loc){
         if(loc.id < 200){
             return;
         }
-        let k = placeShip(loc, player2.fleet[player2index]);
+        let k = placeShip(loc, player2.fleet[playerindex]);
         if(k){
-            player2index++;
+            playerindex++;
         }
-        if(player2index >= 5){
+        if(playerindex >= 5){
+            for(let i = 0; i < shiplocations.length; i++){
+                let hidden = document.getElementById(parseInt(shiplocations[i]));                        
+                hidden.classList.remove('ship');               
+            }
             player = "";
             removeAttributes();
+            player = true;
         }
      }
 }
+//removeAttribues() clears all attributes/elements that are no longer needed 
+//adds attribute for shooting
 function removeAttributes(){
     let p = document.getElementById('p');
     p.textContent = "Player 1 shoot";
     p = document.getElementById('rotate');
-    p.style.display = "none";
+    p.style.visibility = "hidden";
     for(let i = 100; i < 300; i++){
         let col = document.getElementById(i);
         col.removeAttribute("onmouseenter");
@@ -169,11 +193,67 @@ function removeAttributes(){
         col.setAttribute("onclick", 'fire(this)');
     }  
 }
+//fire() takes in mouse location and checks if the shot location was already tagged,
+//if not checks if shot is in a valid player shooting field.
+//if valid shot, checks if its a hit or miss
+//if hit calls hit(loc)
+//switches players when finished 
 function fire(loc){
-    console.log("hi");
+    let p = document.getElementById('p');
+    let lastmove = document.getElementById('lastmove');    
+    let x = document.getElementById(loc.id);
+    for(let i = 0; i < shotlocations.length; i++){
+        if(shotlocations[i] == loc.id){
+            return;
+        }
+    }
+    if(player){
+        if(loc.id < 200){
+            return;
+        }
+        shotlocations.push(loc.id);                        
+        for(let i = 0; i < shiplocations.length; i++){
+            if(loc.id == shiplocations[i]){
+                x.classList.add('hit');
+                lastmove.textContent = "Last Move: Player 1 Hit"
+                p.textContent = "Player 2 fire" 
+                hit(loc);                           
+                player = false;
+                return;
+            }
+        }
+        x.classList.add('miss');
+        player = false;
+        lastmove.textContent = "Last Move: Player 1 Miss"        
+        p.textContent = "Player 2 fire"                            
+        
+    }
+    else{
+        if(loc.id > 199){
+            return;
+        }
+        shotlocations.push(loc.id);                        
+        for(let i = 0; i < shiplocations.length; i++){
+            if(loc.id == shiplocations[i]){
+                x.classList.add('hit');
+                lastmove.textContent = "Last Move: Player 2 Hit"                
+                p.textContent = "Player 1 fire"      
+                hit(loc);                         
+                player = true;
+                return;
+            }
+        }            
+        x.classList.add('miss');
+        player = true;
+        lastmove.textContent = "Last Move: Player 2 Miss"        
+        p.textContent = "Player 1 fire"                                    
+    }
 }
+//placeShip() takes in mouse location and one of the ships in the players fleet
+//checks if its a valid location for ship, if it is places ship in playing field
 function placeShip(loc, ship){
     let x = loc.id;
+    let shiploc = [];
     let tableCol = document.getElementById('topBoard').rows[0].cells.length;
     
     if(x%100 > 100 - (ship.size*10) && position === 'v'){
@@ -183,10 +263,7 @@ function placeShip(loc, ship){
         return false;
     }
     for(var i = 0; i <= ship.size; i++){    
-        ship.location.push(parseInt(x));
-        console.log(ship.location);
-        let mouselocation = document.getElementById(x); 
-        mouselocation.classList.add('ship');      
+        shiploc.push(parseInt(x));
         if(position === 'v'){       
            x = parseInt(x, 10) + 10;
         }
@@ -196,9 +273,31 @@ function placeShip(loc, ship){
                x = '0' + x;
            }             
         } 
+   }
+   //checks if current ship is on an already placed ship
+   for(let i = 0; i < shiplocations.length; i++){
+       for(let j = 0; j < shiploc.length; j++){
+            if(shiplocations[i] === shiploc[j]){
+                let lastmove = document.getElementById('lastmove');    
+                lastmove.textContent = 'conflict';                
+                console.log('conflict');
+                return false;
+            }
+        
+       }
    }  
+   for(let i = 0; i < shiploc.length; i++){
+    let mouselocation = document.getElementById(shiploc[i]);     
+        mouselocation.classList.add('ship');      
+        mouselocation.classList.remove('hov');
+        
+   }
+   shiplocations.push.apply(shiplocations, shiploc);
+   ship.location = shiploc;
    return true;
 }
+//rotate() gets triggered by clicking 'rotate' button
+//changes position of ship into horizontal or virtical
 function rotate(){
     if(position === 'v'){
         position = "h";
@@ -207,20 +306,74 @@ function rotate(){
         position = 'v';
     }
 }
-function isGameOver(){
-    for(ship of player1.fleet){
-        if(ship.sank === false){
-            return false;
+//hit() takes in a mouse location. updates which ship was hit and if it was sank
+//calls isGameOver()
+function hit(loc){
+    let lastmove = document.getElementById('lastmove');    
+    if(!player){
+        for(ship of player1.fleet){
+            for(let i = 0; i < ship.location.length; i++){
+                if(ship.location[i] == loc.id){
+                    ship.hp--;
+                    if(ship.hp === 0){
+                        ship.sank = true;
+                        lastmove.textContent = `Player 2 sank Player 1's ${ship.name}`;
+                    }
+                }
+            }
         }
     }
-    for(ship of player2.fleet.ships){
-        if(ship.sank === false){
-            return false;
+    else{
+        for(ship of player2.fleet){
+            for(let i = 0; i < ship.location.length; i++){
+                if(ship.location[i] == loc.id){
+                    ship.hp--;
+                    if(ship.hp === 0){
+                        ship.sank = true;
+                        lastmove.textContent = `Player 1 sank Player 2's ${ship.name}`;                    
+                    }
+                }
+            }
         }
     }
-    return true;
+    isGameOver();
 }
-
+//isGameOver() tells if game is finished by checking if all of a players ships are sank
+function isGameOver(){
+    if(!player){
+        for(ship of player1.fleet){
+            if(ship.sank === false){
+                return false;
+            }
+        }
+        var elem = document.getElementsByClassName('table-bordered');
+        while(elem.length > 0){
+            elem[0].parentNode.removeChild(elem[0]);
+        }
+        let p = document.getElementById('p');
+        p.textContent = "PLAYER 2 WINS!!!";
+        let lastmove = document.getElementById('lastmove');        
+        lastmove.textContent = "";
+    }
+    else{
+        for(ship of player2.fleet){
+            if(ship.sank === false){
+                return false;
+            }
+        }        
+        var elem = document.getElementsByClassName('table-bordered');
+        while(elem.length > 0){
+            elem[0].parentNode.removeChild(elem[0]);
+        }
+        let p = document.getElementById('p');
+        p.textContent = "PLAYER 1 WINS!!!";  
+        let lastmove = document.getElementById('lastmove');        
+        lastmove.textContent = ""         
+    }
+}
+//(stop)displayship() takes in mouse location and ship from players fleet
+//checks if location is a valid spot on the playing field
+//controls if element has class to displayship
 function stopdisplayship(loc,ship){
     let x = loc.id;
     let tableCol = document.getElementById('topBoard').rows[0].cells.length;
