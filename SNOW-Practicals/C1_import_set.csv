@@ -1,0 +1,7 @@
+id,first_name,last_name,email,group,company,role,password
+jj@email.com,Bob,Jenkins,jj@email.com,keyboard_warriors,c1,itil,password
+kk@email.com,Chimmy,Chong,kk@email.com,keyboard_warriors,c1,itil,password
+ll@email.com,Jimmy,John,ll@email.com,ham_fisted_heroes,c1,itil,password
+gg@email.com,Mary,Allen,gg@email.com,ham_fisted_heroes,c1,,password
+mm@email.com,Samantha,Xiu,mm@email.com,clammy_coconuts,c1,,password
+tt@email.com,Carrie,Underwood,tt@email.com,clammy_coconuts,c1,,password
