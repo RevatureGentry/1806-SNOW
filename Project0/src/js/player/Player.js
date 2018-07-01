@@ -1,8 +1,9 @@
 
-import * as types from "./typecheck";
+import * as types from "../utils/typecheck";
 
 // This class is reponsible for taking a lexed and translated
 // *.music file and playing it in the browser. Therefore it will utilize Tone.js
+// To use this class, schedule notes. Then Play, Pause, and/or Stop them.
 
 class Player {
     constructor() {

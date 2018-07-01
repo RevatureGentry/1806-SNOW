@@ -1,8 +1,8 @@
 
 
 import MusicGenerator from "./MusicGenerator";
-import MusicLexer from "./MusicLexer";
-import MusicTranslator from "./MusicTranslator";
+import MusicLexer from "../lexer/MusicLexer";
+import MusicTranslator from "../translator/MusicTranslator";
 
 describe("Music generator correctly generates music", () => {
     let generator = new MusicGenerator(new MusicLexer(), new MusicTranslator());

@@ -2,7 +2,7 @@
 
 
 
-import MusicLexer from "./MusicLexer";
+import MusicLexer from "../lexer/MusicLexer";
 import MusicTranslator from "./MusicTranslator";
 
 

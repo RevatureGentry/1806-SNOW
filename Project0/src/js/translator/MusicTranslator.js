@@ -1,5 +1,5 @@
 
-import * as types from "./typecheck";
+import * as types from "../utils/typecheck";
 import * as utils from "./MusicTranslator.utils";
 
 class MusicTranslator {

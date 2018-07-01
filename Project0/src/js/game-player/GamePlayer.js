@@ -1,8 +1,8 @@
 
 
-import * as types from "./typecheck";
+import * as types from "../utils/typecheck";
 import { Direction, createFastArrow, createMediumArrow, createSlowArrow } from "./animations";
-import Player from "./Player";
+import Player from "../player/Player";
 import * as utils from "./GamePlayer.utils";
 import { Mode } from "./GamePlayer.utils";
 

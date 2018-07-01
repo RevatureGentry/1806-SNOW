@@ -1,9 +1,9 @@
-import Player from "./Player";
-import MusicGenerator from "./MusicGenerator";
-import MusicLexer from "./MusicLexer";
-import MusicTranslator from "./MusicTranslator";
-import * as types from "./typecheck";
-import { GamePlayer, Mode } from "./GamePlayer";
+import Player from "./player/Player";
+import MusicGenerator from "./generator/MusicGenerator";
+import MusicLexer from "./lexer/MusicLexer";
+import MusicTranslator from "./translator/MusicTranslator";
+import * as types from "./utils/typecheck";
+import { GamePlayer, Mode } from "./game-player/GamePlayer";
 
 (function main() {
     const generator = new MusicGenerator(new MusicLexer(), new MusicTranslator());

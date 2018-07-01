@@ -1,6 +1,6 @@
 
 
-import * as types from "./typecheck";
+import * as types from "../utils/typecheck";
 
 
 

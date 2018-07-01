@@ -1,8 +1,8 @@
-import Player from "./Player";
+import Player from "./player/Player";
 
-import MusicGenerator from "./MusicGenerator";
-import MusicLexer from "./MusicLexer";
-import MusicTranslator from "./MusicTranslator";
+import MusicGenerator from "./generator/MusicGenerator";
+import MusicLexer from "./lexer/MusicLexer";
+import MusicTranslator from "./translator/MusicTranslator";
 
 window.onload = function(event) {
 

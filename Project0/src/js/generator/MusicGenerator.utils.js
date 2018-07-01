@@ -1,5 +1,5 @@
 
-import * as types from "./typecheck";
+import * as types from "../utils/typecheck";
 /*
     This function extracts header values from a header string.
     Headers are expected to take the following form.
