@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Chess</title>
+</head>
+<body>
+        <div class="container">
+            <h1>Chess</h1>
+        </div>
+        <div class="container" id="board">
+            <div class="row" id="8">
+                <div class="col-sm-1 offset-sm-2 bg-dark text-center border border-dark cell blackOccupied" id="A8">
+                    <img src="./Pieces/rookBlack.png" class="rook piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell blackOccupied" id="B8">
+                    <img src="./Pieces/knightBlack.png" class="knight piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell blackOccupied" id="C8">
+                    <img src="./Pieces/bishopBlack.png" class="bishop piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell blackOccupied" id="D8">
+                    <img src="./Pieces/kingBlack.png" class="king piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell blackOccupied" id="E8">
+                    <img src="./Pieces/queenBlack.png" class="queen piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell blackOccupied" id="F8">
+                    <img src="./Pieces/bishopBlack.png" class="bishop piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell blackOccupied" id="G8">
+                    <img src="./Pieces/knightBlack.png" class="knight piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell blackOccupied" id="H8">
+                    <img src="./Pieces/rookBlack.png" class="rook piece black" alt="">
+                </div>
+            </div>
+            <div class="row" id="7">
+                <div class="h-12 col-sm-1 offset-sm-2 bg-light text-center border border-dark cell blackOccupied" id="A7">
+                    <img src="./Pieces/pawnBlack.png" class="pawn piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell blackOccupied" id="B7">
+                    <img src="./Pieces/pawnBlack.png" class="pawn piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell blackOccupied" id="C7">
+                    <img src="./Pieces/pawnBlack.png" class="pawn piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell blackOccupied" id="D7">
+                    <img src="./Pieces/pawnBlack.png" class="pawn piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell blackOccupied" id="E7">
+                    <img src="./Pieces/pawnBlack.png" class="pawn piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell blackOccupied" id="F7">
+                    <img src="./Pieces/pawnBlack.png" class="pawn piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell blackOccupied" id="G7">
+                    <img src="./Pieces/pawnBlack.png" class="pawn piece black" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell blackOccupied" id="H7">
+                    <img src="./Pieces/pawnBlack.png" class="pawn piece black" alt="">
+                </div>
+            </div>
+            <div class="row" id="6">
+                <div class="h-12 col-sm-1 offset-sm-2  border border-dark cell bg-dark text-center" id="A6"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="B6"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="C6"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="D6"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="E6"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="F6"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="G6"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="H6"></div>
+            </div>
+            <div class="row" id="5">
+                <div class="h-12 col-sm-1 offset-sm-2 border border-dark cell bg-light text-center" id="A5"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="B5"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="C5"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="D5"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="E5"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="F5"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="G5"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="H5"></div>
+            </div>
+            <div class="row" id="4">
+                <div class="h-12 col-sm-1 offset-sm-2 border border-dark cell bg-dark text-center" id="A4"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="B4"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="C4"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="D4"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="E4"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="F4"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="G4"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="H4"></div>
+            </div>
+            <div class="row" id="3">
+                <div class="h-12 col-sm-1 offset-sm-2 border border-dark cell bg-light text-center" id="A3"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="B3"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="C3"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="D3"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="E3"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="F3"></div>
+                <div class="col-sm-1 border border-dark cell bg-light text-center" id="G3"></div>
+                <div class="col-sm-1 border border-dark cell bg-dark text-center" id="H3"></div>
+            </div>
+            <div class="row" id="2">
+                <div class="h-12 col-sm-1 offset-sm-2 bg-dark text-center border border-dark cell whiteOccupied" id="A2">
+                    <img src="./Pieces/pawnWhite.png" class="pawn piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell whiteOccupied" id="B2">
+                    <img src="./Pieces/pawnWhite.png" class="pawn piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell whiteOccupied" id="C2">
+                    <img src="./Pieces/pawnWhite.png" class="pawn piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell whiteOccupied" id="D2">
+                    <img src="./Pieces/pawnWhite.png" class="pawn piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell whiteOccupied" id="E2">
+                    <img src="./Pieces/pawnWhite.png" class="pawn piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell whiteOccupied" id="F2">
+                    <img src="./Pieces/pawnWhite.png" class="pawn piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell whiteOccupied" id="G2">
+                    <img src="./Pieces/pawnWhite.png" class="pawn piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell whiteOccupied" id="H2">
+                    <img src="./Pieces/pawnWhite.png" class="pawn piece white" alt="">
+                </div>
+            </div>
+            <div class="row" id="1">
+                <div class="h-12 col-sm-1 offset-sm-2 bg-light text-center border border-dark cell whiteOccupied" id="A1">
+                    <img src="./Pieces/rookWhite.png" class="rook piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell whiteOccupied" id="B1">
+                    <img src="./Pieces/knightWhite.png" class="knight piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell whiteOccupied" id="C1">
+                    <img src="./Pieces/bishopWhite.png" class="bishop piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell whiteOccupied" id="D1">
+                    <img src="./Pieces/queenWhite.png" class="queen piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell whiteOccupied" id="E1">
+                    <img src="./Pieces/kingWhite.png" class="king piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell whiteOccupied" id="F1">
+                    <img src="./Pieces/bishopWhite.png" class="bishop piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-light text-center border border-dark cell whiteOccupied" id="G1">
+                    <img src="./Pieces/knightWhite.png" class="knight piece white" alt="">
+                </div>
+                <div class="col-sm-1 bg-dark text-center border border-dark cell whiteOccupied" id="H1">
+                    <img src="./Pieces/rookWhite.png" class="rook piece white" alt="">
+                </div>
+            </div>
+        </div>
+        <script src="rulesV3.js"></script>
+</body>
+</html>
