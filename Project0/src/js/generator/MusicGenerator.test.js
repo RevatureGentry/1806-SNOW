@@ -7,12 +7,12 @@ import MusicTranslator from "../translator/MusicTranslator";
 describe("Music generator correctly generates music", () => {
     let generator = new MusicGenerator(new MusicLexer(), new MusicTranslator());
     
-    test("generates output for a 1-voice correct music program", () => {
+    test("generates output for a 1-voice correct music program with rests", () => {
         let music =     "  Twinkle Twinkle Little Star  \n  "
                     +   "  Howard Chen  \n"
                     +   " unit 16 upm 330  beat 4   \n"
                     +   " -ScoreStart-  \n "
-                    +   " C C G G A5 A5 G ~ ~ ~ F F E E D D C ~";
+                    +   " C ! G G ! ~ G ~ ~ ~ F5 F5 E E D D C ~";
 
         generator.generate(music);
         expect(generator.hasLexerErrors()).toEqual(false);
@@ -24,15 +24,15 @@ describe("Music generator correctly generates music", () => {
         expect(generator.getGeneratedMusic()).toEqual(
             [
                 [
-                    ["C4", "C4", "G4", "G4", "A5", "A5", "G4", "F4", "F4", "E4", "E4", "D4", "D4", "C4"],
-                    [0.181, 0.181, 0.181, 0.181, 0.181, 0.181, 0.727, 0.181, 0.181, 0.181, 0.181, 0.181, 0.181, 0.363]
+                    ["C4", null, "G4", "G4", null, "G4", "F5", "F5", "E4", "E4", "D4", "D4", "C4"],
+                    [0.181, 0.181, 0.181, 0.181, 0.363, 0.727, 0.181, 0.181, 0.181, 0.181, 0.181, 0.181, 0.363]
                 ]
 
             ]
         );
     });
 
-    test("generates output for a slightly different 1-voice correct music program", () => {
+    test("generates output for a 1-voice correct music program with no rests", () => {
         let music =     "  Twinkle Little Star  \n  "
                     +   "  Howard  \n"
                     +   "  upm 330  beat 4 unit 16  \n"
@@ -62,8 +62,8 @@ describe("Music generator correctly generates music", () => {
                     +   "  Howard  \n"
                     +   "  upm 330  beat 4 unit 16  \n"
                     +   " -ScoreStart-  \n "
-                    +   " C  C  G  G  A6 A6 G  ~ ~ ~ F  F  E  E  D  D  C  ~ NEW"
-                    +   " C5 C5 G5 G5 A7 A7 G5 ~ ~ ~ F5 F5 E5 E5 D5 D5 C5 ~";
+                    +   " !  C  G  G  A6 A6 G  ~ ~ ~ F  F  E  E  D  D  C  ~ NEW"
+                    +   " C5 C5 G5 G5 A7 A7 ! ~ ~ ~ F5 F5 E5 E5 D5 D5 C5 ~";
 
         generator.generate(music);
         expect(generator.hasLexerErrors()).toEqual(false);
@@ -75,11 +75,11 @@ describe("Music generator correctly generates music", () => {
         expect(generator.getGeneratedMusic()).toEqual(
             [
                 [
-                    ["C4", "C4", "G4", "G4", "A6", "A6", "G4", "F4", "F4", "E4", "E4", "D4", "D4", "C4"],
+                    [null, "C4", "G4", "G4", "A6", "A6", "G4", "F4", "F4", "E4", "E4", "D4", "D4", "C4"],
                     [0.181, 0.181, 0.181, 0.181, 0.181, 0.181, 0.727, 0.181, 0.181, 0.181, 0.181, 0.181, 0.181, 0.363]
                 ],
                 [
-                    ["C5", "C5", "G5", "G5", "A7", "A7", "G5", "F5", "F5", "E5", "E5", "D5", "D5", "C5"],
+                    ["C5", "C5", "G5", "G5", "A7", "A7", null, "F5", "F5", "E5", "E5", "D5", "D5", "C5"],
                     [0.181, 0.181, 0.181, 0.181, 0.181, 0.181, 0.727, 0.181, 0.181, 0.181, 0.181, 0.181, 0.181, 0.363]
                 ]
 
