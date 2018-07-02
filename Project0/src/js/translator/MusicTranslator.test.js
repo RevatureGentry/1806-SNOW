@@ -68,6 +68,27 @@ describe("translator translates lexer output correctly", () => {
         ]);
     });
 
+    test("translator translates correct music programs with multiple rests", () => {
+        const music = "F ~ ~ ! E ~ ! ~ ~ ~";
+        lexer.lex(music);
+
+        translator.setUnitsPerMinute(240);
+        translator.translate(lexer.getAllVoices());
+        expect(translator.getTranslation()).toEqual(
+            [
+                [   // voice 1
+                    ["F4", null, "E4", null],
+                    [
+                        0.75,
+                        0.25,
+                        0.5,
+                        1,
+                    ],
+                ],
+            ]
+        );
+    });
+
     test("translator reports errors on incorrect music programs", () => {
         const music = "~ F E   ";
         lexer.lex(music);

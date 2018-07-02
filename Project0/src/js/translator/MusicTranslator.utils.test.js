@@ -1,5 +1,4 @@
 import * as utils from "./MusicTranslator.utils";
-import { translate } from "./MusicTranslator.utils";
 
 expect.extend({
     toBeStringValid(received, validator) {
@@ -53,9 +52,9 @@ describe("utils correctly converts a duration to a Tone.js time", () => {
 
 describe("utils correctly translates a voice to an initial translation", () => {
     test("translates a voice with no errors", () => {
-        let voice = ["A4", "B9", "C2", "D3", "E1", "G6", "F4"];
-        let units_per_minute = 4;
-        let unit = 4;
+        const voice = ["A4", "B9", "C2", "D3", "E1", "G6", "F4"];
+        const units_per_minute = 4;
+        const unit = 4;
 
         const duration = 15;
         expect(utils.translate(voice, unit, units_per_minute)).toEqual(
@@ -64,6 +63,39 @@ describe("utils correctly translates a voice to an initial translation", () => {
                 [ duration, duration, duration, 
                   duration, duration, duration, duration,
                 ],
+                []
+            ]
+        );
+    });
+
+    test("translates a voice with extended duration", () => {
+        const voice = ["A4", "~", "~", "~"];
+        const units_per_minute = 4;
+        const unit = 4;
+
+        const seconds_per_minute = 60;
+        const duration = 4 * seconds_per_minute / units_per_minute;
+        expect(utils.translate(voice, unit, units_per_minute)).toEqual(
+            [
+                ["A4"],
+                [ duration ],
+                []
+            ]
+        );
+    });
+
+
+    test("translates a voice with an extended rest", () => {
+        const voice = ["!", "~", "~", "~"];
+        const units_per_minute = 4;
+        const unit = 4;
+
+        const seconds_per_minute = 60;
+        const duration = 4 * seconds_per_minute / units_per_minute;
+        expect(utils.translate(voice, unit, units_per_minute)).toEqual(
+            [
+                [null],
+                [duration],
                 []
             ]
         );

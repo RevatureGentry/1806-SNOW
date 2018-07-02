@@ -37,11 +37,13 @@ export function translate(voice_array, unit, units_per_minute) {
             } else {
                 duration_count += 1;
             }
-        } else {
-            // Then the token is a note.
+        }
+        else {
+            // Then the token is a note or rest.
+            const note = voice_array[voice_index] === "!" ? null : voice_array[voice_index];
 
             // Add the note.
-            notes.push(voice_array[voice_index]);
+            notes.push(note);
 
             // Add the duration of the previous note.
             if(duration_count > 0) {
