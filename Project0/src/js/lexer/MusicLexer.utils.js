@@ -16,7 +16,7 @@ export function verifyToken(token) {
     typecheckString(token);
 
     // See regular expression documentation for JavaScript.
-    let noteFormat = /^([A-G][1-9]?|(!)?~)$/;
+    let noteFormat = /^([A-G][1-9]?|~|!)$/;
     return noteFormat.test(token);
 }
 

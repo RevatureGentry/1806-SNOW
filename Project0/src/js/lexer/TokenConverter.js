@@ -27,7 +27,7 @@ class TokenToNoteConverter {
 
         let complete_note_pattern = /^[A-G][1-9]$/;
         let shorthand_note_pattern = /^[A-G]$/;
-        let attr_pattern = /^([!]?[~])$/;
+        let attr_pattern = /^(~|!)$/;
 
         if(shorthand_note_pattern.test(token)) {
             return this._getNote(token);

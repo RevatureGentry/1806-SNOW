@@ -40,7 +40,7 @@ describe("lexer properly lexes a music string", () => {
     });
 
     test('Just attributes', () => {
-        let music = "  !~ ~ ~ !~  ";
+        let music = "  ! ~ ~ !  ";
         let expected = music.trim().split(/[\s]+/);
         lexer.lex(music);
         expect(lexer.getNumVoices()).toEqual(1);
@@ -62,12 +62,12 @@ describe("lexer properly lexes a music string", () => {
     });
 
     test('Combine length-1 notes, length-2 notes, attributes, and new  voices', () => {
-        const voice_1 = "A ~ B2 !~ ";
+        const voice_1 = "A ~ B2 ! ";
         const voice_2 = " G ~   \t D9 ~ E1 ";
-        const voice_3 = "   \n F5  !~  ";
-        let expected_1 = ["A4", "~", "B2", "!~"];
+        const voice_3 = "   \n F5  !  ";
+        let expected_1 = ["A4", "~", "B2", "!"];
         let expected_2 = ["G4", "~", "D9", "~", "E1"];
-        let expected_3 = ["F5", "!~"];
+        let expected_3 = ["F5", "!"];
         const expected = [[], expected_1, expected_2, expected_3];
 
 
@@ -83,7 +83,7 @@ describe("lexer properly lexes a music string", () => {
     });
 
     test("Correctly detects invalid errors and publishes them as errors", () => {
-        let music_errors = "  \t A A~ B! D1 G, \n # b  \r";
+        let music_errors = "  \t A A~ B! D1 G, \n # b ~! !~\r";
         lexer.lex(music_errors);
         const expected = [
             ["A~", 1],
@@ -91,6 +91,8 @@ describe("lexer properly lexes a music string", () => {
             ["G,", 4],
             ["#", 5],
             ["b", 6],
+            ["~!", 7],
+            ["!~", 8]
         ];
         expect(lexer.getErrors()).toEqual(expected);
 
