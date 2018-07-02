@@ -61,6 +61,7 @@ class GamePlayer extends Player {
             // the END time for the arrow at which a key press is expected.
             // Use Tone.Transport.seconds to compare to this end time!
             const arrow_start_end_times = utils.convertDurationsToArrowStartAndEndTimes(durations, this._mode);
+            console.log(arrow_start_end_times);
             this._scheduleArrows(arrow_start_end_times);
         }   
     }

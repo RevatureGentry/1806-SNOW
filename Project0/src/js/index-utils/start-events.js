@@ -41,6 +41,7 @@ export function addStartEvents(generator) {
                 reader.onload = function(event) {
                     const music = event.target.result;
                     generator.generate(music);
+                    console.log(generator.getGeneratedMusic());
                     doPlay(generator.getGeneratedMusic());
                 }
                 reader.readAsText(document.getElementById("user-music").files[0]);
@@ -48,6 +49,7 @@ export function addStartEvents(generator) {
 
             function playGameWithSelectionMusic() {
                 const music = generator.generate(utils.getSelectedMusic());
+                console.log(generator.getGeneratedMusic());
                 doPlay(music);
             }
 
