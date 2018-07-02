@@ -108,7 +108,7 @@
     height:14vh;
     margin-top:0vh;
     margin-left: 1vh;
-    background: url("../assets/poptwice.png") center center;
+    background: url("../assets/popupone.png") center center;
 	background-size:contain;
     z-index:1;
 }
@@ -121,12 +121,57 @@
 	background-size:contain;
     z-index:1;
 }
-.reverso {
+.hitcivilian{
+	width:14vh;
+    height:14vh;
+    margin-top:0vh;
+    margin-left: 1vh;
+    background: url("../assets/grave.png") center center;
+	background-size:contain;
+    z-index:1;
+}
+.hittwice{
+	width:14vh;
+    height:14vh;
+    margin-top:0vh;
+    margin-left: 1vh;
+    background: url("../assets/plusone.png") center center;
+	background-size:contain;
+    z-index:1;
+}
+.hithider{
 	width:14vh;
     height:14vh;
     margin-top:0vh;
     margin-left: 1vh;
     background: url("../assets/popup.png") center center;
+	background-size:contain;
+    z-index:1;
+}
+.hitup{
+	width:14vh;
+    height:14vh;
+    margin-top:0vh;
+    margin-left: 1vh;
+    background: url("../assets/grave.png") center center;
+	background-size:contain;
+    z-index:1;
+}
+.reverso {
+	width:14vh;
+    height:14vh;
+    margin-top:0vh;
+    margin-left: 1vh;
+    background: url("../assets/reverso.png") center center;
+	background-size:contain;
+    z-index:1;
+}
+.hitreverso {
+	width:14vh;
+    height:14vh;
+    margin-top:0vh;
+    margin-left: 1vh;
+    background: url("../assets/reversed.png") center center;
 	background-size:contain;
     z-index:1;
 }
