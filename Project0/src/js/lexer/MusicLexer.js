@@ -107,7 +107,7 @@ class MusicLexer {
             if(token === Tokens.NEW_VOICE) {
                 this._addNewVoice();
             } else {
-                this._addToken(token, curr_token_index);
+                this._addOrRejectToken(token, curr_token_index);
             }
         }
     }
@@ -128,12 +128,12 @@ class MusicLexer {
         this._voices.push([]);
     }
 
-    _addToken(token, curr_token_index) {
+    _addOrRejectToken(token, curr_token_index) {
         utils.typecheckString(token);
         utils.typecheckNumber(curr_token_index);
 
         if(this._tokenIsInLanguage(token)) {
-            this.addNote(this.convertTokenToNote(token, curr_token_index));
+            this._addNote(this._convertTokenToNote(token, curr_token_index));
         } else {
             // Token is not in language. so it is an error. Report it!
             this._addError(token);
@@ -146,7 +146,7 @@ class MusicLexer {
         return utils.verifyToken(token);
     }
 
-    convertTokenToNote(token, token_position) {
+    _convertTokenToNote(token, token_position) {
         utils.typecheckString(token);
         utils.typecheckNumber(token_position);
 
@@ -155,7 +155,7 @@ class MusicLexer {
         return converter.convert(token, token_position);
     }
 
-    addNote(note) {
+    _addNote(note) {
         utils.typecheckString(note);
 
         this._voices[this.getNumVoices()].push(note);

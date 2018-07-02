@@ -1,15 +1,21 @@
 html, body, #page, #page>.row, #game, #lanes {
-    height: 100vh;
+    height: 80vh;
+}
+
+body {
+    background-color: silver;
 }
 
 #menu {
     height: initial;
+    background-color: lightblue;
 }
 
 .lane {
     position: relative;
-    height: 100vh;
+    height: 80vh;
     overflow: visible;
+    background-color: black;
 }
 
 .arrow {
@@ -21,8 +27,5 @@ html, body, #page, #page>.row, #game, #lanes {
 
 .arrow-bg {
     z-index: -1;
-}
-
-#arrows {
-    /*visibility:hidden;*/
+    background-color: black;
 }

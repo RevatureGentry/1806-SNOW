@@ -1,29 +1,57 @@
+@keyframes colorchange {
+    from {
+        color: white
+    }
+
+    25% {
+        color: blue;
+    }
+
+    50% {
+        color: hotpink;
+    }
+
+    75% {
+        color: orange;
+    }
+
+    to {
+        color: forestgreen;
+    }
+}
+
 @keyframes slidedown {
     from {
         margin-top: -80px;
     }
 
     to {
-        margin-top: 100vh;
+        margin-top: 80vh;
     }
 }
 
 .moving-arrow-slow {
-    animation-duration: 10s;
-    animation-name: slidedown;
-    animation-timing-function: linear;
+    animation-duration: 10s, 3s;
+    animation-name: slidedown, colorchange;
+    animation-timing-function: linear, ease;
+    animation-iteration-count: 1, infinite;
+    animation-direction: normal, alternate;
 }
 
 .moving-arrow-medium {
-    animation-duration: 7s;
-    animation-name: slidedown;
-    animation-timing-function: linear;
+    animation-duration: 7s, 3s;
+    animation-name: slidedown, colorchange;
+    animation-timing-function: linear, ease;
+    animation-iteration-count: 1, infinite;
+    animation-direction: normal, alternate;
 }
 
 .moving-arrow-fast {
-    animation-duration: 4s;
-    animation-name: slidedown;
-    animation-timing-function: linear;
+    animation-duration: 4s, 3s;
+    animation-name: slidedown, colorchange;
+    animation-timing-function: linear, ease;
+    animation-iteration-count: 1, infinite;
+    animation-direction: normal, alternate;
 }
 
 .moving-arrow {
@@ -31,7 +59,7 @@
     text-align: center;
     left: 0;
     right: 0;
-    color: black;
+    color: purple;
     display: block;
     font-size: 80px;
     z-index: 2;
@@ -43,7 +71,7 @@
     }
 
     to {
-        color: red;
+        color: gold;
     }
 }
 

@@ -65,7 +65,9 @@ function createArrowFn(speedFn) {
 
 function addRemoveOnAnimationEnd(arrow) {
     arrow.addEventListener("animationend", function removeOnEnd(event) {
-        arrow.remove();
+        if(event.animationName === "slidedown") {
+            arrow.remove();
+        }
     }, false);
     return arrow;
 }
