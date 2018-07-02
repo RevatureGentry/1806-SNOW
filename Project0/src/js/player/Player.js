@@ -51,14 +51,18 @@ class Player {
             }).toMaster());
 
             //for each note-duration pair, schedule the note with correct duration.
+            // ALSO schedule rests by updating the overall time.
             let overall_time = 0;
             let notes_array = notes[i][0];
             let dur_array = notes[i][1];
             for(let noteIndex = 0; noteIndex < notes_array.length; noteIndex++) {
-                Tone.Transport.schedule(
-                    this._scheduleNote(notes_array[noteIndex], dur_array[noteIndex]),
-                    overall_time
-                );
+                // If note is not a rest, schedule it.
+                if(notes_array[noteIndex]) {
+                    Tone.Transport.schedule(
+                        this._scheduleNote(notes_array[noteIndex], dur_array[noteIndex]),
+                        overall_time
+                    );
+                }
 
                 // Increment the overall_time for the scheduling of the next note.
                 overall_time += dur_array[noteIndex];

@@ -7,9 +7,9 @@ export function getSelectedMusic() {
     var LAYLA = 
         "Layla \n" +
         "Eric Clapton \n" +
-        "unit 16 upm 60 beat 4 \n " +
+        "unit 16 upm 120 beat 4 \n " +
         "-ScoreStart- \n" +
-        "A5 C6 D6 E6 D6 A5 C6 ~ ~ ~ E5 E5 E5 ~ D5 D5 C5 D5 E5";
+        "A3 C4 D4 E4 D4 A3 C4 ~ ! ~ E3 E3 E3 ~ D3 D3 C3 D3 E3";
 
     const selected = document.getElementById("provided-music").value;
     if(selected === "layla") {
