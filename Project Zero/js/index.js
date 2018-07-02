@@ -1,4 +1,4 @@
-//Enum Declarations
+//Enum Declarations - for easy to use/read value passing.
 let DmgTypeEnum = Object.freeze({"magic":1, "physical":2});
 let StatsEnum = Object.freeze({"str":1, "dex":2, "con":3, "wis":4, "int":5, "cha":6})
 let TurnsEnum = Object.freeze({"c1":1, "c2":2})
@@ -14,7 +14,7 @@ class Combat {
             throw new Error();
         }
         //Turn Management Values
-        this.turnCounter = 0;
+        this.turnCounter = 1;
         this.maxTurns = turns;
         this.whoseTurn = TurnsEnum.c1;
 
@@ -59,38 +59,57 @@ class Combat {
     }
 
     //Methods
-    combatCycle() {
+    cycle(playerDmgType) {
+        if (typeof(dmgType) != 'number') {
+            throw new Error();
+        }
+
         console.log("In combatCycle");
-        let winner = null;
-        appendLog(`---Start of Round ${this.turnCounter}---`);
-
-        //Char1 (Player) makes their move.
-
-        //Char2 (Computer) makes their move.
-
-        //Calculate Damage.
-
-
-        //Check For Winner. 
-        if (this.char1.getHp(), this.char2.getHp() <= 0) {
-            appendLog(`Both ${this.char1.getName()} and ${this.char2.getName()} have collapsed!
-            It's a TKO on both sides!`);
-        }
-        else if (this.char1.getHp() <= 0) {
-            appendLog(`${this.char1.getName()} has collapsed! 
-            ${this.char2.getName()} is the winner of this combat!`);
-            winner = this.char2;
-        }
-        else if (this.char2.getHp() <= 0) {
-            appendLog(`${this.char2.getName()} has collapsed! 
-            ${this.char1.getName()} is the winner of this combat!`);
-            winner = char1;
+        if (this.turnCounter >= this.maxTurns) {
+            appendLog("---END OF COMBAT---\nTo fight again, press the 'Reset' Button Below.");
         }
         else {
-            appendLog(`---End of Round ${this.turnCounter}/${this.maxTurns}---`);
-            this.turnCounter++;
-            if (this.turnCounter >= this.maxTurns) {
+            appendLog(`\n\n---Start of Round ${this.turnCounter}---`);
+            //Char1 (Player) makes their move.
+            let c1Damage = this.char1.dealDamage(playerDmgType);
+            this.char2.takeDamage(c1Damage, playerDmgType);
+            appendLog(`${this.char1.getName()} sends a mighty blow into the face of ${this.char2.getName()}! They deal ${c1Damage - this.char2.getResitance(DmgTypeEnum.physical)} damage!`);
+
+
+            //Char2 (Computer) makes their move.
+            //TODO: Add a check here that sees which attacking stat is higher, Str or Int, and by what percentage. Then, roll the dice to see which attack the enemy deals. 
+            //TODO: Add boolean logic after the above statement has been implemented so that the result is different every time. 
+            let c2Damage = this.char2.dealDamage(DmgTypeEnum.physical);
+            this.char1.takeDamage(c2Damage, DmgTypeEnum.physical);
+            appendLog(`${this.char2.getName()} sends a mighty blow into the face of ${this.char1.getName()}! They deal ${c2Damage - this.char2.getResitance(DmgTypeEnum.physical)} damage!`);
+            
+            //Calculate Damage.
+            appendLog(`Status of Combatants:` 
+                +`\n    ${this.char1.getName()}: HP: ${this.char1.getHp()}/${this.char1.getMaxHp()}`
+                +`\n    ${this.char2.getName()}: HP: ${this.char2.getHp()}/${this.char2.getMaxHp()}`);
+
+            //Check For Winner. 
+            if (this.char1.getHp(), this.char2.getHp() <= 0) {
+                appendLog(`Both ${this.char1.getName()} and ${this.char2.getName()} have collapsed!` +
+                `\n It's a TKO on both sides!`);
                 appendLog("---END OF COMBAT---\nTo fight again, press the 'Reset' Button Below.");
+                this.turnCounter = this.maxTurns;
+            }
+            else if (this.char1.getHp() <= 0) {
+                appendLog(`${this.char1.getName()} has collapsed!` + 
+                `\n ${this.char2.getName()} is the winner of this combat!`);
+                appendLog("---END OF COMBAT---\nTo fight again, press the 'Reset' Button Below.");
+                this.turnCounter = this.maxTurns;
+            }
+            else if (this.char2.getHp() <= 0) {
+                appendLog(`${this.char2.getName()} has collapsed!` +
+                `\n ${this.char1.getName()} is the winner of this combat!`);
+                appendLog("---END OF COMBAT---\nTo fight again, press the 'Reset' Button Below.");
+                this.turnCounter = this.maxTurns;
+            }
+            else {
+                appendLog(`---End of Round ${this.turnCounter}/${this.maxTurns}---`);
+                this.turnCounter++;
             }
         }
     }
@@ -98,7 +117,7 @@ class Combat {
 
 //Character Class.
 class Character {
-    constructor(sPoints=30, baseHp='4', baseArmor=10) {
+    constructor(sPoints=30, baseHp='50', baseArmor=25) {
         //Combat Stats
         this.hp = baseHp;
         this.maxHp = baseHp;
@@ -175,36 +194,40 @@ class Character {
     }
 
     //Setters
-    /* setStat(statType, statValue){ //Accepts a statsEnum.<type> and returns the associated number.
+    setAttribute(statType, statValue){ //Accepts a statsEnum.<type> and returns the associated number.
         if (typeof(statType) != 'number') {
+            console.log("Error (setStat): Wrong stattype was passed into the function.");
             throw new Error();
         }
         switch(statType) {
             case StatsEnum.str: 
-                this[str] = statValue;
+                this.str = statValue;
                 break;
             case StatsEnum.dex:
-                this[dex] = statValue;
+                this.dex = statValue;
                 break;
             case StatsEnum.con: 
-                this[con] = statValue;
+                this.con = statValue;
                 break;
             case StatsEnum.wis:
-                this[wis] = statValue;
+                this.wis = statValue;
                 break;
             case StatsEnum.int:
-                this[int] = statValue;
+                this.int = statValue;
                 break;
             case StatsEnum.cha:
-                this[cha] = statValue;
+                this.cha = statValue;
                 break;
             default: 
-                console.log("StatManager.setStat() - Default reached. Inappropriate statType.");
+                console.log("StatManager.setStat() - Default reached. statType is Out of Bounds.");
                 break;
         }
         updateAttributes();
-    } Removed due to a lack of implementation. 
-    TODO: Add Text Entry -> New Value Functionality. */
+    }
+    resetHp() {
+        this.hp = this.maxHp;
+    }
+    //TODO: Add Text Entry -> New Value Functionality.
 
     incrementStat(statType, isPositive) { //Increments one of the stats by 1. 
         if (typeof(statType) != 'number' || typeof(isPositive) != 'boolean') {
@@ -222,7 +245,8 @@ class Character {
                     break;
                 case StatsEnum.con: 
                     (isPositive) ? this.con++ : this.con--;
-                    //TODO: Add an 'Update HP' functionality here.
+                    this.hp = 50 + Math.round(10*(this.con/2));
+                    this.maxHp = this.hp;
                     break;
                 case StatsEnum.wis:
                     (isPositive) ? this.wis++ : this.wis--;
@@ -232,7 +256,7 @@ class Character {
                     break;
                 case StatsEnum.cha:
                     (isPositive) ? this.cha++ : this.cha--;
-                    //TODO: Add an 'Update Armor' functionality here.
+                    this.armor = Math.round(7.5*(this.cha/3));
                     break;
                 default: 
                     console.log("StatManager.incrementStat() - Default reached. Inappropriate statType.");
@@ -254,12 +278,6 @@ class Character {
     }
 
     //Methods
-    calculateCharacter() {
-        //TODO: Fill in damage calculations, selection and calculation of armor, health, resistances, etc. 
-        this.hp = this.maxHp + ((this.con-10) /2); //TODO: Add a constant update of this alongside the incremental increase of Con. 
-        this.maxHp = this.hp;
-    }
-
     takeDamage(dmg, dmgType) {
         if (typeof(dmg) !== 'number' || typeof(dmgType) !== 'number') {
             console.log(`Error (takeDamage): dmg or dmgType is not the correct type of variable.
@@ -268,22 +286,25 @@ class Character {
             throw new Error();
         }
         let finalDmg = dmg;
+        console.log(`Initial Damage: ${finalDmg}`);
         switch (dmgType) {
             case DmgTypeEnum.physical:
-                finalDmg = dmg - this.dex;
+                finalDmg -= this.dex/4 + this.armor/2; //Physical Damage Resistance
                 break;
             case DmgTypeEnum.magic:
-
+                finalDmg -= this.wis/4 + this.armor/2; //Magical Damage Resistance
                 break;
             default:
                 break;
         }
-        hp -= finalDmg;
+        if (finalDmg < 0) finalDmg = 0;
+        console.log(`finalDamage: ${finalDmg}`);
+        this.hp -= finalDmg;
     }
 
     dealDamage(dmgType) {
         if (typeof(dmgType) !== 'number') {
-            console.log(`Error (dealDamage): dmgType is not the correct type of variable.
+            console.log(`Error (dealDamage): dmgType is not the correct type of variable (number).
                 typeof(dmgType): ${typeof(dmgType)}`);
             throw new Error();
         }
@@ -293,22 +314,43 @@ class Character {
     getDMG(dmgType) {
         let damage = 0;
         let damageMin = this.baseDmg;
+        let damageMax = this.baseDmg;
         switch (dmgType) {
             case DmgTypeEnum.physical: 
                 damageMax = this.baseDmg + this.str*3;
-                damage = Math.round(Math.random() * (damageMax-damageMin+1)+min);
+                damage = Math.round(Math.random() * (damageMax-damageMin+1)+damageMin);
                 break;
             case DmgTypeEnum.magic: 
                 damageMax = this.baseDmg + this.int*3;
-                damage = this.baseDmg + Math.round(Math.random() * (damageMax-damageMin+1)+min);
+                damage = this.baseDmg + Math.round(Math.random() * (damageMax-damageMin+1)+damageMin);
+                appendLog(`${this.name} conjures a mighty spell, sending it crashing into his opponent's knees! They deal ${damage} damage!`);
                 break;
             default: 
-                damage = this.baseDmg + Math.round(this.str*2);
+                console.log("ERROR (getDMG): dmgType is out of bounds. Defaulting to DmgTypeEnum.physical.");
+                damage = this.baseDmg + Math.round(this.str*3);
                 break;
         }
         return damage;
     }
+
+    getResitance(dmgType) {
+        if (typeof(dmgType) !== 'number') {
+            console.log(`Error (getResistance): dmgType is not the correct type of variable (number).
+                typeof(dmgType): ${typeof(dmgType)}`);
+            throw new Error();
+        }
+        switch (dmgType) {
+            case DmgTypeEnum.physical:
+                return this.dex/4 + this.armor/2;
+            case DmgTypeEnum.magic: 
+                return this.wis/4 + this.armor/2;
+            default: 
+                console.log('Error: (dmgType) was out of bounds. Defaulting to Physical Damage.');
+                return this.dex/4 + this.armor/2;
+        }
+    }
 }
+
 
 //Runtime Code
 
@@ -328,17 +370,30 @@ let nameVal;
 let raceVal;
 
 let combatArea;
+let atkPhysicalBtn;
+let atkMagicBtn;
 let actionLog;
 let firstLog = true;
 let resetButton;
 
 //Initialize and Set up Character Object.
-let mainCharacter = new Character(30, 4, 10);
+let mainCharacter = new Character(30, 100, 25);
+let enemyCharacter = new Character(30, 100, 25);
+
 let combat; //Undeclared so far, unused.
 window.onload = function() {
     domBuilder();
-    mainCharacter.getName();
     updateAttributes();
+
+    //Setup enemyCharacter. 
+    enemyCharacter.setName('Slimer the slimey');
+    enemyCharacter.setRace('Slime');
+    enemyCharacter.setAttribute(StatsEnum.str, 18);
+    enemyCharacter.setAttribute(StatsEnum.dex, 22);
+    enemyCharacter.setAttribute(StatsEnum.con, 5);
+    enemyCharacter.setAttribute(StatsEnum.wis, 5);
+    enemyCharacter.setAttribute(StatsEnum.int, 12);
+    enemyCharacter.setAttribute(StatsEnum.cha, 28);
 }
 
 function domBuilder() {
@@ -403,8 +458,16 @@ function domBuilder() {
         //TODO: Add tooltip.
     
     //Combat Area: Combat Screen
-    combatArea = document.getElementById('combatArea');
-        //TODO: Add combat interaction.
+    // combatArea = document.getElementById('combatArea');
+    atkPhysicalBtn = document.getElementById('atkPhysical');
+        atkPhysicalBtn.addEventListener('click', attackPhysical);
+        atkPhysicalBtn.setAttribute('style', 'display: none');
+    atkMagicBtn = document.getElementById('atkMagic');
+        atkMagicBtn.addEventListener('click', attackMagic);
+        atkMagicBtn.setAttribute('style', 'display: none');
+        //TODO: Add actual combat interaction.
+
+    //TODO: Add Skill Selection.
 }
 
 let updateAttributes = function() {
@@ -421,48 +484,83 @@ let updateAttributes = function() {
 }
 
 let submitName = function(name) {
-    console.log(`mainCharacter.name is being changed to: ${nameVal}`);
+    console.log(`mainCharacter.name is being changed to: ${nameVal.value}`);
     mainCharacter.setName(name);
 }
 let submitRace = function(race) {
-    console.log(`mainCharacter.name is being changed to: ${raceVal}`);
+    console.log(`mainCharacter.name is being changed to: ${raceVal.value}`);
     mainCharacter.setRace(race);
 }
 
+//Updates Player Character's Name/Race Fields. Hides the Character Builder. Starts Combat.
 let submitCharacter = function() {
     //Change mainCharacter Race and Name to the filled fields.
     submitName(nameVal.value);
     submitRace(raceVal.value);
 
-    //Remove the Character Builder. 
+    //(Visually) Remove the Character Builder from the DOM Display. 
     for (element of document.getElementById('characterBuilderContainer').children) {
         element.setAttribute('style', 'display: none;')
     }
 
+    //Display the Attack Buttons. 
+    atkPhysicalBtn.removeAttribute('style'); //Removes the style="display: none;" attribute previously added. 
+    atkMagicBtn.removeAttribute('style'); //Removes the style="display: none;" attribute previously added. 
+
     //Start Fight.
-    combat = new Combat(10, mainCharacter, mainCharacter);
+    combat = new Combat(10, mainCharacter, enemyCharacter);
     appendLog(`${mainCharacter.getName()} steps into the ring. Their fellow members of the ${mainCharacter.getRace()} clan roar with approval!`);
-    combatArea.addEventListener('click', cycleCombat); //Add listener to combat area for user input.
+    appendLog(`Their opponent today is the fearsome, the ferocious, the fabulous...\n\n${enemyCharacter.getName()}!!`);
+    // combatArea.addEventListener('click', cycleCombat); //User Input to progress combat. 
         //TODO: Add a prompt for the user. Either a tooltip onHover or a basic text GUI.
 }
 
+//Adds a new entry into the Combat Log. 
 let appendLog = function(newLog) {
-    (firstLog) 
-        ? actionLog.textContent = newLog
-        : actionLog.textContent += ('\n' + newLog);
+    if (firstLog) {
+         actionLog.textContent = newLog; 
+         firstLog = false;
+    }
+    else {
+         actionLog.textContent += ('\n' + newLog);
+    }  
 }
+
+//Event Listeners - Combat Area Buttons
+let attackPhysical = function() {
+    combat.cycle(DmgTypeEnum.physical);
+}
+
+let attackMagic = function() {
+    combat.cycle(DmgTypeEnum.magic);
+}
+
 let resetCombat = function() {
     //Reset Action Log.
     firstLog = true;
     actionLog.textContent = '(Empty Action Log)';
 
     //Reset Combat.
-    combat.setTurnCount(0);
+    combat.setTurnCount(1);
     combat.setWhoseTurn(TurnsEnum.c1);
 
-    //TODO: Reopen Character Builder?
-}
+    //Reset Character HP. 
+    mainCharacter.resetHp();
+    enemyCharacter.resetHp();
 
-let cycleCombat = function() {
-    combat.combatCycle();
+    //Reopen Character Builder, Reset Page back to default.
+    for (element of document.getElementById('characterBuilderContainer').children) {
+        element.removeAttribute('style');
+    }
+    updateAttributes();
+    // combatArea.removeEventListener('click', cycleCombat);
+    atkPhysicalBtn.removeEventListener('click', attackPhysical);
+    atkPhysicalBtn.setAttribute('style', 'display: none');
+    atkMagicBtn.removeEventListener('click', attackMagic);
+    atkPhysicalBtn.setAttribute('style', 'display: none');
+
 }
+/* 
+let cycleCombat = function() {
+    combat.cycle();
+} */
