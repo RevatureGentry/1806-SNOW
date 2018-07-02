@@ -1,0 +1,7 @@
+table,element,label,value,sequence,dependent_value
+incident,subcategory,R111,0,0,0
+incident,subcategory,R122,1,1,0
+incident,subcategory,R133,2,2,0
+incident,subcategory,R211,3,3,1
+incident,subcategory,R222,4,4,1
+incident,subcategory,R233,5,5,1
