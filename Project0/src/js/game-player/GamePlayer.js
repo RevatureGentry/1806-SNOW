@@ -19,6 +19,7 @@ class GamePlayer extends Player {
         super();
         this._mode = Mode.EASY;
         this._count = 0;
+        this._subscriptions = [];
     }
 
     getMode() {
@@ -69,6 +70,9 @@ class GamePlayer extends Player {
     _clearOldArrows() {
         Tone.Draw.cancel();
         this._count = 0;
+        for(let s of this._subscriptions) {
+            document.removeEventListener('keydown', s);
+        }
     }
 
     /*  arrow_start_times is an array of pairs, with each pair being
@@ -157,7 +161,7 @@ class GamePlayer extends Player {
             const code = convertToCode(arrow_id);
             if(isArrowKey(event.code) && event.code === code) {
                 event.preventDefault();
-                if(Math.abs(Tone.Transport.seconds - completion_time) < 0.5) {
+                if(Math.abs(Tone.Transport.seconds - completion_time) < 0.25) {
                     console.log("Success!");
                     const arrow = document.getElementById(arrow_id);
                     arrow.classList.add("explode");
@@ -167,6 +171,8 @@ class GamePlayer extends Player {
                     //      does not refer to the GamePlayer!
                     incCount.call(_this);
                     document.getElementById("counter").innerText = "Count: " + getCount.call(_this).toString();
+
+                    _this._subscriptions.push(checkTime);
                     
                     function incCount() {
                         this._count += 1;
