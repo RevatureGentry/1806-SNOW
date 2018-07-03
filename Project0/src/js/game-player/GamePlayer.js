@@ -154,7 +154,8 @@ class GamePlayer extends Player {
         // to check the Tone.Transport.seconds value to see if it
         // is close enough to when the keydown was pressed!
         document.addEventListener('keydown', function checkTime(event) {
-            if(isArrowKey(event.code)) {
+            const code = convertToCode(arrow_id);
+            if(isArrowKey(event.code) && event.code === code) {
                 event.preventDefault();
                 if(Math.abs(Tone.Transport.seconds - completion_time) < 0.5) {
                     console.log("Success!");
@@ -162,7 +163,7 @@ class GamePlayer extends Player {
                     arrow.classList.add("explode");
                     document.removeEventListener('keydown', checkTime);
                     
-                    // TODO : This doesn't work because value of 'this'
+                    // TODO : Regular this doesn't work because value of 'this'
                     //      does not refer to the GamePlayer!
                     incCount.call(_this);
                     document.getElementById("counter").innerText = "Count: " + getCount.call(_this).toString();
@@ -188,6 +189,24 @@ class GamePlayer extends Player {
                     return true;
                 }
                 return false;
+            }
+
+            function convertToCode(arrowId) {
+                types.typecheckString(arrowId);
+                if(arrowId === "arrow-1") {
+                    return "ArrowLeft";
+                }
+                if(arrowId === "arrow-2") {
+                    return "ArrowUp";
+                }
+                if(arrowId === "arrow-3") {
+                    return "ArrowDown";
+                }
+                if(arrowId === "arrow-4") {
+                    return "ArrowRight";
+                }
+
+                throw new Error("arrow not recognized. cannot convert to code");
             }
         });
     }
