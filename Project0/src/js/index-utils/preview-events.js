@@ -6,10 +6,17 @@ export function addPreviewEvents(generator) {
     const stopBtn = document.getElementById("stop-preview");
     const player = new Player();
 
+    const starts = document.getElementsByClassName("starts");
+
     previewBtn.addEventListener('click', function startPreview(event) {
         playUserChosenMusic();
         previewBtn.disabled = true;
         stopBtn.disabled = false;
+
+        // disabled all the start elements
+        for(let element of starts) {
+            element.disabled = true;
+        }
 
         function playUserChosenMusic() {
             // TODO : For each music playing,
@@ -48,6 +55,8 @@ export function addPreviewEvents(generator) {
         player.stop();
         previewBtn.disabled = false;
         stopBtn.disabled = true;
+
+        document.getElementById("start-game").disabled = false;
     });
 
 }

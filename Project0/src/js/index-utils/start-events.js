@@ -5,9 +5,13 @@ import * as utils from "./utils";
 export function addStartEvents(generator) {
     const start = document.getElementById("start-game");
     const pause = document.getElementById("pause-game");
+    const reset = document.getElementById("reset-game");
+    const resume = document.getElementById("resume-game");
     const player = new GamePlayer();
 
-    start.addEventListener('click', function startGame(event) {
+
+    start.addEventListener('click', function doStart(event) {
+        event.preventDefault();
         // TODO : Allow player to pause game and restart game!
         // Currently clicking start again after pausing will
         // play the game again from the start, which is VERY
@@ -20,6 +24,14 @@ export function addStartEvents(generator) {
 
         start.disabled = true;
         pause.disabled = false;
+        reset.disabled = false;
+        resume.disabled = true;
+
+        const previews = document.getElementsByClassName("previews");
+        for(let element of previews) {
+            element.disabled = true;
+        }
+        console.log(previews);
 
         function playGame() {
             // TODO : For each music playing,
@@ -74,15 +86,69 @@ export function addStartEvents(generator) {
         }
     });
 
-    pause.addEventListener('click', function pause(event) {
+    pause.addEventListener('click', function doPause(event) {
+        event.preventDefault();
         // TODO: Pause the game. But don't RESET it!!!!
         pauseGame();
-        start.disabled = false;
+        start.disabled = true;
         pause.disabled = true;
+        reset.disabled = false;
+        resume.disabled = false;
 
         function pauseGame() {
-            console.log("pause game!");
             player.pause();
+
+            const current_arrows = document.querySelectorAll(".moving-arrow");
+            for(let arrow of current_arrows) {
+                arrow.classList.toggle("paused");
+            }
+
+            console.log("pause game!");
         }
     });
+
+    reset.addEventListener('click', function doReset(event) {
+        event.preventDefault();
+
+        resetGame()
+        start.disabled = false;
+        pause.disabled = true;
+        reset.disabled = true;
+        resume.disabled = true;
+        document.getElementById("start-preview").disabled = false;
+        console.log("reset the game");
+
+        function resetGame() {
+            player.stop();
+
+            const current_arrows = document.querySelectorAll(".moving-arrow");
+            for(let arrow of current_arrows) {
+                arrow.remove();
+            }
+        }
+    });
+
+    resume.addEventListener('click', function doResume(event) {
+        event.preventDefault();
+
+        resumeGame();
+        start.disabled = true;
+        pause.disabled = false;
+        reset.disabled = false;
+        resume.disabled = true;
+        console.log("resume game!");
+
+        function resumeGame() {
+            const current_arrows = document.querySelectorAll(".moving-arrow");
+            for(let arrow of current_arrows) {
+                arrow.classList.toggle("paused");
+            }
+
+            player.play();
+        }
+    });
+
+
+
+
 }

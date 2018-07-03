@@ -29,3 +29,8 @@ body {
     z-index: -1;
     background-color: black;
 }
+
+#counter {
+    font-size: 20px;
+    font-weight: bold;
+}
