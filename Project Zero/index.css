@@ -2,6 +2,42 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+.tool-tip {
+    display: inline-block;
+    position: relative;
+}
+
+.tool-tip .tooltiptext {
+    /* Tooltip Text Settings */
+    visibility: hidden;
+    width: 360px;
+    background-color: #555;
+    color: #fff;
+    text-align: left;
+    font-family: Consolas;
+    font-size: 14px;
+    padding: 5px 0;
+    border: 0.5px solid cadetblue;
+    border-radius: 6px;
+
+    /* Tooltip Positioning */
+    position: absolute;
+    margin-left: -10px;
+    z-index: 1;
+    top: 125%;
+    left: 27.5%;
+
+    /* Tooltip Fade */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tool-tip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
 #skillSelection {
     border: 2px solid cadetblue;
     display: none;

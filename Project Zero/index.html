@@ -15,14 +15,21 @@
             <h4 style="text-align: right"><a href="./index.html">Reset All</a></h4>
         </div>
     </div>
+<!-- Character Builder -->
     <div class="container" id="characterBuilderContainer">
         <div class="row">
         </div>
-        <div class="row" id="statSelection">
+        <div class="row" id="attributesBlock">
         <!-- 'Physical' Stats -->
             <div class="col-3">
                 <form action="">
-                    <p class="statBlock" id="strBlock">Strength: &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;
+                    <p class="statBlock" id="strBlock"> 
+                        <span class="tool-tip">Strength: 
+                            <span class="tooltiptext">
+                                1 pt of Strength = 3 pts of (Base) Physical Damage. 
+                            </span>
+                        </span> 
+                        &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;
                 <!-- Strength Incremental Buttons-->
                         <span id="strVal">0</span>
                         <span class="btn-group-vertical">
@@ -31,7 +38,13 @@
                         </span>
                     </p>
                 <!-- Dexterity Incremental Buttons-->
-                    <p class="statBlock" id="dexBlock">Dexterity: &emsp;&emsp;&emsp;&nbsp;&nbsp;
+                    <p class="statBlock" id="dexBlock"> 
+                        <span class="tool-tip" id="dexTip"> Dexterity: 
+                            <span class="tooltiptext">
+                                1 pt of Dexterity = 0.33 pts of Physical Resistance.
+                            </span>
+                        </span>
+                        &emsp;&emsp;&emsp;&nbsp;&nbsp;
                         <span id="dexVal">0</span>
                         <span class="btn-group-vertical">
                             <button class="btn btn-default" type="button" id="dexUp">^</button>
@@ -39,7 +52,13 @@
                         </span>
                     </p>
                 <!-- Constitution Incremental Buttons-->
-                    <p class="statBlock" id="conBlock">Constitution: &emsp;&emsp;
+                    <p class="statBlock" id="conBlock"> 
+                        <span class="tool-tip" id="conTip">Constitution: 
+                            <span class="tooltiptext">
+                                1 pt of Constitution = 5 HP. 
+                            </span>
+                        </span> 
+                        &emsp;&emsp;
                         <span id="conVal">0</span>
                         <span class="btn-group-vertical">
                             <button class="btn btn-default" type="button" id="conUp">^</button>
@@ -51,8 +70,14 @@
         <!-- 'Mental' Stats -->
             <div class="col-3  col-md-offset-2 col-lg-offset-2" >
                     <form action="">
-                            <p class="statBlock">Wisdom: &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <!-- Wisdom Incremental Buttons-->
+                            <p class="statBlock" id="wisBlock"> 
+                                <span class="tool-tip" id="wisTip"> Wisdom: 
+                                    <span class="tooltiptext">
+                                        1 pt of Wisdom = 0.33 pts of Magic Resistance.
+                                    </span> 
+                                </span>
+                                &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <span id="wisVal">0</span>
                                 <span class="btn-group-vertical">
                                     <button class="btn btn-default"type="button" id="wisUp">^</button>
@@ -60,7 +85,13 @@
                                 </span>
                             </p>
                         <!-- Intelligence Incremental Buttons-->
-                            <p class="statBlock">Intelligence: &emsp;&emsp;&nbsp;
+                            <p class="statBlock" id="intBlock">
+                                <span class="tool-tip" id="intTip">Intelligence: 
+                                    <span class="tooltiptext">
+                                        1 pt of Intelligence = 3 extra pts of (Base) Magic Damage. 
+                                    </span> 
+                                </span>
+                                &emsp;&emsp;&nbsp;
                                 <span id="intVal">0</span>
                                 <span class="btn-group-vertical">
                                     <button class="btn btn-default"type="button" id="intUp">^</button>
@@ -68,7 +99,13 @@
                                 </span>
                             </p>
                         <!-- Charisma Incremental Buttons-->
-                            <p class="statBlock">Charisma: &emsp;&emsp;&emsp;&nbsp;&nbsp;
+                            <p class="statBlock" id="chaBlock">
+                                <span class="tool-tip" id="chaTip">Charisma: 
+                                    <span class="tooltiptext">
+                                        1 pt of Charisma = 0.25 pts of All-Around Damage Resistance.
+                                    </span>
+                                </span> 
+                                &emsp;&emsp;&emsp;&nbsp;&nbsp;
                                 <span id="chaVal">0</span>
                                 <span class="btn-group-vertical">
                                     <button class="btn btn-default"type="button" id="chaUp">^</button>
@@ -79,7 +116,8 @@
             </div>
             <div class="col-6">
                 <form action="" class="statBlock">
-                    <!-- Name and Race Fields-->
+                <!-- Name and Race Fields-->
+                    <!-- TODO: Add some HTML/CSS Tooltips, and update the current mouseover event listeners with the new ids. -->
                     <label class="heroLabels" for="nameVal">Name: </label> &emsp;
                     <input type="text" id="nameVal" value="Your Name">
                     <br> <br>
@@ -90,27 +128,41 @@
                     <p class="statBlock" id="hpBlock">Max HP: <span  id="hpVal">4</span></p>
                     <p class="statBlock" id="armorBlock">Armor: <span id="armorVal">10</span></p>
                     
-                    <!-- Submit/Start Fight Button -->
-                    <hr>
-                    <button class="btn btn-default" type="button" id="submitButton">Start Fight!</button>
+                <!-- Submit/Start Fight Button -->
+                    <span class="tool-tip">
+                        <span class="tooltiptext">Finalize your character and enter combat!</span>
+                        <hr>
+                        <button class="btn btn-default" type="button" id="submitButton">Start Fight!</button>
+                    </span>
                 </form>
 
             </div>
-            
         </div>
+    <!-- Extended Tooltip Display -->
+        <div class="row">
+            <div class="col-6">
+                <h4 class="statBlock">More Details:</h4>
+                <p id="exTooltips">
+                    Confused what something is/does? Mouse over it and read some more details here!
+                </p>
+            </div>
+        </div>
+    <!-- Skills List -->
         <div class="row" id="skillSelection">
             <h4>Skill Points Remaining: <span id="skillPoints">0</span></h4>
-            <div class="col-4">
+            <div class="col-4" id="physSkillSelector">
                 <!--Skills List 1 ('Physical' Skills)-->
             </div>
-            <div class="col-4">
+            <div class="col-4" id="magSkillSelector">
                 <!--Skills List 2 ('Psyche' Based Skills?)-->
             </div>
-            <div class="col-4">
+            <div class="col-4" id="appSkillSelector">
                 <!--Skills List 3 ('Looks' Based Skills?)-->
             </div>
         </div>
     </div>
+
+<!-- Combat Area -->
     <div class="container">
         <br><br><br>
         <div class="row">
