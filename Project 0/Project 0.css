@@ -1,0 +1,47 @@
+body {
+    background-color: rgb(12, 185, 55);
+}
+
+#cardTurnBtnGroup { position: absolute; visibility: visible; left: 300px; top: 500px; z-index: 200; }
+#foldbtn { position: absolute; visibility: visible; left: 400px; top: 600px; z-index: 200; }
+
+
+
+
+
+
+
+#card1div { position: absolute; visibility: visible; left: 240px; top: 128px; z-index: 200; }
+#card2div { position: absolute; visibility: visible; left: 445px; top: 128px; z-index: 200; }
+#card3div { position: absolute; visibility: visible; left: 650px; top: 128px; z-index: 200; }
+#card4div { position: absolute; visibility: visible; left: 855px; top: 128px; z-index: 200; }
+#card5div { position: absolute; visibility: visible; left: 1060px; top: 128px; z-index: 200; } 
+
+#playercard1div { position: absolute; visibility: visible; left: 855px; top: 500px; z-index: 200; }
+#playercard2div { position: absolute; visibility: visible; left: 1060px; top: 500px; z-index: 200; }
+
+
+
+#comp1card1div { position: absolute; visibility: visible; left: 50px; top: 128px; z-index: 200; }
+#comp1card2div { position: absolute; visibility: visible; left: 100px; top: 128px; z-index: 200; }
+#comp2card1div { position: absolute; visibility: visible; left: 50px; top: 550px; z-index: 200; }
+#comp2card2div { position: absolute; visibility: visible; left: 100px; top: 550px; z-index: 200; }
+#comp3card1div { position: absolute; visibility: visible; left: 1385px; top: 128px; z-index: 200; } 
+#comp3card2div { position: absolute; visibility: visible; left: 1335px; top: 128px; z-index: 200; } 
+#comp4card1div { position: absolute; visibility: visible; left: 1385px; top: 550px; z-index: 200; } 
+#comp4card2div { position: absolute; visibility: visible; left: 1335px; top: 550px; z-index: 200; } 
+
+#plhandtext { color: rgb(0, 0, 0); font-size: 20pt; position: absolute; visibility: visible; left: 1010px; top: 770px; z-index: 200; } 
+#c1handtext { color: rgb(0, 0, 0); font-size: 12pt; position: absolute; visibility: visible; left: 65px; top: 208px; z-index: 200; }
+#c2handtext { color: rgb(0, 0, 0); font-size: 12pt; position: absolute; visibility: visible; left: 65px; top: 630px; z-index: 200; }
+#c3handtext { color: rgb(0, 0, 0); font-size: 12pt; position: absolute; visibility: visible; left: 1350px; top: 208px; z-index: 200; }
+#c4handtext { color: rgb(0, 0, 0); font-size: 12pt; position: absolute; visibility: visible; left: 1350px; top: 630px; z-index: 200; }
+
+
+#winner { color: red; font-size: 26pt; position: absolute; visibility: visible; left: 580px; top: 390px; z-index: 200; } 
+
+#playerscore { color: red; font-size: 26pt; position: absolute; visibility: visible; left: 400px; top: 600px; z-index: 200; } 
+#comp1score { color: red; font-size: 12pt; position: absolute; visibility: visible; left: 35px; top: 40px; z-index: 200; } 
+#comp2score { color: red; font-size: 12pt; position: absolute; visibility: visible; left: 55px; top: 465px; z-index: 200; } 
+#comp3score { color: red; font-size: 12pt; position: absolute; visibility: visible; left: 1360px; top: 40px; z-index: 200; } 
+#comp4score { color: red; font-size: 12pt; position: absolute; visibility: visible; left: 1360px; top: 465px; z-index: 200; } 
