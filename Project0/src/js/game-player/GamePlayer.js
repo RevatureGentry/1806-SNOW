@@ -68,9 +68,13 @@ class GamePlayer extends Player {
     }
 
     _clearOldArrows() {
+        console.log("clearing old arrows");
+        console.log(this._subscriptions);
         Tone.Draw.cancel();
         this._count = 0;
         for(let s of this._subscriptions) {
+            console.log("Hi");
+            console.log(s);
             document.removeEventListener('keydown', s);
         }
     }
@@ -157,7 +161,11 @@ class GamePlayer extends Player {
         // TO DO : Add an event listener on the key down event
         // to check the Tone.Transport.seconds value to see if it
         // is close enough to when the keydown was pressed!
-        document.addEventListener('keydown', function checkTime(event) {
+        document.addEventListener('keydown', checkTime);
+
+        _this._subscriptions.push(checkTime);
+
+        function checkTime(event) {
             const code = convertToCode(arrow_id);
             if(isArrowKey(event.code) && event.code === code) {
                 event.preventDefault();
@@ -214,7 +222,7 @@ class GamePlayer extends Player {
 
                 throw new Error("arrow not recognized. cannot convert to code");
             }
-        });
+        }
     }
 
 
