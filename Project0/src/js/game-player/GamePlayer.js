@@ -165,11 +165,27 @@ class GamePlayer extends Player {
 
         _this._subscriptions.push(checkTime);
 
+        const feedback = document.getElementById("quality");
+
         function checkTime(event) {
             const code = convertToCode(arrow_id);
             if(isArrowKey(event.code) && event.code === code) {
                 event.preventDefault();
-                if(Math.abs(Tone.Transport.seconds - completion_time) < 0.25) {
+                const time_diff = Math.abs(Tone.Transport.seconds - completion_time);
+                if(time_diff < 0.25) {
+
+                    if(time_diff < 0.05) {
+                        feedback.innerText = "PERFECT";
+                    } else if(time_diff < 0.1) {
+                        feedback.innerText = "GREAT";
+                    } else if (time_diff < 0.15) {
+                        feedback.innerText = "Nice";
+                    } else if (time_diff < 0.2) {
+                        feedback.innerText = "OK";
+                    } else {
+                        feedback.innerText = "Bad";
+                    }
+
                     console.log("Success!");
                     const arrow = document.getElementById(arrow_id);
                     arrow.classList.add("explode");
