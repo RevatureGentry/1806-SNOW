@@ -1,0 +1,279 @@
+Oh hey, here are my notes for 6_26_2018 - ServiceNow
+- Certifications: **Admin**, Application Developer, Implementation Specialist
+- SNOOGLE
+- Week 2 Plan:
+    Day 2: ITSM
+    Day 3: SN Introduction & Basic Practicals, SN Community
+    Day 4: USM Administration, Domain Seperation
+    Day 5: Import Sets, Transform Map, Data Loader Creation, QC Audit
+- IT Service Management
+    - Agenda:
+        - Introduction
+        - Objectives
+        - Why Service Management
+        - Core ITSM Disciplines
+        - Disciplines Overview
+- What is Service?
+    - A service is a means a delivering value to the customer by facilitating the
+        outcomes that customer want to achieve without the ownership of specific costs
+        and risks.
+    - IT Service: is a set of IT-related function (Hardware & Software)
+        - Users - Web Server - Application Server - Database Server
+- What is IT Service Management
+    - ITSM is a process based practice intended to align the delivery of IT services with
+        needs of the organization, emphasizing benefits to customers
+    - ITSM refers to the entirety of activities - directed by policies, organized and structured
+        in processes and supporting procedures - that are performed by an organization to design,
+        plan, deliver, operate and control TI services offered to customers
+    - It is thus with the implementation of IT serves that meet customers needs and it is
+        performed by the IT service provider through  an appropriate mix of people, processes, and IT
+- IT Service Management Objectives
+    - To align IT services with the current and future needs of the business and its customers
+    - To improve the quality of the IT services delivered
+    - To reduce the long term cost of service provision
+                    Needs
+                /           \
+            Cost  -------- Quality
+- Why Service Management?
+    - Increasing demand from Business to deliver effective IT solution/services (Cost effective)
+    - Increasing competition
+    - Increasing pressure to realize return on investment
+    - Increasing complexity of IT infrastructure and processes
+    - Increasing IT Visibility
+- Core ITSM Disciplines
+    - Service Support 
+        - Day-to-Day operational support of IT services
+    - Service Delivery
+        - Long term planning and improvement of IT service provision 
+- Some Key Definitions:
+    - Customer: recipient of a service -- usually the Customer management has responsibility for the
+        funding of the service
+    - Provider: the unit responsible for the provision of IT service 
+    - Supplier: a third party responsible for supplying or supporting underpinning elements of the 
+        IT service 
+    - User: person using the service on a daily basis (umbrella term)
+- Problem vs. Incident: problem is a repeated incident, problem is the root cause of the incident
+- Change: a modification; Normal, Standard, Emergency : knowing & providing the solution to a inc/prob,
+- Release Management: presenting new versions of a certain product
+- Resolution Time: time it takes to solve the problem
+- Response Time: time to get from a help desk to get help
+- ITIL: IT Infrastructure Theory
+- Agenda
+    - Introduction
+    - Roles
+    - ITL Service Life Cycle
+        - Service Strategy: strategy generation/financial management/service portfolio management/demand mgmt
+        - Service Design: capacity, availability, infor security mgmt/service level & supplier mgmt
+        - Service Transition: planning & support/ released & deployment/asset & config mgmt, change mgmt/knowledge mgmt
+        - Service Operation: problem & incident mgmt/request fulfillment/event & access mgmt
+        - Continual Service Improvements: service measurement & reporting/ 7 step improvement process
+- What is ITIL?
+    - IT Instrastructure Theory is a set of detailed practices for IT service management (ITSM) that focuses
+        focuses on aligning IT services with the needs of business 
+    - Systemic apporach to HQ IT Service Delivery 
+    - Public Body for the knowledge of Service Management best practices 
+    - Helps orgs. to promive service level and reduce the cost of IT operations 
+    - A framework, defining ten interlokcing processes for Service Support and Service Delivery 
+    - ITIL V3 Foundation, ITIL Practioner,  ITIL Expert are the main certifications
+- Ten core processes of ITIL (...and one function):
+- Roles: collection of specific responsibilities and privileges...roles may be held by individuals or teams...
+    individuals and teams may hold more than one role 
+    - ITIL emphasizes a number of standard roles include, most importantly: 
+        - Service Owner: accountable for the overall, design, performance, integration, improvement
+            and management of a single service 
+        - Process Owner: accountable for the overall design, performance integration, improvement and 
+            and amangement of a single process 
+        - Service Manager: accountable for the developement, performance and improvement of all service in an 
+            environment 
+        - Product Manager: accountable for the developement, performance improvement of the entire product 
+- Service Strategy:
+    - What are we going to provide? / Can we afford it? / Can we provide enough of it? / ... Perspective, Plan, Pattern
+        - Define Market / Develop Offering / Develop Strategic Assets / Prepare for Execution
+- Demand Management
+    - ensures we don't waste money with excess capacity 
+    - ensures we have enough capacity to meet demand at agreed quality 
+- Service Design 
+    - how to provide / how to build / how to test / how to deploy
+- Process in Service Design 
+    - availability mgmt, capacity mgmt, ITSCM (disaster recovery), Supplier mgmt, Service Level mgmt,
+        info security mgmt, service catalogue mgmt
+- Service Level Management 
+    - Agreements 
+        - Service Level Agreements (Service Provider and Customer)
+            - Service Desc/Hrs of Operation/User Response times/Incident Response times/Resolution times/
+                avaialbility & continuity targets/customer resp. / critical operational periods/ change resp. times
+        - Operational Level Agreements (Internal between two teams)
+        - Underpinning Contracts (Vendor and Service Provider)
+            no agreements between Vendor and Customer, doesn't exist
+    - Success of SLM (KPIs - Key Performance Indicators)
+        - how many services have SLA?
+        - How does the number of breaches of SLA change over time (we hope it reduces!) 
+- Right Capacity, Right Time, Right Cost! (capacity mgmt)
+    - balances cost against capacity so minimizes cost while maintaining qual of service 
+- ITSCM (IT Service Continuity Management)
+    - ensures resumption of services within agreed timescale
+    - business impact analysis informs decisions about resources
+         - Stock Exchange can't afford 5 min downtime but 2 hrs downtime probably won't badly affect
+            a departmental accounts office
+- Information Security mgmt
+    - Confidentiality (making sure only authorizes users can see data)
+    - Integrity (making sure the data is accurate and not corrupte)
+    - Availiability (making sure data is supplied when it's requested)
+- Service Transition
+    - Build / Deployment / Testing / User Acceptance / Bed-in
+- Good Service Transition 
+    - Set customer expectations
+    - Enable release integration 
+    - Reduce performance variation 
+    - Document and reduce known errors 
+    - Minimize risk 
+    - Ensure proper use of services
+- Change Mgmt and types 
+    - Change mgmt helps orgs understand + work minimize risks of changes to IT env...essentially a process 
+        for managing the people-side of change
+    - Normal (non-urgent, req. approval) / Standard (non-urgent, following established path, no approval needed},
+    / Emergency (requires approval but too urgent for normal procedure)
+- Change Advisory Board
+    - Change Manager (VITAL)
+    - One or more of:
+        customer(user)/user manager, developer(mantainer), expert(consultant), contractor
+    CAB considers the 7 Rs MISSING 1 (who RAISED, REASON, RISK, RESOURCES, RESPONSIBLE, RELATIONSHIPS to other changes)
+- Release Mgmt
+    - Release is a collection of authorised and tested changes ready for deployment 
+    - A rollout introduces a release into the live env 
+    - Full Release (Office 2007), Delta release (Windows Update), Package (Windows Service Pack)
+- Phased or Big Bang? (Transition)
+    - Phased release is less painful but more work
+    - Deploy can be manual or automatic 
+    - Automatic can be push (cannot stop it) or pull (manually accept release)
+    - Release Manager will produce a release policy
+- Service Operation 
+    - Incident Mgmt/ Problem Mgmt / Event Mgmt / Request Mgmt / Access Mgmt
+        - incident: mouse not working, fix it ;  request: mouse not working, get me new one
+- Function in Service Operation 
+    - Service Desk / Technical Mgmt / IT Operations Mgmt / Applications Mgmt 
+- Incident Mgmt 
+    - Deals with unplanned interruptions to IT Services or reductions in their quality 
+    - Failure of a configuration item that has not impacted a service is also an incident (Disk in RAID failure)
+    - Reported by: Users / Tech Staff / Monitoring Tools
+- Event Mgmt 
+    - 3 types of events TODO
+- Problem Mgmt 
+    - Aims to prevent problems and resulting incidents, minimzes impact of unavoidable incidents,
+        eliminates recurring incidents, 
+    - Proactive Problem Mgmt: identifies area of potential weakeness / identifies workarounds
+    - Reactive Problem Mgmt: identifying underlying cuases of incidents / identifies changes to prevent recurrence
+- Access Mgmt 
+    - right things for right users at right time
+    - Concepts: Access/ Identity (Authentication, AuthN), Rights (Authorization, AuthZ), Service Group, Directory
+- Service Desk 
+    - Local, Central, Virtual
+    - Single point of Contact 
+    - Skills for operators: customer focus, articulate, interpersonal skills, understand business, methodical/analytical,
+        tech knowledge, multi-lingual
+    - Service Desk often seen as the bottom of the pile (but most visible)
+- Continual Service Improvement 
+    - Focus on Process owners and service owners 
+    - Ensures that services mgmt processes continue to support business 
+    - Monitor and enhance SLA 
+    - PDCA (Plan - Do - Check - Act)
+- Service Measurement 
+    - Tech (components, MTBF, etc)
+    - Process (KPIs - Critical Success Factors)
+    - Service (end-to-end, eg. Customer Satisfaction)
+    - Why? Validation/Direction/Justify/Intervene
+
+
+------
+- INCIDENT MANAGMENT
+- Agenda:
+    - Overview 
+    - Flowchart
+    - TODO
+- Overview: goal of Incident mgmt is to restore normal service operation ASAP following an incident, while minimizing 
+    impact to business operations and ensuring quality is maintained 
+    - Service Now flatform supports IncMgmt process with capabilities to record incidents, classify according to impact 
+        assign to approrpiate groups, esclate and manage through to resoluti-TODO
+- Process
+    - Logging: by edfault any user can log an incident, # of ways to to log: employee self service portal, standard UI
+    - Categorization:incident forms have fields  for category and subcategory, whic-TODO
+    - Priorization: SNOW uses 3 metrics for determining the other in order incidents are processed 
+        - impact: effect on business that an incident
+        - urgency: the extent to which's the incident's resolution can bear delay
+        - priority:  how quickly the service desk should address the incident
+        Impact 1 + urgency 1 = priority 1
+        table for calculatirng priority using impact and urgency
+    - Resolution: TODO
+    - Closure: TODO 
+
+
+------
+PROBLEM MANAGEMENT 
+- Overview 
+    - Problem Mgmt helps to identify the cause of  an error in the IT infrastructure that is usually reported 
+        as occurrences of related incidents; resolving a problem means fixing the error that will stop these 
+        incidents from occurring in the future
+    - Problem resolution and elimination of a root cause often calls for applying a change to the config item 
+        in the existing TI department
+    - SNOW platfor-TODO
+- Process - TODO
+-
+
+------
+CHANGE MANAGEMENT 
+- Agenda TODO
+- Overview 
+    - Change Mgmt helps orgs understand and work to minimiz risks of change to the IT env...essentially a proces-TODO
+- backout change: rollback the change 
+- Process: 
+    - Raising and Recording Changes: a new change record can be generated in a number of ways: 
+        - an IT team member (role: itil) can genetate a change by hand through
+            Change -> Create New or clicking New from the change record list 
+        - An IT team member (role: itil) can request a change through the Service Catalog 
+        - A change can be requested from an incident
+        - A change can be requested from a problem
+    - If an assignment rule applies, the change will be assigned to the appropriate user or group...otherwise by hand
+    -E-mail notifs will keep involved parties informed about update to the change request 
+    - Assessin-TODO 
+    - Planning Changes - TODO 
+    - Authorizing Changes - TODO 
+    - CLosing Changes - TODO
+-
+
+--------
+RELEASE MANAGEMENT 
+- Agenda TODO 
+- Overview TODO
+- Release Mgmt Concepts: 
+    - Products: TODO
+    - Releases: TODO
+    - Features: TODO
+    - Release Phases: TODO
+    - Release Tasks: TODO
+- Process: 
+- Release Names & Upgrade Process: SNOW has introduced a new naming convention, starting with ASPEN, which is
+    based n a alphabetical system using names of world cities 
+
+--------
+ASSET MANAGEMENT 
+- Agenda:
+- Why should organizations implement a Configuration Management Database (CMDB) solution?
+    - If organizations must control the process and realities of chage that occur within the infrastructure
+    - A CMDB is a repo of config info which enables IT to meet these difficult challenges by centrally managing
+        change across IT silos
+    - A CMDB also helps orgs implement and maintain ITIL processes as part of an overall IT Service 
+        Management strategy.
+- Within an org, who typically uses the CMDB and why?
+    - There are multiple users of the CMDB within IT orgs 
+        - Change and Config managers use the CDMB to plan, manage and assess the risk of changes and confgs 
+            across the IT enterprise
+        - Service desk analysts can use a CMDB to diagnose the root cause of a service outage by providing 
+            insight into the Configuration Items (CI) that supports an affected service
+        -TODO
+- Overview:
+- Auto Discovery
+- Integration:
+    - ITIL Incident Management 
+    - ITIL Problem Management
+    - ITIL Change Management
+- Defining Ci Relationship (Create/Select/Filter)
