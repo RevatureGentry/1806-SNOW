@@ -4,6 +4,7 @@ import MusicTranslator from "./translator/MusicTranslator";
 import * as start_events from "./index-utils/start-events";
 import * as preview_events from "./index-utils/preview-events";
 import * as arrow_events from "./index-utils/arrow-events";
+import * as file_events from "./index-utils/file-events";
 
 (function main() {
     const generator = new MusicGenerator(new MusicLexer(), new MusicTranslator());
@@ -14,5 +15,6 @@ import * as arrow_events from "./index-utils/arrow-events";
         arrow_events.addArrowEvents();
         preview_events.addPreviewEvents(generator);
         start_events.addStartEvents(generator);
+        file_events.addFileEvents();
     };
 })();
