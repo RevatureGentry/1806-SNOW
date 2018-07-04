@@ -1,3 +1,5 @@
+import * as types from "../utils/typecheck";
+
 export var Mode = {
     EASY: 0,
     MEDIUM: 1,
@@ -33,4 +35,17 @@ export function convertDurationsToArrowStartAndEndTimes(durations, mode) {
     arrow_start_times.pop();
 
     return arrow_start_times;
+}
+
+
+export function getLaneId(lane_number) {
+    types.typecheckNumber(lane_number);
+
+    return "lane-" + lane_number.toString()
+}
+
+export function getArrowId(lane_number) {
+    types.typecheckNumber(lane_number);
+
+    return "arrow-" + lane_number.toString();
 }

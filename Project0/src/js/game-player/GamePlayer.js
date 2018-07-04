@@ -14,6 +14,15 @@ var Lane = {
     RIGHT: 4,
 }
 
+const NUM_LANES = 4;
+
+// TODO: Arrow start times need to come with DETERMINISTIC algorithm
+// that determines speed of given arrow. Also needs to contain
+// the END time for the arrow at which a key press is expected.
+// Use Tone.Transport.seconds to compare to this end time!
+
+// This class delegates to the Player superclass to play the provided music.
+// This class uses the provided music to schedule the game's arrow gameplay events.
 class GamePlayer extends Player {
     constructor() {
         super();
@@ -53,18 +62,7 @@ class GamePlayer extends Player {
     schedule(notes) {
         this._clearOldArrows();
         super.schedule(notes);
-
-        for(let i = 0; i < notes.length; i++) {
-            const durations = notes[i][1];
-
-            // TODO: Arrow start times need to come with DETERMINISTIC algorithm
-            // that determines speed of given arrow. Also needs to contain
-            // the END time for the arrow at which a key press is expected.
-            // Use Tone.Transport.seconds to compare to this end time!
-            const arrow_start_end_times = utils.convertDurationsToArrowStartAndEndTimes(durations, this._mode);
-            console.log(arrow_start_end_times);
-            this._scheduleArrows(arrow_start_end_times);
-        }   
+        this._scheduleAllArrows(notes);
     }
 
     _clearOldArrows() {
@@ -79,6 +77,16 @@ class GamePlayer extends Player {
         }
     }
 
+    _scheduleAllArrows(notes) {
+        for(let i = 0; i < notes.length; i++) {
+            const durations = notes[i][1];
+
+            const arrow_start_end_times = utils.convertDurationsToArrowStartAndEndTimes(durations, this._mode);
+            console.log(arrow_start_end_times);
+            this._scheduleArrows(arrow_start_end_times);
+        }
+    }
+
     /*  arrow_start_times is an array of pairs, with each pair being
         the time an arrow starts and the time an arrow is expected
         to be completed (keyed).
@@ -86,26 +94,26 @@ class GamePlayer extends Player {
     */
     _scheduleArrows(arrow_start_end_times) {
         console.log("Scheduling the game in mode " + this._mode.toString());
-        const createArrowFn = this._createArrow;
         const _this = this;
         for(let i = 0; i < arrow_start_end_times.length; i++) {
-            const num_lanes = 4;
-            const lane_number = 1 + Math.floor(Math.random() * num_lanes);
-            const arrow_duration = arrow_start_end_times[i][1] - arrow_start_end_times[i][0];
-            const arrow = createArrowFn.call(_this, lane_number, arrow_duration);
-            const lane_id = "lane-" + lane_number.toString();
-            const arrow_id = "arrow-" + lane_number.toString();
-            //this._scheduleArrowCompletion(lane_id, arrow_start_end_times[i][1]);
+            const lane_number = getRandomLaneNumber(NUM_LANES);
+            const arrow = this._createArrow(lane_number, getArrowDuration(arrow_start_end_times[i]));
             const scheduleArrowCompletion = this._scheduleArrowCompletion;
             Tone.Transport.schedule(function(time) {
                 Tone.Draw.schedule(function drawArrow() {
                     
-                    document.getElementById(lane_id).appendChild(arrow);
-                    scheduleArrowCompletion.call(_this, arrow_id, arrow_start_end_times[i][1]);
+                    document.getElementById(utils.getLaneId(lane_number)).appendChild(arrow);
+                    scheduleArrowCompletion.call(_this, utils.getArrowId(lane_number), arrow_start_end_times[i][1]);
                 });
             }, arrow_start_end_times[i][0]);
+        }
 
-            // TODO : Schedule Tone.Transport to eventually stop??? Or not??
+        function getRandomLaneNumber(num_lanes) {
+            return 1 + Math.floor(Math.random() * num_lanes);
+        }
+
+        function getArrowDuration(pair) {
+            return pair[1] - pair[0];
         }
     }
 
@@ -157,34 +165,17 @@ class GamePlayer extends Player {
         }
 
         const _this = this;
-
-        // TO DO : Add an event listener on the key down event
-        // to check the Tone.Transport.seconds value to see if it
-        // is close enough to when the keydown was pressed!
+        const feedback = document.getElementById("quality");
         document.addEventListener('keydown', checkTime);
-
         _this._subscriptions.push(checkTime);
 
-        const feedback = document.getElementById("quality");
-
         function checkTime(event) {
-            const code = convertToCode(arrow_id);
-            if(isArrowKey(event.code) && event.code === code) {
+            if(isArrowKey(event.code) && event.code === convertToCode(arrow_id)) {
                 event.preventDefault();
                 const time_diff = Math.abs(Tone.Transport.seconds - completion_time);
                 if(time_diff < 0.25) {
 
-                    if(time_diff < 0.05) {
-                        feedback.innerText = "PERFECT";
-                    } else if(time_diff < 0.1) {
-                        feedback.innerText = "GREAT";
-                    } else if (time_diff < 0.15) {
-                        feedback.innerText = "Nice";
-                    } else if (time_diff < 0.2) {
-                        feedback.innerText = "OK";
-                    } else {
-                        feedback.innerText = "Bad";
-                    }
+                    feedback.innerText = getFeedback(time_diff);
 
                     console.log("Success!");
                     const arrow = document.getElementById(arrow_id);
@@ -238,6 +229,21 @@ class GamePlayer extends Player {
 
                 throw new Error("arrow not recognized. cannot convert to code");
             }
+
+            function getFeedback(time_diff) {
+                types.typecheckNumber(time_diff);
+                if(time_diff < 0.05) {
+                    return "PERFECT";
+                } else if(time_diff < 0.1) {
+                    return "GREAT";
+                } else if (time_diff < 0.15) {
+                    return "Nice";
+                } else if (time_diff < 0.2) {
+                    return "OK";
+                } else {
+                    return "Bad";
+                }
+            }
         }
     }
 
@@ -249,5 +255,6 @@ class GamePlayer extends Player {
         super.play();
     }
 }
+
 
 export { GamePlayer, Mode };
