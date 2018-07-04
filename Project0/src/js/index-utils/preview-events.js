@@ -1,6 +1,8 @@
 import * as utils from "./utils";
 import Player from "../player/Player";
 
+// This function adds events for starting and stopping music preview
+// using the UI buttons.
 export function addPreviewEvents(generator) {
     const previewBtn = document.getElementById("start-preview");
     const stopBtn = document.getElementById("stop-preview");

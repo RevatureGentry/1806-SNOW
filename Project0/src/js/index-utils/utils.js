@@ -16,8 +16,6 @@ export function getSelectedMusic() {
         return LAYLA;
     } else if (selected === "duck") {
         return LAYLA;
-    } else if (selected === "user") {
-        return LAYLA;
     } else {
         throw new Error("An invalid selection was made!");
     }
