@@ -1,0 +1,22 @@
+body{
+    background-image: url('../img/bg/img.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto Mono',
+    monospace;
+    color: white;
+
+}
+
+#main-canvas{
+    display:block;
+    position: absolute;
+    margin:auto;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    /*border: 5px solid black;*/
+    /**/
+}
+
