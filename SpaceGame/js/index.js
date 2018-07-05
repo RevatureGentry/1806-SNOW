@@ -31,7 +31,7 @@ let drawLaser = function (laser) {
         if(boss.getHP() <= 0){
             writePowerEvent(`BOSS DEFEATED!`);
             is_boss_defeated = true;
-            score_content = parseInt(score_content) + (boss.getBaseHP() * 100);
+            score_content = parseInt(score_content) + (boss.getBaseHP() * 50);
             document.getElementById("scoreboard").innerHTML = score_content;
         }
         
@@ -239,12 +239,12 @@ let drawTheWholeGame = function (level) {
             player1_lasers.splice(player1_lasers[i], 1);
         };
     }
-    if (parseInt(score_content) >= 5000 && has_lvl2_been_announced == false) {
+    if (parseInt(score_content) >= 3000 && has_lvl2_been_announced == false) {
         ENEMY_HP += 1;
         writePowerEvent(`Baddies now require ${ENEMY_HP} hits to be destroyed.`);
         has_lvl2_been_announced = true;
     }
-    if (parseInt(score_content) >= 7000 && has_lvl3_been_announced == false){
+    if (parseInt(score_content) >= 4000 && has_lvl3_been_announced == false){
         ENEMY_HP += 1;
         writePowerEvent(`Baddies now require ${ENEMY_HP} hits to be destroyed.`);
         has_lvl3_been_announced = true;
@@ -252,7 +252,7 @@ let drawTheWholeGame = function (level) {
     let rand = Math.random(); // let's generate a random number to see if an enemy should appear in this frame
     let rand2 = Math.floor(Math.random() * (CANVAS_HEIGHT - 5)) + 1; // this denotes which x height should it spawn at
     if(parseInt(score_content) < BOSS_INIT_SCORE || is_boss_defeated == true){
-        if (rand < (.01 * level)) { // if the the rand variable is less than this, spawn the enemy!
+        if (rand < (.008 * level)) { // if the the rand variable is less than this, spawn the enemy!
             let temp_enemy = pickRandomEnemy(CANVAS_WIDTH + 5, rand2, 5 + current_level);
             enemy_arr.push(temp_enemy);
         }
