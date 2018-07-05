@@ -41,7 +41,7 @@
                     <p class="statBlock" id="dexBlock"> 
                         <span class="tool-tip" id="dexTip"> Dexterity: 
                             <span class="tooltiptext">
-                                1 pt of Dexterity = 0.33 pts of Physical Resistance.
+                                1 pt of Dexterity = 1 pt of Physical Resistance.
                             </span>
                         </span>
                         &emsp;&emsp;&emsp;&nbsp;&nbsp;
@@ -74,7 +74,7 @@
                             <p class="statBlock" id="wisBlock"> 
                                 <span class="tool-tip" id="wisTip"> Wisdom: 
                                     <span class="tooltiptext">
-                                        1 pt of Wisdom = 0.33 pts of Magic Resistance.
+                                        1 pt of Wisdom = 1 pt of Magic Resistance.
                                     </span> 
                                 </span>
                                 &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -102,7 +102,7 @@
                             <p class="statBlock" id="chaBlock">
                                 <span class="tool-tip" id="chaTip">Charisma: 
                                     <span class="tooltiptext">
-                                        1 pt of Charisma = 0.25 pts of All-Around Damage Resistance.
+                                        1 pt of Charisma = 0.67 pts of All-Around Damage Resistance.
                                     </span>
                                 </span> 
                                 &emsp;&emsp;&emsp;&nbsp;&nbsp;
@@ -117,16 +117,21 @@
             <div class="col-6">
                 <form action="" class="statBlock">
                 <!-- Name and Race Fields-->
-                    <!-- TODO: Add some HTML/CSS Tooltips, and update the current mouseover event listeners with the new ids. -->
-                    <label class="heroLabels" for="nameVal">Name: </label> &emsp;
-                    <input type="text" id="nameVal" value="Your Name">
+                    <span id="nameBlock">
+                        <label class="heroLabels" for="nameVal">Name: </label> &emsp;
+                        <input type="text" id="nameVal" value="Your Name">
+                    </span>
                     <br> <br>
-                    <label class="heroLabels" for="raceVal">Race: </label> &emsp;&nbsp;&nbsp;
-                    <input type="text" id="raceVal" value="Your Fantasy Race">
+                    <span id="raceBlock">
+                        <label class="heroLabels" for="raceVal">Race: </label> &emsp;&nbsp;&nbsp;
+                        <input type="text" id="raceVal" value="Your Fantasy Race">
+                    </span>
                     <hr>
                     <p class="statBlock" id="statPointsBlock">Stat Points Remaining: <span id="statPoints">0</span></p>
                     <p class="statBlock" id="hpBlock">Max HP: <span  id="hpVal">4</span></p>
                     <p class="statBlock" id="armorBlock">Armor: <span id="armorVal">10</span></p>
+                    <p class="statBlock" id="magResBlock">Magic Resistance: <span id="magResVal">0</span></p>
+                    <p class="statBlock" id="physResBlock">Physical Resistance: <span id="physResVal">0</span></p>
                     
                 <!-- Submit/Start Fight Button -->
                     <span class="tool-tip">

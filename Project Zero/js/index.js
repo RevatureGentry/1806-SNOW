@@ -97,7 +97,7 @@ class Combat {
                 +`\n    ${this.char2.getName()}: HP: ${this.char2.getHp()}/${this.char2.getMaxHp()}`);
 
             //Check For Winner. 
-            if (this.char1.getHp(), this.char2.getHp() <= 0) {
+            if (this.char1.getHp() <= 0 && this.char2.getHp() <= 0) {
                 appendLog(`Both ${this.char1.getName()} and ${this.char2.getName()} have collapsed!` +
                 `\n It's a TKO on both sides!`);
                 appendLog("---END OF COMBAT---\nTo fight again, press the 'Reset' Button Below.");
@@ -125,13 +125,7 @@ class Combat {
 
 //Character Class.
 class Character {
-    constructor(sPoints=30, baseHp='50', baseArmor=25) {
-        //Combat Stats
-        this.hp = baseHp;
-        this.maxHp = baseHp;
-        this.armor = baseArmor;
-        this.baseDmg = 10;
-
+    constructor(sPoints=30, baseHp='50', basicArmor=25) {
         //Attributes
         this.statPoints = sPoints;
         this.str = 10; //Determines Physical Damage.
@@ -140,6 +134,22 @@ class Character {
         this.wis = 10; //Determines Magical Resistance.
         this.int = 10; //Determines Magical Damage.
         this.cha = 10; //Determines Bonus Armor (Due to physical appeal - the sexier you are, the harder it is to hurt you).
+
+        //Attribute Ratios - Determines how much an attribute will impact its associated stat.
+        this.strRat = 3;
+        this.dexRat = 1;
+        this.conRat = 5;
+        this.wisRat = 1;
+        this.intRat = 3;
+        this.chaRat = (2/3);
+
+
+        //Combat Stats
+        this.hp = baseHp;
+        this.maxHp = baseHp;
+        this.baseArmor = basicArmor;
+        this.armor = basicArmor + Math.round(this.chaRat*this.cha);
+        this.baseDmg = 10;
 
         //Custom Text Fields
         this.name = " ";
@@ -189,6 +199,7 @@ class Character {
         return this.statPoints;
     }
     getHp() {
+        console.log(`${this.name} HP: ${this.hp}`);
         return this.hp;
     }
     getMaxHp() {
@@ -216,7 +227,7 @@ class Character {
                 break;
             case StatsEnum.con: 
                 this.con = statValue;
-                this.hp = 50 + Math.round(10*(this.con/2));
+                this.hp = 50 + Math.round(this.conRat * this.con);
                 this.maxHp = this.hp;
                 break;
             case StatsEnum.wis:
@@ -227,7 +238,7 @@ class Character {
                 break;
             case StatsEnum.cha:
                 this.cha = statValue;
-                this.armor = Math.round(7.5*(this.cha/3));
+                this.armor = this.baseArmor + Math.round(this.chaRat * this.cha);
                 break;
             default: 
                 console.log("StatManager.setStat() - Default reached. statType is Out of Bounds.");
@@ -256,7 +267,7 @@ class Character {
                     break;
                 case StatsEnum.con: 
                     (isPositive) ? this.con++ : this.con--;
-                    this.hp = 50 + Math.round(10*(this.con/2));
+                    this.hp = 50 + Math.round(this.conRat * this.con);
                     this.maxHp = this.hp;
                     break;
                 case StatsEnum.wis:
@@ -267,7 +278,7 @@ class Character {
                     break;
                 case StatsEnum.cha:
                     (isPositive) ? this.cha++ : this.cha--;
-                    this.armor = Math.round(7.5*(this.cha/3));
+                    this.armor = this.baseArmor + Math.round(this.chaRat * this.cha);
                     break;
                 default: 
                     console.log("StatManager.incrementStat() - Default reached. statType is out of bounds.");
@@ -318,15 +329,17 @@ class Character {
     
     getDMG(dmgType) {
         let damage = 0;
-        let damageMin = this.baseDmg;
+        let damageMin = 0;
         let damageMax = this.baseDmg;
         switch (dmgType) {
             case DmgTypeEnum.physical: 
-                damageMax = this.baseDmg + this.str*3;
+                damageMin = this.baseDmg + this.strRat * this.str;
+                damageMax = 2 * damageMin;
                 damage = Math.round(Math.random() * (damageMax-damageMin+1)+damageMin);
                 break;
             case DmgTypeEnum.magic: 
-                damageMax = this.baseDmg + this.int*3;
+                damageMin = this.baseDmg + this.intRat * this.int;
+                damageMax = 2 * damageMin;
                 damage = this.baseDmg + Math.round(Math.random() * (damageMax-damageMin+1)+damageMin);
                 break;
             default: 
@@ -345,14 +358,14 @@ class Character {
         }
         switch (dmgType) {
             case DmgTypeEnum.physical:
-                console.log(`(${this.name}) Total Physical Resistance: ${this.dex/3 + this.armor/4}`);
-                return this.dex/4 + this.armor/2;
+                console.log(`(${this.getName()}) Total Physical Resistance: ${Math.round(this.dexRat * this.dex + this.armor)}`);
+                return Math.round((this.dexRat * this.dex) + this.armor);
             case DmgTypeEnum.magic: 
-                console.log(`(${this.name}) Total Magic Resistance: ${this.wis/3 + this.armor/4}`);
-                return this.wis/4 + this.armor/2;
+                console.log(`(${this.getName()}) Total Magic Resistance: ${Math.round(this.wisRat * this.wis + this.armor)}`);
+                return Math.round((this.wisRat * this.wis) + this.armor);
             default: 
                 console.log('Error: (dmgType) was out of bounds. Defaulting to Physical Damage.');
-                return this.dex/4 + this.armor/2;
+                return Math.round((this.dexRat * this.dex) + this.armor);
         }
     }
 }
@@ -363,8 +376,15 @@ class Character {
 //DOM Objects Needed in Global Scope (used by other functions):
 //Character Builder
 let hpVal;
+let hpBlock;
 let statPoints;
-let armorVal;  
+let statPointsBlock;
+let armorVal;
+let armorBlock;
+let magResVal;
+let magResBlock;
+let physResVal;
+let physResBlock;
 
 let strVal;
 let dexVal;
@@ -374,7 +394,9 @@ let intVal;
 let chaVal;  
 
 let nameVal;
+let nameBlock;
 let raceVal;
+let raceBlock;
 
 let exTooltipArea;
 let charBuilder;
@@ -574,17 +596,28 @@ function domBuilder() {
 
     //Character Builder Form: Name/Race Values
     nameVal = document.getElementById('nameVal');
-        nameVal.addEventListener('mouseover', () => displayTooltip(tipIndex.name));
+    nameBlock = document.getElementById('nameBlock');
+        nameBlock.addEventListener('mouseover', () => displayTooltip(tipIndex.name));
     raceVal = document.getElementById('raceVal');
+    raceBlock = document.getElementById('raceBlock');
         raceVal.addEventListener('mouseover', () => displayTooltip(tipIndex.race));
 
     //Character Builder: Stats
     statPoints = document.getElementById('statPoints');
-        statPoints.addEventListener('mouseover', () => displayTooltip(tipIndex.statPoints));
+    statPointsBlock = document.getElementById('statPointsBlock');
+        statPointsBlock.addEventListener('mouseover', () => displayTooltip(tipIndex.statPoints));
     hpVal = document.getElementById('hpVal');
-        hpVal.addEventListener('mouseover', () => displayTooltip(tipIndex.hp));
+    hpBlock = document.getElementById('hpBlock');
+        hpBlock.addEventListener('mouseover', () => displayTooltip(tipIndex.hp));
     armorVal = document.getElementById('armorVal');
-        armorVal.addEventListener('mouseover', () => displayTooltip(tipIndex.armor));
+    armorBlock = document.getElementById('armorBlock');
+        armorBlock.addEventListener('mouseover', () => displayTooltip(tipIndex.armor));
+    magResVal = document.getElementById('magResVal');
+    magResBlock = document.getElementById('magResBlock');
+        magResBlock.addEventListener('mouseover', () => displayTooltip(tipIndex.magRes));
+    physResVal = document.getElementById('physResVal');
+    physResBlock = document.getElementById('physResBlock');
+        physResBlock.addEventListener('mouseover', () => displayTooltip(tipIndex.physRes));
 
     //Character Builder Form: Submit/'Start Fight!' Button
     let submitButton = document.getElementById('submitButton');
@@ -598,9 +631,9 @@ function domBuilder() {
     
     //Combat Area: Combat Screen
     atkPhysicalBtn = document.getElementById('atkPhysical');
-        atkPhysicalBtn.setAttribute('style', 'display: none');
+        atkPhysicalBtn.setAttribute('style', 'display: none;');
     atkMagicBtn = document.getElementById('atkMagic');
-        atkMagicBtn.setAttribute('style', 'display: none');
+        atkMagicBtn.setAttribute('style', 'display: none;');
 
     //TODO: Add Skills for Combat, and add listeners to each skill available.
 }
@@ -618,6 +651,8 @@ let updateAttributes = function() {
     statPoints.textContent = mainCharacter.getStatPoints();
     hpVal.textContent = mainCharacter.getHp();
     armorVal.textContent = mainCharacter.getArmor();
+    magResVal.textContent = mainCharacter.getResitance(DmgTypeEnum.magic);
+    physResVal.textContent = mainCharacter.getResitance(DmgTypeEnum.physical);
 }
 
 //Adds a new entry into the Action Log. 
@@ -661,9 +696,8 @@ let submitCharacter = function() {
     atkMagicBtn.addEventListener('click', attackMagic);
 }
 
-//
+// displayTooltip() - Show an extended tooltip in the 'More Details' Area. 
 let displayTooltip = function(tipNumber) {
-    console.log("In displayTooltip");
     if (typeof(tipNumber) != 'number') {
         console.log("Error (displayTooltip() ): tipNumber is not a number.");
         throw new Error();
@@ -673,6 +707,8 @@ let displayTooltip = function(tipNumber) {
         : exTooltipArea.innerHTML = exTooltipHTML[tipNumber]; 
 }
 
+// resetTooltip() - Set the innerHTML of the 'More Details' Area back to it's default value. 
+    //Called when the user moves their mouse out of the character builder. 
 let resetTooltip = function() {
     exTooltipArea.innerHTML = "Confused what something is/does? Mouse over it and read some more details here!";
 }
@@ -694,7 +730,6 @@ let resetCombat = function() {
 
     //Reset Combat.
     combat.setTurnCount(1);
-    combat.setWhoseTurn(TurnsEnum.c1);
 
     //Reset Character HP. 
     mainCharacter.resetHp();
@@ -726,4 +761,9 @@ let resetCombat = function() {
 
         3. Find some way to include visual animations or other spritework in the canvas or an iFrame, perhaps. This is a really long shot 
         that's going to require a lot of research/visual skills, but it'd be a really awesome touch haha. 
+
+        4. Add variable messages depending on what level of damage is done (for criticals, negative damage, etc.), 
+        and a rotating/random series of messages for varied combat logs.
+
+        5. Find a way to auto-scroll the combat log to the bottom, because scrolling every cycle is rather annoying. 
 */
