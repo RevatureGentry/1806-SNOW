@@ -19,19 +19,6 @@ window.onload =  function(){
     document.getElementById('reset').addEventListener('click', reset);    
     grid();    
 }
-//ship object
-function ship(name, size, hp){
-    this.name = name,
-    this.size= size,
-    this.sank= false,
-    this.hp= hp,
-    this.location= []
-}
-//player object
-function players(id){
-    this.id= id,
-    this.fleet= [C1 = new ship("Carrier", 4, 5), B1 = new ship("Battleship", 3, 4), Cr1 = new ship("Cruiser", 2, 3),S1 = new ship("Submarine", 2, 3),D1 = new ship("Destroyer",1,2)]
-}
 //reset() is a function that sets the webpage back to its initial state
 function reset(){
     player = true;
@@ -40,6 +27,12 @@ function reset(){
     playerindex = 0;
     shiplocations = [];
     shotlocations = [];
+    let hp = 5;
+    for(let i = 0; i < 5; i++){
+        player1.fleet[i].hp = hp;
+        player2.fleet[i].hp = hp;       
+        hp--; 
+    }
     var elem = document.getElementsByClassName('table-bordered');
     while(elem.length > 0){//if board is there
         elem[0].parentNode.removeChild(elem[0]);
@@ -51,6 +44,19 @@ function reset(){
     let lastmove = document.getElementById('lastmove');        
     lastmove.textContent = ""   
     grid();      
+}
+//player object
+function players(id){
+    this.id= id,
+    this.fleet= [C1 = new ship("Carrier", 4, 5), B1 = new ship("Battleship", 3, 4), Cr1 = new ship("Cruiser", 2, 3),S1 = new ship("Submarine", 2, 3),D1 = new ship("Destroyer",1,2)]
+}
+//ship object
+function ship(name, size, hp){
+    this.name = name,
+    this.size= size,
+    this.sank= false,
+    this.hp= hp,
+    this.location= []
 }
 //grid is a function that builds the playing area
 //called by windows.onload and reset()
