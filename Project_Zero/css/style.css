@@ -6,7 +6,7 @@
 }
 @font-face {
   font-family: 'DISKOTEQUE';
-  src: url('../diskoteque-webfont.woff') format('woff');
+  src: url('../assets/diskoteque-webfont.woff') format('woff');
 }  
 #scoreboard {
 	font-family:"DISKOTEQUE";
