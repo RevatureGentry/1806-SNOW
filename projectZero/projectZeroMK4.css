@@ -1,0 +1,10 @@
+.cell{
+    width: "90";
+    height: "90";
+    z-index: "1";
+}
+
+.board{
+    background-color: Blue; 
+    z-index: "0";
+}

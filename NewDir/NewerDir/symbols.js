@@ -1,6 +1,6 @@
 let hero = (function() {
-    let nameSymbol = symbol('name');
-    let levelSymbol = symbol('level');
+    let nameSymbol = Symbol('name')
+    let levelSymbol = Symbol('level');
 
     function Hero(name = 'Nameless', level = 1) {
         this[nameSymbol] = name;
@@ -16,5 +16,5 @@ let hero = (function() {
 });
 
 let myhero = new hero('Bob',10);
-console.log(`hero.name = ${hero.name}`);
-console.log(`hero.level = ${hero.level}`)
+console.log(`hero.name = ${myhero.name}`);
+console.log(`hero.level = ${myhero.level}`)
