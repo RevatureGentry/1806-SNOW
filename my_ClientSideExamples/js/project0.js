@@ -30,7 +30,9 @@ function reset(){
     let hp = 5;
     for(let i = 0; i < 5; i++){
         player1.fleet[i].hp = hp;
-        player2.fleet[i].hp = hp;       
+        player1.fleet[i].sank = false;
+        player2.fleet[i].hp = hp;   
+        player2.fleet[i].sank = false;        
         hp--; 
     }
     var elem = document.getElementsByClassName('table-bordered');
