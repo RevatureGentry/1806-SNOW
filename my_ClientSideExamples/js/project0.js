@@ -27,14 +27,16 @@ function reset(){
     playerindex = 0;
     shiplocations = [];
     shotlocations = [];
-    let hp = 5;
-    for(let i = 0; i < 5; i++){
-        player1.fleet[i].hp = hp;
-        player1.fleet[i].sank = false;
-        player2.fleet[i].hp = hp;   
-        player2.fleet[i].sank = false;        
-        hp--; 
-    }
+    player2.fleet[0].hp = player1.fleet[0].hp = 5;
+    player2.fleet[0].sank = player1.fleet[0].sank = false;
+    player2.fleet[1].hp = player1.fleet[1].hp = 4;
+    player2.fleet[1].sank = player1.fleet[1].sank = false;
+    player2.fleet[2].hp = player1.fleet[2].hp = 3;
+    player2.fleet[2].sank = player1.fleet[2].sank = false;
+    player2.fleet[3].hp = player1.fleet[3].hp = 3;
+    player2.fleet[3].sank = player1.fleet[3].sank = false;
+    player2.fleet[4].hp = player1.fleet[4].hp = 2;
+    player2.fleet[4].sank = player1.fleet[4].sank = false;
     var elem = document.getElementsByClassName('table-bordered');
     while(elem.length > 0){//if board is there
         elem[0].parentNode.removeChild(elem[0]);
