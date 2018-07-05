@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="904AC961-8475-CC9A-834E-C5C32FA6613E" containerWithKeyObject="749A8969-8D21-9ECE-57B4-94E44A820508" localFKIndex="6563C924-C456-80D5-47C1-D363296FC015" name="FK_TRACKGENREID">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>FK_TRACKGENREID</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<referredTableLongName>CHINOOK.GENRE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>20FCAF6B-68C3-B6CC-EE81-5AA46904A926</referredTableID>
+<keyObject>C2B7D36B-D1AB-C6E8-8771-AE403870D4E6</keyObject>
+<referredKeyID>C2B7D36B-D1AB-C6E8-8771-AE403870D4E6</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>GENREID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

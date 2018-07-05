@@ -1,0 +1,186 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="203D4D2A-771D-BF7B-190C-76D45CB3870C" schemaObject="95295032-2F6B-104A-740B-BD16EDC18419" name="INVOICE">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>INVOICE</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="INVOICEID" id="ED576B3E-D888-BACC-5430-351392A4B8A2">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>INVOICE</sourceObjSchema>
+<sourceObjName>INVOICEID</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMERID" id="EF0165D4-481B-5128-EA7E-EFF3072C2A7B">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>INVOICE</sourceObjSchema>
+<sourceObjName>CUSTOMERID</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="97FB0551-669B-2DE5-C464-03058355584B" referredColumn="93F60A7A-0272-6711-61E2-2A9D0CB89634"/>
+</associations>
+</Column>
+<Column name="INVOICEDATE" id="9D2FEDF6-85D3-2461-021B-2343459E28DC">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>INVOICE</sourceObjSchema>
+<sourceObjName>INVOICEDATE</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BILLINGADDRESS" id="9070DAD7-7A87-574A-8206-C6C0EE6A639E">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>INVOICE</sourceObjSchema>
+<sourceObjName>BILLINGADDRESS</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>70 BYTE</dataTypeSize>
+<ownDataTypeParameters>70 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BILLINGCITY" id="7E70C694-2E82-8C34-EBD0-F6F2AF2C4E51">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>INVOICE</sourceObjSchema>
+<sourceObjName>BILLINGCITY</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BILLINGSTATE" id="53D26F92-D720-B732-26AC-577142F9793C">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>INVOICE</sourceObjSchema>
+<sourceObjName>BILLINGSTATE</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BILLINGCOUNTRY" id="30E56A39-1FD6-1357-9B27-AE2C78E101DA">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>INVOICE</sourceObjSchema>
+<sourceObjName>BILLINGCOUNTRY</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BILLINGPOSTALCODE" id="E0B479B6-B071-304F-9B15-8FF9159B4E2C">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>INVOICE</sourceObjSchema>
+<sourceObjName>BILLINGPOSTALCODE</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTAL" id="C98B2434-FB82-6852-DBF0-B3A67C6C9805">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>INVOICE</sourceObjSchema>
+<sourceObjName>TOTAL</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0B229B34-1097-E0E4-2F91-562B694A7AC2" name="PK_INVOICE">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>PK_INVOICE</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ED576B3E-D888-BACC-5430-351392A4B8A2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D08A13AB-7F0B-E487-7BEA-50DADFC01659" schemaObject="95295032-2F6B-104A-740B-BD16EDC18419" name="PK_INVOICE">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>PK_INVOICE</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ED576B3E-D888-BACC-5430-351392A4B8A2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E726B9FF-13DF-D32A-C06A-177256CD9F9F" name="FK_INVOICECUSTOMERID">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EF0165D4-481B-5128-EA7E-EFF3072C2A7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

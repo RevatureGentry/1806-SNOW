@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ALBUM" directorySegmentName="seg_0" id="2D0E0B9B-C30F-2198-BA9C-6D5A66E60EFC">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<schemaObject>95295032-2F6B-104A-740B-BD16EDC18419</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3A5688D0-B3D3-7E19-3C42-16D41058F8E4</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ARTISTID" id="326712C6-7329-1B3C-8A29-BD8935BC0867">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TITLE" id="7C8ECE32-4DDF-0CA1-300D-FC26A230E0B3">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ALBUMID" id="AA3FF480-6BEF-6409-67E3-C34C118F64C3">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_ALBUM" id="4A11A271-EF1D-6C16-49A7-F9A6A473657C">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<schemaObject>95295032-2F6B-104A-740B-BD16EDC18419</schemaObject>
+<segment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_ALBUMARTISTID" id="9D116007-1321-2720-D38E-5DC1A87303D2">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_ALBUM" id="F0F7B1D0-15C6-DC08-FCED-2B13A9E9CAA4">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<segment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+<existingIndex>4A11A271-EF1D-6C16-49A7-F9A6A473657C</existingIndex>
+<indexSegment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

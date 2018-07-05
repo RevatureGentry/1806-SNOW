@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5DD9903D-1731-0571-619E-BCA5D8E4D8FF" schemaObject="95295032-2F6B-104A-740B-BD16EDC18419" name="PLAYLISTTRACK">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>PLAYLISTTRACK</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PLAYLISTID" id="EDAC61C5-6BBA-7045-683C-DBF10596A31A">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>PLAYLISTTRACK</sourceObjSchema>
+<sourceObjName>PLAYLISTID</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8605A5C6-16B3-6836-7F33-AA5F3F0F84E3" referredColumn="547E4E00-DAE2-B5BA-16EA-DC38D9EE523B"/>
+</associations>
+</Column>
+<Column name="TRACKID" id="38F8E7BD-05E5-B6C5-1F1E-2821CF8A8A7C">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>PLAYLISTTRACK</sourceObjSchema>
+<sourceObjName>TRACKID</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FBC7C9D2-0D71-A248-058D-13F6360C901B" referredColumn="671B5220-257C-2858-CB66-A53D6D10531F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EAC79D38-21C7-1056-F5C0-38766DFC07E3" name="PK_PLAYLISTTRACK">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>PK_PLAYLISTTRACK</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EDAC61C5-6BBA-7045-683C-DBF10596A31A"/>
+<colUsage columnID="38F8E7BD-05E5-B6C5-1F1E-2821CF8A8A7C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DEB4F1E0-D354-7786-AFAF-4F4ADFBF9026" schemaObject="95295032-2F6B-104A-740B-BD16EDC18419" name="PK_PLAYLISTTRACK">
+<sourceConnName>CHINOOK-PRACTICE</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>PK_PLAYLISTTRACK</sourceObjName>
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EDAC61C5-6BBA-7045-683C-DBF10596A31A"/>
+<colUsage columnID="38F8E7BD-05E5-B6C5-1F1E-2821CF8A8A7C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AAB37518-2FFC-A1FA-A338-1749AB01D11D" name="FK_PLAYLISTTRACKPLAYLISTID">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EDAC61C5-6BBA-7045-683C-DBF10596A31A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="14891856-5C97-565F-C8DE-A047494195AC" name="FK_PLAYLISTTRACKTRACKID">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="38F8E7BD-05E5-B6C5-1F1E-2821CF8A8A7C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

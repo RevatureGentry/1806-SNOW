@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="7C92435B-26FA-A4CF-B806-7966F0CBCE63">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:28 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

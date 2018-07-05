@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript Breakout</title>
+
+    <!-- Bootstrap Link -->
+    <link   rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
+    crossorigin="anonymous">
+<style>
+    body {
+        background-image: url("background.jpg");
+    }
+
+    #thecanvas {
+        background-color: rgb(223, 223, 223);
+        margin: 10px, auto;
+        padding: 10px;
+    }
+    .container-canvas {
+        margin: 10px, auto;
+    }
+
+    #overlay {
+        background-color: rgb(143, 34, 34);
+    }
+
+    button {
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
+        position: absolute;
+    }
+</style>
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand bg-dark">
+            <a href="" class="navbar-brand text-light text-center">Breakout</a>
+        </nav>
+    </div>
+    <br><br>
+    <!-- The canvas -->
+    <div class="container">
+        <div class="col-md-9">
+            <!-- <div class="col-md-6 bg-dark"> -->
+                <canvas class="my-2 mr-1" id="thecanvas" width="500" height="300">
+                    Your browser doesn't support a canvas 
+                </canvas>
+
+                <button class="ml-1 mt-2 bg-primary" id="restartButton" type="button" onclick="restart()">Restart</button>
+                <!-- <div class="col-md-1">
+                </div> -->
+            <!-- </div> -->
+            <!-- <div class="col-md-6 bg-warning">
+               
+            </div> -->
+        </div>
+    </div>
+    <br><br>
+
+    <script src="./breakout.js"></script>
+</body>
+</html>

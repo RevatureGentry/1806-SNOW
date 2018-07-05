@@ -1,0 +1,121 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="EMPLOYEE" directorySegmentName="seg_0" id="1CAD6F37-91A7-76AB-91A3-9700AC6BF27E">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<schemaObject>95295032-2F6B-104A-740B-BD16EDC18419</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3A5688D0-B3D3-7E19-3C42-16D41058F8E4</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TITLE" id="092514F5-4436-24CF-264F-EA56E3137B43">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE" id="10FA8001-8469-BBE8-A013-D9E23D462CD9">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS" id="3074E47D-C0FA-E55D-0A7A-DDEC1F3CED6A">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMPLOYEEID" id="35B32A85-03C7-5A03-2020-6A88B7B051A3">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMAIL" id="5BFC9ED4-E89E-7C65-D87E-97D2160DDB76">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATE" id="5FE6A3CF-0A7D-C130-8BEC-AE630E85F8B2">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HIREDATE" id="7F41A762-E197-8C2C-1259-34C12FAC1580">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REPORTSTO" id="81CA5CC2-15DD-80F9-263B-D14A237724F8">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CITY" id="87004B1F-1B43-B4EB-B165-32FB11FA3162">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LASTNAME" id="8DB07308-DF66-8744-B545-4D6F98E266DE">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="POSTALCODE" id="9100D69A-7C8B-B20A-AE42-C303B2DE3C89">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BIRTHDATE" id="92494EA6-6CC1-1769-92E0-9362D1C65CBA">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FAX" id="A006AB02-1788-59DD-05A3-CBF213E30F75">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COUNTRY" id="B769876A-5032-130E-F2C5-CDC97B9FAF8D">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FIRSTNAME" id="E4049F52-886E-BBD7-38E9-DB8CCE3F366C">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_EMPLOYEE" id="7B9CEB19-E329-AFCF-DCD9-9B644D335FDF">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<schemaObject>95295032-2F6B-104A-740B-BD16EDC18419</schemaObject>
+<segment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_EMPLOYEEREPORTSTO" id="14EEA364-D2DB-D9C5-438A-58BB75FA34D4">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_EMPLOYEE" id="1B970DB9-1073-923B-6328-7C85B989CFE0">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<segment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+<existingIndex>7B9CEB19-E329-AFCF-DCD9-9B644D335FDF</existingIndex>
+<indexSegment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

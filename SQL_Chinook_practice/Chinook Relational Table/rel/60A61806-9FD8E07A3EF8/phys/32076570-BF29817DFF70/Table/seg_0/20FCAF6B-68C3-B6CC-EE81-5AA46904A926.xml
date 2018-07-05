@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="GENRE" directorySegmentName="seg_0" id="20FCAF6B-68C3-B6CC-EE81-5AA46904A926">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<schemaObject>95295032-2F6B-104A-740B-BD16EDC18419</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3A5688D0-B3D3-7E19-3C42-16D41058F8E4</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NAME" id="124BE72C-19AF-CD4F-45D6-A09E7505BB68">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GENREID" id="ED433A35-77D4-8A71-4A7C-EB383D9803B4">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_GENRE" id="AF981DAA-E70D-DCE3-7A9A-84B4FA28A802">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<schemaObject>95295032-2F6B-104A-740B-BD16EDC18419</schemaObject>
+<segment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_GENRE" id="C2B7D36B-D1AB-C6E8-8771-AE403870D4E6">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<segment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+<existingIndex>AF981DAA-E70D-DCE3-7A9A-84B4FA28A802</existingIndex>
+<indexSegment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="INVOICELINE" directorySegmentName="seg_0" id="0F015C4E-1E60-667F-7E30-B70A7303D2B0">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<schemaObject>95295032-2F6B-104A-740B-BD16EDC18419</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3A5688D0-B3D3-7E19-3C42-16D41058F8E4</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="QUANTITY" id="28BA7EE5-7649-0334-D43E-0D3F7AE95EC1">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="INVOICELINEID" id="4147F60D-E520-80DE-BC0E-8D9757A8F349">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="UNITPRICE" id="56D74C10-EB4F-92F9-CB98-BC9205B2D400">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TRACKID" id="9B23966E-1C2F-D618-97D1-19463285C5C3">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="INVOICEID" id="E45308EF-77EE-921C-E1EB-4645B87B6078">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_INVOICELINE" id="E9B71E0E-2270-F7D5-9A21-C9A23E443358">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<schemaObject>95295032-2F6B-104A-740B-BD16EDC18419</schemaObject>
+<segment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_INVOICELINETRACKID" id="0169E50E-64A0-CAAC-C6B7-B40456F76B8A">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_INVOICELINEINVOICEID" id="EF0FF164-A265-E1D1-BDB4-ADEFAD19274C">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_INVOICELINE" id="3A28CE55-DE26-26EB-70E1-B9E5123E404F">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<segment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+<existingIndex>E9B71E0E-2270-F7D5-9A21-C9A23E443358</existingIndex>
+<indexSegment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

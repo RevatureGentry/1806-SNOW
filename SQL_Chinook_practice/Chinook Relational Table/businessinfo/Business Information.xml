@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="658FFCEC-4FC8-8F41-221F-032500C69FA2">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:28 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

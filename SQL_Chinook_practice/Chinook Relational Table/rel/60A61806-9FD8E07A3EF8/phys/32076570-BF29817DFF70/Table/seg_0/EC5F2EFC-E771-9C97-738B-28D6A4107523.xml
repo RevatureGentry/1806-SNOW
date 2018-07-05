@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ARTIST" directorySegmentName="seg_0" id="EC5F2EFC-E771-9C97-738B-28D6A4107523">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<schemaObject>95295032-2F6B-104A-740B-BD16EDC18419</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3A5688D0-B3D3-7E19-3C42-16D41058F8E4</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ARTISTID" id="8B208B90-3893-7798-2DA9-4694CAF6B93A">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME" id="F04F0844-E23C-545C-51C8-3CC549B848BF">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_ARTIST" id="4564B16C-6BDB-37E0-15CD-0890DE91EBAE">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<schemaObject>95295032-2F6B-104A-740B-BD16EDC18419</schemaObject>
+<segment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_ARTIST" id="EF02228B-AFBC-C201-8452-B4AB78DBF929">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:54 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<segment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</segment>
+<tableSpace>7C1CBD77-4CDA-1BF2-D8A4-B007B1CFEE47</tableSpace>
+<existingIndex>4564B16C-6BDB-37E0-15CD-0890DE91EBAE</existingIndex>
+<indexSegment>A16150A5-150D-CFE7-B81A-68C2CC489A1F</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

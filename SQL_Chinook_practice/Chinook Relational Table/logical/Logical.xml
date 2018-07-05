@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="D2991A20-4453-2D10-0262-FA939D9FEFBA" mainViewID="D43FE678-4195-294C-EFC2-39AF91284EA1">
+<createdBy>Andrew Hanawalt</createdBy>
+<createdTime>2018-06-24 14:38:28 UTC</createdTime>
+<ownerDesignName>Chinook Relational Table</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>
