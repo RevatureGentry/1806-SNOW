@@ -13,14 +13,30 @@
 
 </head>
 <body>
-    <h1>Minesweeper!</h1>
-    <br><br>
-    <!-- Button Group Example-->
-    <div id='minesweeper' class="container">
-        <!-- Button groups require to be placed inside a container with the .btn-group -->
-        
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Minesweeper!</h1>
+        <br>
+
+        <p>Select difficulty:</p>
+        <input type="radio" value='easy' id='easy' name = difficulty onclick="makeDifficulty(1);">
+        <label for 'easy'>Easy</label>
+        <input type="radio" value='med' id='med' name = difficulty onclick="makeDifficulty(2);">
+        <label for 'med'>Medium</label>
+        <input type="radio" value='hard' id='hard' name = difficulty onclick="makeDifficulty(3);">
+        <label for 'hard'>Hard</label>
+
+        <div id="timer" display="inline">Time: </div>
+        <div id="bombs" display="inline">Bombs: </div>
     </div>
-    <br><br>
+    <br>
+    <h1 id='win' align="center"></h1>
+    <br>
+    <table id='minesweeper' align="center">
+        
+    </table>
+    <br>
+    
+
 <script src='./js/game.js'></script>
 </body>
 </html>

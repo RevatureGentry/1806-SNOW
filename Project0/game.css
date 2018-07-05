@@ -1,10 +1,32 @@
-button{
-    height: 40px;
-    width: 40px;
+
+.easy{
+    height: 60px;
+    width: 60px;
+    font-size: x-large;
 }
 
-buttonClicked{
+.medium{
     height: 40px;
     width: 40px;
+    font-size: x-large;
+    src: './blank.png';
+}
+
+.hard{
+    height: 25px;
+    width: 25px;
+    font-size: x-large;
+    src: './blank.png';
+}
+
+#timer{
+    font-size: x-large;
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+}
+
+#bombs{
+    font-size: x-large;
+    font-family: 'Courier New', Courier, monospace;
     color: red;
 }
