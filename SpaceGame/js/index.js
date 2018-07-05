@@ -11,13 +11,17 @@ let drawLaser = function (laser) {
     my_pen.drawImage(laser.getLsrImg(), laser.getDx(), laser.getDy(), laser.getDWidth(), laser.getDHeight());
     for(let i = 0; i< enemy_arr.length; i++){ // now, loop through the enemies if our laser is touching them
         if (areTheyTouching(enemy_arr[i], laser) == true) {
-            enemy_arr.splice(i,1);
-            player1_lasers.splice(player1_lasers.indexOf(laser),1);
-            if(laser.getDx() < CANVAS_WIDTH){
-                score_content = parseInt(score_content) + 100;
+            enemy_arr[i].setHP(enemy_arr[i].getHP() - 1);
+            if(enemy_arr[i].getHP() <= 0){
+                enemy_arr.splice(i,1);
+                player1_lasers.splice(player1_lasers.indexOf(laser),1);
+                if(laser.getDx() < CANVAS_WIDTH){
+                    score_content = parseInt(score_content) + (enemy_arr[i].getHP() * 100);
+                }
+                document.getElementById("scoreboard").innerHTML = score_content;
+                return false;
             }
-            document.getElementById("scoreboard").innerHTML = score_content;
-            return false;
+            return true;
         }
     }; // draws the current laser object on the canvas
     return true;
@@ -145,11 +149,11 @@ let checkCurrLevel = function(score){
     document.getElementById("CURRENTSCORE").innerHTML = current_level;
 };
 
-let pickRandomEnemy = function(){
-    if(current_level > 5){
-
-    }
-    return enemyspr_arr[Math.floor(Math.random() * enemyspr_arr.length)]; // pick a random sprite
+let pickRandomEnemy = function(rand2){
+    let newEnSpr = enemyspr_arr[Math.floor(Math.random() * enemyspr_arr.length)];
+     //return new Enemy(newEnSpr, CANVAS_WIDTH + 5, rand2, ENEMY_WIDTH, ENEMY_HEIGHT, 5, ENEMY_HP);
+    //return enemyspr_arr[Math.floor(Math.random() * enemyspr_arr.length)]; // pick a random sprite
+    return new Enemy(newEnSpr, CANVAS_WIDTH + 5, rand2, ENEMY_WIDTH, ENEMY_HEIGHT, 5, ENEMY_HP);
 };
 
 let generateRandomPup = function(rand2){ // this generates a random Power-Up Object, and returns it
@@ -175,7 +179,7 @@ let generateRandomPup = function(rand2){ // this generates a random Power-Up Obj
             PUP_WIDTH, PUP_HEIGHT, 5, "Extra Life!");
     }
     return new PowerUp(ice_pupspr, "ice", CANVAS_WIDTH + 5, rand2 - 40, 
-        PUP_WIDTH, PUP_HEIGHT, 5, "\tIce Power! Slowing down...");
+        PUP_WIDTH, PUP_HEIGHT, 5, "Ice Power! Slowing down...");
     // idk im scares of unexpected boundary errors, so i just set a default value lol
 }
 
@@ -185,10 +189,14 @@ let areTheyTouching = function(thing, otherthing){ // this compares the distance
     //let  = 40;
     //let max_height = 40;
     let threshold = 40;
-    if(x_diff <= threshold && y_diff <= threshold)
+    if(x_diff <= threshold && y_diff <= threshold) // HOW DARE THEY TOUCH
         return true;
     return false;
 }
+
+let SpawnBoss = function () {
+    let my_boss = new Enemy(boss_spr, CANVAS_WIDTH + 5, rand2, ENEMY_WIDTH * 2, ENEMY_HEIGHT * 2, 5, ENEMY_HP);
+};
 
 let drawTheWholeGame = function (level) {
     my_pen.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT); // first, let's clear the canvas
@@ -200,24 +208,32 @@ let drawTheWholeGame = function (level) {
             player1_lasers.splice(player1_lasers[i], 1);
         };
     }
-    let rand = Math.random(); // let's generate a random number to see if an enemy should appear in this frame 
-    let rand2 = Math.floor(Math.random() * (CANVAS_HEIGHT - 5)) + 1; // this denotes which x height should it spawn at
-    if (rand < (.011 * level)) { // if the the rand variable is less than this, spawn the enemy!
-        newEnSpr = pickRandomEnemy();
-        let temp_enemy = new Enemy(newEnSpr, CANVAS_WIDTH + 5, rand2, ENEMY_WIDTH, ENEMY_HEIGHT, 5, 1);
-        enemy_arr.push(temp_enemy);
+    if (parseInt(score_content) >= 5000 && has_lvl2_been_announced == false) {
+        ENEMY_HP += 1;
+        writePowerEvent(`Baddies now require ${ENEMY_HP} hits to be destroyed.`);
+        has_lvl2_been_announced = true;
     }
-    if (rand < (.004 - (.00001 * level) )){
-        if (rand2 - 20 <= 40) { // it bugs me that i can see the sprite getting cut off at the top of the canvas
-            rand2 = 80; // so let's set a static destination height if the predefined random height is too small
+    if(parseInt(score_content) < 1000){
+        let rand = Math.random(); // let's generate a random number to see if an enemy should appear in this frame 
+        let rand2 = Math.floor(Math.random() * (CANVAS_HEIGHT - 5)) + 1; // this denotes which x height should it spawn at
+        if (rand < (.99 * level)) { // if the the rand variable is less than this, spawn the enemy!
+            let temp_enemy = pickRandomEnemy(rand2);
+            enemy_arr.push(temp_enemy);
         }
-        //let temp_pUp = new PowerUp(ice_pupspr, "ice", CANVAS_WIDTH + 5, rand2 - 40, PUP_WIDTH, PUP_HEIGHT, 5);
+        if (rand < (.004 - (.00001 * level) )){
+            if (rand2 - 20 <= 40) { // it bugs me that i can see the sprite getting cut off at the top of the canvas
+                rand2 = 80; // so let's set a static destination height if the predefined random height is too small
+            }
+            //let temp_pUp = new PowerUp(ice_pupspr, "ice", CANVAS_WIDTH + 5, rand2 - 40, PUP_WIDTH, PUP_HEIGHT, 5);
 
-        let temp_pUp = generateRandomPup(rand2);
-        console.log("PUP:", temp_pUp.getPUpId());
-        pup_arr.push(temp_pUp);
+            let temp_pUp = generateRandomPup(rand2);
+            console.log("PUP:", temp_pUp.getPUpId());
+            pup_arr.push(temp_pUp);
+        }
     }
-
+    else{
+        spawnBoss();
+    }
     for (let i = 0; i < pup_arr.length; i++) {
         drawPup(pup_arr[i], player1_ship);
     }
@@ -323,6 +339,19 @@ let writePowerEvent = function(pow_text){
     document.getElementById("announce-pow").innerHTML = pow_text;
 };
 
+let changeBg = function(evt){
+    if (isItBg4 == true){
+        document.getElementById("mainbody").style.backgroundImage = "url('../img/bg/img.gif')";
+        isItBg4 = false;    
+    }
+    else {
+        document.getElementById("mainbody").style.backgroundImage = "url('../img/bg/img4.gif')";
+        isItBg4 = true;
+    }
+}
+
+
+
 let loopGame = function(){
     drawTheWholeGame(current_level); // first we draw the current frame of the game
     animateNextFrame(); // now we draw the next frame of the game and animate it
@@ -330,9 +359,13 @@ let loopGame = function(){
     if(did_we_lose_yet == false){ // make sure we didn't lose yet
         if(is_it_a_loss == true){
             updateLiveShips(NUM_LIVES);
-            player1_ship.setDx(30);
+            player1_ship.setDx(30); // reset the ship, tbh coulda made it in a different function
             player1_ship.setDy(30);
+            player1_ship.setDWidth(40);
+            player1_ship.setDHeight(40);
+            player1_ship.setVelocity(10);
             console.log("LOSS");
+            writePowerEvent("Lost a life!");
             is_it_a_loss = false;
         }
         checkCurrLevel(parseInt(score_content));
@@ -343,10 +376,10 @@ let loopGame = function(){
         console.log("We lost"); // she just lost her last life
         document.getElementById("shipcount").innerHTML = "";
         my_pen.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-
         //window.requestAnimationFrame(loopGame);
         document.removeEventListener('keydown', moveKirbyShip);
-        document.getElementById("gamestatus").innerHTML = "GAME OVER, FINAL LEVEL REACHED: " + current_level;
+        document.getElementById("gamestatus").innerHTML = "GAME OVER, FINAL LEVEL REACHED: "
+             + current_level + "/ FINAL SCORE REACHED: " + score_content;
     }
 }; 
 
@@ -354,5 +387,6 @@ window.onload = function(){
     //initiateGame();
     updateLiveShips(NUM_LIVES);
     document.addEventListener('keydown', moveKirbyShip);
+    document.getElementById("bg-changer").addEventListener('click', changeBg);
     loopGame();
 }

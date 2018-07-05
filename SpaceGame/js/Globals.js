@@ -7,19 +7,19 @@ let laser_spr = new Image();
 let enemy1_spr = new Image();
 let enemy2_spr = new Image();
 let enemy3_spr = new Image();
-let enemy1_ice_spr = new Image();
 let ice_pupspr = new Image();
 let fire_pupspr = new Image();
 let grow_pupspr = new Image();
 let shrink_pupspr = new Image();
 let xtralife_pupspr = new Image();
+let boss_spr = new Image();
 // can't have an Image object with a source ofc
 kirbySS.src = "../img/kirbyss.png";
 laser_spr.src = "../img/player1_laser.png";
 enemy1_spr.src = "../img/enemy/enemy1.png";
 enemy2_spr.src = "../img/enemy/enemy2.png";
 enemy3_spr.src = "../img/enemy/enemy3.png";
-enemy1_ice_spr.src = "../img/enemy/enemy1-ice.png";
+boss_spr.src = "../img/enemy/bossboi.png";
 ice_pupspr.src = "../img/pup/ice-pow.png";
 fire_pupspr.src = "../img/pup/fire-pow.png";
 grow_pupspr.src = "../img/pup/grow-pow.png";
@@ -42,6 +42,7 @@ let LASER_WIDTH = 15;
 let LASER_HEIGHT = 5;
 let ENEMY_WIDTH = 40;
 let ENEMY_HEIGHT = 40; 
+let ENEMY_HP = 1;
 let PUP_WIDTH = 20;
 let PUP_HEIGHT = 20;
 let INIT_SHIP_VEL = 10;
@@ -60,5 +61,7 @@ let is_pow_in_effect = false; // is there a powerup in effect? Check it with a b
 let score_content = document.getElementById("scoreboard").innerHTML; // what's our current score
 let level_content = document.getElementById("gamestatus").innerHTML; // what's our current level
 //let enemy1 = new Enemy(enemy1_spr, CANVAS_WIDTH + 5, CANVAS_HEIGHT - 100, 5);
-
+//cancelAnimationFrame(globalID);
+let has_lvl2_been_announced = false;
+let isItBg4 = false;
 
