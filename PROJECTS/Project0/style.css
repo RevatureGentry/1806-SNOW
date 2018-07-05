@@ -7,7 +7,7 @@
 
 body {
   margin: 20px 0;
-  background-image: url(./cards/67352.jpg);
+  background-image: url(./cards/viking.jpg);
   background-repeat: no-repeat;
   background-position: top middle;
 }
@@ -54,7 +54,6 @@ body {
 }
 
 .back {
-  -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   background-color: #6589F9;
   background-size: contain;
@@ -63,10 +62,10 @@ body {
 }
 
 .selected {
-  -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
 
 .match .front {
   background: rgb(29, 30, 31) url('./cards/treelife.gif') no-repeat center !important;
+  filter: opacity(15%);
 }
