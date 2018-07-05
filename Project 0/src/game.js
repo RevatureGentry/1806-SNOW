@@ -12,6 +12,7 @@ var bombs = 3;
 var lives = 3;
 var score = 0;
 var highscore = 0;
+//create a player object
 var player = {
     color: "#0BA",
     bombs: 3,
@@ -25,6 +26,7 @@ var player = {
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 };
+//create an orbiter object
 var orb = {
     color: "#4EA",
     x: player.x + 40,
@@ -36,6 +38,7 @@ var orb = {
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
+//create an orbiter object
 var orbtwo = {
     color: "#4EA",
     x: player.x - 30,
@@ -47,10 +50,11 @@ var orbtwo = {
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
+//player recieving damage
 player.damage = function(){
     this.lives -= 1;
-    //console.log(this.lives);
 }
+//player bomb action
 player.bomb = function(){
     if(player.bombs > 0){
         enemyBullet = [];
@@ -58,32 +62,33 @@ player.bomb = function(){
         player.bombs--;
     }
 }
-player.die = function(){
-    
-}
+
 player.shoot = function(){
     var bulletPosition = this.midpoint();
-    playerBullets.push(bullet({speed:20, x: bulletPosition.x, y: bulletPosition.y, color: "#0A2"}));
-    //console.log(playerBullets.length);
+    playerBullets.push(bullet({type: 0, speed:20, x: bulletPosition.x, y: bulletPosition.y, color: "#0A2"}));
 };
 orb.shoot = function(){
     var bulletPosition = this.midpoint();
-    playerBullets.push(bullet({speed:20, x: bulletPosition.x, y: bulletPosition.y, angle: 90, color: "#0A2"}));
+    playerBullets.push(bullet({type: 0, speed:20, x: bulletPosition.x, y: bulletPosition.y, angle: 90, color: "#0A2"}));
 }
 orbtwo.shoot = function(){
     var bulletPosition = this.midpoint();
-    playerBullets.push(bullet({speed:20, x: bulletPosition.x, y: bulletPosition.y, angle: 90, color: "#0A2"}));
+    playerBullets.push(bullet({type: 0, speed:20, x: bulletPosition.x, y: bulletPosition.y, angle: 90, color: "#0A2"}));
 }
 function pathing(bulletType){
     
 }
-//to change
+//Creation of two different types of enemies
 var addEnemy = function(){
-    if(Math.random() < 0.1){
-        enemies.push(Enemy());
+    if(Math.random() < 0.05){
+        enemies.push(Enemy({type: 1}));
         
     }
+    if(Math.random() > 0.95){
+        enemies.push(Enemy({type: 0}));
+    }
 }
+//position calculations
 player.midpoint = function(){
     return {
         x: this.x + this.width/2,
@@ -102,6 +107,7 @@ orbtwo.midpoint = function(){
         y: this.y + this.height/2
     };
 };
+//enemy objects
 function Enemy(I) {
     I = I || {};
     I.active = true;
@@ -125,8 +131,22 @@ function Enemy(I) {
     I.update = function(){
         I.x += I.xVelocity;
         I.y += I.yVelocity;
+        if(I.type == 0){
+            I.xVelocity = 3 * Math.sin(I.age * Math.PI / 64);
+        }
+        if(I.type == 1){
+            var angle = Math.atan((player.x - I.x)/(player.y - I.y));
+            if(player.y - I.y > 0){
+                I.yVelocity = 1*Math.cos(angle);
+                I.xVelocity = 1*Math.sin(angle);
+            }
+            else{
+                I.yVelocity = -1*Math.cos(angle);
+                I.xVelocity = -1*Math.sin(angle);
+            }
+            
 
-        I.xVelocity = 3 * Math.sin(I.age * Math.PI / 64);
+        }
         I.age++;
         I.active = I.active && I.inBounds();
     };
@@ -144,7 +164,15 @@ function Enemy(I) {
     }
     I.shoot = function(){
         var enemyBulletPosition = this.midpoint();
-        enemyBullet.push(bullet({speed:-4, x: enemyBulletPosition.x, y: enemyBulletPosition.y, angle: 90, color: "#FF0000"}));
+        if(I.type == 0){
+            var angle = Math.atan((player.x - I.x)/(player.y - I.y));
+            enemyBullet.push(bullet({type:0, speed:-4, x: enemyBulletPosition.x, y: enemyBulletPosition.y, angle: 90, color: "#FF0000"}));
+        }
+        if(I.type == 1){
+            var angle = Math.atan((player.x - I.x)/(player.y - I.y));
+            enemyBullet.push(bullet({type:1, speed:-4, x: enemyBulletPosition.x, y: enemyBulletPosition.y, angle: angle, color: "#FF0000"}));
+        }
+        
     }
     return I;
 }
@@ -160,7 +188,6 @@ function collisionHandler(){
             if(collisionDetection(bullet, enemy)){
                 enemy.damage();
                 score = score + 50;
-                //console.log(enemy.health)
                 if(enemy.health == 0){
                     enemy.die();
                     score = score + 500;
@@ -174,7 +201,6 @@ function collisionHandler(){
         if(collisionDetection(bullet, player)){
             player.damage();
             enemyBullet = [];
-            //console.log(bullet.active);
         }
     });
     enemies.forEach(function(enemy){
@@ -185,21 +211,25 @@ function collisionHandler(){
         }
     })
 }
+//bullet object
 function bullet(I){
     I.active = true;
     I.xVelocity = 0;
     I.yVelocity = -I.speed;
     I.height = 3;
     I.width = 3;
-    I.angle = 0;
     I.inBounds = function(){
         return I.x >= 0 && I.x <= c.width && I.y >= 0 && I.y <= c.height;
     };
     I.update = function(){
-        I.x += I.xVelocity;
-        I.y += I.yVelocity;
-        this.angle = this.angle + 20;
-        //console.log(this.angle);
+        if(I.type == 0){
+            I.x += I.xVelocity;
+            I.y += I.yVelocity;
+        }
+        if(I.type == 1){
+            I.x += 3*Math.sin(I.angle);
+            I.y += 3*Math.cos(I.angle);
+        }
         I.active = I.active && I.inBounds();
     };
     I.draw = function(){
@@ -214,10 +244,8 @@ function resetFunction(){
     
 }
 var gameStart = false;
+//The Game Loop
 setInterval(function(){
-
-    //console.log(player.lives);
-    console.log(player.lives <= 0);
     if(player.lives <= 0){
         playerBullets = [];
         enemyBullet = [];
@@ -267,7 +295,6 @@ setInterval(function(){
         if(player.bombs<=0){
             bombCoolDown = 50;
         }
-        //console.log(bombCoolDown);
         var playerspeed = 8;
         shootingSpeedCounter++;
         update();
@@ -279,16 +306,13 @@ setInterval(function(){
             
             if(enemy.fireRate <= 0){
                 enemy.shoot();
-                //console.log(enemyBullet);
-                enemy.fireRate = 15;
+                enemy.fireRate = 30;
             }
         })
         if(keyState[16]){
-            //console.log("shooting");
             playerspeed = 3;
         }
         if(keyState[90]){
-            //console.log(shootingSpeedCounter);
             player.shoot();
             if(shootingSpeedCounter >= 5){
                 orb.shoot();
@@ -336,11 +360,8 @@ setInterval(function(){
             bombCoolDown = 50;
         }
     }
-    
-    //player.x = player.x.clamp(0, c.width - player.width);
-    //player.y = player.y.clamp(0, c.height - player.height);
 }, 1000/FPS);
-
+//updates the state of the game
 function update(){
    posX += 1;
    posY += 1;
@@ -361,11 +382,9 @@ function update(){
    });
    addEnemy();
    collisionHandler();
-   //console.log(ctx.width);
 }
+//used to draw items on the canvas
 function draw(){
-    //console.log("Mouse over");
-    //ctx.fillStyle = "#020";
     ctx.clearRect(0,0, c.width, c.height);
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, c.width, c.height);
@@ -386,11 +405,12 @@ function draw(){
         enemy.draw();
     });
 }
+//checking to see if a key is held down
 document.addEventListener('keydown', function(e){
     keyState[e.keyCode || e.which] = true;
     
 })
+//checking to see if a key is no longer held down
 document.addEventListener('keyup', function(e){
     keyState[e.keyCode || e.which] = false;
 }, true);
-//document.getElementById("game").addEventListener("mouseover", draw);
