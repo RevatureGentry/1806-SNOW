@@ -212,6 +212,7 @@ let areTheyTouching = function(thing, otherthing, threshold){ // this compares t
 let moveBoss = function(b){
     console.log("position ", b.getDx());
     if(boss.getDx() >= (CANVAS_WIDTH * .65)){
+        writePowerEvent(`BOSS APPROACHING...`);
         b.setDx(b.getDx() - b.getVelocity());
     }
     else{
