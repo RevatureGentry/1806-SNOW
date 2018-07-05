@@ -139,9 +139,11 @@ function generalMove(maximumMovementsHash, piecePosition, pieceColor, pieceType,
             case true:
                 try{checkPossibleCells(1, 1, 1, true, checkForCheck)}catch{}
                 try{checkPossibleCells(-1, 1, 1, true, checkForCheck)}catch{}
+                break;
             case false:
                 try{checkPossibleCells(1, -1, 1, true, checkForCheck)}catch{}
                 try{checkPossibleCells(-1, -1, 1, true, checkForCheck)}catch{}
+                break;
             }
         let newPossibleMoveLength = possibleCells.length;
         for(let i = 0; i < (newPossibleMoveLength - originalPossibleMovesLength); i++)
@@ -248,11 +250,12 @@ function movePiece(newCellID, originalPiecePosition){
     
     let newCellOldOccupied = "";
     if(newCell.classList.contains("whiteOccupied")){newCellOldOccupied = "whiteOccupied";}
-    else if(newCell.classList.contains("whiteOccupied")){newCellOldOccupied = "blackOccupied";}
+    else if(newCell.classList.contains("blackOccupied")){newCellOldOccupied = "blackOccupied";}
     newCell.classList.remove("whiteOccupied", "blackOccupied");     //Reset cell where piece is moving to
     newCell.classList.add(`${currentColor}Occupied`);
     originalCell.innerHTML = "";
     newCell.innerHTML = "";
+    
     newCell.appendChild(originalPiece);
     
     kingCheckFunction(enemyColor); //Identify if player just put themselves into check with move
@@ -266,11 +269,35 @@ function movePiece(newCellID, originalPiecePosition){
         originalCell.appendChild(originalPiece);
         return
     }
-    
-    setPieceFunctionality(originalPiece);
+
+    //If the pawn makes it to the other side of the board, change it into a queen
+    if(currentColor == "white" && newCellID.charAt(1) == "8"){
+        if(newCell.children[0].classList.contains("pawn")){
+            newCell.children[0].classList.remove("piece");
+            newCell.children[0].classList.remove("pawn");
+            newCell.children[0].classList.remove("white")
+            newCell.children[0].classList.add("queen");
+            newCell.children[0].classList.add("piece");
+            newCell.children[0].classList.add("white");
+            newCell.children[0].setAttribute("src", "./Pieces/queenWhite.png");
+        }
+    }
+    if(currentColor == "black" && newCellID.charAt(1) == "1"){
+        if(newCell.children[0].classList.contains("pawn")){
+            newCell.children[0].classList.remove("piece");
+            newCell.children[0].classList.remove("pawn");
+            newCell.children[0].classList.remove("black")
+            newCell.children[0].classList.add("queen");
+            newCell.children[0].classList.add("piece");
+            newCell.children[0].classList.add("black");
+            newCell.children[0].setAttribute("src", "./Pieces/queenBlack.png");
+        }
+    }
+    setPieceFunctionality(newCell.children[0]);
     kingCheckFunction(currentColor); //Identify if player just put enemy into check with previous move
+    var newEnemyColor = currentColor;
     currentColor = enemyColor;
-    enemyColor = originalPiece.classList[2];
+    enemyColor = newEnemyColor;
     unsetCells();
 }
 
