@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <title>PONG</title>
+    <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background:black; display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="860" height="540"></canvas>
+    <br>
+<!--     <h1>First to 10 Wins</h1>
+    <h1>Score</h1>
+    <h2 id='score1'>Player 1: </h2>
+    <h2 id='score2'>Player 2:</h2> -->
+
+    <table class="w-25 table table-bordered table text-center mx-auto" style="border: 2px solid black" id="score">
+            <thead>
+                <tr>
+                    <th colspan="2">SCOREBOARD</th>
+                </tr>
+            </thead>
+            <thead>
+                    <tr>
+                        <th colspan="2">FIRST TO 10 WINS!</th>
+                    </tr>
+                </thead>
+            <tbody>
+                <tr>
+                    <td>PLAYER 1</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>COMPUTER</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+    </table>
+
+    <script src="./js/ai_pong.js"></script>
+</body>
+</html>
