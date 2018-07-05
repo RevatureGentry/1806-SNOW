@@ -1,0 +1,105 @@
+
+.bg {
+    background-image: url(tablefelt.jpg);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+        background: url(tablefelt2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        height: 100%;
+}
+img {
+    max-width: 20%;
+    height: auto;
+}
+
+td {
+    text-align : center;
+
+}
+th {
+    text-align: center;
+    width: auto;
+
+    
+
+    
+}
+#check{
+    width : 33%;
+    text-align: center;
+    margin: auto;
+    display: none;
+}
+#fold{
+    width : 33%;
+    text-align: center;
+    margin: auto;
+    display: none;
+}
+#raise{
+    width : 33%;
+    text-align: center;
+    margin: auto;
+    display: none;
+}
+#call{
+    width : 33%;
+    text-align: center;
+    margin: auto;
+    display: none;
+}
+#callfold{
+    width : 33%;
+    text-align: center;
+    margin: auto;
+    display: none;
+}
+#callraise{
+    width : 33%;
+    text-align: center;
+    margin: auto;
+    display: none;
+}
+#moveButtons{
+    white-space:nowrap;
+    position: relative;
+
+    
+}
+#callButtons{
+    white-space:nowrap;
+    position: relative;
+
+    
+}
+#playerCards{
+    width: 100%;
+    background: rgb(48, 49, 49);
+    left:0px;
+    bottom: 0;
+    position: relative;
+}
+#river{
+    width: 33%;
+}
+#turn{
+    width: 33%;
+}
+#flop{
+    width: 33%;
+}
+#raiseAmount{
+    display: none;
+}
+#thepot{
+    width: 100%;
+    background: rgb(235, 240, 240);
+    left:0px;
+
+}
