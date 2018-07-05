@@ -24,13 +24,14 @@ let drawLaser = function (laser) {
             }
         }
     }; // draws the current laser object on the canvas
-    if(areTheyTouching(laser, boss, 100)){
+    if(is_boss_active == true && areTheyTouching(laser, boss, 100)){
         player1_lasers.splice(player1_lasers.indexOf(laser), 1);
         boss.setHP(boss.getHP() - 1);
         writePowerEvent(`CURRENT BOSS HP: ${boss.getHP()}`);
         if(boss.getHP() <= 0){
             writePowerEvent(`BOSS DEFEATED!`);
             is_boss_defeated = true;
+            is_boss_active = false;
             score_content = parseInt(score_content) + (boss.getBaseHP() * 50);
             document.getElementById("scoreboard").innerHTML = score_content;
         }
@@ -252,7 +253,7 @@ let drawTheWholeGame = function (level) {
     let rand = Math.random(); // let's generate a random number to see if an enemy should appear in this frame
     let rand2 = Math.floor(Math.random() * (CANVAS_HEIGHT - 5)) + 1; // this denotes which x height should it spawn at
     if(parseInt(score_content) < BOSS_INIT_SCORE || is_boss_defeated == true){
-        if (rand < (.008 * level)) { // if the the rand variable is less than this, spawn the enemy!
+        if (rand < (.009 * level)) { // if the the rand variable is less than this, spawn the enemy!
             let temp_enemy = pickRandomEnemy(CANVAS_WIDTH + 5, rand2, 5 + current_level);
             enemy_arr.push(temp_enemy);
         }
@@ -269,6 +270,7 @@ let drawTheWholeGame = function (level) {
     }
     if(parseInt(score_content) > BOSS_INIT_SCORE){
         if(is_boss_defeated == false){
+            is_boss_active = true;
             my_pen.drawImage(boss.getEnImg(), boss.getDx(), boss.getDy(), boss.getDWidth(), boss.getDHeight());
             if(rand < .06){
                 let temp_enemy = pickRandomEnemy(boss.getDx(), boss.getDy() + 5, 10);

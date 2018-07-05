@@ -49,6 +49,7 @@ let boss = new Enemy(boss_spr, CANVAS_WIDTH + 5, CANVAS_HEIGHT / 3, ENEMY_WIDTH 
 let BOSS_INIT_SCORE = 5000;
 let is_boss_defeated = false;
 let float_down = true;
+let is_boss_active = false;
 let INIT_SHIP_VEL = 10;
 let INIT_LASER_VEL = 10;
 let current_level = 1; // level counter
