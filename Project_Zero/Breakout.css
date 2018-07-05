@@ -1,0 +1,15 @@
+canvas { 
+    background: black; 
+    display: block;
+    padding: 0;
+    margin: auto;
+    opacity: 0.9;
+ }
+
+ body{
+     background-image: url(./breakout.png)
+ }
+
+ .jumbotron{
+     opacity: 0.9;
+ }
