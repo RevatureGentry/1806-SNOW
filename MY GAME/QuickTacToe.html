@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quick Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="./css/mystyle.css"> 
+   
+    
+
+</head>
+
+<body  style="background-color: white;" background="C:\Users\raaz95\Pictures\binary.jpg ">
+    
+     
+                <p id="win" style="text-align: center;font-size: 800%; margin: auto;color: white"></p>
+                <p id="player" style="text-align: center;font-size: 800%; margin: auto;color: white"></p>
+                <p id="pturn" style="text-align: center;font-size: 200%; margin: auto;color: white"></p>
+               <p style="text-align:center"><img id="pic" src="" alt=""> </p>
+    
+                
+    
+
+
+ <div id="displayGame">
+                <p style="text-align:center;color: white;font-size: 30px;">Player 1</p>
+    <table class="table2" style="background-color: skyblue">
+            
+                <tr>
+                    <td><img  id="im1" src="C:\Users\raaz95\Pictures\ball1.jpg" alt="Ball" 
+                        draggable="true" ondragstart="drag(event)" >
+      
+                    </td>
+                    <td ><img id="im2" src="C:\Users\raaz95\Pictures\ball1.jpg" alt="Ball" 
+                        draggable="true" ondragstart="drag(event)" >
+    
+                    </td>
+                    
+                    <td ><img id="im3" src="C:\Users\raaz95\Pictures\ball1.jpg" alt="Ball"
+                        draggable="true" ondragstart="drag(event)" >
+    
+                    </td>
+                </tr>
+            
+              </table>
+            
+    <br>
+<table class="table1" style="background-color: teal">
+        
+        <tr>
+          <td id="myId1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td id="myId2"  ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td id="myId3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          
+        </tr>
+        <tr>
+          <td id="myId4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td id="myId5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td id="myId6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+
+        <tr>
+                <td id="myId7"  ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                <td id="myId8" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                <td id="myId9" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+              </tr>
+      </table>
+    
+    
+        <br>
+    
+      <table class="table2" style="background-color: yellowgreen">
+            <tr>
+                    <td><img id="im4" src="C:\Users\raaz95\Pictures\ball2.jpg" alt="Ball" 
+                        draggable="true" ondragstart="drag(event)"  >
+      
+                    </td>
+                    <td ><img id="im5" src="C:\Users\raaz95\Pictures\ball2.jpg" alt="Ball" 
+                        draggable="true" ondragstart="drag(event)" >
+    
+                    </td>
+                    
+                    <td><img id="im6" src="C:\Users\raaz95\Pictures\ball2.jpg" alt="Ball" 
+                        draggable="true" ondragstart="drag(event)" >
+    
+                    </td>
+                </tr>
+            
+          </table>
+          <p style="text-align:center;color: white;font-size: 30px; ">Player 2</p>
+          
+</div>
+       
+    
+   <script src="./js/mynew.js"></script> 
+   <p style="text-align: center"><a  style="float: center" href="file:///C:/Users/raaz95/1806-SNOW/My%20game/QuickTacToe.html">
+    <button id="playAgain" style="font-weight: bolder; background:darkgray ; height: 50px;width: 150px;font-size: 20px"></button></a>
+</p> 
+
+
+</body>
+</html>

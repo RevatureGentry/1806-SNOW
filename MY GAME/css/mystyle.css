@@ -1,0 +1,39 @@
+.table1{
+    border: 1px solid red;
+    width: 308px;
+    height: 308px;
+    
+    margin:auto;
+
+    overflow: hidden;
+   table-layout: fixed;
+   background: skyblue;
+  
+
+}
+
+td{
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+overflow: hidden;
+  text-align: center;
+  
+
+}
+
+.table2{
+    border: 1px solid red;
+    width:308px;
+    height: 104px;
+   background: grey;
+    margin:auto;
+    table-layout: fixed;
+  overflow: hidden;
+  
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
