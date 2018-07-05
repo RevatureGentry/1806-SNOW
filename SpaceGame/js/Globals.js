@@ -45,6 +45,10 @@ let ENEMY_HEIGHT = 40;
 let ENEMY_HP = 1;
 let PUP_WIDTH = 20;
 let PUP_HEIGHT = 20;
+let boss = new Enemy(boss_spr, CANVAS_WIDTH + 5, CANVAS_HEIGHT / 3, ENEMY_WIDTH * 8, ENEMY_HEIGHT * 4, 5, 50, 50);
+let BOSS_INIT_SCORE = 1000;
+let is_boss_defeated = false;
+let float_down = true;
 let INIT_SHIP_VEL = 10;
 let INIT_LASER_VEL = 10;
 let current_level = 1; // level counter
@@ -55,13 +59,13 @@ let enemy_arr = []; // same with this, but with Enemy Objects
 let pup_arr = []; // as with this, but with PowerUp Objects
 let ani_frame_idx = 0; // define a counter for the current animation frame
 let did_we_lose_yet = false; // has the player lost yet? Check it with a boolean!
-let pow_duration_idx = 20; // this denotes the length a powerup will last
+//let pow_duration_idx = 20; // this denotes the length a powerup will last
 let is_pow_in_effect = false; // is there a powerup in effect? Check it with a boolean too
-
 let score_content = document.getElementById("scoreboard").innerHTML; // what's our current score
 let level_content = document.getElementById("gamestatus").innerHTML; // what's our current level
 //let enemy1 = new Enemy(enemy1_spr, CANVAS_WIDTH + 5, CANVAS_HEIGHT - 100, 5);
 //cancelAnimationFrame(globalID);
 let has_lvl2_been_announced = false;
+let has_lvl3_been_announced = false;
 let isItBg4 = false;
 
