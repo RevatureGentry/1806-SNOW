@@ -18,9 +18,11 @@
 
 .wpiece{
     content:url("./img/whitep.png");
+    align-content: center;
 }
 .rpiece{
     content:url("./img/redp.png");
+    align-content: center;
 }
 
 .col{
