@@ -1,0 +1,17 @@
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-top: 1pc;
+    padding-bottom: 0.5pc;
+    width: 100%;
+    text-align: right;
+    background-color: #343a40;
+    color: aliceblue;
+}
+#footer-line{
+    padding-right: 1pc;
+}
+#score-div{
+    padding-bottom: 2pc;
+}

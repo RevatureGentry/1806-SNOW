@@ -11,10 +11,11 @@ var keyState = {};
 var bombs = 3;
 var lives = 3;
 var score = 0;
+var highscore = 0;
 var player = {
     color: "#0BA",
     bombs: 3,
-    lives: 3,
+    lives: 0,
     x: 220,
     y: 270,
     width: 20,
@@ -62,16 +63,19 @@ player.die = function(){
 }
 player.shoot = function(){
     var bulletPosition = this.midpoint();
-    playerBullets.push(bullet({speed:20, x: bulletPosition.x, y: bulletPosition.y}));
+    playerBullets.push(bullet({speed:20, x: bulletPosition.x, y: bulletPosition.y, color: "#0A2"}));
     //console.log(playerBullets.length);
 };
 orb.shoot = function(){
     var bulletPosition = this.midpoint();
-    playerBullets.push(bullet({speed:20, x: bulletPosition.x, y: bulletPosition.y, angle: 90}));
+    playerBullets.push(bullet({speed:20, x: bulletPosition.x, y: bulletPosition.y, angle: 90, color: "#0A2"}));
 }
 orbtwo.shoot = function(){
     var bulletPosition = this.midpoint();
-    playerBullets.push(bullet({speed:20, x: bulletPosition.x, y: bulletPosition.y, angle: 90}));
+    playerBullets.push(bullet({speed:20, x: bulletPosition.x, y: bulletPosition.y, angle: 90, color: "#0A2"}));
+}
+function pathing(bulletType){
+    
 }
 //to change
 var addEnemy = function(){
@@ -102,7 +106,7 @@ function Enemy(I) {
     I = I || {};
     I.active = true;
     I.age = Math.floor(Math.random() * 128);
-    I.color = "#123";
+    I.color = "#660033";
     I.x = c.width / 4 + Math.random() * c.width / 2;
     I.y = 0;
     I.fireRate = 15;
@@ -140,7 +144,7 @@ function Enemy(I) {
     }
     I.shoot = function(){
         var enemyBulletPosition = this.midpoint();
-        enemyBullet.push(bullet({speed:-4, x: enemyBulletPosition.x, y: enemyBulletPosition.y, angle: 90}));
+        enemyBullet.push(bullet({speed:-4, x: enemyBulletPosition.x, y: enemyBulletPosition.y, angle: 90, color: "#FF0000"}));
     }
     return I;
 }
@@ -166,6 +170,13 @@ function collisionHandler(){
             }
         });
     });
+    enemyBullet.forEach(function(bullet){
+        if(collisionDetection(bullet, player)){
+            player.damage();
+            enemyBullet = [];
+            //console.log(bullet.active);
+        }
+    });
     enemies.forEach(function(enemy){
         if(collisionDetection(enemy, player)){
             enemy.die();
@@ -180,7 +191,6 @@ function bullet(I){
     I.yVelocity = -I.speed;
     I.height = 3;
     I.width = 3;
-    I.color = "#0A2";
     I.angle = 0;
     I.inBounds = function(){
         return I.x >= 0 && I.x <= c.width && I.y >= 0 && I.y <= c.height;
@@ -200,66 +210,133 @@ function bullet(I){
 }
 var shootingSpeedCounter = 0;
 var bombCoolDown = 0;
+function resetFunction(){
+    
+}
+var gameStart = false;
 setInterval(function(){
-    if(bombCoolDown>0){
-        bombCoolDown--;
-    }
-    console.log(bombCoolDown);
-    var playerspeed = 8;
-    shootingSpeedCounter++;
-    update();
-    draw();
-    enemies.forEach(function(enemy){
-        enemy.fireRate--;
-        
-        if(enemy.fireRate <= 0){
-            enemy.shoot();
-            //console.log(enemyBullet);
-            enemy.fireRate = 15;
+
+    //console.log(player.lives);
+    console.log(player.lives <= 0);
+    if(player.lives <= 0){
+        playerBullets = [];
+        enemyBullet = [];
+        ctx.clearRect(0,0, c.width, c.height);
+        ctx.fillStyle = "#000000";
+        ctx.fillRect(0, 0, c.width, c.height);
+        ctx.fillStyle = "#FFFFFF"
+        if(gameStart == false){
+            ctx.fillText("Click to Start!", (c.width/2)-20, c.height/2);
         }
-    })
-    if(keyState[16]){
-        //console.log("shooting");
-        playerspeed = 3;
-    }
-    if(keyState[90]){
-        //console.log(shootingSpeedCounter);
-        player.shoot();
-        if(shootingSpeedCounter >= 5){
-            orb.shoot();
-            orbtwo.shoot();
-            shootingSpeedCounter = 0;
+        else{
+            ctx.fillText("Game Over", (c.width/2)-20, c.height/2);
+            ctx.fillText(`Score: ${score}`, (c.width/2)-20, c.height/2 + 50);
+            ctx.fillText("Click to Replay", (c.width/2)-30, c.height/2 + 200);
         }
         
+        if(score > highscore){
+            highscore = score;
+            document.getElementById("score").innerText = `High Score: ${highscore}`;
+        }
+        document.getElementById("game").addEventListener("click", function(){
+            if(gameStart == false){
+                gameStart = true;
+            }
+            if(player.lives <= 0){
+                score = 0;
+                player.lives = 3;
+                player.bombs = 3;
+                player.x = 220;
+                orb.x = player.x + 40;
+                orbtwo.x = player.x -30;
+                player.y = 270;
+                orb.y = player.y;
+                orbtwo.y = player.y;
+                enemies = [];
+                bombCoolDown = 0;
+            }
+            
+        });
     }
-    if(keyState[38]){
-        //console.log("confirmed");
-        player.y -= playerspeed;
-        orb.y -= playerspeed;
-        orbtwo.y -= playerspeed;
+    else{
+        
+        if(bombCoolDown>0){
+            bombCoolDown--;
+            
+        }
+        if(player.bombs<=0){
+            bombCoolDown = 50;
+        }
+        //console.log(bombCoolDown);
+        var playerspeed = 8;
+        shootingSpeedCounter++;
+        update();
+        draw();
+        ctx.fillStyle = "#CC0000";
+        ctx.fillRect(50, 80, bombCoolDown, 10);
+        enemies.forEach(function(enemy){
+            enemy.fireRate--;
+            
+            if(enemy.fireRate <= 0){
+                enemy.shoot();
+                //console.log(enemyBullet);
+                enemy.fireRate = 15;
+            }
+        })
+        if(keyState[16]){
+            //console.log("shooting");
+            playerspeed = 3;
+        }
+        if(keyState[90]){
+            //console.log(shootingSpeedCounter);
+            player.shoot();
+            if(shootingSpeedCounter >= 5){
+                orb.shoot();
+                orbtwo.shoot();
+                shootingSpeedCounter = 0;
+            }
+            
+        }
+        //I.x >= 0 && I.x <= c.width && I.y >= 0 && I.y <= c.height;
+        if(keyState[38]){
+            var boundCheck = player.y - playerspeed;
+            if(boundCheck >= 0){
+                player.y -= playerspeed;
+                orb.y -= playerspeed;
+                orbtwo.y -= playerspeed;
+            }
+            
+        }
+        if(keyState[37]){
+            var boundCheck = player.x - playerspeed;
+            if(boundCheck >=0){
+                player.x -= playerspeed;
+                orb.x -= playerspeed;
+                orbtwo.x -= playerspeed;
+            }
+        }
+        if(keyState[39]){
+            var boundCheck = player.x + playerspeed;
+            if(boundCheck <= c.width-20){
+                player.x += playerspeed;
+                orb.x += playerspeed;
+                orbtwo.x += playerspeed;
+            }
+        }
+        if(keyState[40]){
+            var boundCheck = player.y + playerspeed;
+            if(boundCheck <= c.height-15){
+                player.y += playerspeed;
+                orb.y += playerspeed;
+                orbtwo.y += playerspeed;
+            }
+        }
+        if(keyState[88] && bombCoolDown == 0){
+            player.bomb();
+            bombCoolDown = 50;
+        }
     }
-    if(keyState[37]){
-        //console.log("confirmed");
-        player.x -= playerspeed;
-        orb.x -= playerspeed;
-        orbtwo.x -= playerspeed;
-    }
-    if(keyState[39]){
-        //console.log("confirmed");
-        player.x += playerspeed;
-        orb.x += playerspeed;
-        orbtwo.x += playerspeed;
-    }
-    if(keyState[40]){
-        //console.log("confirmed");
-        player.y += playerspeed;
-        orb.y += playerspeed;
-        orbtwo.y += playerspeed;
-    }
-    if(keyState[88] && bombCoolDown == 0){
-        player.bomb();
-        bombCoolDown = 50;
-    }
+    
     //player.x = player.x.clamp(0, c.width - player.width);
     //player.y = player.y.clamp(0, c.height - player.height);
 }, 1000/FPS);
@@ -290,6 +367,9 @@ function draw(){
     //console.log("Mouse over");
     //ctx.fillStyle = "#020";
     ctx.clearRect(0,0, c.width, c.height);
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, c.width, c.height);
+    ctx.fillStyle = "#FFFFFF"
     ctx.fillText(`Score: ${score}`, 50, 30);
     ctx.fillText(`Lives: ${player.lives}`, 50, 50);
     ctx.fillText(`Bombs: ${player.bombs}`, 50, 70);
