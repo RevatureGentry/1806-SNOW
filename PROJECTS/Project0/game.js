@@ -1,4 +1,6 @@
 //card image array
+// huggin and muninn refer to Odins 2 companion ravens
+// thier names mean 'thought' and 'memory' respectivly
 const cardsArray = [{
     'name' : 'stein',
     'img' : './cards/beer-stein.png',
@@ -62,12 +64,12 @@ const cardsArray = [{
 ]; //15 unique cards = 30 displayed cards
 
 //this will create a new array with 2x the amount of images
-//from before to make matches
+//from before to make matches and then randomly arranges them in the new array
 const gameGrid = cardsArray.concat(cardsArray).sort(() => 0.5 - Math.random());
 
 let firstGuess = '';    // need first and second to allow for multiple guesses
 let secondGuess = '';
-let count = 0;
+let count = 0;      // ensure only 2 cards are selected
 let previousTarget = null;  //created to prevent players from selecting the same element twice
 let delay = 1000;
 
@@ -87,6 +89,8 @@ function reload() {
 
 
 // for each card array item
+// for this games purpose, front refers to the first thing a player sees and
+//the back will be the image
 gameGrid.forEach(item => {
   const { name, img } = item;
 
@@ -130,7 +134,10 @@ const resetGuesses = () => {
 //whenever an image is clicked, select it
 grid.addEventListener('click', event => {
 
+    // the event we target is the click item
   const clicked = event.target;
+
+
 // do not allow the background, previous card or matches to become selected
   if (
     clicked.nodeName === 'SECTION' ||
@@ -141,10 +148,10 @@ grid.addEventListener('click', event => {
     return;
   }
 
-  if (count < 2) {
+  if (count < 2) {    
     count++;
     if (count === 1) {
-      //become first guess
+      //first item selected becomes first guess
       firstGuess = clicked.parentNode.dataset.name;
       console.log(firstGuess);
       clicked.parentNode.classList.add('selected');
