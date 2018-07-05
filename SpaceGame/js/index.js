@@ -10,7 +10,7 @@ let drawShip = function(){
 let drawLaser = function (laser) {
     my_pen.drawImage(laser.getLsrImg(), laser.getDx(), laser.getDy(), laser.getDWidth(), laser.getDHeight());
     for(let i = 0; i< enemy_arr.length; i++){ // now, loop through the enemies if our laser is touching them
-        if (areTheyTouching(enemy_arr[i], laser, 40) == true) {
+        if (areTheyTouching(enemy_arr[i], laser, 40,40) == true) {
             player1_lasers.splice(player1_lasers.indexOf(laser), 1);
             enemy_arr[i].setHP(enemy_arr[i].getHP() - 1);
             console.log("WE TOOK A HIT!", enemy_arr[i].getHP());
@@ -24,7 +24,7 @@ let drawLaser = function (laser) {
             }
         }
     }; // draws the current laser object on the canvas
-    if(is_boss_active == true && areTheyTouching(laser, boss, 100)){
+    if(is_boss_active == true && areTheyTouching(laser, boss, 20, 300)){
         player1_lasers.splice(player1_lasers.indexOf(laser), 1);
         boss.setHP(boss.getHP() - 1);
         writePowerEvent(`CURRENT BOSS HP: ${boss.getHP()}`);
@@ -46,7 +46,7 @@ let drawEnemy = function (enemy) {
 
 let drawPup = function(pup, player){
     my_pen.drawImage(pup.getPUpImg(), pup.getDx(), pup.getDy(), pup.getDWidth(), pup.getDHeight());
-   if(areTheyTouching(player1_ship, pup, 40) == true){
+   if(areTheyTouching(player1_ship, pup, 40,40) == true){
        writePowerEvent(pup.getMsg());
        console.log("TOUCH POWERUP", pup);
        setPowerUp(pup, player);
@@ -198,13 +198,14 @@ let generateRandomPup = function(rand2){ // this generates a random Power-Up Obj
     // idk im scares of unexpected boundary errors, so i just set a default value lol
 }
 
-let areTheyTouching = function(thing, otherthing, threshold){ // this compares the distances of two objects, returns true if below threshold
+let areTheyTouching = function (thing, otherthing, xthreshold, ythreshold) {
+    // this compares the distances of two objects, returns true if below threshold
     let x_diff = Math.abs(thing.getDx() - otherthing.getDx());
     let y_diff = Math.abs(thing.getDy() - otherthing.getDy());
     //let  = 40;
     //let max_height = 40;
     //let threshold = 40;
-    if(x_diff <= threshold && y_diff <= threshold) // HOW DARE THEY TOUCH
+    if(x_diff <= xthreshold && y_diff <= ythreshold) // HOW DARE THEY TOUCH
         return true;
     return false;
 };
@@ -246,7 +247,7 @@ let drawTheWholeGame = function (level) {
         writePowerEvent(`Baddies now require ${ENEMY_HP} hits to be destroyed.`);
         has_lvl2_been_announced = true;
     }
-    if (parseInt(score_content) >= 4000 && has_lvl3_been_announced == false){
+    if (parseInt(score_content) >= 5000 && has_lvl3_been_announced == false){
         ENEMY_HP += 1;
         writePowerEvent(`Baddies now require ${ENEMY_HP} hits to be destroyed.`);
         has_lvl3_been_announced = true;
@@ -254,7 +255,7 @@ let drawTheWholeGame = function (level) {
     let rand = Math.random(); // let's generate a random number to see if an enemy should appear in this frame
     let rand2 = Math.floor(Math.random() * (CANVAS_HEIGHT - 5)) + 1; // this denotes which x height should it spawn at
     if(parseInt(score_content) < BOSS_INIT_SCORE || is_boss_defeated == true){
-        if (rand < (.009 * level)) { // if the the rand variable is less than this, spawn the enemy!
+        if (rand < (.013 * level)) { // if the the rand variable is less than this, spawn the enemy!
             let temp_enemy = pickRandomEnemy(CANVAS_WIDTH + 5, rand2, 5 + current_level);
             enemy_arr.push(temp_enemy);
         }
@@ -274,7 +275,7 @@ let drawTheWholeGame = function (level) {
             is_boss_active = true;
             my_pen.drawImage(boss.getEnImg(), boss.getDx(), boss.getDy(), boss.getDWidth(), boss.getDHeight());
             if(rand < .06){
-                let temp_enemy = pickRandomEnemy(boss.getDx(), boss.getDy() + 5, 10);
+                let temp_enemy = pickRandomEnemy(boss.getDx(), boss.getDy() + 5, 20);
                 enemy_arr.push(temp_enemy);
             }
         }
@@ -283,7 +284,7 @@ let drawTheWholeGame = function (level) {
         drawPup(pup_arr[i], player1_ship);
     }
     for (let i = 0; i < enemy_arr.length; i++) {
-        if (areTheyTouching(enemy_arr[i], player1_ship, 40) == true) {
+        if (areTheyTouching(enemy_arr[i], player1_ship, 40,40) == true) {
             enemy_arr.splice(enemy_arr[i], 1);
             NUM_LIVES -= 1; // we lost a life!
             my_pen.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
