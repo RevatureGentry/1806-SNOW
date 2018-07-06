@@ -11,7 +11,12 @@ canvas
     margin: 0; 
 }
 
-h1 
+h1, ol
 {
     text-align: center;
+}
+
+body
+{
+    background-color: aqua;
 }

@@ -32,7 +32,7 @@ var brickOffsetLeft = 30;
 
 //variables to hold the score and lives of the game
 var score = 0;
-var lives = 5;
+var lives = 6;
 
 // holds number of rows and columns for bricks in a 2D array
 for(var c=0; c<brickColumnCount; c++) 
@@ -101,7 +101,7 @@ function collisionDetection()
                                     dy = -dy;
                                     b.status = 0;
                                     score++;
-                                    
+                                
                                         if(score == brickRowCount*brickColumnCount) 
                                             {
                                                 alert("YOU WIN, CONGRATULATIONS!");
@@ -146,7 +146,7 @@ function drawPaddle()
     {
         ctx.beginPath();
         ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "black";
         ctx.fill();
         ctx.closePath();
     }
@@ -167,7 +167,7 @@ function drawBricks()
                                 bricks[c][r].y = brickY;
                                 ctx.beginPath();
                                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                                ctx.fillStyle = "#0095DD";
+                                ctx.fillStyle = "black";
                                 ctx.fill();
                                 ctx.closePath();
                             }
@@ -216,7 +216,7 @@ function draw()
                             dx = 2;
                             dy = -2;
                             paddleX = (canvas.width-paddleWidth)/2;
-                            setInterval(draw(), 0.5);
+                            setInterval(draw(), 10);
                         }
                 }
         }   
