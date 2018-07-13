@@ -35,7 +35,7 @@ function getPokemon() {
             let sprite = pokemon.sprites.front_default;
             document.getElementById('name').textContent = name;
             document.getElementById('pokemonId').textContent = pokemonId;
-            document.getElementById('evolvesTo').textContent = evolvesTo;
+            // document.getElementById('evolvesTo').textContent = evolvesTo;
             document.getElementById('primaryType').textContent = primaryType;
             document.getElementById('secondaryType').textContent = secondaryType;
             document.getElementById('pokemonImg').setAttribute('src', sprite);
