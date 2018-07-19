@@ -1,0 +1,22 @@
+<div ng-controller="get-catalog-ctrl" ng-init="refresh()">
+    <h2>All Catalog Items</h2>
+    <input type="text" ng-model="search" class="form-control"></input>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID:</th>
+                <th>Name:</th>
+                <th>Price</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody ng-if="catalog">
+            <tr ng-repeat='u in catalog | orderBy:"price" | filter: search'>
+                <td> {{ u.id }} </td>
+                <td> {{ u.name }} </td>
+                <td> {{ u.price | currency }} </td>
+                <td> <img ng-src="{{ u.imageUrl }}" alt="Fail" height="75" width="75"/></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

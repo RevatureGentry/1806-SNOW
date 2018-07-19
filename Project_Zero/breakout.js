@@ -79,13 +79,13 @@ function drawLives() {
     canvasContex.fillStyle = "#000000";
     canvasContex.fillText("Lives: " + lives, canvas.width - 65, 20);
 }
+
 function gameOver(){
     canvasContex.font = "32px Arial";
     canvasContex.fillStyle = "#000000";
     canvasContex.textAlign = "center";
     canvasContex.fillText("Game Over!", canvas.width/2, canvas.height/2);
-    canvasContex.fillText("Score: " + score,canvas.width/2, canvas.height/1.5);
-    
+    canvasContex.fillText("Score: " + score,canvas.width/2, canvas.height/1.5);    
 }
 
 function win(){
@@ -118,7 +118,6 @@ function draw() {
         x += dx;
         y += dy; 
     }
-
 
     // Checks to see if the ball is hitting the top/bottom sides of the canvas
     if( y + dy < ballRadius + 20) {
@@ -190,6 +189,7 @@ document.addEventListener("keyup", keyUpHandler, false);
 var rightPressed = false;
 var leftPressed = false;
 var spacePressed = false;
+
 // When you press down the Left Arrow Key, the Right Arrow Key, or the Space bar, leftPressed, rightPressed, and spacePressed turn true. 
 function keyDownHandler(e) {
     if(e.keyCode == 39) {
