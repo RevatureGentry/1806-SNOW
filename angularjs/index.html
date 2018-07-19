@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+        <script src="./code.js"></script>
+    </head>
+    <body>
+        <div ng-app="user-app">
+                    <!-- directive:
+                    a custom HTML attribute that tells AngularJS what to
+                    do. What templating to do, especially. -->
+            <div ng-controller="helloCtrl">
+                <input type="text" name="" id="" ng-model="pickle.flavor" ng-keypress="clear()"> <!-- binds the data to the $scope. Now $scope.pickle.flavor is the value of the input-->
+                <div ng-if="pickle.flavor"> <!-- A structural directive that renders the div only if the exprsesion is truthy -->
+                    {{ helloWorld() }} <!-- The $scope. is implicit -->
+                </div>
+
+                <button ng-click="buttonClick()">Click</button>
+                <div ng-if="buttonWasClicked && pickle.flavor">{{ helloWorld() }} </div>
+                <hr />
+            </div>
+        </div>
+
+        <!-- This code is the other way, without using other files 
+            Only the first ng-app works in a page! -->
+        <div ng-app>
+                <!-- directive:
+                a custom HTML attribute that tells AngularJS what to
+                do. What templating to do, especially. -->
+            <input type="text" name="" id="" ng-model="pickle.flavor"> <!-- binds the data to the $scope. Now $scope.pickle.flavor is the value of the input-->
+            <div ng-bind="pickle.flavor"> <!-- output the data to HTML by replacing innerText -->
+
+            </div>
+            <div> <!-- output the data via an "expression", which is equivalent to ng-bind -->
+                {{pickle.flavor}}
+            </div>
+        </div>
+    </body>
+
+</html>
+
+<!-- Create single page applications, as opposed to server-side 
+    rendering of html pages. But SPAs are usually faster, since no network calls. -->

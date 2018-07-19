@@ -1,0 +1,10 @@
+<div ng-controller="get-user-ctrl">
+    <h1>Find user by ID</h1>
+    <form action="" ng-submit="getUser()" class="form-inline">
+        Id: <input type="text" name="" id="" ng-model="searchValue" class="form-control"/>
+        <input type="submit" value="Find" class="btn"/>
+        <div ng-if="foundUser">
+            <h2>Id : {{ foundUser.userId }} | Name : {{ foundUser.firstname }} <p>Email : {{ foundUser.email }} </p></h2>
+        </div>
+    </form>
+</div>

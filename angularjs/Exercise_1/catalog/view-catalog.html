@@ -1,0 +1,24 @@
+
+
+
+<div ng-controller="ctrl-catalog" ng-init="refresh()">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in items | orderBy: 'price'">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price | currency }}</td>
+                <td><img src="{{ item.imageUrl }}" class="tableImage" alt="" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
