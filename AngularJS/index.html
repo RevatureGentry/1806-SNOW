@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="user-app" lang="en"> <!-- directive: custom html attribute to direct AngularJS -->
+<!--ng-app directs a block to use angularjs-->
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="code.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="helloCtrl">
+    <input type="text" ng-model="pickle.flavor" ng-keypress="clear()"/> <!--binds the data to the $scope-->
+    <button ng-click="buttonClick()">Click</button>
+    <hr />
+    <div ng-if="buttonWasClicked"> <!-- ng-bind: output data to HTML -->
+        {{ helloWorld() }} <!-- expression output data to HTML, equal to ng-bind -->
+    </div>
+</body>
+</html>
+
+<!--goal: single page applications-->

@@ -1,0 +1,20 @@
+<div ng-controller="catalog-ctrl">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody ng-if="users">
+            <tr ng-repeat="u in users | orderBy: 'price'">
+                <td>{{ u.id }}</td>
+                <td>{{ u.name }}</td>
+                <td>{{ u.price | currency }}</td>
+                <td><img src='{{ u.imageUrl }}' height="80" width="80"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

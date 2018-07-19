@@ -1,0 +1,14 @@
+<div ng-controller="add-user-ctrl" class="container">
+
+    <h1>Add a user: </h1>
+    <form action="#!/add" ng-submit="postUser()"> <!--# stays on this page-->
+        Id: <input type="text" class="form-control" ng-model="user.userId" placeholder="User Id"> <br>
+        First Name: <input type="text" class="form-control" ng-model="user.firstname" placeholder="First Name"> <br>
+        Last Name: <input type="text" class="form-control" ng-model="user.lastname" placeholder="Last Name"> <br>
+        Email: <input type="email" class="form-control" ng-model="user.email" placeholder="Email"> <br>
+        Username: <input type="text" class="form-control" ng-model="user.username" placeholder="Username"> <br>
+        Password: <input type="password" class="form-control" ng-model="user.password" placeholder="Password"> <br>
+        <input type="submit" class="btn btn-info" value="Add"> <br>
+    </form>
+
+</div>

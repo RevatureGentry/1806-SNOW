@@ -1,0 +1,28 @@
+<div ng-controller="get-all-ctrl" ng-init="refresh()">
+
+    <h1>All Users </h1>
+    <input type="text" ng-model="search" class="form-control"/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody ng-if="users">
+            <tr ng-repeat="u in users | orderBy:'userId' | filter: search">
+                <td>{{ u.userId }}</td>
+                <td>{{ u.firstname }}</td>
+                <td>{{ u.lastname }}</td>
+                <td>{{ u.email | uppercase | limitTo: 100 }}</td>
+                <td>{{ u.username }}</td>
+                <td>{{ u.password }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn" ng-click="getAllUsers()">Refresh</button>
+</div>
