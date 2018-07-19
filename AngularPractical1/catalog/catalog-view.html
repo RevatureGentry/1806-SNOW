@@ -1,0 +1,23 @@
+<div ng-controller="catalog-ctrl" ng-init="refresh()">
+    <h1>All Items</h1>
+    <input type="text" ng-model="search" class="form-control" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody ng-if="items">
+            <tr ng-repeat="i in items | orderBy:'price' | filter:search">
+                <td>{{ i.id }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.price | currency }}</td>
+                <td><img src="{{ i.imageUrl }}" alt="" width="50" height="50" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <button class="btn" ng-click="refresh()">Refresh</button> -->
+</div>
