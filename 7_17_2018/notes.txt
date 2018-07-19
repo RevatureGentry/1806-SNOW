@@ -1,0 +1,5 @@
+AngularJS 
+    - JS Framework
+    - Model View Control
+
+    - Cohesion and Loose Coupling
