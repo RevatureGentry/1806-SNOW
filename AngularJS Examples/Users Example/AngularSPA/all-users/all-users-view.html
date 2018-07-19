@@ -1,0 +1,27 @@
+<div class="container" ng-controller="get-all-ctrl" ng-init="refresh()">
+    <h1>All Users</h1>
+    <input type="text" class="form-control" ng-model="search"/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th> 
+                <th>First Name</th> 
+                <th>Last Name</th>
+                <th>Email</th> 
+                <th>Username</th> 
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody ng-if="users"> <!-- if users is truthy, display the table body.-->
+            <tr ng-repeat="u in users | orderBy:'userId' | filter:search"> <!-- For each u in users...-->
+                <td>{{u.userId}}</td> 
+                <td>{{u.firstname}}</td> 
+                <td>{{u.lastname}}</td> 
+                <td>{{u.email | uppercase}}</td> 
+                <td>{{u.username}}</td> 
+                <td>{{u.password}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <button class="btn btn-md btn-danger" ng-click="refresh()">Refresh</button> -->
+</div>

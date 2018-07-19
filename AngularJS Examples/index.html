@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="user-app"> <!--Most Important Directive: ng-app. ng-app 'turns on' angular. Everything within the tag is considered a part of the app.-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" 
+        src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="code.js"></script> <!-- It is very important to call this AFTER angular.js.-->
+</head>
+
+<!-- Directive: A custom HTML Attribute that 'directs' angularjs and tells it what to do.-->
+<body ng-controller="helloCtrl">
+    <input type="text" ng-model="pickle.flavor" ng-keydown="clear()"> <!--ng-model binds the data to the $scope. You must provide a name to the model.-->
+    <!-- To make a multi-attribute object, use dot walking. -->
+    <button ng-click="buttonClick()">Click</button>
+    <hr>
+    <!-- Expressions in AngularJS outputs data to the HTML (this is equivalent to using ng-bind="pickle.flavor")-->
+    <div ng-if="buttonWasClicked"> <!-- ng-if says 'render the div if the expression is truthy'.-->
+        {{ helloWorld() }} <!-- this outputs the data from the model to the content.-->
+    </div> 
+</body>
+</html>
+<!-- The idea of AngularJS is to create a client-side, single page application, as opposed to server-side rendering. 
+    Server-Side Rendering: (You go to a page, you click a submit, it sends a request to the server, the server sends back a single page)-->
