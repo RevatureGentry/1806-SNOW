@@ -24,12 +24,4 @@ angular.module('catalog-app').service('dataService', ['$http', function($http){
     this.getItems = function(){
         return $http.get(urlBase);
     }
-
-    this.getItem = function(id){
-        return $http.get(urlBase+"/"+id);
-    }
-
-    this.addItem = function(item){
-        return $http.post(urlBase, item);
-    }
 }])

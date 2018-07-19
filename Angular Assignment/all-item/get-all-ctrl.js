@@ -3,7 +3,6 @@
  */
 angular.module('catalog-app').controller('get-all-ctrl', function($scope, $interval, dataService) {
 	$scope.refresh = function() {
-		console.log("asdasdas");
 		$scope.getAllItems();
 		$interval($scope.getAllItems, 2000);
 	};
