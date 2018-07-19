@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="pickle-app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angular SPA</title>
+    <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js">
+    
+    </script>
+    <script src="users.js"></script>
+    <script 
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"
+        type="text/javascript"></script>
+</head>
+<body>
+    <!-- nav bar-->
+    <div class="container">
+
+        <h1> Angular SPA | User Directory</h1>
+        <a class="btn btn-primary btn-md" href="#!/">Home</a>
+        <a class="btn btn-primary btn-md" href="#!/all">See All Users</a>
+        <a class="btn btn-primary btn-md" href="#!/search">Search for a User</a>
+        <a class="btn btn-primary btn-md" href="#!/add">Add a user</a>
+        <a class="btn btn-primary btn-md" href="#!/catalog">Catalog View</a>
+        <a class="btn btn-primary btn-md" href="#!/filler">Filler Page</a>
+
+    </div>
+
+
+    <!--inject our view-->
+    <div class="container">
+            <ng-view></ng-view>
+    </div>
+        
+
+    <!--include references to our js files with our controllers and routes-->
+    <script src="app.js"></script>
+    <script src="add-ctrl.js"></script>
+    <script src="all-ctrl.js"></script>
+    <script src="search-ctrl.js"></script>
+    <script src="catalogview-ctrl.js"></script>
+    <script src="filler-ctrl.js"></script>
+
+</body>
+</html>

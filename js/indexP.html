@@ -1,0 +1,22 @@
+<html ng-app="user-app">
+    <head>
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js">
+            
+        </script>
+        <script src="code.js"></script>
+    </head>
+    <body ng-controller="helloCtrl"> <!--directive:  custom html attribute that 'directs' angularjs (can be put anywhere)-->
+        <input type="text" ng-model="pickle.flavour" ng-keydown="clear()"/> <!-- binds the data to the $scope-->
+        <button ng-click="buttonClick()">Click</button>
+
+        <hr />
+        <!--<div > {{ pickle.flavour }}</div> <!--outputs the data to HTML-->
+        <!--<div ng-if="pickle.flavour"> {{ helloWorld() }}</div><!--ng-if: render IF expression is truthy-->
+        <div ng-if="buttonWasClicked"> {{ helloWorld() }}</div>
+        
+    </body>
+</html>
+
+<!--ng-bind="pickle.flavour" can go in the div tag-->
+<!--  client-side rendering single page applications : opposed to server-side rendering-->
