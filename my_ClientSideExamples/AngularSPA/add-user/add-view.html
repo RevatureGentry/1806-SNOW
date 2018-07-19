@@ -1,0 +1,19 @@
+<div ng-controller="add-user-ctrl" class="container">
+    <h1>Add a user: </h1>
+    <form action="#" ng-submit="postUser()">
+        <input type="text" class="form-control" ng-model="user.userId" placeholder="User Id"/>
+        <br/> 
+        <input type="text" class="form-control" ng-model="user.firstname" placeholder="First Name"/>
+        <br/> 
+        <input type="text" class="form-control" ng-model="user.lastname" placeholder="Last Name"/>
+        <br/> 
+        <input type="email" class="form-control" ng-model="user.email" placeholder="Email"/>
+        <br/> 
+        <input type="text" class="form-control" ng-model="user.username" placeholder="Username"/>
+        <br/> 
+        <input type="password" class="form-control" ng-model="user.password" placeholder="Password" />
+        <br/>
+        <input type="submit" class="btn" value="Add" />
+        <br/>
+    </form>
+</div>

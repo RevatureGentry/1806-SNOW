@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app ='user-app'>
+    <head>
+        <script type="text/javascript" 
+        src = "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+        <script src="./js/code.js"></script>
+    </head>
+    <body ng-controller="helloCTRL"> <!--directive: custome html attribute that 'directs' angular-->
+        <input type = 'text' ng-model="pickle.flavor" ng-keydown="clear()"><!--binds the data to the $scope, 
+            can be called anything even create attribues for object -->
+        <button ng-click="buttonClick()">Click</button>
+        
+        <hr />
+            <!-- <div ng-bind = "pickle.flavor"> output data to html-->
+        <div ng-if="buttonWasClicked"><!--render the div if the expression is truthy -->
+            {{helloWorld()}} <!--{{}}expression: outputs the data to html (equivilant to ng-bind)-->
+        </div>
+    </body>
+</html>
+
+<!--single page applications: apposed to server-side rendering-->
