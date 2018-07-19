@@ -1,0 +1,11 @@
+<div class="container" ng-controller='get-catalog-items' ng-init="showItems()">
+    <h1>Catalog Items</h1>
+    <div class='row'>
+        <div class="col-md-3" ng-if="items" ng-repeat="item in items | orderBy:'price'">
+            <img ng-src={{item.imageUrl}} style="height:100px;">
+            <p>{{item.name}}</p>
+            <p>Price: {{item.price | currency}}</p>
+        </div>
+    </div>
+    
+</div>
