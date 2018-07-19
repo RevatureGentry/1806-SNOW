@@ -1,0 +1,17 @@
+<html ng-app="user-app">
+    <head>
+        <script type="text/javascript"
+        src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js'></script>
+        <script src="code.js"></script>
+    </head>
+    <body ng-controller="helloCtrl"> <!-- directive: custome html attribute that 'directs' angularjs -->
+        <input type="text" ng-model="pickle.flavor" ng-keypress="clear()"/> <!-- binds the data to the $scope -->
+        <button ng-click="buttonClick()">Click</button>
+
+        <hr />
+        <!-- {{}} expression: outputs the data to HTML (equal to ng-bind)-->
+        <!--<div ng-if="pickle.flavor">{{ helloWorld() }}</div> expression: outputs the data, redner IF expression is truthy-->
+        <div ng-if="buttonWasClicked"> {{ helloWorld() }} </div>
+
+    </body>
+</html>
