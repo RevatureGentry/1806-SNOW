@@ -1,0 +1,22 @@
+<div ng-controller="cat-ctrl-all" ng-init="refresh()">
+    <h1>All Items</h1>
+    <input type="text" ng-model="search" class="form-control" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Picture</th>
+            </tr>
+        </thead>
+        <tbody ng-if="items">
+            <tr ng-repeat="x in items | orderBy:'price' ">
+                <td>{{ x.id }}</td>
+                <td>{{ x.name }}</td>
+                <td>{{ x.price | currency }}</td>
+                <td><img src="{{ x.imageUrl }}" width="200px" height="auto"/></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

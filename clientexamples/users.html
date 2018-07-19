@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pickle-app">
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="users.js"></script>
+
+</head>
+<body>
+
+    <div>
+        <h2>add a user</h2>
+        <form action="#">
+            ID: <input type="text" name="" id="" ng-model="user.userId"> <br>
+            first name: <input type="text" name="" id="" ng-model="user.firstname"> <br>
+            last name: <input type="text" name="" id="" ng-model="user.lastname"> <br>
+            username: <input type="text" name="" id=""ng-model="user.username"> <br>
+            email: <input type="email" name="" id="" ng-model="user.email"> <br>
+            password: <input type="password" name="" id="" ng-model="user.password"> <br>
+            <input type="submit" value="add"> <br>
+        </form>
+    </div>
+    <hr/>
+    <div ng-controller="get-all-ctrl">
+        <h2>All user</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>firstname</th>
+                    <th>Lastname</th>
+                    <th>email</th>
+                    <th>username</th>
+                    <th>password</th>
+                </tr>
+            </thead>
+            <tbody ng-if="users">
+                <tr ng-repeat="u in users">
+                    <td>{{u.userId}}</td>
+                    <td>{{u.firstname}}</td>
+                    <td>{{u.lastname}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.username}}</td>
+                    <td>{{u.password}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button ng-click="refresh()">Refresh</button>
+    </div>
+    <hr/>
+    <div ng-controller="get-one-ctrl">
+        <h2>find user by id</h2>
+        <form action="#" ng-submit="goFetchUser()">
+            ID: <input type="text" name="" id="" ng-model="searchvalue">
+            <input type="submit" value="find">
+        </form>
+        <div ng-if="foundUser"><h3>ID: {{foundUser.userId}} | Name: {{foundUser.firstname}} | </h3><p>Email: {{foundUser.email}} </p></div>
+    </div>
+    <hr/>
+</body>
+</html>
