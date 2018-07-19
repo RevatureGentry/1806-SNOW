@@ -16,4 +16,5 @@ angular.module('lol-app').controller('display-all-ctrl', function ($scope, dataS
         //	$scope.users = response.data;
         //});
     }
+    
 });
