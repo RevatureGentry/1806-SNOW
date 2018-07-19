@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="catalog-app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AngularJS Catalog SPA Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
+</head>
+<body>
+    <!--Nav Bar-->
+    <div class="container jumbotron">
+        <h1 style="font-size: 28px; text-align: center">AngularJS Catalog Example</h1>
+        <div class="navbar navbar-light">
+            <a href="#!/" class="navbar-text">Home</a>
+            <a href="#!/catalog" class="navbar-text">Catalog</a>
+            <a href="#!/textview" class="navbar-text">Text View</a>
+        </div>
+    </div>
+
+    <!--Injected View-->
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+
+
+<!--JS File Dependencies-->
+    <script src="main.js"></script>
+    <script src="catalog/catalog-ctrl.js"></script>
+    <script src="textview/textview-ctrl.js"></script>
+<!--Bootstrap Script Dependencies-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</body>
+
+<!-- Application Goals:
+    1 - Create an application using AngularJS/HTML/CSS
+    2 - Create a controller which displays catalog items on a corresponding view
+        a - each item id, name, price, and an image of that item should be displayed
+        b - use the currency filter to display the prices
+        c - use the order by filter to order them by price
+    3 - This should be done using a service to make an http call to an API endpoint
+        - that endpoint can be found here: http://bootapp-env.ucm3a324z6.us-east-2.elasticbeanstalk.com:8085/items
+    4 - Create a view which includes some filler text. When hovering over the text, the background should be highlighted with the color of your choice (look into ng-style). Include a button that clicking will toggle between showing and hiding the text.
+    5 - incorporate routing in order to navigate between the text view, the catalog view, and a home view to create a SPA
+    6 - make all of your views aesthetically pleasing (bootstrap, css)-->
+</html>
+

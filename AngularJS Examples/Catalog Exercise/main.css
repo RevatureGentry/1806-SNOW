@@ -1,0 +1,13 @@
+.container {
+    text-align: center;
+}
+.textView {
+    background-color: beige;
+}
+
+.catalogImg {
+    max-width: 200px;
+    max-height: 200px;
+    min-width: 100px;
+    min-height: 100px;
+}

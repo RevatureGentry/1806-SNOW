@@ -1,0 +1,24 @@
+<div class="container" ng-controller="catalog-ctrl" ng-init="getAllItems()">
+    <h2>Catalog Items:</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="c in cItems | orderBy:'price'"> 
+                <!-- Conditional Styling to bugtest later:
+                        ng-mouseover="tableHoverEnter()" 
+                        ng-mouseleave="tableHoverExit()" ng-style="cataRow"-->
+                <td>{{c.id}}</td>
+                <td>{{c.name}}</td>
+                <td>{{c.price | currency:$:2}}</td> <!--Currency: CurrencySymbol : Decimal Places-->
+                <td><img ng-src="{{c.imageUrl}}" alt="Catalog Item" class="catalogImg"/></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
