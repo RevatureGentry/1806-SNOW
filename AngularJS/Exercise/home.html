@@ -1,0 +1,9 @@
+<div class="container" ng-mouseenter="bgc={'background-color':'blue'}" ng-mouseleave="bgc={'background-color':'white'}">
+    <h2 ng-style='bgc'>This is a filler text</h2>
+    <h2 ng-style='bgc'>Hover over these texts to change the background to blue</h2>
+</div>
+
+<button class="btn bg-primary" ng-click="appear=!appear">{{appear ? 'Hide Message' : 'Show Message'}}</button>
+<div class="container" ng-show="appear">
+    <h1>The Message Now APPEARS!!!</h1>
+</div>
