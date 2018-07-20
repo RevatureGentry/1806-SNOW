@@ -1,0 +1,25 @@
+<div ng-controller="get-all-item-ctrl" ng-init="refresh()">
+    <h1>All Catalog Item</h1>
+    <input type="text" ng-model="search" class="form-control" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+               
+            </tr>
+        </thead>
+        <tbody ng-if="items" >
+            <tr ng-repeat="u in items | orderBy:'Id' | filter:search">
+                <td>{{ u.id }}</td>
+                <td>{{ u.name }}</td>
+                <td>{{ u.price | currency }}</td>
+                <td> <img src="{{ u.imageUrl }}" style="height:100px; width:100px "/></td>
+                
+            </tr>
+        </tbody>
+    </table>
+   
+</div>
